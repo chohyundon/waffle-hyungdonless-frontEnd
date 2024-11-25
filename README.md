@@ -1,50 +1,84 @@
-# React + TypeScript + Vite
+# 사회초년생들을 위한 커뮤니티
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<br />
+<br />
 
-Currently, two official plugins are available:
+# 프로젝트 소개
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+- 직장생활, 재정관리, 인관관계 등등 사회초년생들이 많은 어려움을 겪고있다.
+- 위와 같은 문제를 커뮤니티를 통해 서로 부족한 점을 보완해주고 지속적으로 성장하는 커뮤니티를 만들어보자
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<br />
+<br />
 
-- Configure the top-level `parserOptions` property like this:
+# 팀원 구성
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+<table style="display: flex; gap: 20px;">
+  <tbody>
+    <tr>
+      <td align="center">
+        <a>
+          <img src="../waffle-hyungdonless-frontEnd/src/assets/readMe_Donny.jpeg" width="150px" height="150px" alt="" />
+          <br />
+          <sub><b>도니</b></sub>
+          <br />
+          <span>Frontend Developer</span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a>
+          <img src="../waffle-hyungdonless-frontEnd/src/assets/readMe_June.png" width="150px" height="150px" alt="" />
+          <br />
+          <sub><b>준</b></sub>
+          <br />
+          <span>Backend Developer</span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a>
+          <img src="../waffle-hyungdonless-frontEnd/src/assets/readMe_Yve.png" width="150px" height="150px" alt="" />
+          <br />
+          <sub><b>이브</b></sub>
+          <br />
+          <span>Backend Developer</span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a>
+          <img src="../waffle-hyungdonless-frontEnd/src/assets/readMe_Nora.png" width="150px" height="150px" alt="" />
+          <br />
+          <sub><b>노라</b></sub>
+          <br />
+          <span>UI/UX Designer</span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a>
+          <img src="../waffle-hyungdonless-frontEnd/src/assets/readMe_Claire.png" width="150px" height="150px" alt="" />
+          <br />
+          <sub><b>클레어</b></sub>
+          <br />
+          <span>UI/UX Designer</span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
