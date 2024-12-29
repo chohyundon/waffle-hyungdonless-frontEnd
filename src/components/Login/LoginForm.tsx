@@ -27,7 +27,13 @@ export function LoginForm() {
                 name={data.name}
                 required
                 maxLength={data.maxLength}
-                type={data.id === "password" ? "password" : "text"}
+                type={
+                  data.type === "password"
+                    ? click
+                      ? "text"
+                      : "password"
+                    : data.type
+                }
               />
               {/* <span>{data.formGuide}</span> */}
               {data.id === "password" && (
