@@ -1,0 +1,51 @@
+.loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  gap: 30px;
+}
+
+.loginFormLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 50%;
+}
+
+.inputText {
+  width: 100%;
+  height: 5vh;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+  height: auto;
+  cursor: pointer;
+}
+
+.formButton {
+  width: 50%;
+  height: 4vh;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
