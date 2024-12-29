@@ -6,6 +6,7 @@ export const LoginInputData = [
     ariaLabel: "아이디",
     maxLength: 12,
     formGuide: "6~12자 영문, 숫자로 입력 해주세요",
+    type: "text",
   },
   {
     id: "password",
@@ -15,5 +16,6 @@ export const LoginInputData = [
     maxLength: 15,
     formGuide:
       "영문, 숫자를 혼합하여 6~12자로 입력 해주세요. (특수문자는 .!@#$% 만 허용됩니다.)",
+    type: "password",
   },
 ];
