@@ -7,9 +7,15 @@ import { useNavigate } from "react-router";
 
 export function LoginForm() {
   const [click, setClick] = useState(false);
+  const [inputData, setInputData] = useState<{ id: string; password: string }>({
+    id: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
 
-  const handleMouseClick = () => {
+  const handleMouseClick = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
     setClick((prev) => !prev);
   };
 
@@ -17,16 +23,28 @@ export function LoginForm() {
     navigate("/signup");
   };
 
+  const inputDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    setInputData({ ...inputData, [name]: e.target.value });
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    setInputData(inputData);
+  };
+
   return (
     <>
-      <form className={styles.loginFormContainer}>
+      <form className={styles.loginFormContainer} onSubmit={handleSubmit}>
         {LoginInputData.map((data) => (
-          <>
+          <div role="form" key={data.id} className={styles.inputWrapper}>
             <label htmlFor={data.id} className={styles.loginFormLabel}>
               {data.ariaLabel}
             </label>
-            <div className={styles.inputWrapper}>
+            <>
               <input
+                value={inputData[data.id]}
+                onChange={inputDataChange}
                 className={styles.inputText}
                 id={data.id}
                 placeholder={data.placeholder}
@@ -50,8 +68,8 @@ export function LoginForm() {
                   onClick={handleMouseClick}
                 />
               )}
-            </div>
-          </>
+            </>
+          </div>
         ))}
         <button className={styles.formButton}>로그인 해주세요</button>
         <button className={styles.formButton} onClick={moveSignUpPage}>
