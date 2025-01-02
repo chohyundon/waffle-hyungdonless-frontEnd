@@ -1,14 +1,4 @@
-type LoginField = "id" | "password";
-
-interface LoginInputType {
-  id: LoginField; // "id" 또는 "password"만 허용
-  name: string;
-  placeholder: string;
-  ariaLabel: string;
-  maxLength: number;
-  type: string;
-  formGuide: string;
-}
+import { LoginInputType } from "../types/LoginInputType";
 
 export const LoginInputData: LoginInputType[] = [
   {
