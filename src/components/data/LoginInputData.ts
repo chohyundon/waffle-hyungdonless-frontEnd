@@ -1,4 +1,16 @@
-export const LoginInputData = [
+type LoginField = "id" | "password";
+
+interface LoginInputType {
+  id: LoginField; // "id" 또는 "password"만 허용
+  name: string;
+  placeholder: string;
+  ariaLabel: string;
+  maxLength: number;
+  type: string;
+  formGuide: string;
+}
+
+export const LoginInputData: LoginInputType[] = [
   {
     id: "id",
     placeholder: "아이디를 입력해주세요",
