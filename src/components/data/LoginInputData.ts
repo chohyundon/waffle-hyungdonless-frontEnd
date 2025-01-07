@@ -3,7 +3,7 @@ import { LoginInputType } from "../types/LoginInputType";
 export const LoginInputData: LoginInputType[] = [
   {
     id: "id",
-    placeholder: "아이디를 입력해주세요",
+    placeholder: "이메일",
     name: "id",
     ariaLabel: "아이디",
     maxLength: 12,
@@ -12,7 +12,7 @@ export const LoginInputData: LoginInputType[] = [
   },
   {
     id: "password",
-    placeholder: "비밀번호를 입력해주세요",
+    placeholder: "비밀번호",
     name: "password",
     ariaLabel: "패스워드",
     maxLength: 15,
