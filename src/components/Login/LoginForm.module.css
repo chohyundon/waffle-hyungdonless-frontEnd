@@ -46,6 +46,7 @@
   right: 3.2659%;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .loginStatus {
@@ -71,6 +72,7 @@
   width: 38.227%;
   align-items: center;
   gap: 8.869%;
+  cursor: pointer;
 }
 
 .fontStyle {
@@ -138,6 +140,7 @@
   justify-content: center;
   font-size: 1.0625rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .googleLogo {
