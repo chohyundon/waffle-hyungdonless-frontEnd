@@ -1,5 +1,7 @@
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../util/firebaseconfig";
+import styles from "./LoginForm.module.css";
+import googleLogo from "../../assets/googleLogo.svg";
 
 export function GoogleLogin() {
   const provider = new GoogleAuthProvider();
@@ -18,8 +20,9 @@ export function GoogleLogin() {
   };
 
   return (
-    <>
-      <button onClick={googleLogin}>구글로 로그인</button>
-    </>
+    <div className={styles.googleForm}>
+      <img src={googleLogo} alt="google 로고" className={styles.googleLogo} />
+      <p onClick={googleLogin}>Google로 로그인</p>
+    </div>
   );
 }

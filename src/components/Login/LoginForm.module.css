@@ -1,11 +1,12 @@
 .loginFormContainer {
+  position: relative;
+  left: 13.33%;
+  width: 73.33%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  gap: 30px;
+  top: 19.97%;
+  height: 68.95%;
+  gap: 6.05%;
 }
 
 .loginFormLabel {
@@ -20,32 +21,148 @@
   white-space: nowrap;
 }
 
-.inputWrapper {
-  position: relative;
-  width: 50%;
-}
-
 .inputText {
   width: 100%;
-  height: 5vh;
-  border-radius: 5px;
+  border: 0.6px solid var(--color-base-gray200);
+  border-radius: 8px;
   box-sizing: border-box;
+  height: 5.555vh;
+  display: flex;
+  text-align: left;
+  padding-left: 5.454545%;
+  color: var(--color-base-gray200);
+  font-size: 1.0625rem;
+  font-weight: 500;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .icon {
   position: absolute;
+  right: 3.2659%;
   top: 50%;
-  right: 0.8rem;
   transform: translateY(-50%);
-  height: auto;
-  cursor: pointer;
+}
+
+.loginStatus {
+  position: relative;
+  top: 1.85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.loginRemain {
+  display: flex;
+  width: 42.636363634%;
+  justify-content: center;
+  align-items: center;
+  gap: 12.7px;
+}
+
+.loginSearch {
+  display: flex;
+  width: 38.227%;
+  align-items: center;
+  gap: 8.869%;
+}
+
+.fontStyle {
+  color: var(--color-base-gray100);
+  font-size: 1rem;
+}
+
+.checkIcon {
+  border-spacing: 0;
+}
+
+@media (max-width: 1800px) {
+  .fontStyle {
+    font-size: 0.85rem;
+  }
 }
 
 .formButton {
-  width: 50%;
-  height: 4vh;
-  border-radius: 5px;
+  width: 100%;
+  height: 5.555vh;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
+  font-size: 1.0625rem;
+  background-color: var(--color-main-green);
+  color: white;
+  font-weight: 600;
+  padding: 0;
+  position: relative;
+  top: 3.2%;
+}
+
+.orContainer {
+  position: relative;
+  top: 1.76%;
+  height: 3.84%;
+  display: flex;
+  align-items: center;
+  gap: 7.3118%;
+  width: 100%;
+}
+
+.orStyle {
+  border: 0.6px solid var(--color-base-gray200);
+  width: 43.409%;
+  height: 0;
+}
+
+.orFont {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  color: var(--color-base-gray100);
+}
+
+.googleForm {
+  width: 100%;
+  border: 1px solid var(--color-base-gray200);
+  border-radius: 8px;
   box-sizing: border-box;
+  height: 5.555vh;
+  display: flex;
+  color: var(--color-base-gray300);
+  align-items: center;
+  justify-content: center;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.googleLogo {
+  position: absolute;
+  left: 5.5%;
+}
+
+.signUp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 1rem;
+  gap: 3.93%;
+  height: 4.1%;
+  top: 2%;
+}
+
+.Text {
+  color: var(--color-base-gray100);
+}
+
+.signUpText {
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-base-gray100);
+  color: var(--color-base-gray100);
+  cursor: pointer;
 }
