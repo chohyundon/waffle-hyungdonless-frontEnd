@@ -80,6 +80,7 @@
 
 .checkIcon {
   border-spacing: 0;
+  width: 25px;
 }
 
 @media (max-width: 1800px) {
