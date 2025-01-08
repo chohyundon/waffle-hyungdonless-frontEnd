@@ -199,7 +199,9 @@ table {
   --color-base-gray100: #79807c;
   --color-base-gray200: #8b9590;
   --color-base-gray300: #707070;
+  --color-base-gray400: #555c62;
   --color-base-white200: #f5f9ff;
   --color-base-black100: #333333;
   --color-base-bgColor: #e6f2ef;
+  --color-base-red100: #e85b48;
 }
