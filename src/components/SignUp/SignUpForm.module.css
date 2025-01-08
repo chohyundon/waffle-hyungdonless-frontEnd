@@ -1,0 +1,140 @@
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  position: relative;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+  top: 7.4993395%;
+  justify-content: center;
+}
+
+.formContainer {
+  position: absolute;
+  left: 13.3083333%;
+  width: 73.33333333%;
+  top: 11.4332893%;
+  height: 73.07265522%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.inputContainer:nth-child(2) {
+  position: relative;
+  top: 6.21268164%;
+}
+
+.inputContainer:nth-child(3) {
+  position: relative;
+  top: 10.56367239%;
+}
+
+.placeholderText {
+  color: var(--color-base-gray400);
+}
+
+.inputText {
+  width: 100%;
+  padding: 0;
+  border-radius: 8px;
+  height: 5.5555vh;
+  border: 0.6px solid var(--color-base-gray200);
+  font-size: 1.0625rem;
+  box-sizing: border-box;
+  padding-left: 5.454545%;
+}
+
+.icon {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  right: 5.454545%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+
+.formGuideText {
+  position: absolute;
+  top: 110%;
+  left: 5.38863636%;
+  font-size: 0.875rem;
+  color: var(--color-base-gray200);
+}
+
+.buttonContainer {
+  width: 100%;
+  border-radius: 8px;
+  height: 5.5555vh;
+  position: absolute;
+  top: 66.01345%;
+  border: 1px solid;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-main-green);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.orContainer {
+  width: 100%;
+  position: absolute;
+  top: 81.74126835%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.84%;
+  gap: 7.3118%;
+}
+
+.orBorder {
+  width: 43.40909091%;
+  border: 0.6px solid var(--color-base-gray200);
+  height: 0px;
+}
+
+.orFont {
+  font-size: 0.875rem;
+  color: var(--color-base-gray100);
+  white-space: nowrap;
+}
+
+.googleContainer {
+  position: absolute;
+  width: 100%;
+  top: 90.74126835%;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+  border-radius: 8px;
+  height: 5.5555vh;
+  border: 1.5px solid var(--color-base-red100);
+  font-size: 1.0625rem;
+  box-sizing: border-box;
+  padding-left: 5.454545%;
+}
+
+.errorFont {
+  position: absolute;
+  top: 110%;
+  left: 5.38863636%;
+  font-size: 0.875rem;
+  color: var(--color-base-red100);
+}
