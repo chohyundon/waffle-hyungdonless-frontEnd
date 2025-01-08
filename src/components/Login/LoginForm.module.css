@@ -28,7 +28,6 @@
   box-sizing: border-box;
   height: 5.555vh;
   display: flex;
-  text-align: left;
   padding-left: 5.454545%;
   color: var(--color-base-black100);
   font-size: 1.0625rem;
