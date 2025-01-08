@@ -10,6 +10,10 @@ export function GoogleLogin() {
 
   const googleLogin = async () => {
     try {
+      provider.setCustomParameters({
+        prompt: "select_account",
+      });
+
       const result = await signInWithPopup(auth, provider);
 
       // 로그인된 사용자 정보
@@ -26,9 +30,6 @@ export function GoogleLogin() {
       if (userStorage !== null) {
         navigate("/");
       }
-
-      console.log(userStorage);
-      console.log(user);
 
       console.log("User Info:", user);
     } catch (e) {

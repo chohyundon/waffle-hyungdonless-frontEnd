@@ -30,9 +30,14 @@
   display: flex;
   text-align: left;
   padding-left: 5.454545%;
-  color: var(--color-base-gray200);
+  color: var(--color-base-black100);
   font-size: 1.0625rem;
   font-weight: 500;
+}
+
+.inputText::placeholder {
+  color: var(--color-base-gray200);
+  font-size: 1.0625rem;
 }
 
 .inputWrapper {

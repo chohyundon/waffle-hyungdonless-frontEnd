@@ -11,6 +11,7 @@ import rightBar from "../../assets/rightBar.svg";
 
 export function LoginForm() {
   const [click, setClick] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const [inputData, setInputData] = useState<{ id: string; password: string }>({
     id: "",
     password: "",
@@ -25,7 +26,7 @@ export function LoginForm() {
 
   const handleLoginStatus = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    setClick((prev) => !prev);
+    setIsLogin((prev) => !prev);
   };
 
   const moveSearchId = () => {
@@ -85,7 +86,7 @@ export function LoginForm() {
         <div className={styles.loginRemain} onClick={handleLoginStatus}>
           <img
             alt="로그인 상태 유지체크"
-            src={click ? checkCircle : nonCheckCircle}
+            src={isLogin ? checkCircle : nonCheckCircle}
             className={styles.checkIcon}
           />
           <p className={styles.fontStyle}>로그인 상태 유지하기</p>
