@@ -9,4 +9,5 @@ export interface SignUpTypes {
   data?: string;
   formGuide?: string;
   defaultGuide?: string;
+  passwordCheckGuide?: string
 }
