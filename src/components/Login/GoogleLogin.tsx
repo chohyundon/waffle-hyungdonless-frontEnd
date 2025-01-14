@@ -27,7 +27,7 @@ export function GoogleLogin() {
       const userStorage = window.localStorage;
       userStorage.setItem("userData", googleData);
 
-      if (userStorage !== null) {
+      if (userStorage) {
         navigate("/");
       }
 

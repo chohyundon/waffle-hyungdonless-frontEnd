@@ -30,3 +30,55 @@
   left: 50%;
   transform: translate(-50%);
 }
+
+.orContainer {
+  position: absolute;
+  height: 3.84%;
+  display: flex;
+  align-items: center;
+  gap: 7.3118%;
+  width: 73.33333333%;
+  left: 13.3083333%;
+  top: 65.2722222%;
+}
+
+.orStyle {
+  border: 0.6px solid var(--color-base-gray200);
+  width: 43.409%;
+  height: 0;
+}
+
+.orFont {
+  font-size: 0.875rem;
+  white-space: nowrap;
+  color: var(--color-base-gray100);
+}
+
+.signUp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 1rem;
+  gap: 3.93%;
+  height: 4.1%;
+  top: 87%;
+}
+
+.Text {
+  color: var(--color-base-gray100);
+}
+
+.signUpText {
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-base-gray100);
+  color: var(--color-base-gray100);
+  cursor: pointer;
+}
+
+.googleContainer {
+  position: absolute;
+  width: 100%;
+  top: 72.80555556%;
+}

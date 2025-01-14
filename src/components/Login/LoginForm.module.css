@@ -1,5 +1,5 @@
 .loginFormContainer {
-  position: relative;
+  position: absolute;
   left: 13.33%;
   width: 73.33%;
   display: flex;
@@ -7,18 +7,6 @@
   top: 19.97%;
   height: 68.95%;
   gap: 6.05%;
-}
-
-.loginFormLabel {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .inputText {
@@ -39,44 +27,28 @@
   font-size: 1.0625rem;
 }
 
-.inputWrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
 .icon {
   position: absolute;
   right: 3.2659%;
-  top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  top: 24%;
+}
+
+.loginStatusContainer {
+  width: 73.33%;
+  position: absolute;
+  top: 44.9444444%;
+  display: flex;
+  justify-content: space-between;
+  left: 13.33%;
+  height: 25px;
 }
 
 .loginStatus {
-  position: relative;
-  top: 1.85%;
+  gap: 12px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.loginRemain {
-  display: flex;
-  width: 42.636363634%;
-  justify-content: center;
   align-items: center;
-  gap: 12.7px;
-}
-
-.loginSearch {
-  display: flex;
-  width: 38.227%;
-  align-items: center;
-  gap: 8.869%;
-  cursor: pointer;
 }
 
 .fontStyle {
@@ -106,34 +78,14 @@
   color: white;
   font-weight: 600;
   padding: 0;
-  position: relative;
-  top: 3.2%;
-}
-
-.orContainer {
-  position: relative;
-  top: 1.76%;
-  height: 3.84%;
-  display: flex;
-  align-items: center;
-  gap: 7.3118%;
-  width: 100%;
-}
-
-.orStyle {
-  border: 0.6px solid var(--color-base-gray200);
-  width: 43.409%;
-  height: 0;
-}
-
-.orFont {
-  font-size: 0.875rem;
-  white-space: nowrap;
-  color: var(--color-base-gray100);
+  position: absolute;
+  top: 48.85424833%;
 }
 
 .googleForm {
-  width: 100%;
+  width: 73.33333333%;
+  position: absolute;
+  left: 13.3083333%;
   border: 1px solid var(--color-base-gray200);
   border-radius: 8px;
   box-sizing: border-box;
@@ -145,6 +97,7 @@
   font-size: 1.0625rem;
   font-weight: 600;
   cursor: pointer;
+  top: 83%;
 }
 
 .googleLogo {
@@ -152,25 +105,26 @@
   left: 5.5%;
 }
 
-.signUp {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  font-size: 1rem;
-  gap: 3.93%;
-  height: 4.1%;
-  top: 2%;
+.errorMailFont{
+  position: absolute;
+  font-size: 0.875rem;
+  padding-left: 7.27%;
+  color: var(--color-base-red100);
+  top: 13%;
 }
 
-.Text {
-  color: var(--color-base-gray100);
+.errorFont {
+  position: absolute;
+  font-size: 0.875rem;
+  padding-left: 7.27%;
+  color: var(--color-base-red100);
+  top: 31%;
 }
 
-.signUpText {
-  font-weight: 600;
-  border-bottom: 2px solid var(--color-base-gray100);
-  color: var(--color-base-gray100);
-  cursor: pointer;
+.inputText[aria-invalid="false"] {
+  border: 1.5px solid var(--color-main-green);
+}
+
+.inputText[aria-invalid="true"] {
+  border: 1.5px solid var(--color-base-red100);
 }
