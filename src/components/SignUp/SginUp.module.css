@@ -18,3 +18,89 @@
   top: 17.81111%;
   left: 18.125%;
 }
+
+.stepIcon {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 8.45442536%;
+  right: 0;
+  justify-content: flex-end;
+  align-items: center;
+  transform: translate(50%);
+  gap: 23px;
+}
+
+.stepCheckIcon {
+  width: 84px;
+  height: 84px;
+}
+
+.stepNoneCheckIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  position: relative;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+  top: 7.4993395%;
+  justify-content: center;
+}
+
+.orContainer {
+  position: absolute;
+  top: 75.2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.84%;
+  gap: 7.3118%;
+  left: 13.3083333%;
+  width: 73.33333333%;
+}
+
+.orBorder {
+  width: 43.40909091%;
+  border: 0.6px solid var(--color-base-gray200);
+  height: 0px;
+}
+
+.orFont {
+  font-size: 0.875rem;
+  color: var(--color-base-gray100);
+  white-space: nowrap;
+}
+
+.number {
+  position: absolute;
+  font-size: 1.5rem;
+  text-align: center;
+  left: 43%;
+  top: -10%;
+}
+
+.stepFont {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 20px;
+  font-size: 0.875rem;
+}
+
+.stepNoneFont {
+  position: relative;
+  left: 50%;
+  bottom: 20px;
+  font-size: 1.0625rem;
+}

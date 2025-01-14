@@ -2,7 +2,7 @@ import {SignUpForm} from "./SignUpForm.tsx";
 import styles from "./SginUp.module.css";
 import {GoogleLogin} from "../Login/GoogleLogin.tsx";
 
-export function SignUpFormFirstStep() {
+export function SignUpFormThirdStep() {
   return (
     <>
       <SignUpForm />

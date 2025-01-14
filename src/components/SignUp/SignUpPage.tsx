@@ -1,14 +1,14 @@
 import styles from "./SginUp.module.css";
-import { SignUpForm } from "../index";
-import checkProcedure from "../../assets/signUpProcedure.svg";
-// import noneCheckProcedure from "../../assets/nonCheckCircle.svg";
+import { SignUpStep } from "../index";
+import {Outlet} from "react-router";
 
 export function SignUpPage() {
   return (
     <div className={styles.signUpContainer}>
       <main className={styles.mainContainer}>
-        <SignUpForm />
-        <img src={checkProcedure} />
+        <h1 className={styles.title}>회원가입</h1>
+        <Outlet/>
+        <SignUpStep/>
       </main>
       <figure></figure>
     </div>
