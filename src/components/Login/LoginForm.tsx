@@ -6,28 +6,22 @@ import closeEye from '../../assets/closEye.svg';
 import {LoginInputData} from "../data";
 
 export function LoginForm() {
-  const [inputData, setInputData] = useState({
-    email: "",
-    password: "",
-  });
   const [click, setClick] = useState(false);
 
-  const {register, handleSubmit, formState: {errors}} = useForm<LoginInputData>()
+  const {register, handleSubmit, formState: {errors, isSubmitted}} = useForm<LoginInputData>()
 
   const loginInput = (data: LoginInputData) => {
-    setInputData(data);
+    console.log(data);
   }
 
   const showPassword = () => {
     setClick((prev) => !prev)
   }
 
-  console.log(inputData)
-
   return (
     <form className={styles.loginFormContainer} onSubmit={handleSubmit(loginInput)}>
       <input type="text" placeholder="이메일" id="text" className={styles.inputText}
-             aria-invalid={errors.email ? 'true' : 'false'}
+             aria-invalid={isSubmitted ? (errors.email ? 'true' : 'false') : undefined}
              {...register("email", {
                required: "이메일 입력은 필수 입니다.",
                pattern: {
@@ -37,7 +31,7 @@ export function LoginForm() {
              })} />
       {errors.email && <span className={styles.errorMailFont}>{errors.email.message}</span>}
       <input type={click ? 'text' : 'password'} placeholder="비밀번호" id="password" className={styles.inputText}
-             aria-invalid={errors.password ? 'true' : 'false'}
+             aria-invalid={isSubmitted ? (errors.password ? 'true' : 'false') : undefined}
              {...register("password", {
                required: "비밀번호 입력은 필수 입니다.",
                minLength: {
