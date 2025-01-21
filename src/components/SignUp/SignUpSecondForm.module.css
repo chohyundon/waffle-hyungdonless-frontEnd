@@ -1,0 +1,14 @@
+.formContainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.labelText{
+  color: var(--color-base-gray400);
+}
+
+.inputText {
+  width: 100%;
+}
