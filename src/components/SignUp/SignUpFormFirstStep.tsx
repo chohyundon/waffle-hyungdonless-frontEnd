@@ -1,6 +1,7 @@
 import {SignUpForm} from "./SignUpForm.tsx";
 import styles from "./SginUp.module.css";
 import {GoogleLogin} from "../Login/GoogleLogin.tsx";
+import {SignUpStep} from "./SignUpStep.tsx";
 
 export function SignUpFormFirstStep() {
   return (
@@ -12,6 +13,7 @@ export function SignUpFormFirstStep() {
         <span className={styles.orFont}>또는</span>
         <span className={styles.orBorder}/>
       </div>
+      <SignUpStep/>
       <GoogleLogin/>
     </main>
   )
