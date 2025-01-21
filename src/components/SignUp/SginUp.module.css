@@ -53,13 +53,15 @@
 }
 
 .title {
-  position: relative;
+  position: absolute;
   display: flex;
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-base-black100);
   top: 7.4993395%;
   justify-content: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .orContainer {
