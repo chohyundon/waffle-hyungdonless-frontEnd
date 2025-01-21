@@ -2,14 +2,22 @@ import styles from "./SignUpForm.module.css";
 import {useForm} from "react-hook-form";
 import {SignUpData} from "../data/SignUpData.ts";
 import {useState} from "react";
+import {Delay} from "../util/Delay.ts";
+import {useNavigate} from "react-router";
 
 export function SignUpForm() {
   const [signUpData, setSignUpData] = useState({email: "", password: "", passwordCheck: ""});
+  const navigate = useNavigate();
 
   const {register, handleSubmit, formState: {errors, isSubmitted, isSubmitting}} = useForm<SignUpData>();
 
-  const sendSignUpInputValue = (data: SignUpData) => {
+  const sendSignUpInputValue = async (data: SignUpData) => {
     setSignUpData(data);
+
+    if(data) {
+      await Delay(2000);
+      navigate("/signUp/step2");
+    }
   };
 
   return (
