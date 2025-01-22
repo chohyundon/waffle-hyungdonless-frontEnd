@@ -1,16 +1,12 @@
 import styles from "./SginUp.module.css";
-import {SignUpSecondForm, GoogleLogin} from "../index.ts";
+import {SignUpSecondForm, SignUpStep} from "../index.ts";
 
 export function SignUpFormSecondStep() {
   return (
     <main className={styles.secondStepContainer}>
-      <SignUpSecondForm />
-      <div className={styles.orContainer}>
-        <span className={styles.orBorder}></span>
-        <span className={styles.orFont}>또는</span>
-        <span className={styles.orBorder}></span>
-      </div>
-      <GoogleLogin />
+      <h1 className={styles.title}>회원가입</h1>
+      <SignUpSecondForm/>
+      <SignUpStep/>
     </main>
   )
 }
