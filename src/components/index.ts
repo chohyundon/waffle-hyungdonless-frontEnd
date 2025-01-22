@@ -4,6 +4,7 @@ export { LoginForm } from "./Login/LoginForm";
 
 export { SignUpPage } from "./SignUp/SignUpPage";
 export { SignUpForm } from './SignUp/SignUpForm.tsx';
+
 export {SignUpSecondForm} from "./SignUp/SignUpSecondForm";
 
 export { SignUpFormFirstStep } from "./SignUp/SignUpFormFirstStep.tsx";
@@ -17,3 +18,5 @@ export { SearchId } from "./Login/SearchId";
 export {SignUpStep} from "./SignUp/SignUpStep";
 
 export {LoginStatus} from "./Login/LoginStatus";
+
+export {PhoneAuth} from './Auth/PhoneAuth.tsx'
