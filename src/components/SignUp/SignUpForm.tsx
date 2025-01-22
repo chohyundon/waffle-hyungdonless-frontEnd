@@ -47,6 +47,7 @@ export function SignUpForm() {
                    message: '비밀번호 길이를 8자리 이상 입력해주세요.'
                  },
                })}/>
+        {!errors.password && <span className={styles.defaultFont}>영문 대·소문자/숫자/특수문자 중 2가지 이상 조합, 8자~32자만 가능합니다..</span>}
       </div>
       {errors.password && <span className={styles.passwordError}>{errors.password.message}</span>}
       <input type='password' className={styles.passwordInputText} placeholder="비밀번호 확인"

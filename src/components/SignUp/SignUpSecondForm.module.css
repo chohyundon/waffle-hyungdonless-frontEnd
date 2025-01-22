@@ -1,7 +1,7 @@
 .formContainer{
   left: 13.3083333%;
   width: 73.33333333%;
-  top: 11.4332893%;
+  top: 16.98%;
   height: 73.07265522%;
   display: flex;
   flex-direction: column;
@@ -10,6 +10,7 @@
 }
 
 .labelText{
+  font-size: 1.0625rem;
   color: var(--color-base-gray400);
 }
 
