@@ -47,3 +47,9 @@ export interface SignUpData  {
   password: string
   passwordCheck: string
 }
+
+export interface SignUpStepData{
+  name: string
+  date: string
+  nickname: string
+}
