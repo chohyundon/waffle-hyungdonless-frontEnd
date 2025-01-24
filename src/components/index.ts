@@ -3,9 +3,10 @@ export { LoginHomePage } from "./Login/LoginHome";
 export { LoginForm } from "./Login/LoginForm";
 
 export { SignUpPage } from "./SignUp/SignUpPage";
-export { SignUpForm } from './SignUp/SignUpForm.tsx';
 
+export { SignUpForm } from './SignUp/SignUpForm.tsx';
 export {SignUpSecondForm} from "./SignUp/SignUpSecondForm";
+export {SignUpThirdForm} from "./SignUp/SignUpThirdForm";
 
 export { SignUpFormFirstStep } from "./SignUp/SignUpFormFirstStep.tsx";
 export { SignUpFormSecondStep } from "./SignUp/SignUpFormSecondStep.tsx";
