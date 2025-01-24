@@ -52,6 +52,7 @@ export interface SignUpStepData{
   name: string
   birth: string
   nickname: string
+  number: string
 }
 
 export interface SignUpStepName {
