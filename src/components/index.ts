@@ -19,5 +19,3 @@ export { SearchId } from "./Login/SearchId";
 export {SignUpStep} from "./SignUp/SignUpStep";
 
 export {LoginStatus} from "./Login/LoginStatus";
-
-export {PhoneAuth} from './Auth/PhoneAuth.tsx'
