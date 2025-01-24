@@ -1,28 +1,20 @@
 import styles from './SignUpSecondForm.module.css'
 import {useForm} from "react-hook-form";
 import {SignUpStepData} from "../data/SignUpData.ts";
-import {useNavigate} from "react-router";
+import {useNavigate, useLocation} from "react-router";
 import {Delay} from "../util/Delay.ts";
+import Select from "../../assets/select.svg";
 
 export const SignUpSecondForm = () => {
   const navigate = useNavigate();
+  const {state} = useLocation();
 
   const {register, handleSubmit, formState: {errors, isSubmitted}} = useForm<SignUpStepData>();
 
   const sendSignUpStep2Value = async (data:SignUpStepData) => {
-    await fetch('https://api.sabujak.life/users/signup', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-
     if(data) {
       await Delay(2000);
-      navigate('/signUp/step3')
+      navigate('/signUp/step3', {state: {...state, ...data}});
     }
   }
 
@@ -52,6 +44,21 @@ export const SignUpSecondForm = () => {
               })} />
      </div>
      {errors.birth && (<span className={styles.errorFont1}>{errors.birth.message}</span>)}
+     <div className={styles.inputAuthContainer}>
+       <label className={styles.labelTitle}>휴대전화 인증</label>
+       <select className={styles.select}>
+         <option>통신사</option>
+       </select>
+       <img src={Select} alt="select" className={styles.selectIcon}/>
+       <div className={styles.numberContainer}>
+         <input type="text" placeholder="-없이 숫자만 입력"  className={styles.writeNumber} aria-invalid={isSubmitted ? (errors.number ? 'true' : 'false') : undefined}
+                {...register('number', {
+            required: '핸드폰번호 입력은 필수 입니다.'
+         })}/>
+         <button className={styles.numberButton}>인증요청</button>
+       </div>
+     </div>
+     {errors.number && <span className={styles.errorFont2}>{errors.number.message}</span>}
      <input type="text" className={styles.inputBoxExample} placeholder="인증번호 입력"/>
      <button className={styles.subButton}>다음</button>
    </form>

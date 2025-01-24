@@ -65,6 +65,15 @@
   outline: 1.5px solid var(--color-main-green);
 }
 
+.writeNumber[aria-invalid='false'] {
+  outline: 1.5px solid var(--color-main-green);
+}
+
+.writeNumber[aria-invalid='true'] {
+  outline: 1.5px solid var(--color-base-red100);
+}
+
+
 .subButton{
   width: 100%;
   height: 5.5555vh;
@@ -103,5 +112,80 @@
   border: 0.6px solid var(--color-base-gray200);
   border-radius: 8px;
   font-size: 1.0625rem;
+  padding-left: 5.454545%;
+}
+
+.inputAuthContainer{
+  position: relative;
+  top: 25.039%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.labelTitle{
+  font-size: 1.0625rem;
+  color: var(--color-base-gray400);
+}
+
+.select{
+  width: 100%;
+  border: none;
+  font-size: 1.0625rem;
+  border-bottom: 1px solid var(--color-base-gray200);
+  appearance: none;
+  height: 3vh;
+  position: absolute;
+  top: 130%;
+  box-sizing: border-box;
+  color: var(--color-base-gray400);
+  padding-left: 5.454545%;
+}
+
+.selectIcon{
+  position: absolute;
+  width: 5%;
+  right: 3%;
+  top: 120%;
+  transform: translateY(100%);
+
+}
+
+.numberContainer{
+  position: absolute;
+  top: 400%;
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+.writeNumber{
+  width: 66.3%;
+  height: 5.5555vh;
+  box-sizing: border-box;
+  border: 0.6px solid var(--color-base-gray200);
+  border-radius: 8px;
+  font-size: 1.0625rem;
+  padding-left: 5.454545%;
+}
+
+.numberButton{
+  width: 30%;
+  height: 5.5555vh;;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--color-main-green);
+  color: white;
+  font-size: 1.0625rem;
+}
+
+.errorFont2{
+  position: absolute;
+  color: var(--color-base-red100);
+  font-size: 0.875rem;
+  top: 65.5%;
   padding-left: 5.454545%;
 }

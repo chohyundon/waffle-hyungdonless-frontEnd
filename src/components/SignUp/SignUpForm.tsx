@@ -1,22 +1,20 @@
 import styles from "./SignUpForm.module.css";
 import {useForm} from "react-hook-form";
 import {SignUpData} from "../data/SignUpData.ts";
-import {useState} from "react";
 import {Delay} from "../util/Delay.ts";
 import {useNavigate} from "react-router";
 
 export function SignUpForm() {
-  const [signUpData, setSignUpData] = useState({email: "", password: "", passwordCheck: ""});
   const navigate = useNavigate();
 
-  const {register, handleSubmit, formState: {errors, isSubmitted, isSubmitting}} = useForm<SignUpData>();
+  const {register, handleSubmit, watch, formState: {errors, isSubmitted, isSubmitting}} = useForm<SignUpData>();
 
   const sendSignUpInputValue = async (data: SignUpData) => {
-    setSignUpData(data);
+    const {passwordCheck, ...filterData} = data;
 
-    if(data) {
+    if(filterData) {
       await Delay(2000);
-      navigate("/signUp/step2");
+      navigate("/signUp/step2", {state: filterData});
     }
   };
 
@@ -58,7 +56,7 @@ export function SignUpForm() {
                  value: 8,
                  message: '비밀번호 길이를 8자리 이상 입력해주세요.'
                },
-               validate: ((value) => value !== signUpData.password || '비밀번호가 일치 하지 않습니다.')
+               validate: ((value) => value === watch('password') || '비밀번호가 일치 하지 않습니다.')
              })}/>
       {errors.passwordCheck && <span className={styles.passwordCheckError}>{errors.passwordCheck.message}</span>}
       <button className={styles.buttonContainer} disabled={isSubmitting}>다음</button>
