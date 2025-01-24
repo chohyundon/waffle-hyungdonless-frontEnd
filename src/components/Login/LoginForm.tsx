@@ -10,8 +10,18 @@ export function LoginForm() {
 
   const {register, handleSubmit, formState: {errors, isSubmitted}} = useForm<LoginInputData>()
 
-  const loginInput = (data: LoginInputData) => {
+  const loginInput = async (data: LoginInputData) => {
     console.log(data);
+
+    await fetch('https://api.sabujak.life/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .then(data => console.log(data))
   }
 
   const showPassword = () => {
