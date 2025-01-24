@@ -9,25 +9,25 @@
 }
 
 .mainContainer {
-  width: 35.088%;
+  width: 31.25%;
   height: 70.092592%;
   background-color: white;
   border-radius: 30px;
   box-shadow: 0px 4px 15px 0px rgba(1, 26, 20, 0.2);
   position: relative;
   top: 17.81111%;
-  left: 20.2925%;
+  left: 18.125%;
 }
 
 .secondStepContainer{
-  width: 35.088%;
+  width: 31.25%;
   height: 74.7222222%;
   background-color: white;
   border-radius: 30px;
   box-shadow: 0px 4px 15px 0px rgba(1, 26, 20, 0.2);
   position: relative;
   top: 17.81111%;
-  left: 20.2925%;
+  left: 18.125%;
 }
 
 .stepIcon {
