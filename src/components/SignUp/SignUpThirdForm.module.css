@@ -1,4 +1,81 @@
+.mainContainer {
+  width: 35.088%;
+  background-color: white;
+  height: 62.2229vh;
+  position: relative;
+  top: 17.871%;
+  left: 20.2925%;
+  border-radius: 30px;
+}
+
+.titleName{
+  color: var(--color-base-gray400);
+  font-size: 1.0625rem;
+}
+
+.title{
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+  top: 8%;
+}
+
 .formContainer{
+  left: 13.3083333%;
+  width: 73.33333333%;
+  top: 17.1%;
+  height: 73.07265522%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  gap: 10px;
+}
+
+.inputBox{
+  width: 100%;
+  border-radius: 8px;
+  height: 5.5555vh;
+  border: 0.6px solid var(--color-base-gray200);
+  font-size: 1.0625rem;
+  box-sizing: border-box;
+  padding-left: 5.454545%;
+}
+
+.inputBox[aria-invalid="false"] {
+  outline: 1.5px solid var(--color-main-green);
+}
+
+.inputBox[aria-invalid="true"] {
+  outline: 1.5px solid var(--color-base-red100);
+}
+
+.buttonContainer{
+  width: 100%;
+  border-radius: 8px;
+  height: 5.5555vh;
+  position: absolute;
+  top: 71.492%;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-main-green);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.errorFont {
+  position: absolute;
+  top: 19%;
+  font-size: 0.875rem;
+  color: var(--color-base-red100);
+  padding-left: 7.27%;
+}
+
+.defaultFont{
+  position: absolute;
+  top: 19%;
+  font-size: 0.875rem;
+  padding-left: 7.27%;
+  color: var(--color-base-gray200);
 }
