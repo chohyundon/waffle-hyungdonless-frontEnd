@@ -21,6 +21,7 @@ export function GoogleLogin() {
       const userName = user?.displayName;
       const userImg = user?.photoURL;
       const googleUser = { userName, userImg };
+      console.log(user);
 
       const googleData = JSON.stringify(googleUser);
 
