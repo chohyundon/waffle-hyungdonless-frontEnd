@@ -50,6 +50,10 @@ export interface SignUpData  {
 
 export interface SignUpStepData{
   name: string
-  date: string
+  birth: string
+  nickname: string
+}
+
+export interface SignUpStepName {
   nickname: string
 }
