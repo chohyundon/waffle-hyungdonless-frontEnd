@@ -6,7 +6,7 @@ export function SignUpFormSecondStep() {
     <main className={styles.secondStepContainer}>
       <h1 className={styles.title}>회원가입</h1>
       <SignUpSecondForm/>
-      <SignUpStep/>
+      <SignUpStep label={'본인인증'} number={2}/>
     </main>
   )
 }

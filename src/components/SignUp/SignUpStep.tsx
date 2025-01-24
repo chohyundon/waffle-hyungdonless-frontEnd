@@ -1,8 +1,12 @@
 import signUpProcedure from '../../assets/signUpProcedure.svg';
 import noneSignUpProcedure from '../../assets/noneSignUpProcedure.svg';
 import styles from './SginUp.module.css'
+import {useLocation} from "react-router";
 
 export const SignUpStep = () => {
+
+  const location = useLocation();
+  console.log(location);
   const repeatImages = Array(3).fill(noneSignUpProcedure);
 
   return (

@@ -142,3 +142,8 @@
 .boldFonts{
   color: var(--color-main-green);
 }
+
+.icon{
+  position: absolute;
+  right: 0;
+}
