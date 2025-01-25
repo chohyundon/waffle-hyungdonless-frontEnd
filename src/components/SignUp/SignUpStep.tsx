@@ -4,23 +4,32 @@ import styles from './SginUp.module.css'
 import {useLocation} from "react-router";
 
 export const SignUpStep = () => {
+  const totalStepCount = 4;
 
   const location = useLocation();
-  console.log(location);
-  const repeatImages = Array(3).fill(noneSignUpProcedure);
+  const step = parseInt(location.pathname.split('/')[2].slice(4,5));
+  const data = ['이메일 입력', '본인인증', '정보입력', '가입완료'];
 
   return (
     <div className={styles.stepIcon}>
-      <span className={styles.stepFont}>
-        <p className={styles.number}>1</p><br/>이메일 입력
-      </span>
-      <img src={signUpProcedure} alt="signUpProcedure" className={styles.stepCheckIcon}/>
-      {repeatImages.map((src, index) => (
-        <div key={index}>
-          <span className={styles.stepNoneFont}>{index+1}</span>
-          <img src={src} alt={`noneSignUpProcedure-${index}`} className={styles.stepNoneCheckIcon}/>
-        </div>
-      ))}
+      {Array.from({ length: totalStepCount }, (_, index) => {
+        const currentStep = index + 1;
+        const isActive = currentStep === step;
+
+        return (
+          <div key={currentStep} className={styles.stepItem}>
+            <span className={isActive ? styles.stepFont : styles.stepNoneFont}>
+              {isActive ? <p className={styles.currentStep}>{currentStep}<p className={styles.userFont}>{data[currentStep-1]}</p></p>
+                : <p>{currentStep}</p>}
+            </span>
+            <img
+              src={isActive ? signUpProcedure : noneSignUpProcedure}
+              alt={`step${currentStep}`}
+              className={isActive ? styles.stepCheckIcon : styles.stepNoneCheckIcon}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
