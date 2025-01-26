@@ -11,6 +11,7 @@ export {SignUpThirdForm} from "./SignUp/SignUpThirdForm";
 export { SignUpFormFirstStep } from "./SignUp/SignUpFormFirstStep.tsx";
 export { SignUpFormSecondStep } from "./SignUp/SignUpFormSecondStep.tsx";
 export { SignUpFormThirdStep } from "./SignUp/SignUpFormThirdStep.tsx";
+export {SignUpFormFourth} from './SignUp/SignUpFormFourth.tsx'
 
 export { GoogleLogin } from "./Login/GoogleLogin";
 
