@@ -19,7 +19,7 @@ export const SignUpStep = () => {
         return (
           <div key={currentStep} className={styles.stepItem}>
             <span className={isActive ? styles.stepFont : styles.stepNoneFont}>
-              {isActive ? <p className={styles.currentStep}>{currentStep}<p className={styles.userFont}>{data[currentStep-1]}</p></p>
+              {isActive ? <span className={styles.currentStep}>{currentStep}<p className={styles.userFont}>{data[currentStep-1]}</p></span>
                 : <p>{currentStep}</p>}
             </span>
             <img
