@@ -1,0 +1,82 @@
+.mainContainer {
+  width: 31.25%;
+  height: 70.092592%;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0px 4px 15px 0px rgba(1, 26, 20, 0.2);
+  position: relative;
+  top: 17.81111%;
+  left: 18.125%;
+}
+
+.completeContainer{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  align-items: center;
+  transform: translate(-50%);
+  top: 17.702%;
+  gap: 24px;
+}
+
+.font{
+  font-size: 1.125rem;
+  color: var(--color-main-green);
+}
+
+.fontContainer{
+  display: flex;
+  gap: 21px;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  top: 35.932%;
+}
+
+.title{
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.subTitle{
+  font-size: 1rem;
+  color: var(--color-base-black200);
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.loginForm{
+  position: absolute;
+  width: 73.33333333%;
+  left: 13.3083333%;
+  top: 63.937%;
+  height: 5.5555vh;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--color-main-green);
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.homeLogin{
+  position: absolute;
+  width: 73.33333333%;
+  left: 13.3083333%;
+  top: 76.619%;
+  height: 5.5555vh;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  background-color: white;
+  border: 1px solid var(--color-base-gray200);
+  cursor: pointer;
+  color: var(--color-base-gray300);
+}

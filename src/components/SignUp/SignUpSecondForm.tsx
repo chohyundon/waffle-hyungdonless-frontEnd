@@ -12,10 +12,29 @@ export const SignUpSecondForm = () => {
   const {register, handleSubmit, formState: {errors, isSubmitted}} = useForm<SignUpStepData>();
 
   const sendSignUpStep2Value = async (data:SignUpStepData) => {
-    if(data) {
-      await Delay(2000);
-      navigate('/signUp/step3', {state: {...state, ...data}});
+    const sendData = {
+      email : state.email,
+      name: data.name,
+      number: data.number,
     }
+
+    if(state.email && data.name && data.number) {
+      const response = await fetch('https://api.sabujak.life/sms/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(sendData)
+      })
+      const result = await response.json();
+      console.log(result);
+    }
+
+
+    // if(data) {
+    //   await Delay(2000);
+    //   navigate('/signUp/step3', {state: {...state, ...data}});
+    // }
   }
 
  return (

@@ -1,38 +1,20 @@
-import {SignUpStep, SignUpThirdForm} from "../index.ts";
-import styles from './SignUpThirdForm.module.css'
-import Circle from '../../assets/circle.svg'
-import rightButton from '../../assets/rightButton.svg'
+import {SignUpFormFourth, SignUpStep} from "../index.ts";
+import styles from './SignUpFormFourth.module.css'
+import Icon from '../../assets/checkCircles.svg'
 
-export function SignUpFormThirdStep() {
+export function SignUpFormFourthStep() {
   return (
     <main className={styles.mainContainer}>
-      <h1 className={styles.title}>회원가입</h1>
-      <SignUpThirdForm/>
-      <div className={styles.checkContainer}>
-        <img src={Circle} alt={'확인 체크'}/>
-        <span className={styles.fonts}>약관 모두 동의</span>
+      <div className={styles.completeContainer}>
+        <img src={Icon} alt={Icon} width={77} height={77} />
+        <span className={styles.font}>가입완료!</span>
       </div>
-      <div className={styles.bottomCheckContainer}>
-        <img src={Circle} alt={'확인 체크'}/>
-        <span className={styles.fonts}><p className={styles.boldFonts}>(필수)</p>  서비스 이용약관 동의</span>
-        <img src={rightButton} alt="rightButton" className={styles.icon}/>
+      <div className={styles.fontContainer}>
+        <h1 className={styles.title}>환영합니다</h1>
+        <p className={styles.subTitle}>이제 당신의 여정을 함께 시작해보세요<br/> 다양한 정보와 소중한 인연이 기다리고 있습니다!</p>
       </div>
-      <div className={styles.bottomCheckContainer1}>
-        <img src={Circle} alt={'확인 체크'}/>
-        <span className={styles.fonts}><p className={styles.boldFonts}>(필수)</p>  서비스 이용약관 동의</span>
-        <img src={rightButton} alt="rightButton" className={styles.icon}/>
-      </div>
-      <div className={styles.bottomCheckContainer2}>
-        <img src={Circle} alt={'확인 체크'}/>
-        <span className={styles.fonts}><p className={styles.boldFonts}>(필수)</p> 서비스 이용약관 동의</span>
-        <img src={rightButton} alt="rightButton" className={styles.icon}/>
-      </div>
-      <div className={styles.bottomCheckContainer3}>
-        <img src={Circle} alt={'확인 체크'}/>
-        <span className={styles.fonts}>(선택) 개인정보 마케팅 활용 동의</span>
-        <img src={rightButton} alt="rightButton" className={styles.icon}/>
-      </div>
-      <SignUpStep />
+      <SignUpFormFourth />
+      <SignUpStep/>
     </main>
   )
 }
