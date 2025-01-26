@@ -30,8 +30,9 @@ const router = createBrowserRouter([
     },
       {
         path: "step3", element: <SignUpFormThirdStep />
-      }, {
-      path: '/step4' , element: <SignUpFormFourth />
+      },
+      {
+      path: 'step4' , element: <SignUpFormFourth />
       }
       ]
   },
