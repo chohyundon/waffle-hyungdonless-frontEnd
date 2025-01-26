@@ -7,11 +7,12 @@ export { SignUpPage } from "./SignUp/SignUpPage";
 export { SignUpForm } from './SignUp/SignUpForm.tsx';
 export {SignUpSecondForm} from "./SignUp/SignUpSecondForm";
 export {SignUpThirdForm} from "./SignUp/SignUpThirdForm";
+export {SignUpFormFourth} from './SignUp/SignUpFormFourth.tsx'
 
 export { SignUpFormFirstStep } from "./SignUp/SignUpFormFirstStep.tsx";
 export { SignUpFormSecondStep } from "./SignUp/SignUpFormSecondStep.tsx";
 export { SignUpFormThirdStep } from "./SignUp/SignUpFormThirdStep.tsx";
-export {SignUpFormFourth} from './SignUp/SignUpFormFourth.tsx'
+export {SignUpFormFourthStep} from "./SignUp/SignUpFormFourthStep.tsx";
 
 export { GoogleLogin } from "./Login/GoogleLogin";
 
