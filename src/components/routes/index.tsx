@@ -7,7 +7,7 @@ import {
   SignUpFormSecondStep,
   SignUpFormThirdStep,
   SignUpPage,
-  SignUpFormFourth
+  SignUpFormFourthStep
 } from "../index";
 
 const router = createBrowserRouter([
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         path: "step3", element: <SignUpFormThirdStep />
       },
       {
-      path: 'step4' , element: <SignUpFormFourth />
+      path: 'step4' , element: <SignUpFormFourthStep />
       }
       ]
   },
