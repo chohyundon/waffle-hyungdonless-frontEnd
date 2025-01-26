@@ -1,5 +1,5 @@
 import styles from './SignUpFormFourth.module.css'
-import {replace, useNavigate} from "react-router";
+import { useNavigate} from "react-router";
 
 export const SignUpFormFourth = () => {
   const navigate = useNavigate();

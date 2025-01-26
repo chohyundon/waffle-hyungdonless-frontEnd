@@ -16,6 +16,7 @@ export const SignUpSecondForm = () => {
       email : state.email,
       name: data.name,
       number: data.number,
+
     }
 
     if(state.email && data.name && data.number) {
@@ -78,7 +79,11 @@ export const SignUpSecondForm = () => {
        </div>
      </div>
      {errors.number && <span className={styles.errorFont2}>{errors.number.message}</span>}
-     <input type="text" className={styles.inputBoxExample} placeholder="인증번호 입력"/>
+     <input type="text" className={styles.inputBoxExample} aria-invalid={isSubmitted ? (errors.checkNumber ? 'true' : 'false') : undefined}
+            placeholder="인증번호 입력" {...register('checkNumber', {
+       required: '인증번호를 입력해주세요.'
+     })}/>
+     {errors.checkNumber && <span className={styles.errorFont3}>{errors.checkNumber.message}</span>}
      <button className={styles.subButton}>다음</button>
    </form>
  );

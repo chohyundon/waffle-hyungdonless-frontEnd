@@ -53,6 +53,7 @@ export interface SignUpStepData{
   birth: string
   nickname: string
   number: string
+  checkNumber: string
 }
 
 export interface SignUpStepName {

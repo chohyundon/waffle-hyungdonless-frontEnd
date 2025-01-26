@@ -73,6 +73,14 @@
   outline: 1.5px solid var(--color-base-red100);
 }
 
+.inputBoxExample[aria-invalid='false'] {
+  outline: 1.5px solid var(--color-main-green);
+}
+
+.inputBoxExample[aria-invalid='true'] {
+  outline: 1.5px solid var(--color-base-red100);
+}
+
 
 .subButton{
   width: 100%;
@@ -187,5 +195,13 @@
   color: var(--color-base-red100);
   font-size: 0.875rem;
   top: 65.5%;
+  padding-left: 5.454545%;
+}
+
+.errorFont3{
+  position: absolute;
+  color: var(--color-base-red100);
+  font-size: 0.875rem;
+  top: 82%;
   padding-left: 5.454545%;
 }
