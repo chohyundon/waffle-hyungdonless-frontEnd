@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import {SignUpData} from "../data/SignUpData.ts";
 import {Delay} from "../util/Delay.ts";
 import {useNavigate} from "react-router";
+import {useSession} from "../util/useSession.ts";
 
 export function SignUpForm() {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ export function SignUpForm() {
 
   const sendSignUpInputValue = async (data: SignUpData) => {
     const {passwordCheck, ...filterData} = data;
+    useSession('step1Data', filterData);
 
     if(filterData) {
       await Delay(2000);

@@ -115,7 +115,7 @@
   position: absolute;
   width: 100%;
   box-sizing: border-box;
-  top: 71%;
+  top: 69%;
   height: 5.5555vh;
   border: 0.6px solid var(--color-base-gray200);
   border-radius: 8px;
@@ -190,6 +190,11 @@
   font-size: 1.0625rem;
 }
 
+.numberButton:disabled {
+  background-color: var(--color-base-gray200);
+  color: white;
+}
+
 .errorFont2{
   position: absolute;
   color: var(--color-base-red100);
@@ -202,6 +207,29 @@
   position: absolute;
   color: var(--color-base-red100);
   font-size: 0.875rem;
-  top: 82%;
+  top: 80%;
   padding-left: 5.454545%;
+}
+
+.authContainer{
+  position: relative;
+  top: 0;
+  width: 100%;
+  border: 10px solid;
+}
+
+.nameContainer{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border: 1px solid;
+}
+
+.secondText{
+  position: absolute;
+  top: 72.5%;
+  right: 0;
+  font-size: 1.0625rem;
+  transform: translate(-50%);
+  color: var(--color-main-green);
 }
