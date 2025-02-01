@@ -1,8 +1,8 @@
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "../util/firebaseconfig";
-import styles from "./LoginForm.module.css";
-import googleLogo from "../../assets/googleLogo.svg";
-import { useNavigate } from "react-router";
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../util/firebaseconfig';
+import styles from './LoginForm.module.css';
+import googleLogo from '../../assets/googleLogo.svg';
+import { useNavigate } from 'react-router';
 
 export function GoogleLogin() {
   const provider = new GoogleAuthProvider();
@@ -11,7 +11,7 @@ export function GoogleLogin() {
   const googleLogin = async () => {
     try {
       provider.setCustomParameters({
-        prompt: "select_account",
+        prompt: 'select_account',
       });
 
       const result = await signInWithPopup(auth, provider);
@@ -26,13 +26,13 @@ export function GoogleLogin() {
       const googleData = JSON.stringify(googleUser);
 
       const userStorage = window.localStorage;
-      userStorage.setItem("userData", googleData);
+      userStorage.setItem('userData', googleData);
 
       if (userStorage) {
-        navigate("/");
+        navigate('/');
       }
 
-      console.log("User Info:", user);
+      console.log('User Info:', user);
     } catch (e) {
       alert(e);
     }
@@ -40,7 +40,7 @@ export function GoogleLogin() {
 
   return (
     <div className={styles.googleForm} onClick={googleLogin}>
-      <img src={googleLogo} alt="google 로고" className={styles.googleLogo} />
+      <img src={googleLogo} alt='google 로고' className={styles.googleLogo} />
       <p>Google로 로그인</p>
     </div>
   );

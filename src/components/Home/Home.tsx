@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import { UserTypes } from "../types/googleUserTypes";
-import { useNavigate } from "react-router";
-import { signOut } from "firebase/auth";
-import { auth } from "../util/firebaseconfig";
+import { useEffect, useState } from 'react';
+import { UserTypes } from '../types/googleUserTypes';
+import { useNavigate } from 'react-router';
+import { signOut } from 'firebase/auth';
+import { auth } from '../util/firebaseconfig';
 
 export function Home() {
   const [user, setUser] = useState<UserTypes | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userData = localStorage.getItem("userData");
+    const userData = localStorage.getItem('userData');
     if (userData !== null) {
       setUser(JSON.parse(userData));
     }
@@ -18,10 +18,10 @@ export function Home() {
   const handleLogOut = async () => {
     if (user) {
       await signOut(auth);
-      localStorage.removeItem("userData");
+      localStorage.removeItem('userData');
       setUser(null);
     } else {
-      navigate("/login");
+      navigate('/login');
     }
   };
 
@@ -30,10 +30,10 @@ export function Home() {
       {user && (
         <>
           <p>{user?.userName}</p>
-          <img src={user?.userImg} alt="UserImg" />
+          <img src={user?.userImg} alt='UserImg' />
         </>
       )}
-      <button onClick={handleLogOut}>{user ? "로그아웃" : "로그인"}</button>
+      <button onClick={handleLogOut}>{user ? '로그아웃' : '로그인'}</button>
     </>
   );
 }

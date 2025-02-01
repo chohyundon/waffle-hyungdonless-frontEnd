@@ -1,5 +1,5 @@
-type idField = "email" | "password" | "passwordCheck";
-type typeField = "text" | "password";
+type idField = 'email' | 'password' | 'passwordCheck';
+type typeField = 'text' | 'password';
 
 export interface SignUpTypes {
   id: idField;
@@ -9,5 +9,5 @@ export interface SignUpTypes {
   data?: string;
   formGuide?: string;
   defaultGuide?: string;
-  passwordCheckGuide?: string
+  passwordCheckGuide?: string;
 }

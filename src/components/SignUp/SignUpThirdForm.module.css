@@ -9,19 +9,19 @@
   box-shadow: 0px 4px 15px 0px rgba(1, 26, 20, 0.2);
 }
 
-.titleName{
+.titleName {
   color: var(--color-base-gray400);
   font-size: 1.0625rem;
 }
 
-.title{
+.title {
   font-size: 2rem;
   text-align: center;
   position: relative;
   top: 8.334%;
 }
 
-.formContainer{
+.formContainer {
   left: 13.3083333%;
   width: 73.33333333%;
   top: 14.304%;
@@ -32,7 +32,7 @@
   gap: 10px;
 }
 
-.inputBox{
+.inputBox {
   width: 100%;
   border-radius: 8px;
   height: 5.5555vh;
@@ -42,15 +42,15 @@
   padding-left: 5.454545%;
 }
 
-.inputBox[aria-invalid="false"] {
+.inputBox[aria-invalid='false'] {
   outline: 1.5px solid var(--color-main-green);
 }
 
-.inputBox[aria-invalid="true"] {
+.inputBox[aria-invalid='true'] {
   outline: 1.5px solid var(--color-base-red100);
 }
 
-.buttonContainer{
+.buttonContainer {
   width: 100%;
   border-radius: 8px;
   height: 5.5555vh;
@@ -73,7 +73,7 @@
   padding-left: 7.27%;
 }
 
-.defaultFont{
+.defaultFont {
   position: absolute;
   top: 19%;
   font-size: 0.875rem;
@@ -81,7 +81,7 @@
   color: var(--color-base-gray200);
 }
 
-.checkContainer{
+.checkContainer {
   position: absolute;
   width: 73.33333333%;
   border-bottom: 1.5px solid var(--color-main-green);
@@ -133,18 +133,18 @@
   gap: 13px;
 }
 
-.fonts{
+.fonts {
   display: flex;
   font-size: 1.0625rem;
   color: var(--color-base-gray400);
   gap: 4px;
 }
 
-.boldFonts{
+.boldFonts {
   color: var(--color-main-green);
 }
 
-.icon{
+.icon {
   position: absolute;
   right: 0;
 }

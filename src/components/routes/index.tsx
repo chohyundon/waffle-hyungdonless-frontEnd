@@ -1,5 +1,5 @@
-import {createBrowserRouter, RouterProvider} from "react-router";
-import App from "../../App";
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import App from '../../App';
 import {
   LoginHomePage,
   SearchId,
@@ -7,41 +7,46 @@ import {
   SignUpFormSecondStep,
   SignUpFormThirdStep,
   SignUpPage,
-  SignUpFormFourthStep
-} from "../index";
+  SignUpFormFourthStep,
+} from '../index';
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App/>,
+    path: '/',
+    element: <App />,
   },
   {
-    path: "/login",
-    element: <LoginHomePage/>,
+    path: '/login',
+    element: <LoginHomePage />,
   },
   {
-    path: "/signup",
-    element: <SignUpPage/>,
-    children: [{
-      path: "step1", element: <SignUpFormFirstStep />
-    },
+    path: '/signup',
+    element: <SignUpPage />,
+    children: [
       {
-      path: "step2", element: <SignUpFormSecondStep />
-    },
-      {
-        path: "step3", element: <SignUpFormThirdStep />
+        path: 'step1',
+        element: <SignUpFormFirstStep />,
       },
       {
-      path: 'step4' , element: <SignUpFormFourthStep />
-      }
-      ]
+        path: 'step2',
+        element: <SignUpFormSecondStep />,
+      },
+      {
+        path: 'step3',
+        element: <SignUpFormThirdStep />,
+      },
+      {
+        path: 'step4',
+        element: <SignUpFormFourthStep />,
+      },
+    ],
   },
   {
-    path: "/search",
-    element: <SearchId/>,
+    path: '/search',
+    element: <SearchId />,
   },
 ]);
 
 export default function Router() {
-  return <RouterProvider router={router}/>;
+  return <RouterProvider router={router} />;
 }

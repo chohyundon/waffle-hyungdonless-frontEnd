@@ -1,4 +1,4 @@
-type LoginField = "id" | "password";
+type LoginField = 'id' | 'password';
 
 export interface LoginInputType {
   id: LoginField; // "id" 또는 "password"만 허용

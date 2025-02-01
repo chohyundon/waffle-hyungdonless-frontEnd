@@ -9,7 +9,7 @@
   left: 18.125%;
 }
 
-.completeContainer{
+.completeContainer {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -20,12 +20,12 @@
   gap: 24px;
 }
 
-.font{
+.font {
   font-size: 1.125rem;
   color: var(--color-main-green);
 }
 
-.fontContainer{
+.fontContainer {
   display: flex;
   gap: 21px;
   flex-direction: column;
@@ -36,20 +36,20 @@
   top: 35.932%;
 }
 
-.title{
+.title {
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-base-black100);
 }
 
-.subTitle{
+.subTitle {
   font-size: 1rem;
   color: var(--color-base-black200);
   white-space: nowrap;
   line-height: 1.5;
 }
 
-.loginForm{
+.loginForm {
   position: absolute;
   width: 73.33333333%;
   left: 13.3083333%;
@@ -65,7 +65,7 @@
   cursor: pointer;
 }
 
-.homeLogin{
+.homeLogin {
   position: absolute;
   width: 73.33333333%;
   left: 13.3083333%;

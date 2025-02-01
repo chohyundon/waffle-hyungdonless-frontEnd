@@ -110,19 +110,19 @@
   top: 59%;
 }
 
-.inputText[aria-invalid="true"] {
+.inputText[aria-invalid='true'] {
   outline: 1.5px solid var(--color-base-red100);
 }
 
-.inputText[aria-invalid="false"] {
+.inputText[aria-invalid='false'] {
   outline: 1.5px solid var(--color-main-green);
 }
 
-.passwordInputText[aria-invalid="false"] {
+.passwordInputText[aria-invalid='false'] {
   outline: 1.5px solid var(--color-main-green);
 }
 
-.passwordInputText[aria-invalid="true"] {
+.passwordInputText[aria-invalid='true'] {
   outline: 1.5px solid var(--color-base-red100);
 }
 

@@ -1,4 +1,4 @@
-.formContainer{
+.formContainer {
   left: 13.3083333%;
   width: 73.33333333%;
   top: 16.98%;
@@ -9,7 +9,7 @@
   gap: 10px;
 }
 
-.labelText{
+.labelText {
   font-size: 1.0625rem;
   color: var(--color-base-gray400);
 }
@@ -19,27 +19,27 @@
   height: 5.5555vh;
   box-sizing: border-box;
   border-radius: 8px;
-  border : 0.6px solid var(--color-base-gray200);
+  border: 0.6px solid var(--color-base-gray200);
   font-size: 1.0625rem;
   padding-left: 5.454545%;
 }
 
-.dateInputBox{
+.dateInputBox {
   width: 100%;
   height: 5.5555vh;
   box-sizing: border-box;
   border-radius: 8px;
-  border : 0.6px solid var(--color-base-gray200);
+  border: 0.6px solid var(--color-base-gray200);
   font-size: 1.0625rem;
   padding-left: 5.454545%;
   padding-right: 5.454545%;
 }
 
-.dateInputBox::placeholder{
+.dateInputBox::placeholder {
   color: var(--color-base-gray400);
 }
 
-.inputBoxContainer{
+.inputBoxContainer {
   position: absolute;
   width: 100%;
   box-sizing: border-box;
@@ -81,8 +81,7 @@
   outline: 1.5px solid var(--color-base-red100);
 }
 
-
-.subButton{
+.subButton {
   width: 100%;
   height: 5.5555vh;
   color: white;
@@ -95,7 +94,7 @@
   top: 90%;
 }
 
-.errorFont{
+.errorFont {
   position: absolute;
   top: 16%;
   color: var(--color-base-red100);
@@ -103,7 +102,7 @@
   padding-left: 5.454545%;
 }
 
-.errorFont1{
+.errorFont1 {
   position: absolute;
   color: var(--color-base-red100);
   font-size: 0.875rem;
@@ -111,7 +110,7 @@
   padding-left: 5.454545%;
 }
 
-.inputBoxExample{
+.inputBoxExample {
   position: absolute;
   width: 100%;
   box-sizing: border-box;
@@ -123,7 +122,7 @@
   padding-left: 5.454545%;
 }
 
-.inputAuthContainer{
+.inputAuthContainer {
   position: relative;
   top: 25.039%;
   width: 100%;
@@ -132,12 +131,12 @@
   flex-direction: column;
 }
 
-.labelTitle{
+.labelTitle {
   font-size: 1.0625rem;
   color: var(--color-base-gray400);
 }
 
-.select{
+.select {
   width: 100%;
   border: none;
   font-size: 1.0625rem;
@@ -151,16 +150,15 @@
   padding-left: 5.454545%;
 }
 
-.selectIcon{
+.selectIcon {
   position: absolute;
   width: 5%;
   right: 3%;
   top: 120%;
   transform: translateY(100%);
-
 }
 
-.numberContainer{
+.numberContainer {
   position: absolute;
   top: 400%;
   display: flex;
@@ -168,7 +166,7 @@
   width: 100%;
 }
 
-.writeNumber{
+.writeNumber {
   width: 66.3%;
   height: 5.5555vh;
   box-sizing: border-box;
@@ -178,9 +176,9 @@
   padding-left: 5.454545%;
 }
 
-.numberButton{
+.numberButton {
   width: 30%;
-  height: 5.5555vh;;
+  height: 5.5555vh;
   box-sizing: border-box;
   border: none;
   cursor: pointer;
@@ -195,7 +193,7 @@
   color: white;
 }
 
-.errorFont2{
+.errorFont2 {
   position: absolute;
   color: var(--color-base-red100);
   font-size: 0.875rem;
@@ -203,7 +201,7 @@
   padding-left: 5.454545%;
 }
 
-.errorFont3{
+.errorFont3 {
   position: absolute;
   color: var(--color-base-red100);
   font-size: 0.875rem;
@@ -211,21 +209,21 @@
   padding-left: 5.454545%;
 }
 
-.authContainer{
+.authContainer {
   position: relative;
   top: 0;
   width: 100%;
   border: 10px solid;
 }
 
-.nameContainer{
+.nameContainer {
   position: absolute;
   top: 0;
   width: 100%;
   border: 1px solid;
 }
 
-.secondText{
+.secondText {
   position: absolute;
   top: 72.5%;
   right: 0;

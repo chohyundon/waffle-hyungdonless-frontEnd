@@ -105,7 +105,7 @@
   left: 5.5%;
 }
 
-.errorMailFont{
+.errorMailFont {
   position: absolute;
   font-size: 0.875rem;
   padding-left: 7.27%;
@@ -121,10 +121,10 @@
   top: 31%;
 }
 
-.inputText[aria-invalid="false"] {
+.inputText[aria-invalid='false'] {
   border: 1.5px solid var(--color-main-green);
 }
 
-.inputText[aria-invalid="true"] {
+.inputText[aria-invalid='true'] {
   border: 1.5px solid var(--color-base-red100);
 }

@@ -1,23 +1,23 @@
-export { LoginHomePage } from "./Login/LoginHome";
+export { LoginHomePage } from './Login/LoginHome';
 
-export { LoginForm } from "./Login/LoginForm";
+export { LoginForm } from './Login/LoginForm';
 
-export { SignUpPage } from "./SignUp/SignUpPage";
+export { SignUpPage } from './SignUp/SignUpPage';
 
 export { SignUpForm } from './SignUp/SignUpForm.tsx';
-export {SignUpSecondForm} from "./SignUp/SignUpSecondForm";
-export {SignUpThirdForm} from "./SignUp/SignUpThirdForm";
-export {SignUpFormFourth} from './SignUp/SignUpFormFourth.tsx'
+export { SignUpSecondForm } from './SignUp/SignUpSecondForm';
+export { SignUpThirdForm } from './SignUp/SignUpThirdForm';
+export { SignUpFormFourth } from './SignUp/SignUpFormFourth.tsx';
 
-export { SignUpFormFirstStep } from "./SignUp/SignUpFormFirstStep.tsx";
-export { SignUpFormSecondStep } from "./SignUp/SignUpFormSecondStep.tsx";
-export { SignUpFormThirdStep } from "./SignUp/SignUpFormThirdStep.tsx";
-export {SignUpFormFourthStep} from "./SignUp/SignUpFormFourthStep.tsx";
+export { SignUpFormFirstStep } from './SignUp/SignUpFormFirstStep.tsx';
+export { SignUpFormSecondStep } from './SignUp/SignUpFormSecondStep.tsx';
+export { SignUpFormThirdStep } from './SignUp/SignUpFormThirdStep.tsx';
+export { SignUpFormFourthStep } from './SignUp/SignUpFormFourthStep.tsx';
 
-export { GoogleLogin } from "./Login/GoogleLogin";
+export { GoogleLogin } from './Login/GoogleLogin';
 
-export { SearchId } from "./Login/SearchId";
+export { SearchId } from './Login/SearchId';
 
-export {SignUpStep} from "./SignUp/SignUpStep";
+export { SignUpStep } from './SignUp/SignUpStep';
 
-export {LoginStatus} from "./Login/LoginStatus";
+export { LoginStatus } from './Login/LoginStatus';

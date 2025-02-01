@@ -1,6 +1,6 @@
-import {SignUpFormFourth, SignUpStep} from "../index.ts";
-import styles from './SignUpFormFourth.module.css'
-import Icon from '../../assets/checkCircles.svg'
+import { SignUpFormFourth, SignUpStep } from '../index.ts';
+import styles from './SignUpFormFourth.module.css';
+import Icon from '../../assets/checkCircles.svg';
 
 export function SignUpFormFourthStep() {
   return (
@@ -11,10 +11,13 @@ export function SignUpFormFourthStep() {
       </div>
       <div className={styles.fontContainer}>
         <h1 className={styles.title}>환영합니다</h1>
-        <p className={styles.subTitle}>이제 당신의 여정을 함께 시작해보세요<br/> 다양한 정보와 소중한 인연이 기다리고 있습니다!</p>
+        <p className={styles.subTitle}>
+          이제 당신의 여정을 함께 시작해보세요
+          <br /> 다양한 정보와 소중한 인연이 기다리고 있습니다!
+        </p>
       </div>
       <SignUpFormFourth />
-      <SignUpStep/>
+      <SignUpStep />
     </main>
-  )
+  );
 }

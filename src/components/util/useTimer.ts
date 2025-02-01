@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export const useTimer = () => {
   const [count, setCount] = useState(0);
@@ -13,13 +13,12 @@ export const useTimer = () => {
 
     const secondsInterval = setInterval(() => {
       setSeconds((prev) => prev - 1);
-    }, 1000)
+    }, 1000);
 
     return () => {
       clearTimeout(interval);
       clearInterval(secondsInterval);
-    }
-
+    };
   }, [count]);
 
   const startTimer = (newInitialCount: number) => {
@@ -31,10 +30,10 @@ export const useTimer = () => {
   };
 
   const format = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);  // 분 계산
-    const secondsLeft = seconds % 60;  // 나머지 초 계산
+    const minutes = Math.floor(seconds / 60); // 분 계산
+    const secondsLeft = seconds % 60; // 나머지 초 계산
     return `${String(minutes).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`;
-  }
+  };
 
-  return { count, startTimer, seconds ,formatTime, format };
+  return { count, startTimer, seconds, formatTime, format };
 };
