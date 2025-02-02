@@ -1,7 +1,7 @@
 import styles from './SignUpThirdForm.module.css';
 import { useForm } from 'react-hook-form';
 import { SignUpStepName } from '../data/SignUpData.ts';
-import { getSession } from '../util/useSession.ts';
+import { getSession, removeSession } from '../util/useSession.ts';
 import { Delay } from '../util/Delay.ts';
 import { useNavigate } from 'react-router';
 
@@ -37,6 +37,7 @@ export const SignUpThirdForm = () => {
 
     if(response.status === 200) {
       await Delay(2000);
+      removeSession('step1Data');
       navigate('/signUp/step4');
     }
   };

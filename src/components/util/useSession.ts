@@ -17,3 +17,7 @@ interface SessionTypes {
 export const getSession = (key: SessionTypes['key']) => {
   return window.sessionStorage.getItem(key);
 };
+
+export const removeSession = (key: SessionTypes['key']) => {
+  window.sessionStorage.removeItem(key);
+}
