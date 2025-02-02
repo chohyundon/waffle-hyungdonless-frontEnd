@@ -21,3 +21,5 @@ export { SearchId } from './Login/SearchId';
 export { SignUpStep } from './SignUp/SignUpStep';
 
 export { LoginStatus } from './Login/LoginStatus';
+
+export {NavBar} from './NavBar/NavBar.tsx'
