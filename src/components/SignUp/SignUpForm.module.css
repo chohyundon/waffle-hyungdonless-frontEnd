@@ -71,6 +71,11 @@
   padding: 0;
 }
 
+.buttonContainer:disabled {
+  background-color: var(--color-base-gray200);
+  cursor: not-allowed;
+}
+
 .buttonNone {
   width: 100%;
   border-radius: 8px;

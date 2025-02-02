@@ -25,11 +25,15 @@ export const useTimer = () => {
     setSeconds(seconds);
   };
 
+  const stopTimer = () => {
+    setCount(0);
+  };
+
   const format = (seconds: number) => {
     const minutes = Math.floor(seconds / 60); // 분 계산
     const secondsLeft = seconds % 60; // 나머지 초 계산
     return `${String(minutes).padStart(2, '0')}:${String(secondsLeft).padStart(2, '0')}`;
   };
 
-  return { count, startTimer, seconds, formatTime, format };
+  return { count, startTimer, seconds, formatTime, format, stopTimer };
 };

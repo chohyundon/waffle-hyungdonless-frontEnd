@@ -21,7 +21,7 @@ export const SignUpSecondForm = () => {
 
   const navigate = useNavigate();
 
-  const {count, startTimer} = useTimer()
+  const {count, startTimer, stopTimer} = useTimer()
 
   const [nameValid, setNameValid] = useState(false);
   const [dateValid, setDateValid] = useState(false);
@@ -108,6 +108,7 @@ export const SignUpSecondForm = () => {
     e.preventDefault();
 
     if(isFormValid) {
+      stopTimer();
       useSession('step1Data', postData);
       await Delay(2000);
       navigate('/signUp/step3');
