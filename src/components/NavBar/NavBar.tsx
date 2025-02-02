@@ -1,9 +1,17 @@
 import styles from './NavBar.module.css';
-import { Link } from 'react-router';
-import { NavBarSearchForm } from './NavBarSearchForm.tsx';
+import { Link, useNavigate } from 'react-router';
+import { NavBarSearchForm } from '../index';
 import userImg from '../../assets/userImg.svg'
+import { useState } from 'react';
 
 export const NavBar = () => {
+  const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
+
+  const moveLoginPage =() => {
+    navigate('/login');
+  }
+
  return (
    <div className={styles.container}>
      <figure className={styles.iconContainer}>
@@ -15,13 +23,16 @@ export const NavBar = () => {
        <Link to='/' className={styles.linkfont}>사부작 순위</Link>
      </div>
      <NavBarSearchForm />
-     <div className={styles.rightLinkContainer}>
+     {isLogin ? <div className={styles.rightLinkContainer}>
        <Link to='/' className={styles.linkText}>알림</Link>
        <Link to='/' className={styles.linkText}>메세지</Link>
        <figure>
-         <img src={userImg} alt='사용자 이미지' className={styles.userImg}/>
+         <img src={userImg} alt='사용자 이미지' className={styles.userImg} />
        </figure>
-     </div>
+     </div> : <div className={styles.rightLinkContainer}>
+       <button className={styles.whiteButtonStyles} onClick={moveLoginPage}>로그인</button>
+       <button className={styles.buttonStyle} onClick={moveLoginPage}>회원가입</button>
+     </div>}
    </div>
  );
 };

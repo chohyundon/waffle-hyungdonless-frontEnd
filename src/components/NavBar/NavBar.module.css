@@ -3,7 +3,7 @@
   display: flex;
   position: relative;
   padding-top: 1.963%;
-  align-items: center;
+
 }
 
 .iconContainer {
@@ -69,8 +69,8 @@
   gap: 10px;
   white-space: nowrap;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .linkText{
@@ -78,10 +78,32 @@
   color: var(--color-base-black100);;
 }
 
-
-
 .userImg{
   width: 32px;
   height: 32px;
   border-radius: 50%;
+}
+.whiteButtonStyles{
+  height: 3.426vh;
+  padding: 0;
+  width: 40.798%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.buttonStyle{
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  height: 3.426vh;
+  padding: 0;
+  border: none;
+  padding-inline: 10px;
+  padding-block: 15px;
+  border-radius: 20px;
+  background-color: var(--color-main-green);
+  color: white;
+  cursor: pointer;
 }
