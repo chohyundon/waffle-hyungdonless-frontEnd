@@ -1,6 +1,9 @@
 interface useSessionTypes {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
+  name?: string;
+  birth?: string;
+  number?: string;
 }
 
 export const useSession = (key: string, userData: useSessionTypes) => {

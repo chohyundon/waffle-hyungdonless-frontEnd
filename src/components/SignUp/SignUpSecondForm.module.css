@@ -193,17 +193,31 @@
   color: white;
 }
 
+.subButton:disabled{
+  background-color: var(--color-base-gray200);
+  color: white;
+  cursor: not-allowed;
+}
+
 .errorFont2 {
   position: absolute;
   color: var(--color-base-red100);
   font-size: 0.875rem;
-  top: 65.5%;
+  top: 107%;
   padding-left: 5.454545%;
 }
 
 .errorFont3 {
   position: absolute;
   color: var(--color-base-red100);
+  font-size: 0.875rem;
+  top: 80%;
+  padding-left: 5.454545%;
+}
+
+.goodFont {
+  position: absolute;
+  color: var(--color-main-green);
   font-size: 0.875rem;
   top: 80%;
   padding-left: 5.454545%;
