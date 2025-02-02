@@ -193,7 +193,7 @@
   color: white;
 }
 
-.subButton:disabled{
+.subButton:disabled {
   background-color: var(--color-base-gray200);
   color: white;
   cursor: not-allowed;

@@ -16,12 +16,12 @@ export const SignUpSecondForm = () => {
 
   const [resultData, setResultData] = useState({
     status: '',
-    verificationCode: ''
-  })
+    verificationCode: '',
+  });
 
   const navigate = useNavigate();
 
-  const {count, startTimer, stopTimer} = useTimer()
+  const { count, startTimer, stopTimer } = useTimer();
 
   const [nameValid, setNameValid] = useState(false);
   const [dateValid, setDateValid] = useState(false);
@@ -38,25 +38,25 @@ export const SignUpSecondForm = () => {
       [name]: value,
     });
 
-    if( name === 'name') {
-      const nameRex = /^[ㄱ-ㅎ가-힣	]{3,5}$/
-      setNameValid(nameRex.test(value))
+    if (name === 'name') {
+      const nameRex = /^[ㄱ-ㅎ가-힣	]{3,5}$/;
+      setNameValid(nameRex.test(value));
     }
 
-    if(name === 'birth') {
-      if(value.trim() === '') {
+    if (name === 'birth') {
+      if (value.trim() === '') {
         setDateValid(true);
       } else {
         setDateValid(false);
       }
     }
 
-    if(name==='number') {
-      const numberRex = /^(010)\d{8}$/
+    if (name === 'number') {
+      const numberRex = /^(010)\d{8}$/;
       setNumberValid(numberRex.test(value));
     }
 
-    if(name === 'checkNumber') {
+    if (name === 'checkNumber') {
       if (value.trim() === '' && value !== resultData.verificationCode) {
         setCheckNumberValid(false);
       } else {
@@ -64,8 +64,7 @@ export const SignUpSecondForm = () => {
       }
     }
   };
-  console.log(resultData)
-
+  console.log(resultData);
 
   const sendSMSApi = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -74,9 +73,14 @@ export const SignUpSecondForm = () => {
       email: userData && JSON.parse(userData).email,
       name: inputValue.name,
       number: inputValue.number,
-    }
+    };
 
-    if(inputValue.number && inputValue.number && userData && JSON.parse(userData)) {
+    if (
+      inputValue.number &&
+      inputValue.number &&
+      userData &&
+      JSON.parse(userData)
+    ) {
       const response = await fetch('https://api.sabujak.life/sms/send', {
         method: 'POST',
         headers: {
@@ -91,10 +95,7 @@ export const SignUpSecondForm = () => {
     }
   };
 
-  const isFormValid =
-    nameValid &&
-    numberValid &&
-    checkNumberValid;
+  const isFormValid = nameValid && numberValid && checkNumberValid;
 
   const postData = {
     email: userData && JSON.parse(userData).email,
@@ -102,18 +103,18 @@ export const SignUpSecondForm = () => {
     name: inputValue.name,
     birth: inputValue.birth,
     number: inputValue.number,
-  }
+  };
 
-  const sendSignupData = async (e: React.FormEvent<HTMLFormElement>) =>  {
+  const sendSignupData = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if(isFormValid) {
+    if (isFormValid) {
       stopTimer();
       useSession('step1Data', postData);
       await Delay(2000);
       navigate('/signUp/step3');
     }
-  }
+  };
 
   return (
     <form className={styles.formContainer} onSubmit={sendSignupData}>
@@ -128,7 +129,9 @@ export const SignUpSecondForm = () => {
         disabled={nameValid}
       />
       <span className={styles.errorFont}>
-        {!nameValid && inputValue.name.length > 0 && `이름은 공백 제외 3글자 이상 7글자 미만으로 작성해주새요`}
+        {!nameValid &&
+          inputValue.name.length > 0 &&
+          `이름은 공백 제외 3글자 이상 7글자 미만으로 작성해주새요`}
       </span>
       <div className={styles.inputBoxContainer}>
         <label className={styles.labelText}>생년월일</label>
@@ -160,7 +163,9 @@ export const SignUpSecondForm = () => {
             disabled={numberValid}
           />
           <span className={styles.errorFont2}>
-            {!numberValid && inputValue.number.length > 0 && '휴대폰 번호는 -를 제외하고 입력해주세요'}
+            {!numberValid &&
+              inputValue.number.length > 0 &&
+              '휴대폰 번호는 -를 제외하고 입력해주세요'}
           </span>
           <button
             className={styles.numberButton}
@@ -180,11 +185,17 @@ export const SignUpSecondForm = () => {
         onChange={inputChange}
         disabled={resultData.verificationCode === '' || checkNumberValid}
       />
-      <span className={styles.goodFont}>{checkNumberValid && `인증번호가 확인 되었습니다`}</span>
-      <span className={styles.errorFont3}>
-        {!checkNumberValid && inputValue.checkNumber.length > 0 && '인증번호를 다시 입력해주세요'}
+      <span className={styles.goodFont}>
+        {checkNumberValid && `인증번호가 확인 되었습니다`}
       </span>
-      <button className={styles.subButton} disabled={!isFormValid}>다음</button>
+      <span className={styles.errorFont3}>
+        {!checkNumberValid &&
+          inputValue.checkNumber.length > 0 &&
+          '인증번호를 다시 입력해주세요'}
+      </span>
+      <button className={styles.subButton} disabled={!isFormValid}>
+        다음
+      </button>
     </form>
   );
 };

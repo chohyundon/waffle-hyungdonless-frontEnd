@@ -11,7 +11,6 @@ export const useTimer = () => {
       setCount((prev) => prev - 1);
     }, 1000);
 
-
     return () => {
       clearTimeout(interval);
     };

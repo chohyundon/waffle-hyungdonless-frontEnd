@@ -10,9 +10,9 @@ export const SignUpThirdForm = () => {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<SignUpStepName>({mode: 'onChange'});
+  } = useForm<SignUpStepName>({ mode: 'onChange' });
 
-  const getData = getSession('step1Data')
+  const getData = getSession('step1Data');
   const signUpData = getData && JSON.parse(getData);
   const navigate = useNavigate();
   console.log(signUpData);
@@ -33,9 +33,9 @@ export const SignUpThirdForm = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(signUpSendData),
-    })
+    });
 
-    if(response.status === 200) {
+    if (response.status === 200) {
       await Delay(2000);
       removeSession('step1Data');
       navigate('/signUp/step4');
@@ -53,7 +53,11 @@ export const SignUpThirdForm = () => {
         placeholder='홍준표'
         className={styles.inputBox}
         aria-invalid={
-          errors.nickname ? 'true' : isValid && !errors.nickname ? 'false' : undefined
+          errors.nickname
+            ? 'true'
+            : isValid && !errors.nickname
+              ? 'false'
+              : undefined
         }
         {...register('nickname', {
           required: '닉네임값은 필수 입력 입니다.',
@@ -73,7 +77,9 @@ export const SignUpThirdForm = () => {
       {errors.nickname && (
         <span className={styles.errorFont}>{errors.nickname.message}</span>
       )}
-      <button className={styles.buttonContainer} disabled={!isValid}>가입완료</button>
+      <button className={styles.buttonContainer} disabled={!isValid}>
+        가입완료
+      </button>
     </form>
   );
 };

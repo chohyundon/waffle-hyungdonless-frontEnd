@@ -20,4 +20,4 @@ export const getSession = (key: SessionTypes['key']) => {
 
 export const removeSession = (key: SessionTypes['key']) => {
   window.sessionStorage.removeItem(key);
-}
+};
