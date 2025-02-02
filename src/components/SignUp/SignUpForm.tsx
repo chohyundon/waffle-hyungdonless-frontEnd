@@ -12,8 +12,8 @@ export function SignUpForm() {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isSubmitted, isSubmitting },
-  } = useForm<SignUpData>();
+    formState: { errors, isSubmitting, isValid },
+  } = useForm<SignUpData>({mode: 'onChange'});
 
   const sendSignUpInputValue = async (data: SignUpData) => {
     const { passwordCheck, ...filterData } = data;
@@ -21,7 +21,7 @@ export function SignUpForm() {
 
     if (filterData) {
       await Delay(2000);
-      navigate('/signUp/step2', { state: filterData });
+      navigate('/signUp/step2');
     }
   };
 
@@ -36,14 +36,12 @@ export function SignUpForm() {
           type='text'
           className={styles.inputText}
           placeholder='example@email.com'
-          aria-invalid={
-            isSubmitted ? (errors.email ? 'true' : 'false') : undefined
-          }
+          aria-invalid={errors.email ? 'true' : isValid && !errors.email ? 'false' : undefined}
           {...register('email', {
             required: '이메일 값 입력은 필수입니다.',
             pattern: {
               value:
-                /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i,
+                /^[a-zA-Z]{3,}\w{0,7}@[a-zA-Z]{3,}\.[a-zA-Z]{2,}$/,
               message: '이메일 형식에 맞게 입력해주세요.',
             },
           })}
@@ -58,9 +56,7 @@ export function SignUpForm() {
           type='password'
           className={styles.inputText}
           placeholder='비밀번호'
-          aria-invalid={
-            isSubmitted ? (errors.password ? 'true' : 'false') : undefined
-          }
+          aria-invalid={errors.password ? 'true' : isValid && !errors.password ? 'false' : undefined}
           {...register('password', {
             required: '비밀번호는 필수 입력값입니다.',
             minLength: {
@@ -83,9 +79,7 @@ export function SignUpForm() {
         type='password'
         className={styles.passwordInputText}
         placeholder='비밀번호 확인'
-        aria-invalid={
-          isSubmitted ? (errors.passwordCheck ? 'true' : 'false') : undefined
-        }
+        aria-invalid={errors.passwordCheck ? 'true' : isValid && !errors.passwordCheck ? 'false' : undefined}
         {...register('passwordCheck', {
           required: '비밀번호는 필수 입력값입니다.',
           minLength: {
@@ -101,7 +95,7 @@ export function SignUpForm() {
           {errors.passwordCheck.message}
         </span>
       )}
-      <button className={styles.buttonContainer} disabled={isSubmitting}>
+      <button className={styles.buttonContainer} disabled={!isValid || isSubmitting}>
         다음
       </button>
     </form>

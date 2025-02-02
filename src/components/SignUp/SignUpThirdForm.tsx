@@ -1,35 +1,44 @@
 import styles from './SignUpThirdForm.module.css';
 import { useForm } from 'react-hook-form';
 import { SignUpStepName } from '../data/SignUpData.ts';
-import { useLocation } from 'react-router';
+import { getSession } from '../util/useSession.ts';
+import { Delay } from '../util/Delay.ts';
+import { useNavigate } from 'react-router';
 
 export const SignUpThirdForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitted },
-  } = useForm<SignUpStepName>();
-  const { state } = useLocation();
+    formState: { errors, isValid },
+  } = useForm<SignUpStepName>({mode: 'onChange'});
+
+  const getData = getSession('step1Data')
+  const signUpData = getData && JSON.parse(getData);
+  const navigate = useNavigate();
+  console.log(signUpData);
 
   const sendNickName = async (data: SignUpStepName) => {
-    const signUpData = {
-      email: state?.email,
-      password: state?.password,
-      name: state?.name,
-      birth: state?.birth,
-      number: state?.number,
+    const signUpSendData = {
+      email: signUpData?.email,
+      password: signUpData?.password,
+      name: signUpData?.name,
+      birth: signUpData?.birth,
+      number: signUpData?.number,
       nickname: data.nickname,
     };
 
-    await fetch('https://api.sabujak.life/users/signup', {
+    const response = await fetch('https://api.sabujak.life/users/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(signUpData),
+      body: JSON.stringify(signUpSendData),
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+
+    if(response.status === 200) {
+      await Delay(2000);
+      navigate('/signUp/step4');
+    }
   };
 
   return (
@@ -43,10 +52,14 @@ export const SignUpThirdForm = () => {
         placeholder='홍준표'
         className={styles.inputBox}
         aria-invalid={
-          isSubmitted ? (errors.nickname ? 'true' : 'false') : undefined
+          errors.nickname ? 'true' : isValid && !errors.nickname ? 'false' : undefined
         }
         {...register('nickname', {
           required: '닉네임값은 필수 입력 입니다.',
+          minLength: {
+            value: 2,
+            message: '닉네임은 최소 2글자 이상 작성해주세요.',
+          },
           maxLength: {
             value: 10,
             message: '닉네임은 10자 이내로 가능합니다.',
@@ -59,7 +72,7 @@ export const SignUpThirdForm = () => {
       {errors.nickname && (
         <span className={styles.errorFont}>{errors.nickname.message}</span>
       )}
-      <button className={styles.buttonContainer}>가입완료</button>
+      <button className={styles.buttonContainer} disabled={!isValid}>가입완료</button>
     </form>
   );
 };

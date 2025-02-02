@@ -11,7 +11,7 @@ export const useSession = (key: string, userData: useSessionTypes) => {
 };
 
 interface SessionTypes {
-  key: 'step1Data' | 'step2Data' | 'step3Data';
+  key: 'step1Data';
 }
 
 export const getSession = (key: SessionTypes['key']) => {
