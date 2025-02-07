@@ -2,7 +2,7 @@ import styles from './LoginForm.module.css';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import eyeIcon from '../../assets/openEye.svg';
-import closeEye from '../../assets/closEye.svg';
+import closeEye from '../../assets/closeEye.svg';
 import { LoginInputData } from '../data';
 
 export function LoginForm() {

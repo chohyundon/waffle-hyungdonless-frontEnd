@@ -145,3 +145,15 @@
   width: 100%;
   overflow: hidden;
 }
+
+.topIcon{
+  position: absolute;
+  top: 50.5%;
+  right: 5.455%
+}
+
+.bottomIcon{
+  position: absolute;
+  top: 50.5%;
+  right: 5.455%
+}

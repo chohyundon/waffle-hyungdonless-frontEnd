@@ -4,9 +4,14 @@ import { SignUpData } from '../data/SignUpData.ts';
 import { Delay } from '../util/Delay.ts';
 import { useNavigate } from 'react-router';
 import { useSession } from '../util/useSession.ts';
+import openEye from '../../assets/openEye.svg'
+import closeEye from '../../assets/closeEye.svg'
+import { useState } from 'react';
 
 export function SignUpForm() {
   const navigate = useNavigate();
+  const [firstConfirmPasswordState, setFirstConfirmPasswordState] = useState(false);
+  const [secondConfirmPasswordState, setSecondConfirmPasswordState] = useState(false);
 
   const {
     register,
@@ -25,6 +30,14 @@ export function SignUpForm() {
     }
   };
 
+  const confirmPasswordValue = () => {
+    setFirstConfirmPasswordState((prev) => !prev)
+  }
+
+  const confirmPassword = () => {
+    setSecondConfirmPasswordState((prev) => !prev)
+  }
+
   return (
     <form
       className={styles.formContainer}
@@ -33,9 +46,9 @@ export function SignUpForm() {
       <div className={styles.inputContainer}>
         <label className={styles.subTitle}>이메일</label>
         <input
-          type='text'
+          type="text"
           className={styles.inputText}
-          placeholder='example@email.com'
+          placeholder="example@email.com"
           aria-invalid={
             errors.email
               ? 'true'
@@ -58,9 +71,9 @@ export function SignUpForm() {
       <div className={styles.passwordInputContainer}>
         <label className={styles.subTitle}>비밀번호</label>
         <input
-          type='password'
+          type={secondConfirmPasswordState ? 'text' : 'password'}
           className={styles.inputText}
-          placeholder='비밀번호'
+          placeholder="비밀번호"
           aria-invalid={
             errors.password
               ? 'true'
@@ -76,6 +89,8 @@ export function SignUpForm() {
             },
           })}
         />
+        <img src={secondConfirmPasswordState ? openEye : closeEye} alt="비밀번호 확인" onClick={confirmPassword}
+             className={styles.topIcon} />
         {!errors.password && (
           <span className={styles.defaultFont}>
             영문 대·소문자/숫자/특수문자 중 2가지 이상 조합, 8자~32자만
@@ -87,9 +102,9 @@ export function SignUpForm() {
         <span className={styles.passwordError}>{errors.password.message}</span>
       )}
       <input
-        type='password'
+        type={firstConfirmPasswordState ? 'text' : 'password'}
         className={styles.passwordInputText}
-        placeholder='비밀번호 확인'
+        placeholder="비밀번호 확인"
         aria-invalid={
           errors.passwordCheck
             ? 'true'
@@ -107,6 +122,7 @@ export function SignUpForm() {
             value === watch('password') || '비밀번호가 일치 하지 않습니다.',
         })}
       />
+      <img src={firstConfirmPasswordState ? openEye : closeEye} alt='비밀번호 확인' onClick={confirmPasswordValue} className={styles.bottomIcon}/>
       {errors.passwordCheck && (
         <span className={styles.passwordCheckError}>
           {errors.passwordCheck.message}
