@@ -1,9 +1,9 @@
 .container{
-  width: 100%;
   display: flex;
   position: relative;
   padding-top: 1.963%;
-
+  width: 63.698%;
+  margin: 0 auto;
 }
 
 .iconContainer {
