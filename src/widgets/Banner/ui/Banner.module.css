@@ -1,6 +1,37 @@
-.bannerContainer{
-  width: 100%;
+.sliderContainer {
   position: absolute;
-  border: 1px solid black;
+  width: 100%;
   top: 14.815%;
+}
+
+.img {
+  position: relative;
+  width: 100%;
+  box-sizing:border-box;
+  height: 30.556vh;
+}
+
+
+.iconContainer{
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.prevIcon{
+  position: absolute;
+  left: 29%;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nextIcon{
+  position: absolute;
+  right: 29%;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
 }
