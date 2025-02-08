@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router';
 import { NavBarSearchForm } from './NavBarSearchForm';
 import userImg from '../../../shared/assets/icons/userImg.svg'
 import { useState } from 'react';
+import { BottomNavBar } from './BottomNavBar.tsx';
 
 export const NavBar = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -13,7 +14,7 @@ export const NavBar = () => {
   }
 
  return (
-   <div className={styles.container}>
+   <nav className={styles.container}>
      <figure className={styles.iconContainer}>
        <img alt='로고자리' className={styles.icon} />
      </figure>
@@ -33,6 +34,7 @@ export const NavBar = () => {
        <button className={styles.whiteButtonStyles} onClick={moveLoginPage}>로그인</button>
        <button className={styles.buttonStyle} onClick={moveLoginPage}>회원가입</button>
      </div>}
-   </div>
+     <BottomNavBar />
+   </nav>
  );
 };

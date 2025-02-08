@@ -1,4 +1,6 @@
 .bannerContainer{
   width: 100%;
+  position: absolute;
   border: 1px solid black;
+  top: 14.815%;
 }
