@@ -2,12 +2,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Layout } from './Layout.tsx';
 import {LoginHomePage, SearchId} from '../../widgets/Login';
 import {SignUpPage, SignUpFormFirstStep, SignUpFormSecondStep, SignUpFormThirdStep, SignUpFormFourthStep} from '../../widgets/SignUp';
+import { Home } from '../../pages';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    children: [{
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
       path: '/search',
       element: <SearchId />
     }]
