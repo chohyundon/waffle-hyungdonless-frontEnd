@@ -3,6 +3,7 @@ import { Layout } from './Layout.tsx';
 import {LoginHomePage, SearchId} from '../../widgets/Login';
 import {SignUpPage, SignUpFormFirstStep, SignUpFormSecondStep, SignUpFormThirdStep, SignUpFormFourthStep} from '../../widgets/SignUp';
 import { Home } from '../../pages';
+import { MainCenter } from '../../widgets/MainCenter';
 
 const router = createBrowserRouter([
   {
@@ -10,13 +11,20 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        index: true,
+        path: '/',
         element: <Home />,
+        children: [
+          {
+            index:true,
+            element: <MainCenter />,
+          },
+        ],
       },
       {
-      path: '/search',
-      element: <SearchId />
-    }]
+        path: 'search', // 상대 경로로 변경 (앞의 '/' 제거)
+        element: <SearchId />,
+      },
+    ],
   },
   {
     path: '/login',
