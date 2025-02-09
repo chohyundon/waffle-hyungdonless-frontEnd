@@ -207,6 +207,13 @@ table {
     url('./Pretendard-Thin.woff') format('woff');
 }
 
+@font-face {
+  font-family : "Roboto Thin";
+  font-weight: 100;
+  font-display: swap;
+  src: local('Roboto Thin'),url("./Roboto-Thin.tff") format("tff");
+}
+
 :root {
   --color-main-green: #009a57;
   --color-main-green-hover: #00795D;
@@ -221,6 +228,7 @@ table {
   --color-base-white200: #f5f9ff;
   --color-base-black100: #333333;
   --color-base-black200: #515151;
+  --color-base-black400: #002916;
   --color-base-bgColor: #e6f2ef;
   --color-base-red100: #e85b48;
 }
