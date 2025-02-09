@@ -7,11 +7,13 @@ import developmentIcon from '../../../shared/assets/icons/development.svg'
 import QnAIcon from '../../../shared/assets/icons/QnA.svg'
 import welfareIcon from '../../../shared/assets/icons/welfare.svg'
 
-import { Link } from 'react-router';
+import { Link, useParams } from 'react-router';
 
 import { RemainCenter } from '../../remainCenter';
 
 export const MainCenter = () => {
+  const {category} = useParams();
+
  return (
   <main className={styles.mainContainer}>
    <aside className={styles.asideContainer}>
@@ -45,7 +47,7 @@ export const MainCenter = () => {
         <p className={styles.textStyle}>Q&A</p>
       </Link>
     </section>
-    <RemainCenter />
+    {category === undefined && <section className={styles.remainContainer}><RemainCenter /></section> }
   </main>
  );
 };
