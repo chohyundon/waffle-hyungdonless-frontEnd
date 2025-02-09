@@ -4,6 +4,7 @@ import {LoginHomePage, SearchId} from '../../widgets/Login';
 import {SignUpPage, SignUpFormFirstStep, SignUpFormSecondStep, SignUpFormThirdStep, SignUpFormFourthStep} from '../../widgets/SignUp';
 import { Home } from '../../pages';
 import { MainCenter } from '../../widgets/MainCenter';
+import { RemainCenter } from '../../widgets/remainCenter';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
           {
             index:true,
             element: <MainCenter />,
-          },
+      },
+          { path: ':category', element: <RemainCenter /> }
         ],
       },
       {
