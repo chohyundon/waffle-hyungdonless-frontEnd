@@ -31,6 +31,7 @@ export const Banner = () => {
     <section className={styles.sliderContainer}>
       <Swiper
         modules={[Autoplay, Navigation]}
+        effect={"coverflow"}
         slidesPerView={2.5}
         loop={true}
         centeredSlides={true}
