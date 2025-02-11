@@ -1,4 +1,4 @@
-.mainContainer{
+.mainContainer {
   width: 63.698%;
   position: absolute;
   top: 58%;
@@ -7,27 +7,27 @@
   display: flex;
 }
 
-.asideContainer{
+.asideContainer {
   display: flex;
   flex-direction: column;
   gap: 11px;
   width: 23%;
 }
 
-.title{
+.title {
   color: var(--color-base-black100);
   font-weight: 700;
   font-size: 1.75rem;
 }
 
-.subTitle{
+.subTitle {
   font-size: 1rem;
   color: var(--color-base-gray500);
   line-height: 150%;
   white-space: nowrap;
 }
 
-.categoryContainer{
+.categoryContainer {
   display: flex;
   width: 73%;
   text-align: center;
@@ -47,10 +47,10 @@
 }
 
 .iconContainer::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
-  top:50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 148px;
@@ -64,13 +64,15 @@
   border-bottom: 6px solid var(--color-main-green);
 }
 
-.textStyle{
+.textStyle {
   font-size: 1rem;
   color: var(--color-base-black400);
 }
 
-.remainContainer{
-  position: fixed;  /* 또는 absolute */
+.remainContainer {
+  position: fixed; /* 또는 absolute */
   top: 160%;
   left: -30%;
+  border: 1px solid;
+  width: 100%;
 }

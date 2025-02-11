@@ -1,16 +1,16 @@
-import { useRef } from "react";
-import styles from './Banner.module.css'
-import bannerImage from '../../../shared/assets/icons/bannerImg.svg'
-import prevIcon from '../../../shared/assets/icons/leftBannerIcon.svg'
-import nextIcon from '../../../shared/assets/icons/rightBannerIcon.svg'
+import { useRef } from 'react';
+import styles from './Banner.module.css';
+import bannerImage from '../../../shared/assets/icons/bannerImg.svg';
+import prevIcon from '../../../shared/assets/icons/leftBannerIcon.svg';
+import nextIcon from '../../../shared/assets/icons/rightBannerIcon.svg';
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 export const Banner = () => {
   const prevRef = useRef(null);
@@ -41,18 +41,32 @@ export const Banner = () => {
         breakpoints={{
           1820: { spaceBetween: 10 },
           1830: { spaceBetween: 0 },
-          1900: { spaceBetween: -74 }
+          1900: { spaceBetween: -74 },
         }}
       >
         {Array.from({ length: 6 }).map((_, i) => (
           <SwiperSlide key={i}>
-            <img src={bannerImage} alt={`Banner ${i + 1}`} className={styles.img} />
+            <img
+              src={bannerImage}
+              alt={`Banner ${i + 1}`}
+              className={styles.img}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
       <div className={styles.iconContainer}>
-        <img ref={prevRef} src={prevIcon} alt='이전 이미지' className={styles.prevIcon} />
-        <img ref={nextRef} src={nextIcon} alt='다음 이미지' className={styles.nextIcon} />
+        <img
+          ref={prevRef}
+          src={prevIcon}
+          alt='이전 이미지'
+          className={styles.prevIcon}
+        />
+        <img
+          ref={nextRef}
+          src={nextIcon}
+          alt='다음 이미지'
+          className={styles.nextIcon}
+        />
       </div>
     </section>
   );

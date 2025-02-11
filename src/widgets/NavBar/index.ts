@@ -1,2 +1,2 @@
-export {NavBar} from './ui/NavBar'
-export {NavBarSearchForm} from './ui/NavBarSearchForm'
+export { NavBar } from './ui/NavBar';
+export { NavBarSearchForm } from './ui/NavBarSearchForm';

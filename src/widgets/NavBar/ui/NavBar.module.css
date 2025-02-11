@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   position: relative;
   padding-top: 1.963%;
@@ -10,7 +10,7 @@
   width: 8.3402%;
 }
 
-.leftLinkContainer{
+.leftLinkContainer {
   display: flex;
   position: absolute;
   left: 10.46606705%;
@@ -19,7 +19,7 @@
   white-space: nowrap;
 }
 
-.linkfont{
+.linkfont {
   color: var(--color-base-gray500);
   text-decoration: none;
   cursor: pointer;
@@ -27,12 +27,12 @@
   white-space: nowrap;
 }
 
-.linkfont:hover{
+.linkfont:hover {
   color: var(--color-main-green-hover);
   font-weight: 700;
 }
 
-.formContainer{
+.formContainer {
   position: absolute;
   left: 59.44399%;
   display: flex;
@@ -40,7 +40,7 @@
   box-sizing: border-box;
 }
 
-.inputText{
+.inputText {
   width: 100%;
   padding: 0;
   height: 3.334vh;
@@ -61,7 +61,7 @@
   cursor: pointer;
 }
 
-.rightLinkContainer{
+.rightLinkContainer {
   position: absolute;
   right: 0;
   width: 13.43%;
@@ -72,17 +72,17 @@
   align-items: center;
 }
 
-.linkText{
+.linkText {
   text-decoration: none;
-  color: var(--color-base-black100);;
+  color: var(--color-base-black100);
 }
 
-.userImg{
+.userImg {
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
-.whiteButtonStyles{
+.whiteButtonStyles {
   height: 3.426vh;
   padding: 0;
   width: 40.798%;
@@ -92,7 +92,7 @@
   font-size: 0.875rem;
 }
 
-.buttonStyle{
+.buttonStyle {
   display: flex;
   align-items: center;
   font-size: 0.875rem;

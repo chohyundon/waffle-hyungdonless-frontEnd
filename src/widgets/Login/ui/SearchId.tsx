@@ -1,7 +1,3 @@
 export function SearchId() {
-  return (
-    <>
-
-    </>
-  );
+  return <></>;
 }

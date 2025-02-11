@@ -7,12 +7,11 @@
 .img {
   position: relative;
   width: 100%;
-  box-sizing:border-box;
+  box-sizing: border-box;
   height: 30.556vh;
 }
 
-
-.iconContainer{
+.iconContainer {
   position: absolute;
   width: 100%;
   top: 50%;
@@ -20,7 +19,7 @@
   z-index: 1;
 }
 
-.prevIcon{
+.prevIcon {
   position: absolute;
   left: 29%;
   cursor: pointer;
@@ -28,7 +27,7 @@
   transform: translateY(-50%);
 }
 
-.nextIcon{
+.nextIcon {
   position: absolute;
   right: 29%;
   cursor: pointer;

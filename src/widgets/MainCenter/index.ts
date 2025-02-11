@@ -1,1 +1,1 @@
-export  {MainCenter} from './ui/MainCenter'
+export { MainCenter } from './ui/MainCenter';

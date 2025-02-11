@@ -208,23 +208,25 @@ table {
 }
 
 @font-face {
-  font-family : "Roboto Thin";
+  font-family: 'Roboto Thin';
   font-weight: 100;
   font-display: swap;
-  src: local('Roboto Thin'),url("./Roboto-Thin.tff") format("tff");
+  src:
+    local('Roboto Thin'),
+    url('./Roboto-Thin.tff') format('tff');
 }
 
 :root {
   --color-main-green: #009a57;
-  --color-main-green-hover: #00795D;
+  --color-main-green-hover: #00795d;
   --color-base-gray100: #79807c;
   --color-base-gray200: #8b9590;
   --color-base-gray300: #707070;
   --color-base-gray400: #555c62;
   --color-base-gray500: #676767;
-  --color-base-gray600: #E2E2E2;
-  --color-base-gray700: #F2F2F7;
-  --color-base-white: #FDFDFD;
+  --color-base-gray600: #e2e2e2;
+  --color-base-gray700: #f2f2f7;
+  --color-base-white: #fdfdfd;
   --color-base-white200: #f5f9ff;
   --color-base-black100: #333333;
   --color-base-black200: #515151;

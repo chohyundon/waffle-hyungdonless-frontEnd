@@ -1,7 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import { Layout } from './Layout.tsx';
-import {LoginHomePage, SearchId} from '../../widgets/Login';
-import {SignUpPage, SignUpFormFirstStep, SignUpFormSecondStep, SignUpFormThirdStep, SignUpFormFourthStep} from '../../widgets/SignUp';
+import { LoginHomePage, SearchId } from '../../widgets/Login';
+import {
+  SignUpPage,
+  SignUpFormFirstStep,
+  SignUpFormSecondStep,
+  SignUpFormThirdStep,
+  SignUpFormFourthStep,
+} from '../../widgets/SignUp';
 import { Home } from '../../pages';
 import { MainCenter } from '../../widgets/MainCenter';
 import { RemainCenter } from '../../widgets/remainCenter';
@@ -16,10 +22,10 @@ const router = createBrowserRouter([
         element: <Home />,
         children: [
           {
-            index:true,
+            index: true,
             element: <MainCenter />,
-      },
-          { path: ':category', element: <RemainCenter /> }
+          },
+          { path: ':category', element: <RemainCenter /> },
         ],
       },
       {
