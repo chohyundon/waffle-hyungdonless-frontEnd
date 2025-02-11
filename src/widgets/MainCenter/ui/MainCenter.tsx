@@ -7,11 +7,9 @@ import developmentIcon from '../../../shared/assets/icons/development.svg';
 import QnAIcon from '../../../shared/assets/icons/QnA.svg';
 import welfareIcon from '../../../shared/assets/icons/welfare.svg';
 
-import moneyBg from '../../../shared/assets/icons/moneyBg.svg';
-
 import { Link, useParams } from 'react-router';
 
-import { RemainCenter } from '../../remainCenter';
+import { TopBoard } from './TopBoard.tsx';
 
 export const MainCenter = () => {
   const { category } = useParams();
@@ -52,7 +50,9 @@ export const MainCenter = () => {
           <p className={styles.textStyle}>Q&A</p>
         </Link>
       </section>
-      {/*{category === undefined && <><img /></>}*/}
+      {category === undefined &&
+       <TopBoard />
+      }
     </main>
   );
 };
