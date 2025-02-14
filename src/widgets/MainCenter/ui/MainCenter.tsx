@@ -15,7 +15,7 @@ export const MainCenter = () => {
   const { category } = useParams();
 
   return (
-    <main className={styles.mainContainer}>
+    <section className={styles.mainContainer}>
       <aside className={styles.asideContainer}>
         <h1 className={styles.title}>사부작 게시판</h1>
         <p className={styles.subTitle}>
@@ -51,8 +51,8 @@ export const MainCenter = () => {
         </Link>
       </section>
       {category === undefined &&
-       <TopBoard />
+        <TopBoard />
       }
-    </main>
+    </section>
   );
 };

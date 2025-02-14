@@ -1,45 +1,58 @@
 .remainContainer {
   position: absolute;
-  top: 68%;
+  top: 175%;
   width: 100%;
+  height: 100vh;
+}
+
+.image {
+  position: relative;
+  top: 0;
+  left: -28.5%;
 }
 
 .board{
   border: 1px solid var(--color-borderColor-gray100);
   position: absolute;
-  left: 35.209%;
+  top: 0;
+  right: 0;
+  left: 26.8%;
+  width: 73.426%;
   height: 42.32vh;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 46.771%;
-  padding-block: 1.3025%;
-  padding-inline: 2.5524%;
-  top: 0;
-  box-sizing: border-box;
+  padding-inline: 4.007%;
+  padding-block: 2.0447%;
 }
 
-.userNameFont{
-  font-size: 0.875rem;
-  color: var(--color-base-gray800);
-  font-weight: 600;
-}
 
 .boardList{
   display: flex;
   gap: 15px;
   flex-direction: column;
   width: 100%;
-  align-items: center;
-  position: relative;
 }
 
 .boardContainer{
+  height: 7.5vh;
   display: flex;
   align-items: center;
-  height: 7.315vh;
+  position: relative;
   width: 100%;
+}
+
+.boardBottom{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.5px solid var(--color-borderColor-gray100);
+  width: 100%;
+}
+
+.borderNone{
+  border: none;
 }
 
 .badge{
@@ -54,45 +67,42 @@
 .userContainer{
   position: absolute;
   display: flex;
+  left: 11.639%;
   top: 0;
-  left: 11.543%;
   gap: 8px;
+}
+
+.userNameFont{
+  font-size: 0.875rem;
+  color: var(--color-base-gray800);
+  font-weight: 600;
 }
 
 .boardContent{
   position: absolute;
   font-size: 1.125rem;
-  left: 12.462%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 88%;
+  color: var(--color-base-black100);
+  width: 87%;
+  left: 12.565%;
   font-weight: 600;
-}
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
-.boardBottom{
-  flex-direction: column;
-  border-bottom: 0.5px solid var(--color-borderColor-gray100);
-  width: 100%;
-  top: 100%;
-}
-
-.borderNone{
-  border: none;
 }
 
 .iconsContainer{
   position: absolute;
   display: flex;
-  top: 58.95%;
+  top: 74.08%;
   left: 12.565%;
   gap: 15px;
+  width: 100%;
 }
 
 .icons {
   display: flex;
   gap: 7px;
-  align-items: center;
 }
 
 .iconsFont{
@@ -117,23 +127,16 @@
   color: var(--color-base-gray800);
 }
 
-
 @media (max-width: 1700px) {
-  .remainContainer{
-    position: absolute;
-    top: 69%;
-  }
-
   .image{
     position: absolute;
-    left: -4.5%;
+    left: -35%;
   }
-
   .board{
     position: absolute;
     right: 0;
-    width: 47%;
-    top: 10%;
+    width: 74%;
+    left: 30%;
   }
 
   .userContainer{
@@ -151,20 +154,16 @@
 }
 
 @media (max-width: 1500px) {
-  .remainContainer{
-    position: absolute;
-    top: 68%;
-  }
-
   .image{
     position: absolute;
-    left: -7%;
+    left: -40%;
   }
 
-  .board {
+  .board{
     position: absolute;
     right: 0;
-    left: 40%;
+    width: 74%;
+    left: 30%;
   }
 
   .boardContent{
@@ -175,47 +174,14 @@
 @media (max-width: 1400px) {
   .image{
     position: absolute;
-    left: -13%;
+    left: -49%;
   }
 
   .board{
     position: absolute;
     right: 0;
-    width: 54%;
-    left: 35%;
-  }
-
-  .boardContent{
     width: 84%;
-  }
-}
-
-@media (min-width: 1400px) {
-  .image{
-    position: absolute;
-    left: -4.2%;
-  }
-
-  .board{
-    position: absolute;
-    right: 0;
-    width: 47%;
-    left: 37.3%;
-  }
-}
-
-
-@media (max-width: 1100px) {
-  .image{
-    position: absolute;
-    left: -13%;
-  }
-
-  .board{
-    position: absolute;
-    right: 0;
-    width: 54%;
-    left: 50%;
+    left: 26%;
   }
 
   .boardContent{

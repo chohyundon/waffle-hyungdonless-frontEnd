@@ -102,10 +102,15 @@ nav,
 section {
   display: block;
 }
+
+* {
+  font-family: 'Pretendard Regular';
+}
+
 body {
   line-height: 1;
-  font-family: 'Pretendard Medium';
 }
+
 ol,
 ul {
   list-style: none;
@@ -132,7 +137,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard ExtraBold'),
-    url('./Pretendard-ExtraBold.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-ExtraBold.woff') format('woff');
 }
 
 @font-face {
@@ -141,7 +146,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard Black'),
-    url('./Pretendard-Black.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-Black.woff') format('woff');
 }
 
 @font-face {
@@ -150,7 +155,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard Bold'),
-    url('./Pretendard-Bold.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-Bold.woff') format('woff');
 }
 
 @font-face {
@@ -159,7 +164,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard SemiBold'),
-    url('./Pretendard-SemiBold.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-SemiBold.woff') format('woff');
 }
 
 @font-face {
@@ -168,7 +173,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard Regular'),
-    url('./Pretendard-Regular.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -177,7 +182,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard Medium'),
-    url('./Pretendard-Medium.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-Medium.woff') format('woff');
 }
 
 @font-face {
@@ -186,7 +191,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard Light'),
-    url('./Pretendard-Light.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-Light.woff') format('woff');
 }
 
 @font-face {
@@ -195,7 +200,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard ExtraLight'),
-    url('./Pretendard-ExtraLight.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-ExtraLight.woff') format('woff');
 }
 
 @font-face {
@@ -204,7 +209,7 @@ table {
   font-display: swap;
   src:
     local('Pretendard Thin'),
-    url('./Pretendard-Thin.woff') format('woff');
+    url('./app/styles/fonts/Pretendard-Thin.woff') format('woff');
 }
 
 @font-face {
@@ -213,7 +218,7 @@ table {
   font-display: swap;
   src:
     local('Roboto Thin'),
-    url('./Roboto-Thin.tff') format('tff');
+    url('./app/styles/fonts/Roboto-Thin.ttf') format('tff');
 }
 
 :root {

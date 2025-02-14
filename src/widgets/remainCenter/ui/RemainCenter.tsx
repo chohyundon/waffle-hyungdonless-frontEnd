@@ -1,4 +1,3 @@
-import moneyBg from '../../../shared/assets/icons/moneyBg.svg';
 import qnaBg from '../../../shared/assets/icons/qnaBg.svg';
 import freeBg from '../../../shared/assets/icons/freeBg.svg';
 import houseBg from '../../../shared/assets/icons/houseBg.svg';
@@ -16,7 +15,7 @@ import likeIcon from '../../../shared/assets/icons/likeIcon.svg';
 export const RemainCenter = () => {
   const { category } = useParams();
 
-  let imgSrc = moneyBg;
+  let imgSrc = houseBg;
 
   if (category === 'home') imgSrc = houseBg;
   else if (category === 'welfare') imgSrc = welfareBg;
@@ -38,24 +37,24 @@ export const RemainCenter = () => {
               </div>
               <p className={styles.boardContent}>제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
                 제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목</p>
-              {/*<div className={styles.iconsContainer}>*/}
-              {/*  <div className={styles.icons}>*/}
-              {/*    <img src={viewIcon} alt={viewIcon} />*/}
-              {/*    <p className={styles.iconsFont}>106</p>*/}
-              {/*  </div>*/}
-              {/*  <div className={styles.icons}>*/}
-              {/*    <img src={commentIcon} alt={commentIcon} />*/}
-              {/*    <p className={styles.iconsFont}>106</p>*/}
-              {/*  </div>*/}
-              {/*  <div className={styles.icons}>*/}
-              {/*    <img src={likeIcon} alt={likeIcon} />*/}
-              {/*    <p className={styles.iconsFont}>106</p>*/}
-              {/*  </div>*/}
-              {/*  <div className={styles.numbers}>*/}
-              {/*    <span className={styles.bar}></span>*/}
-              {/*    <p className={styles.times}>1시간 전</p>*/}
-              {/*  </div>*/}
-              {/*</div>*/}
+              <div className={styles.iconsContainer}>
+                <div className={styles.icons}>
+                  <img src={viewIcon} alt={viewIcon} />
+                  <p className={styles.iconsFont}>106</p>
+                </div>
+                <div className={styles.icons}>
+                  <img src={commentIcon} alt={commentIcon} />
+                  <p className={styles.iconsFont}>106</p>
+                </div>
+                <div className={styles.icons}>
+                  <img src={likeIcon} alt={likeIcon} />
+                  <p className={styles.iconsFont}>106</p>
+                </div>
+                <div className={styles.numbers}>
+                  <span className={styles.bar}></span>
+                  <p className={styles.times}>1시간 전</p>
+                </div>
+              </div>
             </div>
             <span className={`${styles.boardBottom} ${i === 3 && styles.borderNone}`}></span>
           </div>

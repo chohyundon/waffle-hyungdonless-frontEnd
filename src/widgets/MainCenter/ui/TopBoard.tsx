@@ -1,4 +1,5 @@
-import styles from './MainCenter.module.css';
+import styles from './TopBoard.module.css';
+
 import moneyBg from '../../../shared/assets/icons/moneyBg.svg';
 import userImage from '../../../shared/assets/icons/userImage.svg';
 import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
@@ -12,7 +13,7 @@ export const TopBoard = () => {
      <img src={moneyBg} alt={moneyBg} className={styles.image} />
      <aside className={styles.board}>
        {Array.from({ length: 4 }, (_, i) => (
-         <div className={`${styles.boardList} ${i === 0 && styles.firstBoard}`} key={i}>
+         <div className={styles.boardList}>
            <div className={styles.boardContainer}>
              <p className={styles.badge}>자산증식</p>
              <div className={styles.userContainer}>
