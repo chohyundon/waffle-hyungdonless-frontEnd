@@ -28,7 +28,7 @@
 }
 
 .boardTop3{
-  color: var(--color-main-green-hover);
+  color: var(--color-number-green);
 }
 
 .notboardTop3{
@@ -47,10 +47,6 @@
   align-items: center;
 }
 
-.iconFont{
-  font-size: 0.75rem;
-  color: var(--color-base-black200);
-}
 
 .boardContent{
   position: absolute;
@@ -77,11 +73,11 @@
 
 .iconFont{
   position: relative;
+  font-size: 0.75rem;
+  color: var(--color-base-black200);
   top: 9%;
-  font-size: 0.8125rem;
   font-family: "Roboto Thin", sans-serif;
   font-weight: 500;
-  color: var(--color-base-gray800);
 }
 
 .borderBottom{

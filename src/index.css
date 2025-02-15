@@ -104,7 +104,7 @@ section {
 }
 
 * {
-  font-family: 'Pretendard Regular';
+  font-family: 'Pretendard';
 }
 
 body {
@@ -224,6 +224,7 @@ table {
 :root {
   --color-main-green: #009a57;
   --color-main-green-hover: #00795d;
+  --color-number-green: #007842;
   --color-base-gray100: #79807c;
   --color-base-gray200: #8b9590;
   --color-base-gray300: #707070;
@@ -241,4 +242,5 @@ table {
   --color-base-bgColor: #e6f2ef;
   --color-base-red100: #e85b48;
   --color-borderColor-gray100: #E6E6E6;
+  --color-icon-gray100: #8A8A8A;
 }

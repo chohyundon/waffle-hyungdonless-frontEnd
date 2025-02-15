@@ -10,6 +10,7 @@ import welfareIcon from '../../../shared/assets/icons/welfare.svg';
 import { Link, useParams } from 'react-router';
 
 import { TopBoard } from './TopBoard.tsx';
+import { BottomBoard } from './BottomBoard.tsx';
 
 export const MainCenter = () => {
   const { category } = useParams();
@@ -51,7 +52,10 @@ export const MainCenter = () => {
         </Link>
       </section>
       {category === undefined &&
-        <TopBoard />
+        <>
+          <TopBoard />
+          <BottomBoard />
+        </>
       }
     </section>
   );

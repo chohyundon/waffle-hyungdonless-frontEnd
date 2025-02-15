@@ -1,6 +1,12 @@
 import { TopMain } from './TopMain.tsx';
-import styles from './RemainCenter.module.css'
 import { BottomMain } from './BottomMain.tsx';
+
+import styles from './RemainCenter.module.css'
+
+import downIcon from '../../../shared/assets/icons/downIcon.svg'
+
+import adImage from '../../../shared/assets/icons/ad.svg'
+
 
 export const RemainCenter = () => {
 
@@ -16,6 +22,26 @@ export const RemainCenter = () => {
           </h3>
         </div>
       </article>
+      <aside className={styles.realTimeContainer}>
+        <h1 className={styles.titleContainer}>
+          실시간 <span className={styles.hot}>HOT</span> 키워드
+        </h1>
+        <article className={styles.realTimeboard}>
+          {Array.from({ length: 5 }, (_, i) => {
+            return (
+              <div className={styles.contentBox} key={i}>
+                <h1 className={`${styles.realtimeNumber} ${i <= 2 ? styles.top3 : styles.notTop3}`}>{i + 1}</h1>
+                <p className={styles.realtimeContent}>진서 화이팅</p>
+                <figure className={styles.realtimeRank}>
+                  <img src={downIcon} alt={downIcon} />
+                  <figcaption className={styles.rankNumber}>1</figcaption>
+                </figure>
+              </div>
+            );
+          })}
+        </article>
+        <img src={adImage} alt={adImage} className={styles.image}/>
+      </aside>
       <BottomMain />
     </>
   );

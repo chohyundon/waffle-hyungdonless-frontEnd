@@ -1,0 +1,136 @@
+.titleContainer{
+  position: absolute;
+  display: flex;
+  top: 816%;
+  gap: 24px;
+  align-items: center;
+}
+
+.title{
+  font-weight: 700;
+  color: var(--color-base-black100);
+  font-size: 1.75rem;
+}
+
+.titleFont{
+  color: var(--color-number-green);
+}
+
+.subTitle{
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--color-base-gray500);
+}
+
+.container{
+  position: absolute;
+  border: 1px solid var(--color-borderColor-gray100);
+  width: 66.231%;
+  height: 55.741vh;
+  top: 906%;
+  border-radius: 8px;
+  padding-block: 1.6354%;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.boardContainer{
+  margin: 0 auto;
+  width: 88.119%;
+  height: 8.1484vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.borderBottom{
+  position: absolute;
+  border: 0.5px solid var(--color-borderColor-gray100);
+  width: 100%;
+  top: 121.095%;
+}
+
+.borderNone{
+  border: none;
+}
+
+.boardRankNumber{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.25rem;
+  font-family: "Roboto Thin", sans-serif;
+}
+
+.checkNum{
+  color: var(--color-number-green);
+}
+
+.noneCheck{
+  color: var(--color-base-gray300);
+}
+
+
+.iconContainer{
+  position: absolute;
+  top: 0;
+  left: 6.883%;
+  display: flex;
+  gap: 5px;
+  border: 0.5px solid var(--color-borderColor-gray100);
+  border-radius: 8px;
+  padding: 7px 10px;
+}
+
+.iconFont{
+  font-size: 0.75rem;
+  color: var(--color-base-black200);
+}
+
+.boardContent{
+  top: 50%;
+  position: absolute;
+  left: 6.883%;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-base-black100);
+}
+
+.iconsContainer{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 6.883%;
+  gap: 15px;
+}
+
+.icons{
+  display: flex;
+  bottom: 0;
+  left: 6.883%;
+  gap: 7px;
+}
+
+.iconFont{
+  position: relative;
+  top: 9%;
+  font-size: 0.8125rem;
+  font-family: "Roboto Thin", sans-serif;
+  color: var(--color-base-gray800);
+}
+
+.sideContainer{
+  position: absolute;
+  top: 849%;
+  right: 11%;
+}
+
+.hotTitle{
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.colorTitle{
+  color: var(--color-number-green);
+}
