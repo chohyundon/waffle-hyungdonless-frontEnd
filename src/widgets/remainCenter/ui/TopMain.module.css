@@ -1,0 +1,210 @@
+.remainContainer {
+  position: absolute;
+  top: 68%;
+  width: 100%;
+}
+
+.board{
+  border: 1px solid var(--color-borderColor-gray100);
+  position: absolute;
+  left: 35.209%;
+  height: 42.32vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 46.771%;
+  padding-block: 1.3025%;
+  padding-inline: 2.5524%;
+  top: 0;
+  box-sizing: border-box;
+}
+
+.userNameFont{
+  font-size: 0.875rem;
+  color: var(--color-base-gray800);
+  font-weight: 600;
+}
+
+.boardList{
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.boardContainer{
+  display: flex;
+  align-items: center;
+  height: 7.315vh;
+  width: 100%;
+}
+
+.badge{
+  font-size: 0.75rem;
+  border: 1px solid var(--color-borderColor-gray100);
+  padding: 7.5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  color: var(--color-base-black200);
+}
+
+.userContainer{
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 11.543%;
+  gap: 8px;
+}
+
+.boardContent{
+  position: absolute;
+  font-size: 1.125rem;
+  left: 12.462%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 88%;
+  font-weight: 600;
+}
+
+.boardBottom{
+  flex-direction: column;
+  border-bottom: 0.5px solid var(--color-borderColor-gray100);
+  width: 100%;
+  top: 100%;
+}
+
+.borderNone{
+  border: none;
+}
+
+.iconsContainer{
+  position: absolute;
+  display: flex;
+  top: 58.95%;
+  left: 12.565%;
+  gap: 15px;
+}
+
+.icons {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.iconsFont{
+  font-size: 0.72222222rem;
+  color: var(--color-base-gray800);
+}
+
+.numbers{
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.bar{
+  width: 0.5px;
+  height: 13px;
+  background: var(--color-base-gray900);
+}
+
+.times{
+  font-size: 0.72222222rem;
+  color: var(--color-base-gray800);
+}
+
+
+@media (max-width: 1700px) {
+  .remainContainer{
+    position: absolute;
+    top: 69%;
+  }
+
+  .image{
+    position: absolute;
+    left: -4.5%;
+  }
+
+  .board{
+    position: absolute;
+    right: 0;
+    width: 47%;
+    top: 10%;
+  }
+
+  .userContainer{
+    left: 14.639%;
+    top: 0;
+  }
+
+  .boardContent{
+    left: 16.639%;
+  }
+
+  .iconsContainer{
+    left: 16.639%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .remainContainer{
+    position: absolute;
+    top: 68%;
+  }
+
+  .image{
+    position: absolute;
+    left: -7%;
+  }
+
+  .board {
+    position: absolute;
+    right: 0;
+    left: 40%;
+  }
+
+  .boardContent{
+    width: 84%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .image{
+    position: absolute;
+    left: -13%;
+  }
+
+  .board{
+    position: absolute;
+    right: 0;
+    width: 54%;
+    left: 35%;
+  }
+
+  .boardContent{
+    width: 84%;
+  }
+}
+
+
+@media (max-width: 1100px) {
+  .image{
+    position: absolute;
+    left: -13%;
+  }
+
+  .board{
+    position: absolute;
+    right: 0;
+    width: 54%;
+    left: 50%;
+  }
+
+  .boardContent{
+    width: 84%;
+  }
+}
