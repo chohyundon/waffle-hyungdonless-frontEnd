@@ -134,3 +134,76 @@
 .colorTitle{
   color: var(--color-number-green);
 }
+
+.rankContainer{
+  width: 187.56%;
+  height: 26.389vh;
+  border: 1px solid var(--color-borderColor-gray100);
+  border-radius: 8px;
+  position: absolute;
+  top: 250%;
+  padding: 29px 31px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.rankBoard{
+  display: flex;
+  height: 9.335%;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.contentTitle{
+  font-size: 1.5rem;
+  font-family: "Roboto Thin", sans-serif;
+  font-weight: 600;
+  color: var(--color-icon-gray100);
+  text-align: center;
+  line-height: 21px;
+}
+
+.top3Content{
+  color: var(--color-number-green);
+}
+
+.contentName{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  width: 56.446%;
+  position: absolute;
+  left: 15.557%;
+  top: 5%;
+}
+
+.realtimeRank{
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+
+.realtimeContent{
+  position: absolute;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--color-base-black100);
+  font-size: 1rem;
+  font-weight: 600;
+  height: 100%;
+  left: 15.557%;
+}
+
+.rankNumber{
+  font-size: 0.75rem;
+  color: var(--color-icon-gray100);
+  font-weight: 400;
+  font-family: "Roboto Thin", sans-serif;
+}
+
+.image {
+  position: absolute;
+  top: 1900%;
+}

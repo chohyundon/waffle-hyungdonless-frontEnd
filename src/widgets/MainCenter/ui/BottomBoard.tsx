@@ -5,6 +5,9 @@ import welfareIcon from '../../../shared/assets/icons/welfareMiniIcon.svg';
 import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
 import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
 import likeIcon from '../../../shared/assets/icons/likeIcon.svg';
+import downIcon from '../../../shared/assets/icons/downIcon.svg';
+import adImage from '../../../shared/assets/icons/ad.svg';
+
 // import homeIcon from '../../../shared/assets/icons/homeMiniIcon.svg'
 // import developmentIcon from '../../../shared/assets/icons/developmentMiniIcon.svg'
 // import qnaIcon from '../../../shared/assets/icons/qnaMiniIcon.svg'
@@ -51,6 +54,21 @@ export const BottomBoard = () => {
      </section>
      <aside className={styles.sideContainer}>
        <h1 className={styles.hotTitle}>실시간 <span className={styles.colorTitle}>HOT</span> 키워드</h1>
+       <article className={styles.rankContainer}>
+         {Array.from({ length: 5 }, (_, i) => {
+           return (
+             <div className={styles.rankBoard}>
+               <h1 className={`${styles.contentTitle} ${i <= 2 && styles.top3Content}`}>{i + 1}</h1>
+               <p className={styles.contentName}>돈이 없네</p>
+               <figure className={styles.realtimeRank}>
+                 <img src={downIcon} alt={downIcon} />
+                 <figcaption className={styles.rankNumber}>1</figcaption>
+               </figure>
+             </div>
+           )
+         })}
+       </article>
+       <img src={adImage} alt={adImage} className={styles.image} />
      </aside>
    </>
  );

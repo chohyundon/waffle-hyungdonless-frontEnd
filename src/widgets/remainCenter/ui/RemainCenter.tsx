@@ -6,6 +6,7 @@ import styles from './RemainCenter.module.css'
 import downIcon from '../../../shared/assets/icons/downIcon.svg'
 
 import adImage from '../../../shared/assets/icons/ad.svg'
+import footerImage from '../../../shared/assets/icons/Objects.svg'
 
 
 export const RemainCenter = () => {
@@ -40,9 +41,10 @@ export const RemainCenter = () => {
             );
           })}
         </article>
-        <img src={adImage} alt={adImage} className={styles.image}/>
+        <img src={adImage} alt={adImage} className={styles.image} />
       </aside>
       <BottomMain />
+      <img src={footerImage} alt={footerImage} className={styles.footerImage} />
     </>
   );
 };

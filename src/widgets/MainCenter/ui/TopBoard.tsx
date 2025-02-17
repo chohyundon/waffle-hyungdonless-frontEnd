@@ -13,7 +13,7 @@ export const TopBoard = () => {
      <img src={moneyBg} alt={moneyBg} className={styles.image} />
      <aside className={styles.board}>
        {Array.from({ length: 4 }, (_, i) => (
-         <div className={styles.boardList}>
+         <div className={styles.boardList} key={i}>
            <div className={styles.boardContainer}>
              <p className={styles.badge}>자산증식</p>
              <div className={styles.userContainer}>

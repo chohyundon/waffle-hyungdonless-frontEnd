@@ -7,6 +7,8 @@ import developmentIcon from '../../../shared/assets/icons/development.svg';
 import QnAIcon from '../../../shared/assets/icons/QnA.svg';
 import welfareIcon from '../../../shared/assets/icons/welfare.svg';
 
+import footerImage from '../../../shared/assets/icons/Objects.svg'
+
 import { Link, useParams } from 'react-router';
 
 import { TopBoard } from './TopBoard.tsx';
@@ -55,6 +57,7 @@ export const MainCenter = () => {
         <>
           <TopBoard />
           <BottomBoard />
+          <img src={footerImage} alt={footerImage} className={styles.image}/>
         </>
       }
     </section>

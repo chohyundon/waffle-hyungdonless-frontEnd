@@ -69,3 +69,8 @@
   color: var(--color-base-black400);
 }
 
+
+.image{
+  position: absolute;
+  top: 1779.313%;
+}
