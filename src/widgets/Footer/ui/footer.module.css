@@ -1,0 +1,127 @@
+.container {
+  position: absolute;
+  top: 230%;
+  width: 100%;
+  height: 27.963vh;
+  background: var(--color-main-green);
+  color: white;
+}
+
+.footerContainer{
+  width: 63.8023%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.listContainer{
+  display: flex;
+  position: absolute;
+  top: 22.85%;
+  gap: 32px;
+  white-space: nowrap;
+}
+
+.fontSize{
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footerTitle{
+  position: absolute;
+  top: 40.729%;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.secondTitle{
+  position: absolute;
+  top: 40.729%;
+  left: 64.2853%;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: "Roboto Thin", sans-serif;
+}
+
+.bottomListContainer{
+  display: flex;
+  position: absolute;
+  top: 57.618%;
+  width: 26%;
+  white-space: nowrap;
+  column-gap: 25px;
+  flex-wrap: wrap;
+}
+
+.fontSizes{
+  font-family: "Roboto Thin", sans-serif;
+  font-size: 1rem;
+  line-height: 29px;
+  font-weight: 400;
+}
+
+.leftButtonContainer{
+  width: 8.14%;
+  height: 3.797vh;
+  border: none;
+  padding: 0;
+  border-radius: 27.5px;
+  cursor: pointer;
+  position: absolute;
+  top: 57.618%;
+  left: 64.2853%;
+  color: var(--color-base-black100);
+  font-weight: 600;
+}
+
+.rightButtonContainer{
+  position: absolute;
+  left: 73.698%;
+  width: 8.14%;
+  height: 3.797vh;
+  padding: 0;
+  border: none;
+  top: 57.618%;
+  border-radius: 27.5px;
+  cursor: pointer;
+  color: var(--color-base-black100);
+  font-weight: 600;
+}
+
+.imgContainer{
+  position: absolute;
+  top: 76.822%;
+  left: 74.5313%;
+  background: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.imgContainer1{
+  position: absolute;
+  top: 76.822%;
+  left: 77.1355%;
+  background: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.imgContainer2{
+  position: absolute;
+  top: 76.822%;
+  left: 80%;
+  background: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.cameraIcon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
