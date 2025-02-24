@@ -11,6 +11,7 @@ import {
 import { Home } from '../../pages';
 import { MainCenter } from '../../widgets/MainCenter';
 import { RemainCenter } from '../../widgets/remainCenter';
+import { NotFound } from '../../widgets/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: 'search', // 상대 경로로 변경 (앞의 '/' 제거)
+        path: 'search',
         element: <SearchId />,
       },
     ],
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
     path: '/login',
     element: <LoginHomePage />,
   },
+  {path: 'notfound', element: <NotFound />},
   {
     path: '/signup',
     element: <SignUpPage />,
