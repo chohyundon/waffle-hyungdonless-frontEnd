@@ -6,7 +6,7 @@ import developmentBg from '../../../shared/assets/icons/developmentBg.svg';
 
 import { useParams } from 'react-router';
 
-import styles from './TopMain.module.css'
+import styles from './TopMain.module.css';
 import userImage from '../../../shared/assets/icons/userImage.svg';
 import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
 import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
@@ -35,8 +35,10 @@ export const TopMain = () => {
                 <img src={userImage} alt={userImage} width={20} height={20} />
                 <span className={styles.userNameFont}>userName</span>
               </div>
-              <p className={styles.boardContent}>제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
-                제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목</p>
+              <p className={styles.boardContent}>
+                제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
+                제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
+              </p>
               <div className={styles.iconsContainer}>
                 <div className={styles.icons}>
                   <img src={viewIcon} alt={viewIcon} />
@@ -56,12 +58,12 @@ export const TopMain = () => {
                 </div>
               </div>
             </div>
-            <span className={`${styles.boardBottom} ${i === 3 && styles.borderNone}`}></span>
+            <span
+              className={`${styles.boardBottom} ${i === 3 && styles.borderNone}`}
+            ></span>
           </div>
         ))}
       </aside>
     </section>
   );
 };
-
-

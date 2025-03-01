@@ -232,8 +232,8 @@ table {
   --color-base-gray500: #676767;
   --color-base-gray600: #e2e2e2;
   --color-base-gray700: #f2f2f7;
-  --color-base-gray800: #ADADAD;
-  --color-base-gray900: #B8B8B8;
+  --color-base-gray800: #adadad;
+  --color-base-gray900: #b8b8b8;
   --color-base-white: #fdfdfd;
   --color-base-white200: #f5f9ff;
   --color-base-black100: #333333;
@@ -241,6 +241,6 @@ table {
   --color-base-black400: #002916;
   --color-base-bgColor: #e6f2ef;
   --color-base-red100: #e85b48;
-  --color-borderColor-gray100: #E6E6E6;
-  --color-icon-gray100: #8A8A8A;
+  --color-borderColor-gray100: #e6e6e6;
+  --color-icon-gray100: #8a8a8a;
 }

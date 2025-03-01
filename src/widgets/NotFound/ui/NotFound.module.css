@@ -1,11 +1,10 @@
-.container{
+.container {
   width: 100%;
   height: 100vh;
   position: relative;
 }
 
-
-.mainContainer{
+.mainContainer {
   position: absolute;
   top: 35%;
   left: 50%;
@@ -16,7 +15,7 @@
   gap: 25px;
 }
 
-.title{
+.title {
   display: flex;
   font-size: 2.5rem;
   text-align: center;
@@ -28,7 +27,7 @@
   color: var(--color-main-green-hover);
 }
 
-.subTitle{
+.subTitle {
   position: absolute;
   top: 105%;
   text-align: center;
@@ -37,7 +36,7 @@
   color: var(--color-base-gray500);
 }
 
-.buttonContainer{
+.buttonContainer {
   position: absolute;
   top: 135%;
   padding: 10px 40px 10px 50px;
@@ -48,16 +47,15 @@
   align-items: center;
 }
 
-.button{
+.button {
   border: none;
   background: var(--color-main-green);
   color: white;
   font-size: 1rem;
   font-weight: 700;
-
 }
 
-.footerContainer{
+.footerContainer {
   position: absolute;
   width: 100%;
   top: 72%;

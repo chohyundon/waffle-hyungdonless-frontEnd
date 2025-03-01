@@ -19,7 +19,7 @@ export const NavBar = () => {
         <img alt='로고자리' className={styles.icon} />
       </figure>
       <div className={styles.leftLinkContainer}>
-        <Link to='/' className={styles.linkfont}>
+        <Link to='/board' className={styles.linkfont}>
           사부작 게시판
         </Link>
         <Link to='/' className={styles.linkfont}>

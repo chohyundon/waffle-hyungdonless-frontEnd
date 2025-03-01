@@ -17,7 +17,7 @@
 .title {
   color: var(--color-base-black100);
   font-weight: 700;
-  font-size: 1.75rem;;
+  font-size: 1.75rem;
 }
 
 .subTitle {
@@ -69,8 +69,7 @@
   color: var(--color-base-black400);
 }
 
-
-.image{
+.image {
   position: absolute;
   top: 1779.313%;
 }

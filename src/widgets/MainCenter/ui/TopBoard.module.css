@@ -11,7 +11,7 @@
   left: -28.5%;
 }
 
-.board{
+.board {
   border: 1px solid var(--color-borderColor-gray100);
   position: absolute;
   top: 0;
@@ -27,15 +27,14 @@
   padding-block: 2.0447%;
 }
 
-
-.boardList{
+.boardList {
   display: flex;
   gap: 15px;
   flex-direction: column;
   width: 100%;
 }
 
-.boardContainer{
+.boardContainer {
   height: 7.5vh;
   display: flex;
   align-items: center;
@@ -43,7 +42,7 @@
   width: 100%;
 }
 
-.boardBottom{
+.boardBottom {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -51,11 +50,11 @@
   width: 100%;
 }
 
-.borderNone{
+.borderNone {
   border: none;
 }
 
-.badge{
+.badge {
   font-size: 0.75rem;
   border: 1px solid var(--color-borderColor-gray100);
   padding: 7.5px 10px;
@@ -64,7 +63,7 @@
   color: var(--color-base-black200);
 }
 
-.userContainer{
+.userContainer {
   position: absolute;
   display: flex;
   left: 11.639%;
@@ -72,13 +71,13 @@
   gap: 8px;
 }
 
-.userNameFont{
+.userNameFont {
   font-size: 0.875rem;
   color: var(--color-base-gray800);
   font-weight: 600;
 }
 
-.boardContent{
+.boardContent {
   position: absolute;
   font-size: 1.125rem;
   color: var(--color-base-black100);
@@ -88,10 +87,9 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-
 }
 
-.iconsContainer{
+.iconsContainer {
   position: absolute;
   display: flex;
   top: 74.08%;
@@ -105,86 +103,86 @@
   gap: 7px;
 }
 
-.iconsFont{
+.iconsFont {
   font-size: 0.72222222rem;
   color: var(--color-base-gray800);
 }
 
-.numbers{
+.numbers {
   display: flex;
   gap: 13px;
   align-items: center;
 }
 
-.bar{
+.bar {
   width: 0.5px;
   height: 13px;
   background: var(--color-base-gray900);
 }
 
-.times{
+.times {
   font-size: 0.72222222rem;
   color: var(--color-base-gray800);
 }
 
 @media (max-width: 1700px) {
-  .image{
+  .image {
     position: absolute;
     left: -35%;
   }
-  .board{
+  .board {
     position: absolute;
     right: 0;
     width: 74%;
     left: 30%;
   }
 
-  .userContainer{
+  .userContainer {
     left: 14.639%;
     top: 0;
   }
 
-  .boardContent{
+  .boardContent {
     left: 16.639%;
   }
 
-  .iconsContainer{
+  .iconsContainer {
     left: 16.639%;
   }
 }
 
 @media (max-width: 1500px) {
-  .image{
+  .image {
     position: absolute;
     left: -40%;
   }
 
-  .board{
+  .board {
     position: absolute;
     right: 0;
     width: 74%;
     left: 30%;
   }
 
-  .boardContent{
+  .boardContent {
     width: 84%;
   }
 }
 
 @media (max-width: 1400px) {
-  .image{
+  .image {
     position: absolute;
     left: -49%;
   }
 
-  .board{
+  .board {
     position: absolute;
     right: 0;
     width: 84%;
     left: 26%;
   }
 
-  .boardContent{
+  .boardContent {
     width: 84%;
   }
 }

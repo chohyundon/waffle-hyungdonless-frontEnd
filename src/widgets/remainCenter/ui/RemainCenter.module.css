@@ -1,4 +1,4 @@
-.container{
+.container {
   position: absolute;
   top: 120.6488%;
   width: 63.698%;
@@ -7,7 +7,7 @@
   transform: translateX(-50%);
 }
 
-.titleBox{
+.titleBox {
   display: flex;
   align-items: center;
 }
@@ -18,35 +18,35 @@
   color: var(--color-base-black100);
 }
 
-.textStyle{
+.textStyle {
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-number-green);
 }
 
-.subTitle{
+.subTitle {
   position: absolute;
   left: 12.63%;
   line-height: 150%;
 }
 
-.realTimeContainer{
+.realTimeContainer {
   position: absolute;
   top: 122.2225%;
   left: 66.875%;
 }
 
-.titleContainer{
+.titleContainer {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-base-black100);
 }
 
-.hot{
+.hot {
   color: var(--color-number-green);
 }
 
-.realTimeboard{
+.realTimeboard {
   border: 1px solid var(--color-borderColor-gray100);
   position: absolute;
   height: 26.389vh;
@@ -59,27 +59,27 @@
   top: 260%;
 }
 
-.contentBox{
+.contentBox {
   position: relative;
   display: flex;
   height: 9.78%;
 }
 
-.realtimeNumber{
+.realtimeNumber {
   font-size: 1.5rem;
-  font-family: "Roboto Thin", sans-serif;
+  font-family: 'Roboto Thin', sans-serif;
 }
 
-.top3{
+.top3 {
   color: var(--color-number-green);
   font-weight: 600;
 }
 
-.notTop3{
+.notTop3 {
   color: var(--color-base-gray300);
 }
 
-.realtimeContent{
+.realtimeContent {
   position: absolute;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -90,25 +90,25 @@
   left: 15.557%;
 }
 
-.realtimeRank{
+.realtimeRank {
   position: absolute;
   right: 0;
   width: 11.114%;
   display: flex;
 }
 
-.rankNumber{
+.rankNumber {
   font-size: 0.75rem;
   font-weight: 400;
   color: var(--color-icon-gray100);
 }
 
-.image{
+.image {
   position: absolute;
   top: 1900%;
 }
 
-.footerImage{
+.footerImage {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

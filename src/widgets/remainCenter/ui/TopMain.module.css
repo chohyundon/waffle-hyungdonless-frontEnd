@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-.board{
+.board {
   border: 1px solid var(--color-borderColor-gray100);
   position: absolute;
   left: 35.209%;
@@ -20,13 +20,13 @@
   box-sizing: border-box;
 }
 
-.userNameFont{
+.userNameFont {
   font-size: 0.875rem;
   color: var(--color-base-gray800);
   font-weight: 600;
 }
 
-.boardList{
+.boardList {
   display: flex;
   gap: 15px;
   flex-direction: column;
@@ -35,14 +35,14 @@
   position: relative;
 }
 
-.boardContainer{
+.boardContainer {
   display: flex;
   align-items: center;
   height: 7.315vh;
   width: 100%;
 }
 
-.badge{
+.badge {
   font-size: 0.75rem;
   border: 1px solid var(--color-borderColor-gray100);
   padding: 7.5px 10px;
@@ -51,7 +51,7 @@
   color: var(--color-base-black200);
 }
 
-.userContainer{
+.userContainer {
   position: absolute;
   display: flex;
   top: 0;
@@ -59,7 +59,7 @@
   gap: 8px;
 }
 
-.boardContent{
+.boardContent {
   position: absolute;
   font-size: 1.125rem;
   left: 12.462%;
@@ -70,18 +70,18 @@
   font-weight: 600;
 }
 
-.boardBottom{
+.boardBottom {
   flex-direction: column;
   border-bottom: 0.5px solid var(--color-borderColor-gray100);
   width: 100%;
   top: 100%;
 }
 
-.borderNone{
+.borderNone {
   border: none;
 }
 
-.iconsContainer{
+.iconsContainer {
   position: absolute;
   display: flex;
   top: 58.95%;
@@ -95,68 +95,67 @@
   align-items: center;
 }
 
-.iconsFont{
+.iconsFont {
   font-size: 0.72222222rem;
   color: var(--color-base-gray800);
 }
 
-.numbers{
+.numbers {
   display: flex;
   gap: 13px;
   align-items: center;
 }
 
-.bar{
+.bar {
   width: 0.5px;
   height: 13px;
   background: var(--color-base-gray900);
 }
 
-.times{
+.times {
   font-size: 0.72222222rem;
   color: var(--color-base-gray800);
 }
 
-
 @media (max-width: 1700px) {
-  .remainContainer{
+  .remainContainer {
     position: absolute;
     top: 69%;
   }
 
-  .image{
+  .image {
     position: absolute;
     left: -4.5%;
   }
 
-  .board{
+  .board {
     position: absolute;
     right: 0;
     width: 47%;
     top: 10%;
   }
 
-  .userContainer{
+  .userContainer {
     left: 14.639%;
     top: 0;
   }
 
-  .boardContent{
+  .boardContent {
     left: 16.639%;
   }
 
-  .iconsContainer{
+  .iconsContainer {
     left: 16.639%;
   }
 }
 
 @media (max-width: 1500px) {
-  .remainContainer{
+  .remainContainer {
     position: absolute;
     top: 68%;
   }
 
-  .image{
+  .image {
     position: absolute;
     left: -7%;
   }
@@ -167,44 +166,43 @@
     left: 40%;
   }
 
-  .boardContent{
+  .boardContent {
     width: 84%;
   }
 }
 
 @media (max-width: 1400px) {
-  .image{
+  .image {
     position: absolute;
     left: -13%;
   }
 
-  .board{
+  .board {
     position: absolute;
     right: 0;
     width: 54%;
     left: 35%;
   }
 
-  .boardContent{
+  .boardContent {
     width: 84%;
   }
 }
 
-
 @media (max-width: 1100px) {
-  .image{
+  .image {
     position: absolute;
     left: -13%;
   }
 
-  .board{
+  .board {
     position: absolute;
     right: 0;
     width: 54%;
     left: 50%;
   }
 
-  .boardContent{
+  .boardContent {
     width: 84%;
   }
 }

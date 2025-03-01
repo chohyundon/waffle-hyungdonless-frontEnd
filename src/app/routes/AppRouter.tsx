@@ -12,6 +12,7 @@ import { Home } from '../../pages';
 import { MainCenter } from '../../widgets/MainCenter';
 import { RemainCenter } from '../../widgets/remainCenter';
 import { NotFound } from '../../widgets/NotFound';
+import { BoardList } from '../../widgets/Board';
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,11 @@ const router = createBrowserRouter([
     path: '/login',
     element: <LoginHomePage />,
   },
-  {path: 'notfound', element: <NotFound />},
+  {
+    path: '/board',
+    element: <BoardList />,
+  },
+  { path: 'notfound', element: <NotFound /> },
   {
     path: '/signup',
     element: <SignUpPage />,

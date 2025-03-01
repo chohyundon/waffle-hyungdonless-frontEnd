@@ -7,7 +7,7 @@ import developmentIcon from '../../../shared/assets/icons/development.svg';
 import QnAIcon from '../../../shared/assets/icons/QnA.svg';
 import welfareIcon from '../../../shared/assets/icons/welfare.svg';
 
-import footerImage from '../../../shared/assets/icons/Objects.svg'
+import footerImage from '../../../shared/assets/icons/Objects.svg';
 
 import { Link, useParams } from 'react-router';
 
@@ -53,13 +53,13 @@ export const MainCenter = () => {
           <p className={styles.textStyle}>Q&A</p>
         </Link>
       </section>
-      {category === undefined &&
+      {category === undefined && (
         <>
           <TopBoard />
           <BottomBoard />
-          <img src={footerImage} alt={footerImage} className={styles.image}/>
+          <img src={footerImage} alt={footerImage} className={styles.image} />
         </>
-      }
+      )}
     </section>
   );
 };
