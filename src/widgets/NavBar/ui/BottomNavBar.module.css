@@ -1,16 +1,17 @@
 .bottomNavContainer {
   width: 100%;
   position: absolute;
-  height: 4.63vh;
-  top: 134.12%;
+  height: 4.445vh;
+  background: var(--color-base-gray700);
 }
 
 .categoryContainer {
-  width: 100%;
+  width: 63.698%;
   height: 100%;
   display: flex;
   align-items: center;
   gap: 24px;
+  margin: 0 auto;
 }
 
 .icon {
@@ -23,6 +24,9 @@
   font-weight: 700;
 }
 
-.categoryFont:hover {
+.pickFont {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--color-main-green-hover);
 }

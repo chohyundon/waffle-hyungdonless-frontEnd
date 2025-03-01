@@ -1,5 +1,5 @@
 import styles from './NavBar.module.css';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import { NavBarSearchForm } from './NavBarSearchForm';
 import userImg from '../../../shared/assets/icons/userImg.svg';
 import { useState } from 'react';
@@ -8,18 +8,23 @@ import { BottomNavBar } from './BottomNavBar.tsx';
 export const NavBar = () => {
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
+  const { category } = useParams();
 
   const moveLoginPage = () => {
     navigate('/login');
   };
 
   return (
-    <nav className={styles.container}>
-      <figure className={styles.iconContainer}>
+    <nav>
+    <div className={styles.container}>
+      <figure className={styles.iconContainer} onClick={() => navigate('/')}>
         <img alt='로고자리' className={styles.icon} />
       </figure>
       <div className={styles.leftLinkContainer}>
-        <Link to='/board' className={styles.linkfont}>
+        <Link
+          to='/board/money'
+          className={category ? styles.pickFont : styles.linkfont}
+        >
           사부작 게시판
         </Link>
         <Link to='/' className={styles.linkfont}>
@@ -52,6 +57,7 @@ export const NavBar = () => {
           </button>
         </div>
       )}
+    </div>
       <BottomNavBar />
     </nav>
   );

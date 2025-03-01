@@ -13,6 +13,7 @@ import { MainCenter } from '../../widgets/MainCenter';
 import { RemainCenter } from '../../widgets/remainCenter';
 import { NotFound } from '../../widgets/NotFound';
 import { BoardList } from '../../widgets/Board';
+// import { BoardHome } from '../../widgets/Board/BoardHome'; // 추가할 컴포넌트
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,13 @@ const router = createBrowserRouter([
   {
     path: '/board',
     element: <BoardList />,
+    children: [
+      { path: ':category', element: <BoardList />, children: [
+          { path: ':detail', children: [{
+            path: ':latest'
+            }] },
+        ]},
+    ],
   },
   { path: 'notfound', element: <NotFound /> },
   {

@@ -1,9 +1,10 @@
 .container {
   display: flex;
   position: relative;
-  padding-top: 1.963%;
   width: 63.698%;
   margin: 0 auto;
+  height: 7.0375vh;
+  align-items: center;
 }
 
 .iconContainer {
@@ -21,6 +22,14 @@
 
 .linkfont {
   color: var(--color-base-gray500);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.pickFont {
+  color: var(--color-main-green-hover);
   text-decoration: none;
   cursor: pointer;
   font-size: 1rem;

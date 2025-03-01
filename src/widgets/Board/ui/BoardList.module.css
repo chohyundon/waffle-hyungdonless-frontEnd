@@ -1,0 +1,15 @@
+.boardContainer {
+  height: 100vh;
+  position: relative;
+}
+
+.navContainer {
+  position: absolute;
+  width: 100%;
+}
+
+.footerContainer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
