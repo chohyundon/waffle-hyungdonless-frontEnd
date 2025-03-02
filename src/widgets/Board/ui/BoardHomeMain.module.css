@@ -20,6 +20,12 @@
   color: var(--color-base-gray800);
 }
 
+.activeFont{
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-base-black200);
+}
+
 .activeStyle{
   font-size: 0.8125rem;
   color: var(--color-base-black100);
@@ -98,3 +104,4 @@
   font-size: 0.875rem;
   font-weight: 600;
 }
+

@@ -1,17 +1,33 @@
 import styles from './NavBar.module.css';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useLocation, useNavigate, useParams } from 'react-router';
 import { NavBarSearchForm } from './NavBarSearchForm';
 import userImg from '../../../shared/assets/icons/userImg.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BottomNavBar } from './BottomNavBar.tsx';
 
 export const NavBar = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const { category } = useParams();
+  const location = useLocation();
+  console.log(location);
 
   const moveLoginPage = () => {
     navigate('/login');
+  };
+
+
+  useEffect(() => {
+    if (location.pathname.startsWith('/board')) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  }, [location.pathname]);
+
+  const moveBoardPage = () => {
+    navigate('/board/money');
   };
 
   return (
@@ -20,20 +36,20 @@ export const NavBar = () => {
       <figure className={styles.iconContainer} onClick={() => navigate('/')}>
         <img alt='로고자리' className={styles.icon} />
       </figure>
-      <div className={styles.leftLinkContainer}>
-        <Link
-          to='/board/money'
+      <ul className={styles.leftLinkContainer}>
+        <li
+          onClick={moveBoardPage}
           className={category ? styles.pickFont : styles.linkfont}
         >
           사부작 게시판
-        </Link>
-        <Link to='/' className={styles.linkfont}>
+        </li>
+        <li className={styles.linkfont}>
           캘린더
-        </Link>
-        <Link to='/' className={styles.linkfont}>
+        </li>
+        <li className={styles.linkfont}>
           사부작 순위
-        </Link>
-      </div>
+        </li>
+      </ul>
       <NavBarSearchForm />
       {isLogin ? (
         <div className={styles.rightLinkContainer}>
@@ -58,7 +74,7 @@ export const NavBar = () => {
         </div>
       )}
     </div>
-      <BottomNavBar />
+      {show && <BottomNavBar /> }
     </nav>
   );
 };

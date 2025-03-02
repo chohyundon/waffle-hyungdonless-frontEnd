@@ -72,7 +72,7 @@ export const BottomBoard = () => {
         <article className={styles.rankContainer}>
           {Array.from({ length: 5 }, (_, i) => {
             return (
-              <div className={styles.rankBoard}>
+              <div className={styles.rankBoard} key={i}>
                 <h1
                   className={`${styles.contentTitle} ${i <= 2 && styles.top3Content}`}
                 >

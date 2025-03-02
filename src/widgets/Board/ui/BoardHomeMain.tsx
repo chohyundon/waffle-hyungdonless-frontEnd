@@ -6,7 +6,7 @@ import smallCheck from '../../../shared/assets/icons/smallCheck.svg'
 import noneSmallCheck from '../../../shared/assets/icons/noneSmallCheck.svg'
 
 export const BoardHomeMain = () => {
-  const { category, detail } = useParams();
+  const { category, detail, latest } = useParams();
   const navigate = useNavigate();
 
 
@@ -54,8 +54,8 @@ export const BoardHomeMain = () => {
               key={key}
               onClick={() => navigate(`/board/${category}/${detail}/${key}`)}
             >
-              <img src={noneSmallCheck} alt="icon" className={styles.icon} />
-              <li className={styles.listFont}>{value}</li>
+              <img src={key === latest ? smallCheck:  noneSmallCheck} alt="icon" className={styles.icon} />
+              <li className={key === latest ? styles.activeFont : styles.listFont}>{value}</li>
             </div>
           ))}
         </ul>
