@@ -6,9 +6,9 @@ export default function App() {
 
   return (
     <>
-      <QueryClientProvider client={queryClient}>
+      <QuerxClientProvider client={queryClient}>
         <Home />
-      </QueryClientProvider>
+      </QuerxClientProvider>
     </>
   );
 }

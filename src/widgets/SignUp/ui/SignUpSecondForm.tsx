@@ -16,7 +16,7 @@ export const SignUpSecondForm = () => {
 
   const [resultData, setResultData] = useState({
     status: '',
-    verificationCode: '',
+    data: '',
   });
 
   const navigate = useNavigate();
@@ -57,10 +57,10 @@ export const SignUpSecondForm = () => {
     }
 
     if (name === 'checkNumber') {
-      if (value.trim() === '' && value !== resultData.verificationCode) {
+      if (value.trim() === '' && value !== resultData.data) {
         setCheckNumberValid(false);
       } else {
-        setCheckNumberValid(value === resultData.verificationCode);
+        setCheckNumberValid(value === resultData.data);
       }
     }
   };
@@ -96,6 +96,8 @@ export const SignUpSecondForm = () => {
   };
 
   const isFormValid = nameValid && numberValid && checkNumberValid;
+
+  console.log(isFormValid);
 
   const postData = {
     email: userData && JSON.parse(userData).email,
@@ -183,7 +185,7 @@ export const SignUpSecondForm = () => {
         name='checkNumber'
         value={inputValue.checkNumber}
         onChange={inputChange}
-        disabled={resultData.verificationCode === '' || checkNumberValid}
+        disabled={resultData.data === '' || checkNumberValid}
       />
       <span className={styles.goodFont}>
         {checkNumberValid && `인증번호가 확인 되었습니다`}

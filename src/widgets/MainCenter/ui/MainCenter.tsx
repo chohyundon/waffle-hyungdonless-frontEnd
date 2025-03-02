@@ -16,7 +16,6 @@ import { BottomBoard } from './BottomBoard.tsx';
 
 export const MainCenter = () => {
   const { category } = useParams();
-
   return (
     <section className={styles.mainContainer}>
       <aside className={styles.asideContainer}>

@@ -45,11 +45,20 @@ const router = createBrowserRouter([
     path: '/board',
     element: <BoardList />,
     children: [
-      { path: ':category', element: <BoardList />, children: [
-          { path: ':detail', children: [{
-            path: ':latest'
-            }] },
-        ]},
+      {
+        path: ':category',
+        element: <BoardList />,
+        children: [
+          {
+            path: ':detail',
+            children: [
+              {
+                path: ':latest',
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
   { path: 'notfound', element: <NotFound /> },

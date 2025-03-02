@@ -1,4 +1,4 @@
-.container{
+.container {
   display: flex;
   position: absolute;
   left: 22%;
@@ -7,32 +7,32 @@
   top: 0;
 }
 
-.listContainer{
+.listContainer {
   display: flex;
   gap: 5px;
   justify-content: center;
   position: absolute;
 }
 
-.listFont{
+.listFont {
   font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-base-gray800);
 }
 
-.activeFont{
+.activeFont {
   font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-base-black200);
 }
 
-.activeStyle{
+.activeStyle {
   font-size: 0.8125rem;
   color: var(--color-base-black100);
   font-weight: 600;
 }
 
-.topBoxContainer{
+.noneTopBoxContainer{
   position: absolute;
   width: 100%;
   border: 1px solid var(--color-borderColor-gray100);
@@ -42,7 +42,17 @@
   background: var(--color-base-white);
 }
 
-.title{
+.topBoxContainer {
+  position: absolute;
+  width: 100%;
+  border: 1px solid var(--color-borderColor-gray100);
+  height: 19.167%;
+  top: 2.4%;
+  border-radius: 8px;
+  background: var(--color-base-white);
+}
+
+.title {
   position: absolute;
   top: 12.99%;
   left: 3.837%;
@@ -51,24 +61,63 @@
   color: var(--color-icon-gray100);
 }
 
-.loginContainer{
+.isLoginContainer{
+  position: absolute;
+  top: 23.415%;
+  left: 2.837%;
+}
+
+.listText{
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-base-black200);
+}
+
+.colorFont{
+  color: #007441;
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.isLoginRightContainer{
+  position: absolute;
+  top: 23.415%;
+  left: 16.474%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.loginTitle{
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #ECB67D;
+}
+
+.loginSubtitle{
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-base-black100);
+}
+
+.loginContainer {
   position: absolute;
   top: 31.17%;
   left: 3.837%;
 }
 
-.login{
+.login {
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-.button{
+.button {
   position: absolute;
   left: 3.837%;
   border: none;
   background: var(--color-main-green);
   color: white;
-  top: 51.95%;
+  top: 10.95%;
   padding: 14px 89px;
   display: flex;
   align-items: center;
@@ -79,9 +128,30 @@
   font-size: 1rem;
   font-weight: 600;
   justify-content: center;
+  gap: 10px;
 }
 
-.bottomList{
+.buttons{
+  position: absolute;
+  left: 3.837%;
+  border: none;
+  background: var(--color-main-green);
+  color: white;
+  top: 14.95%;
+  padding: 14px 89px;
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  width: 92.711%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  justify-content: center;
+  gap: 15px;
+}
+
+.bottomList {
   position: absolute;
   top: 18%;
   display: flex;
@@ -90,18 +160,37 @@
   padding: 5px;
 }
 
-.icon{
+.bottomLists{
+  position: absolute;
+  top: 22%;
+  display: flex;
+  gap: 15px;
+  left: 5%;
+  padding: 5px;
+}
+
+.icon {
   border-radius: 50%;
 }
 
-.bottomLostContainer{
+.bottomLostContainer {
   display: flex;
   align-items: center;
   gap: 7px;
 }
 
-.bottomListFont{
+.bottomListFont {
   font-size: 0.875rem;
   font-weight: 600;
 }
 
+
+.userList{
+  display: flex;
+  gap: 15px;
+}
+
+.userListMini{
+  display: flex;
+  gap: 7px;
+}
