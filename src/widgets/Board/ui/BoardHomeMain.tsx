@@ -7,7 +7,7 @@ import noneSmallCheck from '../../../shared/assets/icons/noneSmallCheck.svg';
 import userImages from '../../../shared/assets/icons/userImages.svg';
 import { useEffect, useState } from 'react';
 
-interface UserProps  {
+interface UserProps {
   name: string;
   nickname: string;
   email: string;
@@ -41,6 +41,14 @@ export const BoardHomeMain = () => {
   };
 
   const detailTitle = detailMap[detail ?? 'popular'];
+
+  const handleLogin = () => {
+    if (userData) {
+      navigate(`/write`);
+    } else {
+      navigate('/login');
+    }
+  };
 
   return (
     <section className={styles.container}>
@@ -86,7 +94,10 @@ export const BoardHomeMain = () => {
           </div>
         </article>
       )}
-      <button className={userData ?  styles.buttons : styles.button}>
+      <button
+        className={userData ? styles.buttons : styles.button}
+        onClick={handleLogin}
+      >
         함께 성장하는 커뮤니티, 글 작성해보세요!
         <img src={writeIcon} alt={writeIcon} />
       </button>

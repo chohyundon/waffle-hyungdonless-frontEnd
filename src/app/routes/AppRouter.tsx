@@ -13,7 +13,7 @@ import { MainCenter } from '../../widgets/MainCenter';
 import { RemainCenter } from '../../widgets/remainCenter';
 import { NotFound } from '../../widgets/NotFound';
 import { BoardList } from '../../widgets/Board';
-// import { BoardHome } from '../../widgets/Board/BoardHome'; // 추가할 컴포넌트
+import { BoardWrite } from '../../widgets/Board/ui/BoardWrite.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,70 +24,45 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         children: [
-          {
-            index: true,
-            element: <MainCenter />,
-          },
+          { index: true, element: <MainCenter /> },
           { path: ':category', element: <RemainCenter /> },
         ],
       },
-      {
-        path: 'search',
-        element: <SearchId />,
-      },
+      { path: 'search', element: <SearchId /> },
     ],
   },
-  {
-    path: '/login',
-    element: <LoginHomePage />,
-  },
+  { path: '/login', element: <LoginHomePage /> },
   {
     path: '/board',
     element: <BoardList />,
     children: [
       {
         path: ':category',
-        element: <BoardList />,
         children: [
           {
             path: ':detail',
-            children: [
-              {
-                path: ':latest',
-              },
-            ],
+            children: [{ path: ':latest' }],
           },
         ],
       },
     ],
+  },
+  {
+    path: 'write',
+    element: <BoardWrite />,
   },
   { path: 'notfound', element: <NotFound /> },
   {
     path: '/signup',
     element: <SignUpPage />,
     children: [
-      {
-        path: 'step1',
-        element: <SignUpFormFirstStep />,
-      },
-      {
-        path: 'step2',
-        element: <SignUpFormSecondStep />,
-      },
-      {
-        path: 'step3',
-        element: <SignUpFormThirdStep />,
-      },
-      {
-        path: 'step4',
-        element: <SignUpFormFourthStep />,
-      },
+      { path: 'step1', element: <SignUpFormFirstStep /> },
+      { path: 'step2', element: <SignUpFormSecondStep /> },
+      { path: 'step3', element: <SignUpFormThirdStep /> },
+      { path: 'step4', element: <SignUpFormFourthStep /> },
     ],
   },
-  {
-    path: '/search',
-    element: <SearchId />,
-  },
+  { path: '/search', element: <SearchId /> },
 ]);
 
 export function AppRouter() {

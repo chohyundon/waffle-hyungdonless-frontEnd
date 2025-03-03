@@ -32,7 +32,7 @@
   font-weight: 600;
 }
 
-.noneTopBoxContainer{
+.noneTopBoxContainer {
   position: absolute;
   width: 100%;
   border: 1px solid var(--color-borderColor-gray100);
@@ -61,25 +61,25 @@
   color: var(--color-icon-gray100);
 }
 
-.isLoginContainer{
+.isLoginContainer {
   position: absolute;
   top: 23.415%;
   left: 2.837%;
 }
 
-.listText{
+.listText {
   font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-base-black200);
 }
 
-.colorFont{
+.colorFont {
   color: #007441;
   font-weight: 600;
   font-size: 0.8125rem;
 }
 
-.isLoginRightContainer{
+.isLoginRightContainer {
   position: absolute;
   top: 23.415%;
   left: 16.474%;
@@ -88,13 +88,13 @@
   gap: 5px;
 }
 
-.loginTitle{
+.loginTitle {
   font-weight: 600;
   font-size: 0.75rem;
-  color: #ECB67D;
+  color: #ecb67d;
 }
 
-.loginSubtitle{
+.loginSubtitle {
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--color-base-black100);
@@ -131,7 +131,7 @@
   gap: 10px;
 }
 
-.buttons{
+.buttons {
   position: absolute;
   left: 3.837%;
   border: none;
@@ -160,7 +160,7 @@
   padding: 5px;
 }
 
-.bottomLists{
+.bottomLists {
   position: absolute;
   top: 22%;
   display: flex;
@@ -184,13 +184,12 @@
   font-weight: 600;
 }
 
-
-.userList{
+.userList {
   display: flex;
   gap: 15px;
 }
 
-.userListMini{
+.userListMini {
   display: flex;
   gap: 7px;
 }
