@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import MoneyIcon from '../../../shared/assets/icons/moneyMiniIcon.svg';
 import DownIcon from '../../../shared/assets/icons/downIcon.svg';
 import { BoardHomeMain } from './BoardHomeMain.tsx';
+import { useEffect } from 'react';
 
 export const BoardHome = () => {
   const { category, detail } = useParams();
@@ -25,6 +26,10 @@ export const BoardHome = () => {
     보험: 'insurance',
     '자산 증식': 'investment',
   };
+
+  useEffect(() => {
+
+  }, []);
 
   // @ts-ignore
   const title = categoryMap[category];

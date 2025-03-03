@@ -6,6 +6,7 @@ import smallCheck from '../../../shared/assets/icons/smallCheck.svg';
 import noneSmallCheck from '../../../shared/assets/icons/noneSmallCheck.svg';
 import userImages from '../../../shared/assets/icons/userImages.svg';
 import { useEffect, useState } from 'react';
+import { BoardCheck } from './BoardCheck.tsx';
 
 interface UserProps {
   name: string;
@@ -122,8 +123,8 @@ export const BoardHomeMain = () => {
             </div>
           ))}
         </ul>
-        <div className={styles.bottomBoardContainer}></div>
       </article>
+      <BoardCheck />
     </section>
   );
 };

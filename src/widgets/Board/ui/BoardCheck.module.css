@@ -1,0 +1,139 @@
+.container {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--color-borderColor-gray100);
+  background: #FDFDFD;
+  display: inline-block;
+  overflow: hidden;
+  height: auto;
+  overflow-y: auto;
+}
+
+.container.empty {
+  height: 33vh;
+  justify-content: center;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.emptyContainer{
+  position: absolute;
+  width: 100%;
+}
+
+.listContainer{
+  margin-top: 24px;
+  padding-inline: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 88%;
+  height: 19.63vh;
+}
+
+.icon{
+  position: absolute;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 0.5px solid #ADADAD;
+  background: #FFF;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #515151;
+  top: 0;
+}
+
+.title{
+  position: absolute;
+  font-size: 1.125rem;
+  color: #333;
+  font-weight: 700;
+  top: 20%;
+}
+
+.content{
+  position: absolute;
+  top: 35%;
+  color: #333;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 22.4px;
+  width: 77.801%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  max-height: 3em;
+}
+
+.nickname{
+  position: absolute;
+  top: 66%;
+  display: flex;
+  gap: 10px;
+  color: #ADADAD;
+  font-size: 0.875rem;
+  font-weight: 600;
+  align-items: center;
+}
+
+.by{
+  font-family: 'Caveat', cursive;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ADADAD;
+}
+
+.iconsContainer{
+  position: absolute;
+  top: 80%;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.icons{
+  left: 0;
+  display: flex;
+  gap: 7px;
+  color: #ADADAD;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconFont{
+  position: relative;
+  top: 1.3px;
+  color: #ADADAD;
+  font-family: 'Roboto Thin';
+  font-weight: 500;
+}
+
+.date{
+  position: absolute;
+  right: -270%;
+  font-family: 'Roboto Thin';
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: #8A8A8A;
+}
+
+.border {
+  position: absolute;
+  top: 230%;
+  left: 50%;
+  transform: translateX(-13%);
+  width: 724px;
+  border-top: 0.5px solid #ADADAD;
+}
+
+.listContainer:last-child .border {
+  border-top: none;
+}
