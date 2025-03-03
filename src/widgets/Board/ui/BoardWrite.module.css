@@ -120,6 +120,7 @@
   font-weight: 400;
   color: #717171;
   font-size: 0.9375rem;
+  white-space: nowrap;
 }
 
 .input{
