@@ -1,6 +1,7 @@
+
 import styles from './BoardCheck.module.css';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
 import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
 import likeIcon from '../../../shared/assets/icons/likeIcon.svg';

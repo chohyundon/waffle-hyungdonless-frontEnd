@@ -7,17 +7,18 @@
   align-items: center;
 }
 
-.iconContainer {
-  width: 8.3402%;
-}
-
 .leftLinkContainer {
   display: flex;
   position: absolute;
+  align-items: center;
   left: 10.46606705%;
   gap: 24px;
   width: 22.813%;
   white-space: nowrap;
+}
+
+.icon{
+  cursor: pointer;
 }
 
 .linkfont {

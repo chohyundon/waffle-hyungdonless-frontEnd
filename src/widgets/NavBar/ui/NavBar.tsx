@@ -4,6 +4,7 @@ import { NavBarSearchForm } from './NavBarSearchForm';
 import userImg from '../../../shared/assets/icons/userImg.svg';
 import { useEffect, useState } from 'react';
 import { BottomNavBar } from './BottomNavBar.tsx';
+import Logo from '../../../shared/assets/icons/logo.svg'
 
 export const NavBar = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -45,10 +46,10 @@ export const NavBar = () => {
   return (
     <nav>
       <div className={styles.container}>
-        <figure className={styles.iconContainer} onClick={() => navigate('/')}>
-          <img alt='로고자리' className={styles.icon} />
-        </figure>
         <ul className={styles.leftLinkContainer}>
+          <figure onClick={() => navigate('/')}>
+            <img src={Logo} alt={Logo} className={styles.icon} />
+          </figure>
           <li
             onClick={moveBoardPage}
             className={category ? styles.pickFont : styles.linkfont}
@@ -61,7 +62,7 @@ export const NavBar = () => {
         <NavBarSearchForm />
         {isLogin ? (
           <div className={styles.rightLinkContainer}>
-            <Link to='/' className={styles.linkText}>
+            <Link to="/" className={styles.linkText}>
               알림
             </Link>
             <p onClick={handleRemoveData} className={styles.linkText}>
