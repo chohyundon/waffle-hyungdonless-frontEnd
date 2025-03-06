@@ -27,9 +27,7 @@ export const BoardHome = () => {
     '자산 증식': 'investment',
   };
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   // @ts-ignore
   const title = categoryMap[category];

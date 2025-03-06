@@ -4,7 +4,7 @@
   width: 100%;
   border-radius: 8px;
   border: 1px solid var(--color-borderColor-gray100);
-  background: #FDFDFD;
+  background: #fdfdfd;
   display: inline-block;
   overflow: hidden;
   height: auto;
@@ -18,12 +18,12 @@
   overflow: hidden;
 }
 
-.emptyContainer{
+.emptyContainer {
   position: absolute;
   width: 100%;
 }
 
-.listContainer{
+.listContainer {
   margin-top: 24px;
   padding-inline: 30px;
   position: relative;
@@ -33,12 +33,12 @@
   height: 19.63vh;
 }
 
-.icon{
+.icon {
   position: absolute;
   padding: 7px 10px;
   border-radius: 8px;
-  border: 0.5px solid #ADADAD;
-  background: #FFF;
+  border: 0.5px solid #adadad;
+  background: #fff;
   justify-content: center;
   align-items: center;
   display: inline-block;
@@ -47,7 +47,7 @@
   top: 0;
 }
 
-.title{
+.title {
   position: absolute;
   font-size: 1.125rem;
   color: #333;
@@ -55,7 +55,7 @@
   top: 20%;
 }
 
-.content{
+.content {
   position: absolute;
   top: 35%;
   color: #333;
@@ -72,25 +72,25 @@
   max-height: 3em;
 }
 
-.nickname{
+.nickname {
   position: absolute;
   top: 66%;
   display: flex;
   gap: 10px;
-  color: #ADADAD;
+  color: #adadad;
   font-size: 0.875rem;
   font-weight: 600;
   align-items: center;
 }
 
-.by{
+.by {
   font-family: 'Caveat', cursive;
   font-size: 1rem;
   font-weight: 400;
-  color: #ADADAD;
+  color: #adadad;
 }
 
-.iconsContainer{
+.iconsContainer {
   position: absolute;
   top: 80%;
   display: flex;
@@ -99,30 +99,30 @@
   justify-content: center;
 }
 
-.icons{
+.icons {
   left: 0;
   display: flex;
   gap: 7px;
-  color: #ADADAD;
+  color: #adadad;
   align-items: center;
   justify-content: center;
 }
 
-.iconFont{
+.iconFont {
   position: relative;
   top: 1.3px;
-  color: #ADADAD;
+  color: #adadad;
   font-family: 'Roboto Thin';
   font-weight: 500;
 }
 
-.date{
+.date {
   position: absolute;
   right: -270%;
   font-family: 'Roboto Thin';
   font-weight: 500;
   font-size: 0.8125rem;
-  color: #8A8A8A;
+  color: #8a8a8a;
 }
 
 .border {
@@ -131,7 +131,7 @@
   left: 50%;
   transform: translateX(-13%);
   width: 724px;
-  border-top: 0.5px solid #ADADAD;
+  border-top: 0.5px solid #adadad;
 }
 
 .listContainer:last-child .border {

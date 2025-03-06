@@ -14,11 +14,11 @@ export const BoardWrite = () => {
   ];
 
   const categoryMapping: { [key: string]: string } = {
-    '금융': 'b001',
-    '복지': 'b002',
-    '주거': 'b003',
+    금융: 'b001',
+    복지: 'b002',
+    주거: 'b003',
     '자기 개발': 'b004',
-    '자유': 'b005',
+    자유: 'b005',
     'Q&A': 'b006',
   };
 
@@ -59,7 +59,6 @@ export const BoardWrite = () => {
       value: e.target.value,
     }));
   };
-
 
   const handleSubmit = async () => {
     const userData = JSON.parse(localStorage.getItem('user'));
@@ -106,11 +105,11 @@ export const BoardWrite = () => {
         </p>
         <select
           className={styles.select}
-          name="category"
+          name='category'
           onChange={handleChange}
           value={categoryValue.category}
         >
-          <option value="" disabled>
+          <option value='' disabled>
             카테고리를 선택해주세요
           </option>
           {selectCategory.map((category, index) => (
@@ -121,11 +120,11 @@ export const BoardWrite = () => {
         </select>
         <select
           className={styles.bottomselect}
-          name="headLine"
+          name='headLine'
           onChange={handleBottomChange}
           value={categoryValue.detail}
         >
-          <option value="" disabled>
+          <option value='' disabled>
             말머리 선택하기(필수)
           </option>
           {headCategory.map((category, index) => (
@@ -135,8 +134,8 @@ export const BoardWrite = () => {
           ))}
         </select>
         <input
-          type="text"
-          placeholder="제목을 입력해주세요"
+          type='text'
+          placeholder='제목을 입력해주세요'
           className={styles.inputText}
           value={inputValue.title}
           onChange={handleTitleInputChange}
@@ -146,17 +145,18 @@ export const BoardWrite = () => {
         <div className={styles.inputContainer}>
           <textarea
             className={styles.input}
-            placeholder="글을 입력해주세요"
+            placeholder='글을 입력해주세요'
             value={inputValue.value}
             onChange={handleTextChange}
           />
         </div>
         <input
-          placeholder="키워드를 입력해주세요. (최대 5개)"
+          placeholder='키워드를 입력해주세요. (최대 5개)'
           className={styles.keyword}
         />
         <p className={styles.bottomTitle}>
-          온라인 글쓰기에서는 타인의 권리를 존중하며 명예훼손이 되지 않도록 주의하세요.
+          온라인 글쓰기에서는 타인의 권리를 존중하며 명예훼손이 되지 않도록
+          주의하세요.
         </p>
         <button className={styles.button} onClick={handleSubmit}>
           작성하기

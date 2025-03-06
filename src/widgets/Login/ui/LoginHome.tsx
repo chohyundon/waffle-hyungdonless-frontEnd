@@ -1,6 +1,7 @@
 import { GoogleLogin, LoginForm, LoginStatus } from '../index';
 import styles from './LoginHome.module.css';
 import { useNavigate } from 'react-router';
+import Logo from '../../../shared/assets/icons/loginLogo.svg';
 
 export function LoginHomePage() {
   const navigate = useNavigate();
@@ -29,7 +30,9 @@ export function LoginHomePage() {
           </p>
         </div>
       </main>
-      <figure className={styles.figureContainer}></figure>
+      <figure className={styles.figureContainer}>
+        <img src={Logo} alt={Logo} />
+      </figure>
     </div>
   );
 }

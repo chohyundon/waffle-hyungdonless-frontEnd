@@ -8,7 +8,7 @@
   height: 31.482vh;
   border-radius: 8px;
   border-color: var(--color-borderColor-gray100);
-  background: #FDFDFD;
+  background: #fdfdfd;
 }
 
 .title {
@@ -36,7 +36,8 @@
   width: 34.098%;
   padding: 12px 20px;
   border-color: var(--color-borderColor-gray100);
-  background: url('../../../shared/assets/icons/navBottom.svg') no-repeat right center;
+  background: url('../../../shared/assets/icons/navBottom.svg') no-repeat right
+    center;
   appearance: none;
   color: var(--color-base-gray300);
 }
@@ -49,12 +50,13 @@
   width: 34.098%;
   padding: 12px 20px;
   border-color: var(--color-borderColor-gray100);
-  background: url('../../../shared/assets/icons/navBottom.svg') no-repeat right center;
+  background: url('../../../shared/assets/icons/navBottom.svg') no-repeat right
+    center;
   appearance: none;
   color: var(--color-base-gray300);
 }
 
-.inputText{
+.inputText {
   padding: 12px 20px;
   position: absolute;
   top: 80.085%;
@@ -67,13 +69,13 @@
   color: var(--color-base-black100);
   font-size: 1rem;
 }
-.inputText::placeholder{
+.inputText::placeholder {
   color: var(--color-base-gray800);
   font-weight: 400;
   font-size: 1rem;
 }
 
-.keyword{
+.keyword {
   padding: 12px 20px;
   position: absolute;
   width: 85.4335%;
@@ -88,7 +90,7 @@
   top: 74.7965%;
 }
 
-.bottomContainer{
+.bottomContainer {
   width: 53.021%;
   border: 1px solid var(--color-borderColor-gray100);
   position: absolute;
@@ -96,12 +98,11 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%);
-  background: #FDFDFD;
+  background: #fdfdfd;
   border-radius: 8px;
-
 }
 
-.inputContainer{
+.inputContainer {
   position: absolute;
   background: white;
   width: 89.3702%;
@@ -112,7 +113,7 @@
   border-radius: 8px;
 }
 
-.bottomTitle{
+.bottomTitle {
   position: absolute;
   top: 85.2224%;
   left: 50%;
@@ -123,13 +124,13 @@
   white-space: nowrap;
 }
 
-.input{
+.input {
   height: 100%;
   width: 100%;
   border: none;
 }
 
-.button{
+.button {
   position: absolute;
   width: 62.9925%;
   padding: 20px 89px;
@@ -145,7 +146,7 @@
   font-weight: 600;
 }
 
-.footer{
+.footer {
   position: absolute;
   width: 100%;
   top: 190.6485%;

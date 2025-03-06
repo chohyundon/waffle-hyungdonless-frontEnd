@@ -1,11 +1,10 @@
-
 import styles from './BoardCheck.module.css';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
 import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
 import likeIcon from '../../../shared/assets/icons/likeIcon.svg';
-import notPage from '../../../shared/assets/icons/notPage.svg'
+import notPage from '../../../shared/assets/icons/notPage.svg';
 
 interface stateProps {
   boardType: string;
@@ -22,21 +21,24 @@ export const BoardCheck = () => {
   const [ok, setOk] = useState<stateProps[]>([]);
 
   const categoryMap = {
-    'money': 'b001',
-    'welfare': 'b002',
-    'home': 'b003',
-    'develop': 'b004',
-    'free': 'b005',
-    'qna': 'b006',
+    money: 'b001',
+    welfare: 'b002',
+    home: 'b003',
+    develop: 'b004',
+    free: 'b005',
+    qna: 'b006',
   };
 
-  const categoryCode = categoryMap[category as keyof typeof categoryMap] || 'default';
+  const categoryCode =
+    categoryMap[category as keyof typeof categoryMap] || 'default';
 
   useEffect(() => {
     const fetchData = async () => {
       if (categoryCode !== 'default') {
         try {
-          const response = await fetch(`https://api.sabujak.life/board/boards/${categoryCode}`);
+          const response = await fetch(
+            `https://api.sabujak.life/board/boards/${categoryCode}`
+          );
 
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -55,7 +57,7 @@ export const BoardCheck = () => {
     fetchData();
   }, [categoryCode]);
 
-  console.log(ok)
+  console.log(ok);
 
   const calculateDaysAgo = (createDate: string) => {
     const createdDate = new Date(createDate);
@@ -66,10 +68,12 @@ export const BoardCheck = () => {
   };
 
   return (
-    <section  className={`${styles.container} ${ok.length === 0 ? styles.empty : ''}`}>
+    <section
+      className={`${styles.container} ${ok.length === 0 ? styles.empty : ''}`}
+    >
       {ok.length === 0 ? (
         <div className={styles.emptyContainer}>
-          <img src={notPage} alt="서비스 준비 중" />
+          <img src={notPage} alt='서비스 준비 중' />
         </div>
       ) : (
         ok
@@ -84,15 +88,15 @@ export const BoardCheck = () => {
               </li>
               <section className={styles.iconsContainer}>
                 <figure className={styles.icons}>
-                  <img src={viewIcon} alt="view" />
+                  <img src={viewIcon} alt='view' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <figure className={styles.icons}>
-                  <img src={commentIcon} alt="comment" />
+                  <img src={commentIcon} alt='comment' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <figure className={styles.icons}>
-                  <img src={likeIcon} alt="like" />
+                  <img src={likeIcon} alt='like' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <li className={styles.date}>
@@ -106,4 +110,3 @@ export const BoardCheck = () => {
     </section>
   );
 };
-
