@@ -1,19 +1,38 @@
 .container {
-  display: flex;
-  position: relative;
-  width: 63.698%;
+  display: grid;
+  width: 100vw;
   margin: 0 auto;
   height: 7.0375vh;
-  align-items: center;
+  display: flex;
+  padding-inline: 20%;
 }
 
 .leftLinkContainer {
-  display: flex;
-  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, 0.15fr);
   align-items: center;
-  left: 10.46606705%;
+  text-align: center;
+  width: 32vw;
   gap: 24px;
-  width: 22.813%;
+}
+
+.menuContainer {
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+  position: absolute;
+  left: 0;
+}
+
+.menuIcon {
+  cursor: pointer;
+  width: 10vw;
+  height: 3vh;
+}
+
+.menuText {
+  font-size: 1.5rem;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -42,13 +61,138 @@
   font-weight: 700;
 }
 
-.formContainer {
-  position: absolute;
-  left: 59.44399%;
-  display: flex;
-  width: 22.6498%;
-  box-sizing: border-box;
+.rightLinkContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 }
+
+.formContainer {
+  display: flex;
+  align-items: center;
+  width: 15vw;
+}
+
+.inputText {
+  width: 100%;
+  padding-inline: 10px;
+  height: 3.334vh;
+  box-shadow: 0px 5px 11px 2px var(--color-base-gray700);
+  border-radius: 30px;
+  border: 1px solid var(--color-base-gray600);
+}
+
+.icons {
+  cursor: pointer;
+}
+
+.restContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.loginBtn {
+  cursor: pointer;
+  text-align: center;
+  width: 5vw;
+  white-space: nowrap;
+}
+
+.loginBtn:hover {
+  color: var(--color-main-green-hover);
+  font-weight: 700;
+}
+
+.userLogin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.userImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+@media (max-width: 1260px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid blue;
+  }
+
+  .rightLinkContainer {
+    display: flex;
+    position: absolute;
+    right: 3%;
+    height: 7.0375vh;
+  }
+
+  .linkfont {
+    display: none;
+  }
+
+  .loginBtn {
+    position: absolute;
+    right: 3%;
+  }
+}
+
+@media (max-width: 1592px) {
+  .linkfont {
+    font-size: 0.875rem;
+  }
+
+  .inputText {
+    display: none;
+  }
+
+  .rightLinkContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .restContainer {
+    text-align: center;
+  }
+
+  .icons {
+    display: none;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .inputText {
+    display: none;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  .restContainer {
+    display: none;
+  }
+
+  .rightLinkContainer {
+    display: flex;
+    position: absolute;
+    right: 3%;
+    height: 7.0375vh;
+  }
+}
+/* 
 
 .inputText {
   width: 100%;
@@ -71,16 +215,6 @@
   cursor: pointer;
 }
 
-.rightLinkContainer {
-  position: absolute;
-  right: 0;
-  width: 13.43%;
-  display: flex;
-  gap: 10px;
-  white-space: nowrap;
-  justify-content: center;
-  align-items: center;
-}
 
 .linkText {
   text-decoration: none;
@@ -115,4 +249,4 @@
   background-color: var(--color-main-green);
   color: white;
   cursor: pointer;
-}
+} */
