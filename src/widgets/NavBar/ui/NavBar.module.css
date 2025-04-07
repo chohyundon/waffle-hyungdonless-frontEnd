@@ -5,6 +5,7 @@
   height: 7.0375vh;
   display: flex;
   padding-inline: 20%;
+  position: relative;
 }
 
 .leftLinkContainer {
@@ -19,7 +20,6 @@
 .menuContainer {
   display: flex;
   align-items: center;
-  border: 1px solid red;
   position: absolute;
   left: 0;
 }
@@ -89,7 +89,6 @@
 .restContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
   text-align: center;
   white-space: nowrap;
 }
@@ -106,11 +105,18 @@
   font-weight: 700;
 }
 
+.menuFont {
+  cursor: pointer;
+}
+
+.menuFont:hover {
+  color: var(--color-main-green-hover);
+  font-weight: 700;
+}
+
 .userLogin {
   display: flex;
   align-items: center;
-  gap: 10px;
-  width: 100%;
 }
 
 .userImage {
@@ -119,11 +125,30 @@
   border-radius: 50%;
 }
 
+.menuBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3vh;
+  align-items: center;
+  padding-inline: 3%;
+  background-color: var(--color-borderColor-gray100);
+  gap: 30px;
+  color: var(--color-base-gray500);
+  font-weight: 600;
+}
+
+.menuText {
+  cursor: pointer;
+}
+
 @media (max-width: 1260px) {
   .container {
     width: 100%;
     margin: 0 auto;
-    border: 1px solid blue;
   }
 
   .rightLinkContainer {
@@ -137,9 +162,13 @@
     display: none;
   }
 
+  .pickFont {
+    display: none;
+  }
+
   .loginBtn {
     position: absolute;
-    right: 3%;
+    right: 5%;
   }
 }
 
@@ -163,6 +192,10 @@
 
   .icons {
     display: none;
+  }
+
+  .userLogin {
+    display: flex;
   }
 }
 
@@ -190,6 +223,40 @@
     position: absolute;
     right: 3%;
     height: 7.0375vh;
+    width: 30%;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .menuContainer {
+    gap: 10px;
+    left: 3%;
+  }
+
+  .menuIcon {
+    width: 4vw;
+  }
+
+  .menuText {
+    font-size: 1.2rem;
+  }
+
+  .inputText {
+    display: none;
+  }
+
+  .loginBtn {
+    font-size: 0.875rem;
+    right: 10%;
+  }
+
+  .userImage {
+    display: none;
   }
 }
 /* 
