@@ -1,12 +1,14 @@
 .bottomNavContainer {
-  width: 100%;
   position: absolute;
-  height: 4.445vh;
+  top: 100%;
+  width: 100%;
+  padding-inline: 20%;
+  left: 0;
   background: var(--color-base-gray700);
+  height: 2.9075vh;
 }
 
 .categoryContainer {
-  width: 63.698%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -24,9 +26,26 @@
   font-weight: 700;
 }
 
+.listFont {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.listFont:hover {
+  color: var(--color-main-green-hover);
+}
+
 .pickFont {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-main-green-hover);
+}
+
+@media (max-width: 1260px) {
+  .bottomNavContainer {
+    padding-inline: 3%;
+  }
 }
