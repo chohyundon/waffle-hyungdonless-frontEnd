@@ -1,14 +1,20 @@
-import { SignUpFormFourth, SignUpStep } from '../index';
-import styles from './SignUpFormFourth.module.css';
-import Icon from '../../../shared/assets/icons/checkCircles.svg';
-import Logo from '../../../shared/assets/icons/loginLogo.svg';
+import { SignUpFormFourth, SignUpStep } from '@/widgets/SignUp';
+import styles from '@/widgets/SignUp/ui/SignUpFormFourth.module.css';
+import Icon from '@/shared/assets/icons/checkCircles.svg';
+import Logo from '@/shared/assets/icons/loginLogo.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export function SignUpFormFourthStep() {
   return (
     <>
       <main className={styles.mainContainer}>
         <div className={styles.completeContainer}>
-          <img src={Icon} alt={Icon} width={77} height={77} />
+          <img
+            src={assetSrc(Icon)}
+            alt='가입 완료'
+            width={77}
+            height={77}
+          />
           <span className={styles.font}>가입완료!</span>
         </div>
         <div className={styles.fontContainer}>
@@ -22,7 +28,7 @@ export function SignUpFormFourthStep() {
         <SignUpStep />
       </main>
       <figure className={styles.logo}>
-        <img src={Logo} alt='Logo' />
+        <img src={assetSrc(Logo)} alt='사부작 로고' />
       </figure>
     </>
   );

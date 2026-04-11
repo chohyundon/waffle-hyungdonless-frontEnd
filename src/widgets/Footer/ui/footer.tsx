@@ -1,8 +1,9 @@
-import styles from './footer.module.css';
+import styles from '@/widgets/Footer/ui/footer.module.css';
 
-import camera from '../../../shared/assets/icons/camera.svg';
-import twitter from '../../../shared/assets/icons/twitter.svg';
-import youtube from '../../../shared/assets/icons/youtube.svg';
+import camera from '@/shared/assets/icons/camera.svg';
+import twitter from '@/shared/assets/icons/twitter.svg';
+import youtube from '@/shared/assets/icons/youtube.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const Footer = () => {
   return (
@@ -31,13 +32,13 @@ export const Footer = () => {
         <button className={styles.leftButtonContainer}>1 : 1 문의</button>
         <button className={styles.rightButtonContainer}>FAQ</button>
         <figure className={styles.imgContainer}>
-          <img src={camera} alt={camera} className={styles.cameraIcon} />
+          <img src={assetSrc(camera)} alt='Instagram' className={styles.cameraIcon} />
         </figure>
         <figure className={styles.imgContainer1}>
-          <img src={twitter} alt={twitter} className={styles.cameraIcon} />
+          <img src={assetSrc(twitter)} alt='Twitter' className={styles.cameraIcon} />
         </figure>
         <figure className={styles.imgContainer2}>
-          <img src={youtube} alt={youtube} className={styles.cameraIcon} />
+          <img src={assetSrc(youtube)} alt='YouTube' className={styles.cameraIcon} />
         </figure>
       </div>
     </footer>

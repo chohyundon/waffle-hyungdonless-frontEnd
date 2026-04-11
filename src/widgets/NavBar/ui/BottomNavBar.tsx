@@ -1,13 +1,14 @@
-import styles from './BottomNavBar.module.css';
-import { useNavigate, useParams } from 'react-router';
-import { bottomNavBarData } from '../const/BottomNavBarData';
+'use client';
+
+import styles from '@/widgets/NavBar/ui/BottomNavBar.module.css';
+import { useRouter } from 'next/navigation';
+import { bottomNavBarData } from '@/widgets/NavBar/const/BottomNavBarData';
 
 export const BottomNavBar = () => {
-  const navigate = useNavigate();
-  const { category } = useParams();
+  const router = useRouter();
 
   const handleCategoryClick = (path: string) => {
-    navigate(`/board/${path}`);
+    router.push(`/board/${path}`);
   };
 
   return (

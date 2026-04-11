@@ -1,10 +1,13 @@
-import styles from './BoardCheck.module.css';
+'use client';
+
+import styles from '@/widgets/Board/ui/BoardCheck.module.css';
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
-import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
-import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
-import likeIcon from '../../../shared/assets/icons/likeIcon.svg';
-import notPage from '../../../shared/assets/icons/notPage.svg';
+import { useParams } from 'next/navigation';
+import viewIcon from '@/shared/assets/icons/viewIcon.svg';
+import commentIcon from '@/shared/assets/icons/commentIcon.svg';
+import likeIcon from '@/shared/assets/icons/likeIcon.svg';
+import notPage from '@/shared/assets/icons/notPage.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 interface stateProps {
   boardType: string;
@@ -17,7 +20,8 @@ interface stateProps {
 }
 
 export const BoardCheck = () => {
-  const { category } = useParams();
+  const params = useParams() ?? {};
+  const category = params.category as string | undefined;
   const [ok, setOk] = useState<stateProps[]>([]);
 
   const categoryMap = {
@@ -73,7 +77,7 @@ export const BoardCheck = () => {
     >
       {ok.length === 0 ? (
         <div className={styles.emptyContainer}>
-          <img src={notPage} alt='서비스 준비 중' />
+          <img src={assetSrc(notPage)} alt='서비스 준비 중' />
         </div>
       ) : (
         ok
@@ -88,15 +92,15 @@ export const BoardCheck = () => {
               </li>
               <section className={styles.iconsContainer}>
                 <figure className={styles.icons}>
-                  <img src={viewIcon} alt='view' />
+                  <img src={assetSrc(viewIcon)} alt='' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <figure className={styles.icons}>
-                  <img src={commentIcon} alt='comment' />
+                  <img src={assetSrc(commentIcon)} alt='' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <figure className={styles.icons}>
-                  <img src={likeIcon} alt='like' />
+                  <img src={assetSrc(likeIcon)} alt='' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <li className={styles.date}>

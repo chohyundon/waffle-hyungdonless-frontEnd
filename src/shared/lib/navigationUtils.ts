@@ -1,19 +1,19 @@
-import { NavigateFunction } from 'react-router';
+export type RouterPush = (href: string) => void;
 
-export const homeNavigation = (navigate: NavigateFunction) => {
-  navigate(`/home`);
+export const homeNavigation = (push: RouterPush) => {
+  push(`/`);
 };
 
-export const moveBoardPage = (navigate: NavigateFunction) => {
-  navigate(`/board/money`);
+export const moveBoardPage = (push: RouterPush) => {
+  push(`/board/money`);
 };
 
-export const moveLoginPage = (navigate: NavigateFunction) => {
-  navigate(`/login`);
+export const moveLoginPage = (push: RouterPush) => {
+  push(`/login`);
 };
 
 export const toggleMenu = (
-  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>
+  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
   setShowMenu((prev) => !prev);
 };

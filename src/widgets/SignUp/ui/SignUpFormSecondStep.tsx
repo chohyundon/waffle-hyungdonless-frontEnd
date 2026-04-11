@@ -1,6 +1,7 @@
-import styles from './SginUp.module.css';
-import { SignUpSecondForm, SignUpStep } from '../index';
-import Logo from '../../../shared/assets/icons/loginLogo.svg';
+import styles from '@/widgets/SignUp/ui/SginUp.module.css';
+import { SignUpSecondForm, SignUpStep } from '@/widgets/SignUp';
+import Logo from '@/shared/assets/icons/loginLogo.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export function SignUpFormSecondStep() {
   return (
@@ -11,7 +12,7 @@ export function SignUpFormSecondStep() {
         <SignUpStep />
       </main>
       <figure className={styles.logo}>
-        <img src={Logo} alt='Logo' />
+        <img src={assetSrc(Logo)} alt='사부작 로고' />
       </figure>
     </>
   );

@@ -1,13 +1,18 @@
-import styles from './BoardHome.module.css';
-import { useNavigate, useParams } from 'react-router';
-import MoneyIcon from '../../../shared/assets/icons/moneyMiniIcon.svg';
-import DownIcon from '../../../shared/assets/icons/downIcon.svg';
-import { BoardHomeMain } from './BoardHomeMain.tsx';
+'use client';
+
+import styles from '@/widgets/Board/ui/BoardHome.module.css';
+import { useRouter, useParams } from 'next/navigation';
+import MoneyIcon from '@/shared/assets/icons/moneyMiniIcon.svg';
+import DownIcon from '@/shared/assets/icons/downIcon.svg';
+import { BoardHomeMain } from '@/widgets/Board/ui/BoardHomeMain';
 import { useEffect } from 'react';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const BoardHome = () => {
-  const { category, detail } = useParams();
-  const navigate = useNavigate();
+  const params = useParams() ?? {};
+  const category = params.category as string | undefined;
+  const detail = params.detail as string | undefined;
+  const router = useRouter();
 
   const categoryMap: Record<string, string> = {
     money: '금융',
@@ -29,11 +34,11 @@ export const BoardHome = () => {
 
   useEffect(() => {}, []);
 
-  // @ts-ignore
-  const title = categoryMap[category];
+  const title = category ? categoryMap[category] : '';
 
   const handleMove = (key: string) => {
-    navigate(`/board/${category}/${categoryList[key]}`);
+    if (!category) return;
+    router.push(`/board/${category}/${categoryList[key]}`);
   };
 
   return (
@@ -41,7 +46,7 @@ export const BoardHome = () => {
       <div className={styles.container}>
         <aside className={styles.asideContainer}>
           <figure className={styles.iconContainer}>
-            <img src={MoneyIcon} alt='아이콘' />
+            <img src={assetSrc(MoneyIcon)} alt='아이콘' />
             <figcaption className={styles.title}>{title}</figcaption>
           </figure>
           <span className={styles.borderBottom}></span>
@@ -58,7 +63,7 @@ export const BoardHome = () => {
                   </li>
                   {!isActive && (
                     <img
-                      src={DownIcon}
+                      src={assetSrc(DownIcon)}
                       alt='Down'
                       className={styles.icon}
                       width={25}

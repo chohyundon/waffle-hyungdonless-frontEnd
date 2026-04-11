@@ -1,22 +1,26 @@
+'use client';
+
 import { useRef } from 'react';
-import styles from './Banner.module.css';
-import bannerImage from '../../../shared/assets/icons/bannerImg.svg';
-import prevIcon from '../../../shared/assets/icons/leftBannerIcon.svg';
-import nextIcon from '../../../shared/assets/icons/rightBannerIcon.svg';
+import styles from '@/widgets/Banner/ui/Banner.module.css';
+import bannerImage from '@/shared/assets/icons/bannerImg.svg';
+import prevIcon from '@/shared/assets/icons/leftBannerIcon.svg';
+import nextIcon from '@/shared/assets/icons/rightBannerIcon.svg';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const Banner = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const onSwiper = (swiper) => {
+  const onSwiper = (swiper: any) => {
     setTimeout(() => {
       if (prevRef.current && nextRef.current && !swiper.destroyed) {
         swiper.params.navigation.prevEl = prevRef.current;
@@ -47,8 +51,8 @@ export const Banner = () => {
         {Array.from({ length: 6 }).map((_, i) => (
           <SwiperSlide key={i}>
             <img
-              src={bannerImage}
-              alt={`Banner ${i + 1}`}
+              src={assetSrc(bannerImage)}
+              alt={`메인 배너 ${i + 1}`}
               className={styles.img}
             />
           </SwiperSlide>
@@ -57,13 +61,13 @@ export const Banner = () => {
       <div className={styles.iconContainer}>
         <img
           ref={prevRef}
-          src={prevIcon}
+          src={assetSrc(prevIcon)}
           alt='이전 이미지'
           className={styles.prevIcon}
         />
         <img
           ref={nextRef}
-          src={nextIcon}
+          src={assetSrc(nextIcon)}
           alt='다음 이미지'
           className={styles.nextIcon}
         />

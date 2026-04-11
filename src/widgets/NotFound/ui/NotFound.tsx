@@ -1,23 +1,26 @@
-import NotFoundSrc from '../../../shared/assets/icons/notFound.svg';
-import BackIcon from '../../../shared/assets/icons/backiconImage.svg';
+'use client';
 
-import styles from './NotFound.module.css';
-import { NavBar } from '../../NavBar';
-import { Footer } from '../../Footer';
-import { useNavigate } from 'react-router';
+import NotFoundSrc from '@/shared/assets/icons/notFound.svg';
+import BackIcon from '@/shared/assets/icons/backiconImage.svg';
+
+import styles from '@/widgets/NotFound/ui/NotFound.module.css';
+import { NavBar } from '@/widgets/NavBar';
+import { Footer } from '@/widgets/Footer';
+import { useRouter } from 'next/navigation';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const NotFound = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const handleReturn = () => {
-    navigate(-1);
+    router.back();
   };
 
   return (
     <section className={styles.container}>
       <NavBar />
       <main className={styles.mainContainer}>
-        <img src={NotFoundSrc} alt='서비스 준비중입니다' />
+        <img src={assetSrc(NotFoundSrc)} alt='서비스 준비중입니다' />
         <h1 className={styles.title}>
           지금은
           <p className={styles.colorTitle}>서비스 준비중</p>
@@ -30,7 +33,7 @@ export const NotFound = () => {
         </p>
         <div className={styles.buttonContainer} onClick={handleReturn}>
           <button className={styles.button}>뒤로가기</button>
-          <img src={BackIcon} alt='뒤로가기 버튼' />
+          <img src={assetSrc(BackIcon)} alt='뒤로가기 버튼' />
         </div>
       </main>
       <div className={styles.footerContainer}>

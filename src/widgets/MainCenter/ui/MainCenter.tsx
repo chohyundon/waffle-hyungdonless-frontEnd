@@ -1,21 +1,31 @@
-import styles from './MainCenter.module.css';
+'use client';
 
-import moneyIcon from '../../../shared/assets/icons/money.svg';
-import freeIcon from '../../../shared/assets/icons/free.svg';
-import houseIcon from '../../../shared/assets/icons/house.svg';
-import developmentIcon from '../../../shared/assets/icons/development.svg';
-import QnAIcon from '../../../shared/assets/icons/QnA.svg';
-import welfareIcon from '../../../shared/assets/icons/welfare.svg';
+import styles from '@/widgets/MainCenter/ui/MainCenter.module.css';
 
-import footerImage from '../../../shared/assets/icons/Objects.svg';
+import moneyIcon from '@/shared/assets/icons/money.svg';
+import freeIcon from '@/shared/assets/icons/free.svg';
+import houseIcon from '@/shared/assets/icons/house.svg';
+import developmentIcon from '@/shared/assets/icons/development.svg';
+import QnAIcon from '@/shared/assets/icons/QnA.svg';
+import welfareIcon from '@/shared/assets/icons/welfare.svg';
 
-import { Link, useParams } from 'react-router';
+import footerImage from '@/shared/assets/icons/Objects.svg';
 
-import { TopBoard } from './TopBoard.tsx';
-import { BottomBoard } from './BottomBoard.tsx';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
+
+import { TopBoard } from '@/widgets/MainCenter/ui/TopBoard';
+import { BottomBoard } from '@/widgets/MainCenter/ui/BottomBoard';
+import { assetSrc } from '@/shared/lib/assetSrc';
+import { useUser } from '@/shared/lib/userInfo/useUserInfo';
+import { homeButtonEntities } from '../entities/homeButton';
 
 export const MainCenter = () => {
-  const { category } = useParams();
+  const params = useParams() ?? {};
+  const category = params.category as string | undefined;
+  const { user } = useUser();
+  console.log(user);
+
   return (
     <section className={styles.mainContainer}>
       <aside className={styles.asideContainer}>
@@ -27,36 +37,23 @@ export const MainCenter = () => {
         </p>
       </aside>
       <section className={styles.categoryContainer}>
-        <Link to={'/'} className={styles.iconContainer}>
-          <img src={moneyIcon} alt={moneyIcon} />
-          <p className={styles.textStyle}>금융</p>
-        </Link>
-        <Link to={'/welfare'} className={styles.iconContainer}>
-          <img src={welfareIcon} alt={welfareIcon} />
-          <p className={styles.textStyle}>복지</p>
-        </Link>
-        <Link to={'/dwelling'} className={styles.iconContainer}>
-          <img src={houseIcon} alt={houseIcon} />
-          <p className={styles.textStyle}>주거</p>
-        </Link>
-        <Link to={'/development'} className={styles.iconContainer}>
-          <img src={developmentIcon} alt={developmentIcon} />
-          <p className={styles.textStyle}>자기게발</p>
-        </Link>
-        <Link to={'/free'} className={styles.iconContainer}>
-          <img src={freeIcon} alt={freeIcon} />
-          <p className={styles.textStyle}>자유</p>
-        </Link>
-        <Link to={'/qna'} className={styles.iconContainer}>
-          <img src={QnAIcon} alt={QnAIcon} />
-          <p className={styles.textStyle}>Q&A</p>
-        </Link>
+        {homeButtonEntities.map((item) => (
+          <Link href={item.path} className={styles.iconContainer}>
+            <img src={assetSrc(item.icon)} alt={item.name} />
+            <p className={styles.textStyle}>{item.name}</p>
+          </Link>
+        ))}
       </section>
       {category === undefined && (
         <>
           <TopBoard />
           <BottomBoard />
-          <img src={footerImage} alt={footerImage} className={styles.image} />
+          <img
+            src={assetSrc(footerImage)}
+            alt=''
+            className={styles.image}
+            aria-hidden
+          />
         </>
       )}
     </section>

@@ -1,1 +1,1 @@
-export { RemainCenter } from './ui/RemainCenter';
+export { RemainCenter } from '@/widgets/remainCenter/ui/RemainCenter';

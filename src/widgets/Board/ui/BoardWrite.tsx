@@ -1,6 +1,8 @@
-import { NavBar } from '../../NavBar';
-import { Footer } from '../../Footer';
-import styles from './BoardWrite.module.css';
+'use client';
+
+import { NavBar } from '@/widgets/NavBar';
+import { Footer } from '@/widgets/Footer';
+import styles from '@/widgets/Board/ui/BoardWrite.module.css';
 import React, { useState } from 'react';
 
 export const BoardWrite = () => {
@@ -61,7 +63,8 @@ export const BoardWrite = () => {
   };
 
   const handleSubmit = async () => {
-    const userData = JSON.parse(localStorage.getItem('user'));
+    const raw = localStorage.getItem('user');
+    const userData = raw ? JSON.parse(raw) : null;
 
     const boardData = JSON.stringify({
       title: inputValue.title,

@@ -1,41 +1,45 @@
-import styles from './NavBar.module.css';
-import { Link, useLocation, useNavigate, useParams } from 'react-router';
-import { NavBarSearchForm } from './NavBarSearchForm';
-import userImg from '../../../shared/assets/icons/userImg.svg';
+'use client';
+
+import styles from '@/widgets/NavBar/ui/NavBar.module.css';
+import { usePathname, useRouter } from 'next/navigation';
+import { NavBarSearchForm } from '@/widgets/NavBar/ui/NavBarSearchForm';
 import { useEffect, useState } from 'react';
-import { BottomNavBar } from './BottomNavBar.tsx';
-import { getSession } from '../../../shared/lib/useSession.ts';
+import { BottomNavBar } from '@/widgets/NavBar/ui/BottomNavBar';
 import {
   addLocalStorage,
   getLocalStorage,
-} from '../../../shared/lib/useLocalStorage.ts';
-import { UserTypes } from '../../../shared/types/googleUserTypes.ts';
-import { NavBarMenuItem } from './NavBarMenuItem.tsx';
-import { NavBarIcon } from './NavBarIcon.tsx';
-import { NavBarLoginUser } from './NavBarLoginUser.tsx';
+} from '@/shared/lib/useLocalStorage';
+import { UserTypes } from '@/shared/types/googleUserTypes';
+import { NavBarMenuItem } from '@/widgets/NavBar/ui/NavBarMenuItem';
+import { NavBarIcon } from '@/widgets/NavBar/ui/NavBarIcon';
+import { NavBarLoginUser } from '@/widgets/NavBar/ui/NavBarLoginUser';
 
 export const NavBar = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const [, setIsLogin] = useState(false);
   const [show, setShow] = useState(false);
   const [userData, setUserData] = useState({});
   const [showMenu, setShowMenu] = useState(false);
 
-  const { category } = useParams();
-  const location = useLocation();
-
-  const navigate = useNavigate();
+  const pathname = usePathname() ?? '';
+  const router = useRouter();
 
   const googleUserData = addLocalStorage('userData');
-  const realGoogleUserData: UserTypes | null =
-    googleUserData && JSON.parse(googleUserData);
+  let realGoogleUserData: UserTypes | null = null;
+  if (googleUserData) {
+    try {
+      realGoogleUserData = JSON.parse(googleUserData) as UserTypes;
+    } catch {
+      realGoogleUserData = null;
+    }
+  }
 
   useEffect(() => {
-    if (location.pathname.startsWith('/board')) {
+    if (pathname.startsWith('/board')) {
       setShow(true);
     } else {
       setShow(false);
     }
-  }, [location.pathname]);
+  }, [pathname]);
 
   useEffect(() => {
     const data = getLocalStorage('user');
@@ -48,12 +52,8 @@ export const NavBar = () => {
   return (
     <nav className={styles.container}>
       <ul className={styles.leftLinkContainer}>
-        <NavBarIcon navigate={navigate} setShowMenu={setShowMenu} />
-        <NavBarMenuItem
-          navigate={navigate}
-          showMenu={showMenu}
-          category={category}
-        />
+        <NavBarIcon push={router.push} setShowMenu={setShowMenu} />
+        <NavBarMenuItem push={router.push} showMenu={showMenu} />
       </ul>
       <div className={styles.rightLinkContainer}>
         <NavBarSearchForm />
@@ -63,7 +63,7 @@ export const NavBar = () => {
         </ul>
         <NavBarLoginUser
           realGoogleUserData={realGoogleUserData}
-          navigate={navigate}
+          push={router.push}
           setIsLogin={setIsLogin}
         />
       </div>

@@ -1,12 +1,15 @@
-import { useNavigate, useParams } from 'react-router';
-import styles from './BoardHomeMain.module.css';
-import rightIcon from '../../../shared/assets/icons/rightBar.svg';
-import writeIcon from '../../../shared/assets/icons/writeButton.svg';
-import smallCheck from '../../../shared/assets/icons/smallCheck.svg';
-import noneSmallCheck from '../../../shared/assets/icons/noneSmallCheck.svg';
-import userImages from '../../../shared/assets/icons/userImages.svg';
+'use client';
+
+import { useRouter, useParams } from 'next/navigation';
+import styles from '@/widgets/Board/ui/BoardHomeMain.module.css';
+import rightIcon from '@/shared/assets/icons/rightBar.svg';
+import writeIcon from '@/shared/assets/icons/writeButton.svg';
+import smallCheck from '@/shared/assets/icons/smallCheck.svg';
+import noneSmallCheck from '@/shared/assets/icons/noneSmallCheck.svg';
+import userImages from '@/shared/assets/icons/userImages.svg';
 import { useEffect, useState } from 'react';
-import { BoardCheck } from './BoardCheck.tsx';
+import { BoardCheck } from '@/widgets/Board/ui/BoardCheck';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 interface UserProps {
   name: string;
@@ -15,8 +18,11 @@ interface UserProps {
 }
 
 export const BoardHomeMain = () => {
-  const { category, detail, latest } = useParams();
-  const navigate = useNavigate();
+  const params = useParams() ?? {};
+  const category = params.category as string | undefined;
+  const detail = params.detail as string | undefined;
+  const latest = params.latest as string | undefined;
+  const router = useRouter();
   const [userData, setUserData] = useState<UserProps>();
 
   useEffect(() => {
@@ -45,9 +51,9 @@ export const BoardHomeMain = () => {
 
   const handleLogin = () => {
     if (userData) {
-      navigate(`/write`);
+      router.push(`/write`);
     } else {
-      navigate('/login');
+      router.push('/login');
     }
   };
 
@@ -55,18 +61,18 @@ export const BoardHomeMain = () => {
     <section className={styles.container}>
       <ul className={styles.listContainer}>
         <li className={styles.listFont}>홈</li>
-        <img src={rightIcon} alt='rightBar' width={14} height={14} />
+        <img src={assetSrc(rightIcon)} alt='' width={14} height={14} />
         <li className={styles.listFont}>사부작 게시판</li>
-        <img src={rightIcon} alt='rightBar' width={14} height={14} />
+        <img src={assetSrc(rightIcon)} alt='' width={14} height={14} />
         <li className={styles.listFont}>금융</li>
-        <img src={rightIcon} alt='rightBar' width={14} height={14} />
+        <img src={assetSrc(rightIcon)} alt='' width={14} height={14} />
         <li className={styles.activeStyle}>{detailTitle}</li>
       </ul>
       {userData ? (
         <article className={styles.topBoxContainer}>
           <h1 className={styles.title}>나의 커뮤니티</h1>
           <div className={styles.isLoginContainer}>
-            <img src={userImages} alt={userImages} />
+            <img src={assetSrc(userImages)} alt='' aria-hidden />
           </div>
           <div className={styles.isLoginRightContainer}>
             <h3 className={styles.loginTitle}>바보의 지배자</h3>
@@ -100,7 +106,7 @@ export const BoardHomeMain = () => {
         onClick={handleLogin}
       >
         함께 성장하는 커뮤니티, 글 작성해보세요!
-        <img src={writeIcon} alt={writeIcon} />
+        <img src={assetSrc(writeIcon)} alt='' />
       </button>
       <article>
         <ul className={userData ? styles.bottomLists : styles.bottomList}>
@@ -108,10 +114,14 @@ export const BoardHomeMain = () => {
             <div
               className={styles.bottomLostContainer}
               key={key}
-              onClick={() => navigate(`/board/${category}/${detail}/${key}`)}
+              onClick={() =>
+                router.push(`/board/${category}/${detail}/${key}`)
+              }
             >
               <img
-                src={key === latest ? smallCheck : noneSmallCheck}
+                src={assetSrc(
+                  key === latest ? smallCheck : noneSmallCheck,
+                )}
                 alt='icon'
                 className={styles.icon}
               />

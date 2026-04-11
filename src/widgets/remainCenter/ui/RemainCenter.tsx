@@ -1,12 +1,13 @@
-import { TopMain } from './TopMain.tsx';
-import { BottomMain } from './BottomMain.tsx';
+import { TopMain } from '@/widgets/remainCenter/ui/TopMain';
+import { BottomMain } from '@/widgets/remainCenter/ui/BottomMain';
 
-import styles from './RemainCenter.module.css';
+import styles from '@/widgets/remainCenter/ui/RemainCenter.module.css';
 
-import downIcon from '../../../shared/assets/icons/downIcon.svg';
+import downIcon from '@/shared/assets/icons/downIcon.svg';
 
-import adImage from '../../../shared/assets/icons/ad.svg';
-import footerImage from '../../../shared/assets/icons/Objects.svg';
+import adImage from '@/shared/assets/icons/ad.svg';
+import footerImage from '@/shared/assets/icons/Objects.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const RemainCenter = () => {
   return (
@@ -38,17 +39,22 @@ export const RemainCenter = () => {
                 </h1>
                 <p className={styles.realtimeContent}>진서 화이팅</p>
                 <figure className={styles.realtimeRank}>
-                  <img src={downIcon} alt={downIcon} />
+                  <img src={assetSrc(downIcon)} alt='순위 변동' />
                   <figcaption className={styles.rankNumber}>1</figcaption>
                 </figure>
               </div>
             );
           })}
         </article>
-        <img src={adImage} alt={adImage} className={styles.image} />
+        <img src={assetSrc(adImage)} alt='광고' className={styles.image} />
       </aside>
       <BottomMain />
-      <img src={footerImage} alt={footerImage} className={styles.footerImage} />
+      <img
+        src={assetSrc(footerImage)}
+        alt=''
+        className={styles.footerImage}
+        aria-hidden
+      />
     </>
   );
 };

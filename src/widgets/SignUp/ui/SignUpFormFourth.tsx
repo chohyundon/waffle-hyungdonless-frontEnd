@@ -1,15 +1,17 @@
-import styles from './SignUpFormFourth.module.css';
-import { useNavigate } from 'react-router';
+'use client';
+
+import styles from '@/widgets/SignUp/ui/SignUpFormFourth.module.css';
+import { useRouter } from 'next/navigation';
 
 export const SignUpFormFourth = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const moveLoginPage = () => {
-    navigate('/login');
+    router.push('/login');
   };
 
   const moveMainPage = () => {
-    navigate('/');
+    router.push('/');
   };
 
   return (

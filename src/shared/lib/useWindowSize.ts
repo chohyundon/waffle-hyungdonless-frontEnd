@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: 0,
+    height: 0,
   });
 
   useEffect(() => {
@@ -14,12 +14,9 @@ export const useWindowSize = () => {
       });
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
 
-    // 초기 크기 설정
-    handleResize();
-
-    // 컴포넌트 언마운트 시 이벤트 리스너 제거
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

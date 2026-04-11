@@ -1,9 +1,9 @@
-export { LoginForm } from './ui/LoginForm';
+export { LoginForm } from '@/widgets/Login/ui/LoginForm';
 
-export { GoogleLogin } from './ui/GoogleLogin';
+export { GoogleLogin } from '@/widgets/Login/ui/GoogleLogin';
 
-export { LoginHomePage } from './ui/LoginHome';
+export { LoginHomePage } from '@/widgets/Login/ui/LoginHome';
 
-export { LoginStatus } from './ui/LoginStatus';
+export { LoginStatus } from '@/widgets/Login/ui/LoginStatus';
 
-export { SearchId } from './ui/SearchId';
+export { SearchId } from '@/widgets/Login/ui/SearchId';

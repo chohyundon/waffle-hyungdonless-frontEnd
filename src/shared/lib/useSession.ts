@@ -1,3 +1,8 @@
+function getSessionStorage(): Storage | null {
+  if (typeof window === 'undefined') return null;
+  return window.sessionStorage;
+}
+
 interface useSessionTypes {
   email?: string;
   password?: string;
@@ -7,7 +12,7 @@ interface useSessionTypes {
 }
 
 export const useSession = (key: string, userData: useSessionTypes) => {
-  window.sessionStorage.setItem(key, JSON.stringify(userData));
+  getSessionStorage()?.setItem(key, JSON.stringify(userData));
 };
 
 interface SessionTypes {
@@ -15,9 +20,9 @@ interface SessionTypes {
 }
 
 export const getSession = (key: SessionTypes['key']) => {
-  return window.sessionStorage.getItem(key);
+  return getSessionStorage()?.getItem(key) ?? null;
 };
 
 export const removeSession = (key: SessionTypes['key']) => {
-  window.sessionStorage.removeItem(key);
+  getSessionStorage()?.removeItem(key);
 };

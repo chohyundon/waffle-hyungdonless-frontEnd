@@ -1,13 +1,14 @@
-import styles from './Bottom.module.css';
+import styles from '@/widgets/remainCenter/ui/Bottom.module.css';
 
-import welfareIcon from '../../../shared/assets/icons/welfareMiniIcon.svg';
-// import homeIcon from '../../../shared/assets/icons/homeMiniIcon.svg'
-// import developmentIcon from '../../../shared/assets/icons/developmentMiniIcon.svg'
-// import qnaIcon from '../../../shared/assets/icons/qnaMiniIcon.svg'
+import welfareIcon from '@/shared/assets/icons/welfareMiniIcon.svg';
+// import homeIcon from '@/shared/assets/icons/homeMiniIcon.svg'
+// import developmentIcon from '@/shared/assets/icons/developmentMiniIcon.svg'
+// import qnaIcon from '@/shared/assets/icons/qnaMiniIcon.svg'
 
-import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
-import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
-import likeIcon from '../../../shared/assets/icons/likeIcon.svg';
+import viewIcon from '@/shared/assets/icons/viewIcon.svg';
+import commentIcon from '@/shared/assets/icons/commentIcon.svg';
+import likeIcon from '@/shared/assets/icons/likeIcon.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const BottomMain = () => {
   return (
@@ -21,20 +22,20 @@ export const BottomMain = () => {
               {i + 1}
             </h1>
             <figure className={styles.iconContainer}>
-              <img src={welfareIcon} alt={welfareIcon} width={15} height={15} />
+              <img src={assetSrc(welfareIcon)} alt='' width={15} height={15} />
               <figcaption className={styles.iconFont}>복지</figcaption>
             </figure>
             <section className={styles.iconsContainer}>
               <figure className={styles.icons}>
-                <img src={viewIcon} alt={viewIcon} />
+                <img src={assetSrc(viewIcon)} alt='' />
                 <figcaption className={styles.iconFont}>106</figcaption>
               </figure>
               <figure className={styles.icons}>
-                <img src={commentIcon} alt={commentIcon} />
+                <img src={assetSrc(commentIcon)} alt='' />
                 <figcaption className={styles.iconFont}>106</figcaption>
               </figure>
               <figure className={styles.icons}>
-                <img src={likeIcon} alt={likeIcon} />
+                <img src={assetSrc(likeIcon)} alt='' />
                 <figcaption className={styles.iconFont}>106</figcaption>
               </figure>
             </section>

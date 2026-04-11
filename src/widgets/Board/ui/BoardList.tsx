@@ -1,8 +1,8 @@
-import { NavBar } from '../../NavBar';
-import { Footer } from '../../Footer';
+import { NavBar } from '@/widgets/NavBar';
+import { Footer } from '@/widgets/Footer';
 
-import styles from './BoardList.module.css';
-import { BoardHome } from './BoardHome.tsx';
+import styles from '@/widgets/Board/ui/BoardList.module.css';
+import { BoardHome } from '@/widgets/Board/ui/BoardHome';
 
 export const BoardList = () => {
   return (

@@ -1,22 +1,17 @@
-import styles from './NavBar.module.css';
-import { moveBoardPage } from '../../../shared/lib/navigationUtils';
-import { NavigateFunction } from 'react-router';
+import styles from '@/widgets/NavBar/ui/NavBar.module.css';
+import { moveBoardPage } from '@/shared/lib/navigationUtils';
+import type { RouterPush } from '@/shared/lib/navigationUtils';
 
 interface NavBarMenuItemProps {
   showMenu: boolean;
-  navigate: NavigateFunction;
-  category: string | undefined;
+  push: RouterPush;
 }
 
-export const NavBarMenuItem = ({
-  showMenu,
-  navigate,
-  category,
-}: NavBarMenuItemProps) => {
+export const NavBarMenuItem = ({ showMenu, push }: NavBarMenuItemProps) => {
   if (showMenu) {
     return (
       <div className={styles.menuBar}>
-        <li onClick={() => moveBoardPage(navigate)} className={styles.menuFont}>
+        <li onClick={() => moveBoardPage(push)} className={styles.menuFont}>
           사부작 게시판
         </li>
         <li className={styles.menuFont}>캘린더</li>
@@ -26,7 +21,7 @@ export const NavBarMenuItem = ({
   } else {
     return (
       <>
-        <li onClick={() => moveBoardPage(navigate)} className={styles.linkfont}>
+        <li onClick={() => moveBoardPage(push)} className={styles.linkfont}>
           사부작 게시판
         </li>
         <li className={styles.linkfont}>캘린더</li>

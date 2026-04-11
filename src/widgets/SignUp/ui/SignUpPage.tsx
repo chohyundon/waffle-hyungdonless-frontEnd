@@ -1,10 +1,9 @@
-import styles from './SginUp.module.css';
-import { Outlet } from 'react-router';
+import styles from '@/widgets/SignUp/ui/SginUp.module.css';
 
-export function SignUpPage() {
+export function SignUpPage({ children }: { children?: React.ReactNode }) {
   return (
     <div className={styles.signUpContainer}>
-      <Outlet />
+      {children}
       <figure></figure>
     </div>
   );

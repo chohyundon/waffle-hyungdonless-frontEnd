@@ -1,15 +1,18 @@
-import styles from './SignUpForm.module.css';
+'use client';
+
+import styles from '@/widgets/SignUp/ui/SignUpForm.module.css';
 import { useForm } from 'react-hook-form';
-import { SignUpType } from '../../../shared/types/SignUpType.ts';
-import { Delay } from '../../../shared/lib/Delay.ts';
-import { useNavigate } from 'react-router';
-import { useSession } from '../../../shared/lib/useSession.ts';
-import openEye from '../../../shared/assets/icons/openEye.svg';
-import closeEye from '../../../shared/assets/icons/closeEye.svg';
+import { SignUpType } from '@/shared/types/SignUpType';
+import { Delay } from '@/shared/lib/Delay';
+import { useRouter } from 'next/navigation';
+import { useSession } from '@/shared/lib/useSession';
+import openEye from '@/shared/assets/icons/openEye.svg';
+import closeEye from '@/shared/assets/icons/closeEye.svg';
 import { useState } from 'react';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export function SignUpForm() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [firstConfirmPasswordState, setFirstConfirmPasswordState] =
     useState(false);
   const [secondConfirmPasswordState, setSecondConfirmPasswordState] =
@@ -28,7 +31,7 @@ export function SignUpForm() {
 
     if (filterData) {
       await Delay(2000);
-      navigate('/signUp/step2');
+      router.push('/signup/step2');
     }
   };
 
@@ -92,7 +95,7 @@ export function SignUpForm() {
           })}
         />
         <img
-          src={secondConfirmPasswordState ? openEye : closeEye}
+          src={assetSrc(secondConfirmPasswordState ? openEye : closeEye)}
           alt='비밀번호 확인'
           onClick={confirmPassword}
           className={styles.topIcon}
@@ -129,7 +132,7 @@ export function SignUpForm() {
         })}
       />
       <img
-        src={firstConfirmPasswordState ? openEye : closeEye}
+        src={assetSrc(firstConfirmPasswordState ? openEye : closeEye)}
         alt='비밀번호 확인'
         onClick={confirmPasswordValue}
         className={styles.bottomIcon}

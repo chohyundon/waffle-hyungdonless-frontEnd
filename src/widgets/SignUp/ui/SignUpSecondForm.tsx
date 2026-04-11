@@ -1,10 +1,13 @@
-import styles from './SignUpSecondForm.module.css';
-import Select from '../../../shared/assets/icons/select.svg';
+'use client';
+
+import styles from '@/widgets/SignUp/ui/SignUpSecondForm.module.css';
+import Select from '@/shared/assets/icons/select.svg';
 import React, { useState } from 'react';
-import { useSession, getSession } from '../../../shared/lib/useSession.ts';
-import { useTimer } from '../../../shared/lib/useTimer.ts';
-import { Delay } from '../../../shared/lib/Delay.ts';
-import { useNavigate } from 'react-router';
+import { useSession, getSession } from '@/shared/lib/useSession';
+import { useTimer } from '@/shared/lib/useTimer';
+import { Delay } from '@/shared/lib/Delay';
+import { useRouter } from 'next/navigation';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const SignUpSecondForm = () => {
   const [inputValue, setInputValue] = useState({
@@ -19,7 +22,7 @@ export const SignUpSecondForm = () => {
     data: '',
   });
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const { count, startTimer, stopTimer } = useTimer();
 
@@ -114,7 +117,7 @@ export const SignUpSecondForm = () => {
       stopTimer();
       useSession('step1Data', postData);
       await Delay(2000);
-      navigate('/signUp/step3');
+      router.push('/signup/step3');
     }
   };
 
@@ -153,7 +156,7 @@ export const SignUpSecondForm = () => {
         <select className={styles.select}>
           <option>통신사</option>
         </select>
-        <img src={Select} alt='select' className={styles.selectIcon} />
+        <img src={assetSrc(Select)} alt='' className={styles.selectIcon} />
         <div className={styles.numberContainer}>
           <input
             type='text'

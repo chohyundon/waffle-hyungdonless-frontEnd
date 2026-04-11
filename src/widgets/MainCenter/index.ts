@@ -1,1 +1,1 @@
-export { MainCenter } from './ui/MainCenter';
+export { MainCenter } from '@/widgets/MainCenter/ui/MainCenter';

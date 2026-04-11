@@ -1,0 +1,427 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./src/widgets/remainCenter/ui/Bottom.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************/
+.Bottom_boardContainer__G3P03 {
+  position: absolute;
+  top: 127%;
+  width: 42.0835%;
+  height: 55.741vh;
+  border: 1px solid var(--color-borderColor-gray100);
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  left: 18.125%;
+  padding-block: 1.042%;
+  gap: 40px;
+}
+
+.Bottom_contentBox__h3ySd {
+  width: 88.338%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.Bottom_boardRankNumber__ZHoQ6 {
+  font-family: 'Roboto Thin', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+.Bottom_boardTop3__ABwWi {
+  color: var(--color-number-green);
+}
+
+.Bottom_notboardTop3__X5YYw {
+  color: var(--color-base-gray300);
+}
+
+.Bottom_iconContainer___JcAr {
+  display: flex;
+  padding: 7px 10px;
+  border: 0.5px solid var(--color-base-gray800);
+  gap: 5px;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 6.883%;
+  align-items: center;
+}
+
+.Bottom_boardContent___FqlI {
+  position: absolute;
+  left: 6.883%;
+  font-size: 1.125rem;
+  color: var(--color-base-black200);
+  font-weight: 600;
+  top: 46%;
+}
+
+.Bottom_iconsContainer__iFSzC {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 6.883%;
+  gap: 15px;
+}
+
+.Bottom_icons__gfABX {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.Bottom_iconFont__sudXz {
+  position: relative;
+  font-size: 0.75rem;
+  color: var(--color-base-black200);
+  top: 9%;
+  font-family: 'Roboto Thin', sans-serif;
+  font-weight: 500;
+}
+
+.Bottom_borderBottom__qtdhM {
+  position: absolute;
+  top: 120%;
+  width: 100%;
+  border-bottom: 1px solid var(--color-borderColor-gray100);
+}
+
+.Bottom_borderNone__eci_A {
+  border: none;
+}
+
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./src/widgets/remainCenter/ui/RemainCenter.module.css ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+.RemainCenter_container__ttpKr {
+  position: absolute;
+  top: 120.6488%;
+  width: 63.698%;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.RemainCenter_titleBox__UILVh {
+  display: flex;
+  align-items: center;
+}
+
+.RemainCenter_title__DMkdK {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.RemainCenter_textStyle__tQTbZ {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-number-green);
+}
+
+.RemainCenter_subTitle__ZSgmT {
+  position: absolute;
+  left: 12.63%;
+  line-height: 150%;
+}
+
+.RemainCenter_realTimeContainer__ddSOF {
+  position: absolute;
+  top: 122.2225%;
+  left: 66.875%;
+}
+
+.RemainCenter_titleContainer__yQ1dD {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.RemainCenter_hot__yL5b_ {
+  color: var(--color-number-green);
+}
+
+.RemainCenter_realTimeboard__Nylye {
+  border: 1px solid var(--color-borderColor-gray100);
+  position: absolute;
+  height: 26.389vh;
+  border-radius: 8px;
+  width: 187.56%;
+  padding: 29px 31px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  top: 260%;
+}
+
+.RemainCenter_contentBox__AhvRP {
+  position: relative;
+  display: flex;
+  height: 9.78%;
+}
+
+.RemainCenter_realtimeNumber__qR3Ik {
+  font-size: 1.5rem;
+  font-family: 'Roboto Thin', sans-serif;
+}
+
+.RemainCenter_top3__pMnxt {
+  color: var(--color-number-green);
+  font-weight: 600;
+}
+
+.RemainCenter_notTop3__eX1Jg {
+  color: var(--color-base-gray300);
+}
+
+.RemainCenter_realtimeContent__A_v8x {
+  position: absolute;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: var(--color-base-black100);
+  font-size: 1rem;
+  font-weight: 600;
+  height: 100%;
+  left: 15.557%;
+}
+
+.RemainCenter_realtimeRank__gmgzL {
+  position: absolute;
+  right: 0;
+  width: 11.114%;
+  display: flex;
+}
+
+.RemainCenter_rankNumber__S3E37 {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-icon-gray100);
+}
+
+.RemainCenter_image__2oulT {
+  position: absolute;
+  top: 1900%;
+}
+
+.RemainCenter_footerImage__2nIuZ {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 200%;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[14].oneOf[5].use[3]!./src/widgets/remainCenter/ui/TopMain.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
+.TopMain_remainContainer__0TGNC {
+  position: absolute;
+  top: 68%;
+  width: 100%;
+}
+
+.TopMain_board__yKAjC {
+  border: 1px solid var(--color-borderColor-gray100);
+  position: absolute;
+  left: 35.209%;
+  height: 42.32vh;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 46.771%;
+  padding-block: 1.3025%;
+  padding-inline: 2.5524%;
+  top: 0;
+  box-sizing: border-box;
+}
+
+.TopMain_userNameFont__tqwCr {
+  font-size: 0.875rem;
+  color: var(--color-base-gray800);
+  font-weight: 600;
+}
+
+.TopMain_boardList__RrmY7 {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  position: relative;
+}
+
+.TopMain_boardContainer__cyRhU {
+  display: flex;
+  align-items: center;
+  height: 7.315vh;
+  width: 100%;
+}
+
+.TopMain_badge__pcioC {
+  font-size: 0.75rem;
+  border: 1px solid var(--color-borderColor-gray100);
+  padding: 7.5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  color: var(--color-base-black200);
+}
+
+.TopMain_userContainer__O6T7z {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 11.543%;
+  gap: 8px;
+}
+
+.TopMain_boardContent__OrtvF {
+  position: absolute;
+  font-size: 1.125rem;
+  left: 12.462%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 88%;
+  font-weight: 600;
+}
+
+.TopMain_boardBottom___z9Bf {
+  flex-direction: column;
+  border-bottom: 0.5px solid var(--color-borderColor-gray100);
+  width: 100%;
+  top: 100%;
+}
+
+.TopMain_borderNone__Y4bh0 {
+  border: none;
+}
+
+.TopMain_iconsContainer__GORTU {
+  position: absolute;
+  display: flex;
+  top: 58.95%;
+  left: 12.565%;
+  gap: 15px;
+}
+
+.TopMain_icons__ejee4 {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+
+.TopMain_iconsFont__Uazrn {
+  font-size: 0.72222222rem;
+  color: var(--color-base-gray800);
+}
+
+.TopMain_numbers__FItFk {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+.TopMain_bar__U3nBb {
+  width: 0.5px;
+  height: 13px;
+  background: var(--color-base-gray900);
+}
+
+.TopMain_times__Qh35m {
+  font-size: 0.72222222rem;
+  color: var(--color-base-gray800);
+}
+
+@media (max-width: 1700px) {
+  .TopMain_remainContainer__0TGNC {
+    position: absolute;
+    top: 69%;
+  }
+
+  .TopMain_image__AI3lX {
+    position: absolute;
+    left: -4.5%;
+  }
+
+  .TopMain_board__yKAjC {
+    position: absolute;
+    right: 0;
+    width: 47%;
+    top: 10%;
+  }
+
+  .TopMain_userContainer__O6T7z {
+    left: 14.639%;
+    top: 0;
+  }
+
+  .TopMain_boardContent__OrtvF {
+    left: 16.639%;
+  }
+
+  .TopMain_iconsContainer__GORTU {
+    left: 16.639%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .TopMain_remainContainer__0TGNC {
+    position: absolute;
+    top: 68%;
+  }
+
+  .TopMain_image__AI3lX {
+    position: absolute;
+    left: -7%;
+  }
+
+  .TopMain_board__yKAjC {
+    position: absolute;
+    right: 0;
+    left: 40%;
+  }
+
+  .TopMain_boardContent__OrtvF {
+    width: 84%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .TopMain_image__AI3lX {
+    position: absolute;
+    left: -13%;
+  }
+
+  .TopMain_board__yKAjC {
+    position: absolute;
+    right: 0;
+    width: 54%;
+    left: 35%;
+  }
+
+  .TopMain_boardContent__OrtvF {
+    width: 84%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .TopMain_image__AI3lX {
+    position: absolute;
+    left: -13%;
+  }
+
+  .TopMain_board__yKAjC {
+    position: absolute;
+    right: 0;
+    width: 54%;
+    left: 50%;
+  }
+
+  .TopMain_boardContent__OrtvF {
+    width: 84%;
+  }
+}
+

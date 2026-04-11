@@ -1,10 +1,13 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router';
-import styles from './LoginForm.module.css';
-import eyeIcon from '../../../shared/assets/icons/openEye.svg';
-import closeEye from '../../../shared/assets/icons/closeEye.svg';
-import { LoginInputType } from '../../../shared/types/LoginInputType';
+import { useRouter } from 'next/navigation';
+import styles from '@/widgets/Login/ui/LoginForm.module.css';
+import eyeIcon from '@/shared/assets/icons/openEye.svg';
+import closeEye from '@/shared/assets/icons/closeEye.svg';
+import { LoginInputType } from '@/shared/types/LoginInputType';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 interface StatusProps {
   status: string;
@@ -18,7 +21,7 @@ export function LoginForm() {
   const [userData, setUserData] = useState<LoginInputType | null>(null);
   const [realUserData, setRealUserData] = useState<any | null>(null);
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const {
     register,
@@ -65,10 +68,10 @@ export function LoginForm() {
     if (storedUser && realUserData) {
       const parsedUser = JSON.parse(storedUser);
       if (parsedUser.email === realUserData.email) {
-        navigate('/'); // 페이지 이동
+        router.push('/'); // 페이지 이동
       }
     }
-  }, [realUserData, navigate]);
+  }, [realUserData, router]);
 
   const showPassword = () => setClick((prev) => !prev);
 
@@ -114,7 +117,7 @@ export function LoginForm() {
           })}
         />
         <img
-          src={click ? eyeIcon : closeEye}
+          src={assetSrc(click ? eyeIcon : closeEye)}
           alt='비밀번호 확인'
           className={styles.icon}
           onClick={showPassword}

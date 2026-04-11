@@ -1,15 +1,16 @@
-import styles from './BottomBoard.module.css';
+import styles from '@/widgets/MainCenter/ui/BottomBoard.module.css';
 
-import welfareIcon from '../../../shared/assets/icons/welfareMiniIcon.svg';
-import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
-import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
-import likeIcon from '../../../shared/assets/icons/likeIcon.svg';
-import downIcon from '../../../shared/assets/icons/downIcon.svg';
-import adImage from '../../../shared/assets/icons/ad.svg';
+import welfareIcon from '@/shared/assets/icons/welfareMiniIcon.svg';
+import viewIcon from '@/shared/assets/icons/viewIcon.svg';
+import commentIcon from '@/shared/assets/icons/commentIcon.svg';
+import likeIcon from '@/shared/assets/icons/likeIcon.svg';
+import downIcon from '@/shared/assets/icons/downIcon.svg';
+import adImage from '@/shared/assets/icons/ad.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
-// import homeIcon from '../../../shared/assets/icons/homeMiniIcon.svg'
-// import developmentIcon from '../../../shared/assets/icons/developmentMiniIcon.svg'
-// import qnaIcon from '../../../shared/assets/icons/qnaMiniIcon.svg'
+// import homeIcon from '@/shared/assets/icons/homeMiniIcon.svg'
+// import developmentIcon from '@/shared/assets/icons/developmentMiniIcon.svg'
+// import qnaIcon from '@/shared/assets/icons/qnaMiniIcon.svg'
 
 export const BottomBoard = () => {
   return (
@@ -36,8 +37,8 @@ export const BottomBoard = () => {
               </h1>
               <figure className={styles.iconContainer}>
                 <img
-                  src={welfareIcon}
-                  alt={welfareIcon}
+                  src={assetSrc(welfareIcon)}
+                  alt=''
                   width={15}
                   height={15}
                 />
@@ -46,15 +47,15 @@ export const BottomBoard = () => {
               <p className={styles.boardContent}>주짓수 vs 수영</p>
               <section className={styles.iconsContainer}>
                 <figure className={styles.icons}>
-                  <img src={viewIcon} alt={viewIcon} />
+                  <img src={assetSrc(viewIcon)} alt='' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <figure className={styles.icons}>
-                  <img src={commentIcon} alt={commentIcon} />
+                  <img src={assetSrc(commentIcon)} alt='' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
                 <figure className={styles.icons}>
-                  <img src={likeIcon} alt={likeIcon} />
+                  <img src={assetSrc(likeIcon)} alt='' />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>
               </section>
@@ -80,14 +81,14 @@ export const BottomBoard = () => {
                 </h1>
                 <p className={styles.contentName}>돈이 없네</p>
                 <figure className={styles.realtimeRank}>
-                  <img src={downIcon} alt={downIcon} />
+                  <img src={assetSrc(downIcon)} alt='순위 변동' />
                   <figcaption className={styles.rankNumber}>1</figcaption>
                 </figure>
               </div>
             );
           })}
         </article>
-        <img src={adImage} alt={adImage} className={styles.image} />
+        <img src={assetSrc(adImage)} alt='광고' className={styles.image} />
       </aside>
     </>
   );

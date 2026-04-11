@@ -1,17 +1,20 @@
-import { NavigateFunction } from 'react-router';
-import { moveLoginPage } from '../../../shared/lib/navigationUtils';
-import { removeLocalStorage } from '../../../shared/lib/useLocalStorage';
-import styles from './NavBar.module.css';
+'use client';
+
+import Image from 'next/image';
+import type { RouterPush } from '@/shared/lib/navigationUtils';
+import { moveLoginPage } from '@/shared/lib/navigationUtils';
+import { removeLocalStorage } from '@/shared/lib/useLocalStorage';
+import styles from '@/widgets/NavBar/ui/NavBar.module.css';
 
 interface NavBarLoginUserProps {
   realGoogleUserData: any;
-  navigate: NavigateFunction;
+  push: RouterPush;
   setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const NavBarLoginUser = ({
   realGoogleUserData,
-  navigate,
+  push,
   setIsLogin,
 }: NavBarLoginUserProps) => {
   const handleRemoveData = () => {
@@ -21,13 +24,22 @@ export const NavBarLoginUser = ({
   };
 
   if (realGoogleUserData) {
+    const profileSrc = realGoogleUserData.userImg;
+    const profileAlt = `${realGoogleUserData.userName ?? '사용자'} 프로필 사진`;
+
     return (
       <div className={styles.userLogin}>
-        <img
-          src={realGoogleUserData.userImg}
-          alt='유저 이미지'
-          className={styles.userImage}
-        />
+        {typeof profileSrc === 'string' && profileSrc.startsWith('http') ? (
+          <Image
+            src={profileSrc}
+            alt={profileAlt}
+            width={32}
+            height={32}
+            className={styles.userImage}
+          />
+        ) : (
+          <div className={styles.userImage} aria-label={profileAlt} />
+        )}
         <p className={styles.loginBtn} onClick={handleRemoveData}>
           로그아웃
         </p>
@@ -35,7 +47,7 @@ export const NavBarLoginUser = ({
     );
   } else {
     return (
-      <p className={styles.loginBtn} onClick={() => moveLoginPage(navigate)}>
+      <p className={styles.loginBtn} onClick={() => moveLoginPage(push)}>
         로그인
       </p>
     );

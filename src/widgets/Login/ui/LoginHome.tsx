@@ -1,10 +1,13 @@
-import { GoogleLogin, LoginForm, LoginStatus } from '../index';
-import styles from './LoginHome.module.css';
-import { useNavigate } from 'react-router';
-import Logo from '../../../shared/assets/icons/loginLogo.svg';
+'use client';
+
+import { GoogleLogin, LoginForm, LoginStatus } from '@/widgets/Login';
+import styles from '@/widgets/Login/ui/LoginHome.module.css';
+import { useRouter } from 'next/navigation';
+import Logo from '@/shared/assets/icons/loginLogo.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export function LoginHomePage() {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   return (
     <div className={styles.loginContainer}>
@@ -24,14 +27,14 @@ export function LoginHomePage() {
           <p className={styles.Text}>아직 ‘사부작 사부작’에 처음이세요?</p>
           <p
             className={styles.signUpText}
-            onClick={() => navigate('/signUp/step1')}
+            onClick={() => router.push('/signup/step1')}
           >
             회원가입하기
           </p>
         </div>
       </main>
       <figure className={styles.figureContainer}>
-        <img src={Logo} alt={Logo} />
+        <img src={assetSrc(Logo)} alt='사부작 로고' />
       </figure>
     </div>
   );

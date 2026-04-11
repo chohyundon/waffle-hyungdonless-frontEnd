@@ -1,22 +1,28 @@
-import styles from './TopBoard.module.css';
+import styles from '@/widgets/MainCenter/ui/TopBoard.module.css';
 
-import moneyBg from '../../../shared/assets/icons/moneyBg.svg';
-import userImage from '../../../shared/assets/icons/userImage.svg';
-import viewIcon from '../../../shared/assets/icons/viewIcon.svg';
-import commentIcon from '../../../shared/assets/icons/commentIcon.svg';
-import likeIcon from '../../../shared/assets/icons/likeIcon.svg';
+import moneyBg from '@/shared/assets/icons/moneyBg.svg';
+import userImage from '@/shared/assets/icons/userImage.svg';
+import viewIcon from '@/shared/assets/icons/viewIcon.svg';
+import commentIcon from '@/shared/assets/icons/commentIcon.svg';
+import likeIcon from '@/shared/assets/icons/likeIcon.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const TopBoard = () => {
   return (
     <section className={styles.remainContainer}>
-      <img src={moneyBg} alt={moneyBg} className={styles.image} />
+      <img
+        src={assetSrc(moneyBg)}
+        alt=''
+        className={styles.image}
+        aria-hidden
+      />
       <aside className={styles.board}>
         {Array.from({ length: 4 }, (_, i) => (
           <div className={styles.boardList} key={i}>
             <div className={styles.boardContainer}>
               <p className={styles.badge}>자산증식</p>
               <div className={styles.userContainer}>
-                <img src={userImage} alt={userImage} width={20} height={20} />
+                <img src={assetSrc(userImage)} alt='' width={20} height={20} />
                 <span className={styles.userNameFont}>userName</span>
               </div>
               <p className={styles.boardContent}>
@@ -25,15 +31,15 @@ export const TopBoard = () => {
               </p>
               <div className={styles.iconsContainer}>
                 <div className={styles.icons}>
-                  <img src={viewIcon} alt={viewIcon} />
+                  <img src={assetSrc(viewIcon)} alt='' />
                   <p className={styles.iconsFont}>106</p>
                 </div>
                 <div className={styles.icons}>
-                  <img src={commentIcon} alt={commentIcon} />
+                  <img src={assetSrc(commentIcon)} alt='' />
                   <p className={styles.iconsFont}>106</p>
                 </div>
                 <div className={styles.icons}>
-                  <img src={likeIcon} alt={likeIcon} />
+                  <img src={assetSrc(likeIcon)} alt='' />
                   <p className={styles.iconsFont}>106</p>
                 </div>
                 <div className={styles.numbers}>

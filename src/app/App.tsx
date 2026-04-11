@@ -1,4 +1,4 @@
-import { Home } from '../pages';
+import { MainCenter } from '@/widgets/MainCenter';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export default function App() {
@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Home />
+        <MainCenter />
       </QueryClientProvider>
     </>
   );

@@ -1,9 +1,11 @@
-import styles from './SignUpThirdForm.module.css';
+'use client';
+
+import styles from '@/widgets/SignUp/ui/SignUpThirdForm.module.css';
 import { useForm } from 'react-hook-form';
-import { SignUpStepName } from '../../../shared/types/SignUpType.ts';
-import { getSession, removeSession } from '../../../shared/lib/useSession.ts';
-import { Delay } from '../../../shared/lib/Delay.ts';
-import { useNavigate } from 'react-router';
+import { SignUpStepName } from '@/shared/types/SignUpType';
+import { getSession, removeSession } from '@/shared/lib/useSession';
+import { Delay } from '@/shared/lib/Delay';
+import { useRouter } from 'next/navigation';
 
 export const SignUpThirdForm = () => {
   const {
@@ -14,7 +16,7 @@ export const SignUpThirdForm = () => {
 
   const getData = getSession('step1Data');
   const signUpData = getData && JSON.parse(getData);
-  const navigate = useNavigate();
+  const router = useRouter();
   console.log(signUpData);
 
   const sendNickName = async (data: SignUpStepName) => {
@@ -38,7 +40,7 @@ export const SignUpThirdForm = () => {
     if (response.status === 200) {
       await Delay(2000);
       removeSession('step1Data');
-      navigate('/signUp/step4');
+      router.push('/signup/step4');
     }
   };
 

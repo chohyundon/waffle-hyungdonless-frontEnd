@@ -1,8 +1,9 @@
-import { SignUpForm } from './SignUpForm.tsx';
-import styles from './SginUp.module.css';
-import { GoogleLogin } from '../../Login';
-import { SignUpStep } from './SignUpStep.tsx';
-import Logo from '../../../shared/assets/icons/loginLogo.svg';
+import { SignUpForm } from '@/widgets/SignUp/ui/SignUpForm';
+import styles from '@/widgets/SignUp/ui/SginUp.module.css';
+import { GoogleLogin } from '@/widgets/Login';
+import { SignUpStep } from '@/widgets/SignUp/ui/SignUpStep';
+import Logo from '@/shared/assets/icons/loginLogo.svg';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export function SignUpFormFirstStep() {
   return (
@@ -19,7 +20,7 @@ export function SignUpFormFirstStep() {
         <GoogleLogin />
       </main>
       <figure className={styles.logo}>
-        <img src={Logo} alt='Logo' />
+        <img src={assetSrc(Logo)} alt='사부작 로고' />
       </figure>
     </>
   );

@@ -1,13 +1,17 @@
-import signUpProcedure from '../../../shared/assets/icons/signUpProcedure.svg';
-import noneSignUpProcedure from '../../../shared/assets/icons/noneSignUpProcedure.svg';
-import styles from './SginUp.module.css';
-import { useLocation } from 'react-router';
+'use client';
+
+import signUpProcedure from '@/shared/assets/icons/signUpProcedure.svg';
+import noneSignUpProcedure from '@/shared/assets/icons/noneSignUpProcedure.svg';
+import styles from '@/widgets/SignUp/ui/SginUp.module.css';
+import { usePathname } from 'next/navigation';
+import { assetSrc } from '@/shared/lib/assetSrc';
 
 export const SignUpStep = () => {
   const totalStepCount = 4;
 
-  const location = useLocation();
-  const step = parseInt(location.pathname.split('/')[2].slice(4, 5));
+  const pathname = usePathname() ?? '';
+  const stepSegment = pathname.split('/')[2] ?? '';
+  const step = parseInt(stepSegment.slice(4, 5), 10);
   const data = ['이메일 입력', '본인인증', '정보입력', '가입완료'];
 
   return (
@@ -29,7 +33,9 @@ export const SignUpStep = () => {
               )}
             </span>
             <img
-              src={isActive ? signUpProcedure : noneSignUpProcedure}
+              src={assetSrc(
+                isActive ? signUpProcedure : noneSignUpProcedure,
+              )}
               alt={`step${currentStep}`}
               className={
                 isActive ? styles.stepCheckIcon : styles.stepNoneCheckIcon
