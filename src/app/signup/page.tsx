@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { SignUpSingle } from '@/components/SignUp';
 
-export default function SignUpIndexPage() {
-  redirect('/signup/step1');
+export default function SignUpPage() {
+  return <SignUpSingle />;
 }

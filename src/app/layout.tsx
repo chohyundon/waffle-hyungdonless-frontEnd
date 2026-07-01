@@ -15,11 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang='ko'>
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Caveat&display=swap"
-          rel="stylesheet"
+          href='https://fonts.googleapis.com/css2?family=Caveat&display=swap'
+          rel='stylesheet'
         />
       </head>
       <body>

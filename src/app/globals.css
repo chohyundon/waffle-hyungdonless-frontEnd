@@ -107,6 +107,25 @@ section {
   font-family: 'Pretendard';
 }
 
+/*
+  반응형 브레이크포인트 규칙 (전 위젯 공통)
+  - 데스크톱 : 기본 (수정하지 않음)
+  - 태블릿   : @media (max-width: 1024px)
+  - 모바일   : @media (max-width: 768px)
+  - 소형모바일: @media (max-width: 480px)
+*/
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
 body {
   line-height: 1;
 }

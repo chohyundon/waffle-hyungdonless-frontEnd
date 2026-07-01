@@ -1,0 +1,311 @@
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 7.0375vh;
+  padding-inline: 20%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.leftLinkContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 0.15fr);
+  align-items: center;
+  text-align: center;
+  width: 32vw;
+  gap: 24px;
+}
+
+.menuContainer {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+}
+
+.menuIcon {
+  cursor: pointer;
+  width: 10vw;
+  height: 3vh;
+}
+
+.menuText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.navLogo {
+  display: block;
+  width: 112px;
+  height: auto;
+  max-height: 40px;
+}
+
+@media (min-width: 1261px) {
+  .leftLinkContainer {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: auto;
+    min-width: 32vw;
+  }
+}
+
+.linkfont {
+  color: var(--color-base-gray500);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.pickFont {
+  color: var(--color-main-green-hover);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.linkfont:hover {
+  color: var(--color-main-green-hover);
+  font-weight: 700;
+}
+
+.rightLinkContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.formContainer {
+  display: flex;
+  align-items: center;
+  width: 15vw;
+}
+
+.inputText {
+  width: 100%;
+  padding-inline: 10px;
+  height: 3.334vh;
+  box-shadow: 0px 5px 11px 2px var(--color-base-gray700);
+  border-radius: 30px;
+  border: 1px solid var(--color-base-gray600);
+}
+
+.icons {
+  cursor: pointer;
+}
+
+.restContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.loginBtn {
+  cursor: pointer;
+  text-align: center;
+  width: 5vw;
+  white-space: nowrap;
+}
+
+.loginBtn:hover {
+  color: var(--color-main-green-hover);
+  font-weight: 700;
+}
+
+.menuFont {
+  cursor: pointer;
+}
+
+.menuFont:hover {
+  color: var(--color-main-green-hover);
+  font-weight: 700;
+}
+
+.userLogin {
+  display: flex;
+  align-items: center;
+}
+
+.userImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.menuBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  height: 3vh;
+  align-items: center;
+  padding-inline: 3%;
+  background-color: var(--color-borderColor-gray100);
+  gap: 30px;
+  color: var(--color-base-gray500);
+  font-weight: 600;
+}
+
+/* ---- Desktop range fine-tuning (1025px – 1592px). Keeps existing look. ---- */
+@media (max-width: 1592px) {
+  .linkfont {
+    font-size: 0.875rem;
+  }
+
+  .inputText {
+    display: none;
+  }
+
+  .rightLinkContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .restContainer {
+    text-align: center;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  .userLogin {
+    display: flex;
+  }
+}
+
+/* At <=1260px the NavBarIcon swaps the logo for the hamburger + brand text.
+   This range (1025-1260px) is still "desktop" and keeps the original look:
+   center links hidden, right cluster pinned to the right edge. */
+@media (max-width: 1260px) {
+  .container {
+    padding-inline: 3%;
+  }
+
+  .rightLinkContainer {
+    display: flex;
+    position: absolute;
+    right: 3%;
+    height: 7.0375vh;
+  }
+
+  .linkfont,
+  .pickFont {
+    display: none;
+  }
+
+  .loginBtn {
+    position: absolute;
+    right: 5%;
+  }
+}
+
+/* ---- Tablet: from here down we switch to a clean flex split so nothing
+   overflows. Left = hamburger + brand, right = login/user. ---- */
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .leftLinkContainer {
+    display: flex;
+    width: auto;
+    gap: 0;
+  }
+
+  .menuContainer {
+    position: static;
+    gap: 10px;
+  }
+
+  .menuIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .formContainer,
+  .restContainer {
+    display: none;
+  }
+
+  .rightLinkContainer {
+    position: static;
+    right: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  .loginBtn {
+    position: static;
+    right: auto;
+    width: auto;
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 16px;
+  }
+
+  .leftLinkContainer {
+    width: auto;
+    gap: 8px;
+  }
+
+  .menuText {
+    font-size: 1.2rem;
+  }
+
+  .loginBtn {
+    font-size: 0.875rem;
+  }
+
+  .userImage {
+    display: none;
+  }
+}
+
+/* ---- Small ---- */
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 12px;
+  }
+
+  .menuIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .menuText {
+    font-size: 1.05rem;
+  }
+
+  .menuBar {
+    gap: 16px;
+    padding-inline: 4%;
+    font-size: 0.85rem;
+  }
+}

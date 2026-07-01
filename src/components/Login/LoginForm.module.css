@@ -1,0 +1,237 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-base-gray200);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: var(--color-base-black100);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  background-color: #fff;
+}
+
+.input::placeholder {
+  color: var(--color-base-gray200);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-main-green);
+}
+
+.input[aria-invalid='false'] {
+  border-color: var(--color-main-green);
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--color-base-red100);
+}
+
+.passwordWrap {
+  position: relative;
+  width: 100%;
+}
+
+.passwordWrap .input {
+  padding-right: 48px;
+}
+
+.togglePassword {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.togglePassword img {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.error {
+  padding-left: 4px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-base-red100);
+}
+
+.submitError {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background-color: rgba(232, 91, 72, 0.08);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-base-red100);
+  text-align: center;
+}
+
+.submitButton {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-main-green);
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--color-main-green-hover);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loginStatusContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 28px;
+}
+
+.loginStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.hiddenCheckbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.findLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.fontStyle {
+  color: var(--color-base-gray100);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+}
+
+.findLink img {
+  flex-shrink: 0;
+  width: 8px;
+  height: auto;
+}
+
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid var(--color-base-gray200);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--color-base-gray300);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.googleButton:hover {
+  border-color: var(--color-base-gray100);
+  background-color: var(--color-base-gray700);
+}
+
+.googleLogo {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+  .loginStatusContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .findLink {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    gap: 18px;
+  }
+
+  .input,
+  .submitButton,
+  .googleButton {
+    min-height: 48px;
+    font-size: 0.9375rem;
+  }
+
+  .fontStyle {
+    font-size: 0.875rem;
+  }
+}

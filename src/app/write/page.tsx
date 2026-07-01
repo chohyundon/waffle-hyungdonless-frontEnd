@@ -1,4 +1,4 @@
-import { BoardWrite } from '@/widgets/Board/ui/BoardWrite';
+import { BoardWrite } from '@/components/Board/BoardWrite';
 
 export default function WritePage() {
   return <BoardWrite />;

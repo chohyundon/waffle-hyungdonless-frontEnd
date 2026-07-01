@@ -1,0 +1,279 @@
+.card {
+  width: 660px;
+  max-width: 94vw;
+  max-height: 92vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0px 12px 48px 0px rgba(1, 26, 20, 0.14);
+  padding: 52px 56px;
+  box-sizing: border-box;
+}
+
+.card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: var(--color-base-gray600);
+  border-radius: 999px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+  margin: 0 0 8px;
+}
+
+.subTitle {
+  font-size: 0.9375rem;
+  color: var(--color-base-gray100);
+  margin: 0;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 22px;
+  row-gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-base-gray400);
+  padding-left: 2px;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  border-radius: 12px;
+  height: 52px;
+  border: 1.5px solid transparent;
+  background-color: var(--color-base-gray700);
+  font-size: 0.9375rem;
+  color: var(--color-base-black100);
+  box-sizing: border-box;
+  padding: 0 18px;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.input::placeholder {
+  color: var(--color-base-gray900);
+}
+
+.input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: var(--color-main-green);
+}
+
+.input[aria-invalid='true'] {
+  background-color: #ffffff;
+  border-color: var(--color-base-red100);
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.eyeIcon:hover {
+  opacity: 1;
+}
+
+.error {
+  font-size: 0.8125rem;
+  color: var(--color-base-red100);
+  padding-left: 2px;
+}
+
+.termsRow {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 8px 2px 2px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-main-green);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.termsText {
+  font-size: 0.9375rem;
+  color: var(--color-base-gray400);
+}
+
+.termsText b {
+  color: var(--color-main-green);
+  font-weight: 600;
+}
+
+.submitButton {
+  grid-column: 1 / -1;
+  width: 100%;
+  border-radius: 12px;
+  height: 56px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-main-green);
+  color: white;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-top: 10px;
+  box-shadow: 0px 6px 16px 0px rgba(0, 154, 87, 0.28);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.05s ease;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: var(--color-main-green-hover);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.submitButton:disabled {
+  background-color: var(--color-base-gray600);
+  color: var(--color-base-gray800);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.loginRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-size: 0.9375rem;
+}
+
+.loginRowText {
+  color: var(--color-base-gray100);
+}
+
+.loginLink {
+  color: var(--color-main-green);
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 0.9375rem;
+  padding: 0;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+}
+
+.completeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 40px 0 20px;
+}
+
+.completeTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+  margin: 4px 0 0;
+}
+
+.completeSubTitle {
+  font-size: 0.9375rem;
+  color: var(--color-base-gray100);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.completeButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.primaryButton {
+  width: 100%;
+  border-radius: 12px;
+  height: 54px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-main-green);
+  color: white;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  box-shadow: 0px 6px 16px 0px rgba(0, 154, 87, 0.28);
+  transition: background-color 0.15s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--color-main-green-hover);
+}
+
+.secondaryButton {
+  width: 100%;
+  border-radius: 12px;
+  height: 54px;
+  cursor: pointer;
+  background-color: white;
+  color: var(--color-main-green);
+  border: 1.5px solid var(--color-main-green);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease;
+}
+
+.secondaryButton:hover {
+  background-color: var(--color-base-bgColor);
+}
+
+.logo {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}

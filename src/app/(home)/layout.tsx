@@ -1,9 +1,7 @@
-'use client';
-
-import { Banner } from '@/widgets/Banner';
-import { MainCenter } from '@/widgets/MainCenter';
-import { NavBar } from '@/widgets/NavBar';
-import { Footer } from '@/widgets/Footer';
+import { Banner } from '@/components/Banner';
+import { MainCenter } from '@/components/MainCenter';
+import { NavBar } from '@/components/NavBar';
+import { Footer } from '@/components/Footer';
 
 export default function HomeShellLayout({
   children,

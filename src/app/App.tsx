@@ -1,4 +1,4 @@
-import { MainCenter } from '@/widgets/MainCenter';
+import { MainCenter } from '@/components/MainCenter';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 export default function App() {
