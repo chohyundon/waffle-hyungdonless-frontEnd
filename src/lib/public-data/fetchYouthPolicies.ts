@@ -33,7 +33,9 @@ export async function fetchYouthPolicies(): Promise<PublicDataSection> {
 
   const response = await fetch(
     `https://www.youthcenter.go.kr/opi/youthPlcyList.do?${params.toString()}`,
-    { next: { revalidate: 3600 } },
+    {
+      cache: 'force-cache',
+    }
   );
 
   if (!response.ok) {

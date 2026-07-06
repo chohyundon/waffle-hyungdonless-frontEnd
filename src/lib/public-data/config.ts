@@ -7,5 +7,11 @@ export const PUBLIC_DATA_ENV = {
 
 export function getEnv(key: string): string | undefined {
   const value = process.env[key]?.trim();
-  return value || undefined;
+  if (value) return value;
+
+  if (key === PUBLIC_DATA_ENV.youthCenter) {
+    return process.env.NEXT_PUBLIC_YOUTH_CENTER_API_KEY?.trim() || undefined;
+  }
+
+  return undefined;
 }

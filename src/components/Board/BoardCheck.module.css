@@ -1,26 +1,25 @@
 .container {
-  position: relative;
-  top: 25%;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--color-borderColor-gray100);
-  background: #fdfdfd;
-  display: inline-block;
+  background: var(--color-base-white);
   overflow: hidden;
-  height: auto;
-  overflow-y: auto;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
 }
 
 .container.empty {
-  height: 33vh;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  background-color: #f9f9f9;
-  overflow: hidden;
+  min-height: 280px;
+  background-color: var(--color-base-gray700);
 }
 
 .emptyContainer {
-  position: absolute;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
 }
 
 .listContainer {

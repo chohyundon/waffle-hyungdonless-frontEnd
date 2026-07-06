@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from '@/components/MainCenter/BottomBoard.module.css';
 
 import welfareIcon from '@/assets/icons/welfareMiniIcon.svg';
@@ -6,90 +7,82 @@ import commentIcon from '@/assets/icons/commentIcon.svg';
 import likeIcon from '@/assets/icons/likeIcon.svg';
 import downIcon from '@/assets/icons/downIcon.svg';
 import adImage from '@/assets/icons/ad.svg';
-import { assetSrc } from '@/lib/assetSrc';
-
-// import homeIcon from '@/assets/icons/homeMiniIcon.svg'
-// import developmentIcon from '@/assets/icons/developmentMiniIcon.svg'
-// import qnaIcon from '@/assets/icons/qnaMiniIcon.svg'
 
 export const BottomBoard = () => {
   return (
-    <>
-      <article className={styles.titleContainer}>
-        <h1 className={styles.title}>
-          <span className={styles.titleFont}>HOT</span>
-          게시글
-        </h1>
-        <p className={styles.subTitle}>
-          지금 가장 뜨거운 이야기!
-          <br />
-          사람들이 공감한 인기 글을 만나보세요.
-        </p>
-      </article>
-      <section className={styles.container}>
-        {Array.from({ length: 5 }, (_, i) => {
-          return (
-            <article className={styles.boardContainer} key={i}>
-              <h1
-                className={`${styles.boardRankNumber} ${i <= 2 ? styles.checkNum : styles.noneCheck}`}
+    <section className={styles.wrapper} aria-labelledby='hot-heading'>
+      <div className={styles.mainColumn}>
+        <header className={styles.header}>
+          <h2 id='hot-heading' className={styles.title}>
+            <span className={styles.titleAccent}>HOT</span> 게시글
+          </h2>
+          <p className={styles.subTitle}>
+            지금 가장 뜨거운 이야기!
+            <br />
+            사람들이 공감한 인기 글을 만나보세요.
+          </p>
+        </header>
+
+        <ol className={styles.hotList}>
+          {Array.from({ length: 5 }, (_, i) => (
+            <li key={i} className={styles.hotItem}>
+              <span
+                className={`${styles.rank} ${i <= 2 ? styles.rankTop : ''}`}
               >
                 {i + 1}
-              </h1>
-              <figure className={styles.iconContainer}>
-                <img
-                  src={assetSrc(welfareIcon)}
-                  alt=''
-                  width={15}
-                  height={15}
-                />
-                <figcaption className={styles.iconFont}>복지</figcaption>
-              </figure>
-              <p className={styles.boardContent}>주짓수 vs 수영</p>
-              <section className={styles.iconsContainer}>
-                <figure className={styles.icons}>
-                  <img src={assetSrc(viewIcon)} alt='' />
-                  <figcaption className={styles.iconFont}>106</figcaption>
-                </figure>
-                <figure className={styles.icons}>
-                  <img src={assetSrc(commentIcon)} alt='' />
-                  <figcaption className={styles.iconFont}>106</figcaption>
-                </figure>
-                <figure className={styles.icons}>
-                  <img src={assetSrc(likeIcon)} alt='' />
-                  <figcaption className={styles.iconFont}>106</figcaption>
-                </figure>
-              </section>
-              <span
-                className={`${styles.borderBottom} ${i === 4 && styles.borderNone}`}
-              ></span>
-            </article>
-          );
-        })}
-      </section>
-      <aside className={styles.sideContainer}>
-        <h1 className={styles.hotTitle}>
-          실시간 <span className={styles.colorTitle}>HOT</span> 키워드
-        </h1>
-        <article className={styles.rankContainer}>
-          {Array.from({ length: 5 }, (_, i) => {
-            return (
-              <div className={styles.rankBoard} key={i}>
-                <h1
-                  className={`${styles.contentTitle} ${i <= 2 && styles.top3Content}`}
-                >
-                  {i + 1}
-                </h1>
-                <p className={styles.contentName}>돈이 없네</p>
-                <figure className={styles.realtimeRank}>
-                  <img src={assetSrc(downIcon)} alt='순위 변동' />
-                  <figcaption className={styles.rankNumber}>1</figcaption>
-                </figure>
+              </span>
+              <span className={styles.categoryTag}>
+                <Image src={welfareIcon} alt='' width={14} height={14} aria-hidden />
+                복지
+              </span>
+              <p className={styles.hotTitle}>주짓수 vs 수영</p>
+              <div className={styles.hotStats}>
+                <span className={styles.stat}>
+                  <Image src={viewIcon} alt='' width={14} height={14} aria-hidden />
+                  106
+                </span>
+                <span className={styles.stat}>
+                  <Image src={commentIcon} alt='' width={14} height={14} aria-hidden />
+                  106
+                </span>
+                <span className={styles.stat}>
+                  <Image src={likeIcon} alt='' width={14} height={14} aria-hidden />
+                  106
+                </span>
               </div>
-            );
-          })}
-        </article>
-        <img src={assetSrc(adImage)} alt='광고' className={styles.image} />
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <aside className={styles.sidebar}>
+        <h3 className={styles.sidebarTitle}>
+          실시간 <span className={styles.titleAccent}>HOT</span> 키워드
+        </h3>
+        <ol className={styles.keywordList}>
+          {Array.from({ length: 5 }, (_, i) => (
+            <li key={i} className={styles.keywordItem}>
+              <span className={`${styles.keywordRank} ${i <= 2 ? styles.rankTop : ''}`}>
+                {i + 1}
+              </span>
+              <span className={styles.keywordText}>돈이 없네</span>
+              <span className={styles.keywordChange}>
+                <Image src={downIcon} alt='' width={12} height={12} aria-hidden />
+                1
+              </span>
+            </li>
+          ))}
+        </ol>
+        <div className={styles.adWrap}>
+          <Image
+            src={adImage}
+            alt='광고'
+            width={280}
+            height={120}
+            className={styles.adImage}
+          />
+        </div>
       </aside>
-    </>
+    </section>
   );
 };

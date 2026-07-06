@@ -5,10 +5,8 @@ export default function App() {
   const queryClient = new QueryClient();
 
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <MainCenter />
-      </QueryClientProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <MainCenter />
+    </QueryClientProvider>
   );
 }

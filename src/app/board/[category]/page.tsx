@@ -1,8 +1,5 @@
-import { redirect } from 'next/navigation';
+import { BoardList } from '@/components/Board';
 
-type Props = { params: Promise<{ category: string }> };
-
-export default async function BoardCategoryIndexPage({ params }: Props) {
-  const { category } = await params;
-  redirect(`/board/${category}/popular`);
+export default function BoardCategoryPage() {
+  return <BoardList />;
 }

@@ -1,250 +1,162 @@
-.remainContainer {
-  position: absolute;
-  top: 175%;
-  width: 100%;
-  height: 100vh;
+.wrapper {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 24px;
+  align-items: stretch;
 }
 
-.image {
+.visual {
   position: relative;
-  top: 0;
-  left: -28.5%;
+  min-height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
 }
 
-.board {
+.visualImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.postPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
   border: 1px solid var(--color-borderColor-gray100);
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 26.8%;
-  width: 73.426%;
-  height: 42.32vh;
-  border-radius: 8px;
+  border-radius: 16px;
+  background: var(--color-base-white);
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.postList {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding-inline: 4.007%;
-  padding-block: 2.0447%;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.boardList {
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-  width: 100%;
+.postItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 8px 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-borderColor-gray100);
 }
 
-.boardContainer {
-  height: 7.5vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  width: 100%;
+.postItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.boardBottom {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border-bottom: 0.5px solid var(--color-borderColor-gray100);
-  width: 100%;
-}
-
-.borderNone {
-  border: none;
+.postItem:first-child {
+  padding-top: 0;
 }
 
 .badge {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
   font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 10px;
   border: 1px solid var(--color-borderColor-gray100);
-  padding: 7.5px 10px;
   border-radius: 8px;
-  white-space: nowrap;
   color: var(--color-base-black200);
-}
-
-.userContainer {
-  position: absolute;
-  display: flex;
-  left: 11.639%;
-  top: 0;
-  gap: 8px;
-}
-
-.userNameFont {
-  font-size: 0.875rem;
-  color: var(--color-base-gray800);
-  font-weight: 600;
-}
-
-.boardContent {
-  position: absolute;
-  font-size: 1.125rem;
-  color: var(--color-base-black100);
-  width: 87%;
-  left: 12.565%;
-  font-weight: 600;
   white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
-.iconsContainer {
-  position: absolute;
+.postMeta {
+  grid-column: 2;
+  grid-row: 1;
   display: flex;
-  top: 74.08%;
-  left: 12.565%;
-  gap: 15px;
-  width: 100%;
-}
-
-.icons {
-  display: flex;
-  gap: 7px;
-}
-
-.iconsFont {
-  font-size: 0.72222222rem;
-  color: var(--color-base-gray800);
-}
-
-.numbers {
-  display: flex;
-  gap: 13px;
   align-items: center;
+  gap: 8px;
+  justify-self: end;
 }
 
-.bar {
-  width: 0.5px;
-  height: 13px;
-  background: var(--color-base-gray900);
-}
-
-.times {
-  font-size: 0.72222222rem;
+.userName {
+  font-size: 0.875rem;
+  font-weight: 600;
   color: var(--color-base-gray800);
 }
 
-@media (max-width: 1700px) {
-  .image {
-    position: absolute;
-    left: -35%;
-  }
-  .board {
-    position: absolute;
-    right: 0;
-    width: 74%;
-    left: 30%;
-  }
-
-  .userContainer {
-    left: 14.639%;
-    top: 0;
-  }
-
-  .boardContent {
-    left: 16.639%;
-  }
-
-  .iconsContainer {
-    left: 16.639%;
-  }
+.postTitle {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-base-black100);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@media (max-width: 1500px) {
-  .image {
-    position: absolute;
-    left: -40%;
-  }
-
-  .board {
-    position: absolute;
-    right: 0;
-    width: 74%;
-    left: 30%;
-  }
-
-  .boardContent {
-    width: 84%;
-  }
+.stats {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 1400px) {
-  .image {
-    position: absolute;
-    left: -49%;
-  }
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--color-base-gray800);
+}
 
-  .board {
-    position: absolute;
-    right: 0;
-    width: 84%;
-    left: 26%;
-  }
-
-  .boardContent {
-    width: 84%;
-  }
+.time {
+  font-size: 0.75rem;
+  color: var(--color-base-gray800);
+  padding-left: 8px;
+  border-left: 1px solid var(--color-base-gray900);
 }
 
 @media (max-width: 1024px) {
-  .remainContainer {
-    position: static;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    top: auto;
+  .wrapper {
+    grid-template-columns: 1fr;
   }
 
-  /* decorative money background overflows the viewport in flow layout */
-  .image {
-    display: none;
-  }
-
-  .board {
-    position: static;
-    width: 100%;
-    max-width: 100%;
-    left: auto;
-    right: auto;
-    height: auto;
-    box-sizing: border-box;
-    padding-inline: 20px;
-    padding-block: 20px;
-    gap: 24px;
-  }
-
-  .boardContainer {
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .userContainer {
-    position: static;
-    left: auto;
-    top: auto;
-  }
-
-  .boardContent {
-    position: static;
-    left: auto;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .iconsContainer {
-    position: static;
-    left: auto;
-    top: auto;
-    width: 100%;
-    flex-wrap: wrap;
+  .visual {
+    min-height: 200px;
   }
 }
 
 @media (max-width: 768px) {
-  .board {
-    padding-inline: 14px;
+  .postPanel {
+    padding: 16px;
+  }
+
+  .postItem {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .postMeta {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+  }
+
+  .postTitle {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 }

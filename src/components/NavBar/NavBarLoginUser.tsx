@@ -46,7 +46,7 @@ function getUserDisplayName(user: User) {
 export const NavBarLoginUser = ({ user, push }: NavBarLoginUserProps) => {
   const supabase = createClient();
 
-  const handleRemoveData = async () => {
+  const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) {
       console.error(error);
@@ -55,24 +55,33 @@ export const NavBarLoginUser = ({ user, push }: NavBarLoginUserProps) => {
 
   if (user) {
     return (
-      <div className={styles.userLogin}>
+      <div className={styles.userSession}>
         <Image
           src={getUserAvatar(user)}
           alt={getUserDisplayName(user)}
-          width={32}
-          height={32}
+          width={36}
+          height={36}
           className={styles.userImage}
         />
-        <p className={styles.loginBtn} onClick={handleRemoveData}>
+        <span className={styles.userName}>{getUserDisplayName(user)}</span>
+        <button
+          type='button'
+          className={styles.logoutButton}
+          onClick={handleSignOut}
+        >
           로그아웃
-        </p>
+        </button>
       </div>
     );
   }
 
   return (
-    <p className={styles.loginBtn} onClick={() => moveLoginPage(push)}>
+    <button
+      type='button'
+      className={styles.loginButton}
+      onClick={() => moveLoginPage(push)}
+    >
       로그인
-    </p>
+    </button>
   );
 };

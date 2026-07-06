@@ -83,24 +83,6 @@ export const BoardWrite = () => {
     const formData = new FormData();
     formData.append('board', boardData);
     formData.append('image', '');
-
-    try {
-      const response = await fetch('https://api.sabujak.life/board', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (response.ok) {
-        alert('게시글이 성공적으로 작성되었습니다.');
-      } else {
-        const errorData = await response.json();
-        console.error('서버 응답 에러:', errorData);
-        alert(`게시글 작성에 실패했습니다: ${errorData.message}`);
-      }
-    } catch (error) {
-      console.error('API 요청 실패:', error);
-      alert('게시글 작성 중 오류가 발생했습니다.');
-    }
   };
 
   return (

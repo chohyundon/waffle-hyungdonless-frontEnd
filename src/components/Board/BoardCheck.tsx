@@ -1,5 +1,5 @@
 import styles from '@/components/Board/BoardCheck.module.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'next/navigation';
 import viewIcon from '@/assets/icons/viewIcon.svg';
 import commentIcon from '@/assets/icons/commentIcon.svg';
@@ -20,7 +20,7 @@ interface stateProps {
 export const BoardCheck = () => {
   const params = useParams() ?? {};
   const category = params.category as string | undefined;
-  const [ok, setOk] = useState<stateProps[]>([]);
+  const [ok] = useState<stateProps[]>([]);
 
   const categoryMap = {
     money: 'b001',
@@ -33,33 +33,6 @@ export const BoardCheck = () => {
 
   const categoryCode =
     categoryMap[category as keyof typeof categoryMap] || 'default';
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (categoryCode !== 'default') {
-        try {
-          const response = await fetch(
-            `https://api.sabujak.life/board/boards/${categoryCode}`
-          );
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-          setOk(Array.isArray(data) ? data : []);
-        } catch (error) {
-          console.error('데이터를 가져오는 중 오류 발생:', error);
-        }
-      } else {
-        console.warn('Invalid category, skipping fetch.');
-      }
-    };
-
-    fetchData();
-  }, [categoryCode]);
-
-  console.log(ok);
 
   const calculateDaysAgo = (createDate: string) => {
     const createdDate = new Date(createDate);

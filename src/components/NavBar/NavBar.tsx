@@ -11,37 +11,55 @@ import { NavBarLoginUser } from '@/components/NavBar/NavBarLoginUser';
 import { useUser } from '@/lib/userInfo/useUserInfo';
 
 export const NavBar = () => {
-  const [show, setShow] = useState(false);
+  const [showBoardNav, setShowBoardNav] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
   const pathname = usePathname() ?? '';
   const router = useRouter();
 
   useEffect(() => {
-    if (pathname.startsWith('/board')) {
-      setShow(true);
-    } else {
-      setShow(false);
-    }
+    setShowBoardNav(pathname.startsWith('/board'));
+  }, [pathname]);
+
+  useEffect(() => {
+    setShowMenu(false);
   }, [pathname]);
 
   const { user } = useUser();
 
   return (
-    <nav className={styles.container}>
-      <ul className={styles.leftLinkContainer}>
-        <NavBarIcon push={router.push} setShowMenu={setShowMenu} />
-        <NavBarMenuItem push={router.push} showMenu={showMenu} />
-      </ul>
-      <div className={styles.rightLinkContainer}>
-        <NavBarSearchForm />
-        <ul className={styles.restContainer}>
-          <li className={styles.linkfont}>알림</li>
-          <li className={styles.linkfont}>메세지</li>
-        </ul>
-        <NavBarLoginUser user={user} push={router.push} />
-      </div>
-      {show && <BottomNavBar />}
-    </nav>
+    <header className={styles.header}>
+      <nav className={styles.container} aria-label='주요 메뉴'>
+        <div className={styles.inner}>
+          <div className={styles.leftCluster}>
+            <NavBarIcon push={router.push} setShowMenu={setShowMenu} />
+            <ul className={styles.navLinks}>
+              <NavBarMenuItem push={router.push} showMenu={showMenu} />
+            </ul>
+          </div>
+
+          <div className={styles.rightCluster}>
+            <NavBarSearchForm />
+            <ul className={styles.utilityLinks} aria-label='알림 및 메시지'>
+              <li className={styles.utilityItem}>알림</li>
+              <li className={styles.utilityItem}>메세지</li>
+            </ul>
+            <NavBarLoginUser user={user} push={router.push} />
+          </div>
+        </div>
+
+        {showMenu && (
+          <div className={styles.mobileMenu}>
+            <NavBarMenuItem
+              push={router.push}
+              showMenu={showMenu}
+              variant='mobile'
+            />
+          </div>
+        )}
+      </nav>
+
+      {showBoardNav && <BottomNavBar />}
+    </header>
   );
 };

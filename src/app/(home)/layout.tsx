@@ -1,7 +1,6 @@
-import { Banner } from '@/components/Banner';
-import { MainCenter } from '@/components/MainCenter';
 import { NavBar } from '@/components/NavBar';
 import { Footer } from '@/components/Footer';
+import styles from '@/app/(home)/home.module.css';
 
 export default function HomeShellLayout({
   children,
@@ -9,14 +8,10 @@ export default function HomeShellLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div className={styles.shell}>
       <NavBar />
-      <Banner />
-      <main>
-        <MainCenter />
-        {children}
-      </main>
+      <main className={styles.main}>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

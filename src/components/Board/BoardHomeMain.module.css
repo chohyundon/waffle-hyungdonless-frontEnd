@@ -1,290 +1,208 @@
 .container {
   display: flex;
-  position: absolute;
-  left: 22%;
-  height: 100vh;
-  width: 64.105%;
-  top: 0;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+  padding: 8px 0 48px;
+  box-sizing: border-box;
 }
 
-.listContainer {
+.breadcrumb {
   display: flex;
-  gap: 5px;
-  justify-content: center;
-  position: absolute;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
 }
 
-.listFont {
+.breadcrumbItem {
   font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-base-gray800);
 }
 
-.activeFont {
+.breadcrumbActive {
   font-size: 0.8125rem;
-  font-weight: 400;
-  color: var(--color-base-black200);
-}
-
-.activeStyle {
-  font-size: 0.8125rem;
-  color: var(--color-base-black100);
   font-weight: 600;
+  color: var(--color-base-black100);
 }
 
-.noneTopBoxContainer {
-  position: absolute;
-  width: 100%;
+.communityCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
   border: 1px solid var(--color-borderColor-gray100);
-  height: 14.445%;
-  top: 2.4%;
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--color-base-white);
+  box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
 }
 
-.topBoxContainer {
-  position: absolute;
-  width: 100%;
-  border: 1px solid var(--color-borderColor-gray100);
-  height: 19.167%;
-  top: 2.4%;
-  border-radius: 8px;
-  background: var(--color-base-white);
-}
-
-.title {
-  position: absolute;
-  top: 12.99%;
-  left: 3.837%;
+.cardLabel {
+  margin: 0;
   font-size: 0.8125rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-icon-gray100);
 }
 
-.isLoginContainer {
-  position: absolute;
-  top: 23.415%;
-  left: 2.837%;
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.listText {
+.userImage {
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--color-base-gray600);
+  object-fit: cover;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.userName {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin: 0;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statLabel {
+  margin: 0;
   font-size: 0.8125rem;
   font-weight: 400;
   color: var(--color-base-black200);
 }
 
-.colorFont {
-  color: #007441;
-  font-weight: 600;
+.statValue {
+  margin: 0;
   font-size: 0.8125rem;
-}
-
-.isLoginRightContainer {
-  position: absolute;
-  top: 23.415%;
-  left: 16.474%;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.loginTitle {
   font-weight: 600;
-  font-size: 0.75rem;
-  color: #ecb67d;
+  color: var(--color-number-green);
 }
 
-.loginSubtitle {
-  font-weight: 700;
-  font-size: 1.25rem;
+.loginPrompt {
+  margin: 0;
+  padding: 8px 0;
+  font-size: 1.125rem;
+  font-weight: 600;
   color: var(--color-base-black100);
 }
 
-.loginContainer {
-  position: absolute;
-  top: 31.17%;
-  left: 3.837%;
-}
-
-.login {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.button {
-  position: absolute;
-  left: 3.837%;
-  border: none;
-  background: var(--color-main-green);
-  color: white;
-  top: 10.95%;
-  padding: 14px 89px;
+.writeButton {
   display: flex;
   align-items: center;
-  border-radius: 35px;
-  width: 92.711%;
-  text-align: center;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
   justify-content: center;
   gap: 10px;
-}
-
-.buttons {
-  position: absolute;
-  left: 3.837%;
+  width: 100%;
+  padding: 14px 24px;
   border: none;
+  border-radius: 999px;
   background: var(--color-main-green);
-  color: white;
-  top: 14.95%;
-  padding: 14px 89px;
-  display: flex;
-  align-items: center;
-  border-radius: 35px;
-  width: 92.711%;
-  text-align: center;
-  cursor: pointer;
+  color: var(--color-base-white);
   font-size: 1rem;
   font-weight: 600;
-  justify-content: center;
-  gap: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
 }
 
-.bottomList {
-  position: absolute;
-  top: 18%;
+.writeButton:hover {
+  background: var(--color-main-green-hover);
+}
+
+.sortTabs {
   display: flex;
-  gap: 15px;
-  left: 5%;
-  padding: 5px;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.bottomLists {
-  position: absolute;
-  top: 22%;
-  display: flex;
-  gap: 15px;
-  left: 5%;
-  padding: 5px;
-}
-
-.icon {
-  border-radius: 50%;
-}
-
-.bottomLostContainer {
-  display: flex;
+.sortTab {
+  display: inline-flex;
   align-items: center;
   gap: 7px;
+  border: none;
+  background: none;
+  padding: 4px 0;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-base-gray800);
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-.bottomListFont {
-  font-size: 0.875rem;
+.sortTab:hover {
+  color: var(--color-main-green-hover);
+}
+
+.sortTabActive {
   font-weight: 600;
+  color: var(--color-base-black100);
 }
 
-.userList {
-  display: flex;
-  gap: 15px;
-}
-
-.userListMini {
-  display: flex;
-  gap: 7px;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    position: static;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    margin-top: 24px;
-  }
-
-  .listContainer {
-    position: static;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-  }
-
-  .noneTopBoxContainer,
-  .topBoxContainer {
-    position: static;
-    top: 0;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    margin-bottom: 16px;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .title,
-  .loginContainer,
-  .isLoginContainer,
-  .isLoginRightContainer {
-    position: static;
-    top: 0;
-    left: 0;
-  }
-
-  .isLoginRightContainer {
-    gap: 8px;
-  }
-
-  .button,
-  .buttons {
-    position: static;
-    left: 0;
-    top: 0;
-    width: 100%;
-    padding: 14px 20px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-  }
-
-  .bottomList,
-  .bottomLists {
-    position: static;
-    top: 0;
-    left: 0;
-    margin-bottom: 16px;
-  }
+.sortIcon {
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .userList {
-    flex-direction: column;
-    gap: 8px;
+  .container {
+    padding-bottom: 32px;
+    gap: 16px;
   }
 
-  .button,
-  .buttons {
+  .communityCard {
+    padding: 20px 16px;
+  }
+
+  .profileRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .writeButton {
     padding: 14px 16px;
     font-size: 0.9375rem;
-    text-align: center;
-    line-height: 1.3;
-  }
-
-  .listContainer {
-    font-size: 0.75rem;
+    line-height: 1.35;
   }
 }
 
 @media (max-width: 480px) {
-  .button,
-  .buttons {
+  .writeButton {
     flex-wrap: wrap;
     font-size: 0.875rem;
-    gap: 6px;
+  }
+
+  .breadcrumbItem,
+  .breadcrumbActive {
+    font-size: 0.75rem;
   }
 }
