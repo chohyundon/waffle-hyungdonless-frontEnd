@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { TransitionStartFunction } from 'react';
 
 import userImages from '@/assets/icons/userImages.svg';
-import styles from '@/components/Board/BoardDetail.module.css';
+import styles from '@/components/Board/styles/BoardDetail.module.css';
 import { BoardComment, formatBoardTimeAgo } from '@/types/boardType';
 
 import { CommentDeleteModal } from '@/components/Board/comment/CommentDeleteModal';
@@ -104,6 +104,7 @@ export const BoardCommentItem = ({
             value={editContent}
             onChange={(e) => setEditContent(e.target.value)}
             disabled={isSubmitting}
+            aria-label='댓글 수정'
           />
           <div className={styles.commentEditActions}>
             <button

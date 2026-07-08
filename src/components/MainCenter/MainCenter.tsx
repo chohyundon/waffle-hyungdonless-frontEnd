@@ -1,10 +1,7 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 
-import styles from '@/components/MainCenter/MainCenter.module.css';
+import styles from '@/components/MainCenter/styles/MainCenter.module.css';
 
 import { TopBoard } from '@/components/MainCenter/TopBoard';
 import { BottomBoard } from '@/components/MainCenter/BottomBoard';
@@ -21,10 +18,7 @@ export const MainCenter = ({
   data?: PublicDataResponse;
   boardList?: BoardItem[];
 }) => {
-  const params = useParams() ?? {};
-  const category = params.category as string | undefined;
   const policies = data?.result?.youthPolicyList ?? [];
-  const isHome = category === undefined;
 
   return (
     <div className={styles.page}>
@@ -58,14 +52,12 @@ export const MainCenter = ({
         </nav>
       </section>
 
-      {isHome && (
-        <div className={styles.sections}>
-          <YouthPolicySection policies={policies} />
+      <div className={styles.sections}>
+        <YouthPolicySection policies={policies} />
 
-          <TopBoard boardList={boardList} />
-          <BottomBoard boardList={boardList} />
-        </div>
-      )}
+        <TopBoard boardList={boardList} />
+        <BottomBoard boardList={boardList} />
+      </div>
     </div>
   );
 };

@@ -235,6 +235,21 @@
   gap: 12px;
 }
 
+.menuIconButton,
+.menuText,
+.icon {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: inherit;
+}
+
+.menuIconButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .menuIcon {
   cursor: pointer;
   width: 28px;

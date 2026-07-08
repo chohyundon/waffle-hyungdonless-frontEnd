@@ -1,5 +1,3 @@
-'use client';
-
 import { TransitionStartFunction, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 

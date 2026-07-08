@@ -1,4 +1,4 @@
-import styles from '@/components/MainCenter/YouthPolicySection.module.css';
+import styles from '@/components/MainCenter/styles/YouthPolicySection.module.css';
 import { stripMiddleDot } from '@/components/MainCenter/youthPolicy/formatPolicyText';
 import type { YouthPolicy } from '@/types/publicDataType';
 

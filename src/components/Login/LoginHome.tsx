@@ -1,15 +1,12 @@
-'use client';
+import Link from 'next/link';
 
 import { GoogleLogin } from '@/components/Login/GoogleLogin';
 import { LoginForm } from '@/components/Login/LoginForm';
-import styles from '@/components/Login/LoginHome.module.css';
-import { useRouter } from 'next/navigation';
+import styles from '@/components/Login/styles/LoginHome.module.css';
 import Logo from '@/assets/icons/loginLogo.svg';
 import Image from 'next/image';
 
 export function LoginHomePage() {
-  const router = useRouter();
-
   return (
     <div className={styles.page}>
       <div className={styles.wrapper}>
@@ -34,13 +31,9 @@ export function LoginHomePage() {
             <span className={styles.signUpLabel}>
               아직 &lsquo;사부작 사부작&rsquo;에 처음이세요?
             </span>
-            <button
-              type='button'
-              className={styles.signUpLink}
-              onClick={() => router.push('/signup')}
-            >
+            <Link href='/signup' className={styles.signUpLink}>
               회원가입하기
-            </button>
+            </Link>
           </p>
         </section>
 

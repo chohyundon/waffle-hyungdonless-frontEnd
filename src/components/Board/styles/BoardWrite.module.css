@@ -36,7 +36,7 @@
   width: 34.098%;
   padding: 12px 20px;
   border-color: var(--color-borderColor-gray100);
-  background: url('../../assets/icons/navBottom.svg') no-repeat right
+  background: url('../../../assets/icons/navBottom.svg') no-repeat right
     center;
   appearance: none;
   color: var(--color-base-gray300);
@@ -50,7 +50,7 @@
   width: 34.098%;
   padding: 12px 20px;
   border-color: var(--color-borderColor-gray100);
-  background: url('../../assets/icons/navBottom.svg') no-repeat right
+  background: url('../../../assets/icons/navBottom.svg') no-repeat right
     center;
   appearance: none;
   color: var(--color-base-gray300);

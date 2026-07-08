@@ -1,41 +1,36 @@
+'use client';
+
 import Image from 'next/image';
 
-import styles from '@/components/Login/LoginForm.module.css';
+import styles from '@/components/Login/styles/LoginForm.module.css';
 import googleLogo from '@/assets/icons/googleLogo.svg';
-import { createClient } from '@/lib/supabase/client';
+import { useGoogleLogin } from '@/components/Login/useGoogleLogin';
 
 export function GoogleLogin() {
-  const supabase = createClient();
-
-  const googleLogin = async () => {
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-      });
-
-      if (error) {
-        alert(error.message);
-      }
-    } catch (e) {
-      alert(e);
-    }
-  };
+  const { errorMessage, googleLogin } = useGoogleLogin();
 
   return (
-    <button
-      type='button'
-      className={styles.googleButton}
-      onClick={googleLogin}
-    >
-      <Image
-        src={googleLogo}
-        alt='Google 로고'
-        width={20}
-        height={20}
-        aria-hidden
-        className={styles.googleLogo}
-      />
-      Google로 로그인
-    </button>
+    <div>
+      <button
+        type='button'
+        className={styles.googleButton}
+        onClick={googleLogin}
+      >
+        <Image
+          src={googleLogo}
+          alt=''
+          width={20}
+          height={20}
+          aria-hidden
+          className={styles.googleLogo}
+        />
+        Google로 로그인
+      </button>
+      {errorMessage && (
+        <p className={styles.submitError} role='alert'>
+          {errorMessage}
+        </p>
+      )}
+    </div>
   );
 }

@@ -1,6 +1,4 @@
-'use client';
-
-import styles from '@/components/Board/BoardHome.module.css';
+import styles from '@/components/Board/styles/BoardHome.module.css';
 import { BoardHomeMain } from '@/components/Board/BoardHomeMain';
 
 import { BoardItem } from '@/types/boardType';

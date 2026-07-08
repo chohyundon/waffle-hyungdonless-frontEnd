@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '@/components/MainCenter/YouthPolicySection.module.css';
+import styles from '@/components/MainCenter/styles/YouthPolicySection.module.css';
 import { YouthPolicyCard } from '@/components/MainCenter/youthPolicy/YouthPolicyCard';
 import { YouthPolicyFilters } from '@/components/MainCenter/youthPolicy/YouthPolicyFilters';
 import { YouthPolicyPagination } from '@/components/MainCenter/youthPolicy/YouthPolicyPagination';

@@ -5,17 +5,14 @@ import { useRouter } from 'next/navigation';
 import { useOptimistic, useState, useTransition } from 'react';
 
 import { reduceOptimisticComments } from '@/components/Board/comment/commentOptimistic';
-import styles from '@/components/Board/BoardDetail.module.css';
+import styles from '@/components/Board/styles/BoardDetail.module.css';
 
 import leftBar from '@/assets/icons/leftBar.svg';
-import likeIcon from '@/assets/icons/likeIcon.svg';
-import viewIcon from '@/assets/icons/viewIcon.svg';
-import commentIcon from '@/assets/icons/commentIcon.svg';
 import userImages from '@/assets/icons/userImages.svg';
-import { BOARD_STAT_LIST } from './consts/boardStatList';
+import { BoardStatList } from '@/components/Board/BoardStatList';
 import { BoardComment, BoardItem, formatBoardTimeAgo } from '@/types/boardType';
 import { useUser } from '@/lib/userInfo/useUserInfo';
-import { BoardLikeButton } from './likeButton/BoardLikeButton';
+import { BoardLikeButton } from '@/components/Board/likeButton/BoardLikeButton';
 import { useBoardCommentSubmit } from '@/components/Board/comment/BoardCommentButton';
 import { BoardCommentItem } from '@/components/Board/comment/BoardCommentItem';
 
@@ -77,30 +74,11 @@ export const BoardDetail = ({
             </p>
           </div>
           <div className={styles.meta}>
-            <div className={styles.stats}>
-              {BOARD_STAT_LIST.map((stat) => (
-                <span className={styles.stat} key={stat.slug}>
-                  <Image
-                    src={
-                      stat.slug === 'view'
-                        ? viewIcon
-                        : stat.slug === 'comment'
-                          ? commentIcon
-                          : likeIcon
-                    }
-                    alt={stat.name}
-                    width={14}
-                    height={14}
-                    aria-hidden
-                  />
-                  {stat.slug === 'view'
-                    ? board.view_count
-                    : stat.slug === 'comment'
-                      ? board.comment_count
-                      : board.like_count}
-                </span>
-              ))}
-            </div>
+            <BoardStatList
+              counts={board}
+              listClassName={styles.stats}
+              itemClassName={styles.stat}
+            />
             <time className={styles.date} dateTime={board.created_at}>
               {formatBoardTimeAgo(board.created_at)}
             </time>
@@ -125,8 +103,10 @@ export const BoardDetail = ({
 
           <form className={styles.commentForm} onSubmit={handleCommentSubmit}>
             <textarea
+              id='board-comment-input'
               className={styles.commentInput}
               placeholder='댓글을 입력해주세요'
+              aria-label='댓글 입력'
               value={comment}
               onChange={(e) => setComment(e.target.value)}
             />

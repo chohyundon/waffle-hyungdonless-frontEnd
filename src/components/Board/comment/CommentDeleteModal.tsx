@@ -3,7 +3,7 @@
 import { useEffect, useId } from 'react';
 import { createPortal } from 'react-dom';
 
-import styles from '@/components/Board/comment/CommentDeleteModal.module.css';
+import styles from '@/components/Board/comment/styles/CommentDeleteModal.module.css';
 
 export const CommentDeleteModal = ({
   isOpen,

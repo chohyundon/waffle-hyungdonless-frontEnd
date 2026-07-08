@@ -3,7 +3,7 @@
   min-height: 100dvh;
   width: 100%;
   background-color: var(--color-base-bgColor);
-  background-image: url('../../assets/icons/backgroundImage.svg');
+  background-image: url('../../../assets/icons/backgroundImage.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -1,4 +1,4 @@
-import styles from '@/components/NavBar/NavBar.module.css';
+import styles from '@/components/NavBar/styles/NavBar.module.css';
 import { defaultBoardPath } from '@/components/MainCenter/homeButton';
 import type { RouterPush } from '@/lib/navigationUtils';
 import { moveBoardPage } from '@/lib/navigationUtils';

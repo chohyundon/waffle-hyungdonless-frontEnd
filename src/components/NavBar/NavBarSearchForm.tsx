@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import searchIcon from '@/assets/icons/search.svg';
-import styles from '@/components/NavBar/NavBar.module.css';
+import styles from '@/components/NavBar/styles/NavBar.module.css';
 
 export const NavBarSearchForm = () => {
   return (

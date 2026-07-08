@@ -1,31 +1,19 @@
+'use client';
+
 import Image from 'next/image';
-import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
-import styles from '@/components/Board/BoardCheck.module.css';
-import viewIcon from '@/assets/icons/viewIcon.svg';
-import commentIcon from '@/assets/icons/commentIcon.svg';
-import likeIcon from '@/assets/icons/likeIcon.svg';
+import styles from '@/components/Board/styles/BoardCheck.module.css';
 import notPage from '@/assets/icons/notPage.svg';
+import { BoardStatList } from '@/components/Board/BoardStatList';
 import { formatBoardTimeAgo, type BoardItem } from '@/types/boardType';
-import { BOARD_STAT_LIST } from '@/components/Board/consts/boardStatList';
-
-const STAT_ICONS = {
-  view: viewIcon,
-  comment: commentIcon,
-  like: likeIcon,
-} as const;
 
 export const BoardCheck = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
   const params = useParams() ?? {};
   const category = params.category as string | undefined;
-  const router = useRouter();
 
   const posts = boardList.filter((item) => item.board_type === category) ?? [];
-
-  const handlePostClick = (id: string) => {
-    console.log(id);
-    router.push(`/board/${category}/${id}`);
-  };
 
   return (
     <section
@@ -44,41 +32,31 @@ export const BoardCheck = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
       ) : (
         <ul className={styles.postList}>
           {posts.map((item) => (
-            <li
-              key={item.id}
-              onClick={() => handlePostClick(item.id)}
-              className={styles.postItem}
-            >
-              <article className={styles.postCard}>
-                <span className={styles.badge}>{item.category}</span>
-                <h3 className={styles.title}>{item.title}</h3>
-                <p className={styles.content}>{item.content}</p>
-                <p className={styles.nickname}>
-                  <span className={styles.by}>by</span> {item.nickname}
-                </p>
-                <div className={styles.meta}>
-                  <div className={styles.stats}>
-                    {BOARD_STAT_LIST.map((stat) => (
-                      <span className={styles.stat} key={stat.slug}>
-                        <Image
-                          src={STAT_ICONS[stat.slug]}
-                          alt={stat.name}
-                          width={14}
-                          height={14}
-                        />
-                        {stat.slug === 'view'
-                          ? item.view_count
-                          : stat.slug === 'comment'
-                            ? item.comment_count
-                            : item.like_count}
-                      </span>
-                    ))}
+            <li key={item.id} className={styles.postItem}>
+              <Link
+                href={`/board/${category}/${item.id}`}
+                className={styles.postLink}
+              >
+                <article className={styles.postCard}>
+                  <span className={styles.badge}>{item.category}</span>
+                  <h3 className={styles.title}>{item.title}</h3>
+                  <p className={styles.content}>{item.content}</p>
+                  <p className={styles.nickname}>
+                    <span className={styles.by}>by</span> {item.nickname}
+                  </p>
+                  <div className={styles.meta}>
+                    <BoardStatList
+                      counts={item}
+                      listClassName={styles.stats}
+                      itemClassName={styles.stat}
+                      hideIconLabel
+                    />
+                    <time className={styles.date} dateTime={item.created_at}>
+                      {formatBoardTimeAgo(item.created_at)}
+                    </time>
                   </div>
-                  <time className={styles.date} dateTime={item.created_at}>
-                    {formatBoardTimeAgo(item.created_at)}
-                  </time>
-                </div>
-              </article>
+                </article>
+              </Link>
             </li>
           ))}
         </ul>

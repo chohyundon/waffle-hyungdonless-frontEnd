@@ -134,6 +134,13 @@
 }
 
 .postItem {
+  list-style: none;
+}
+
+.postLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
 
   &:hover {

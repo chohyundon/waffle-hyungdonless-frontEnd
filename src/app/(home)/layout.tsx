@@ -1,6 +1,6 @@
 import { NavBar } from '@/components/NavBar';
 import { Footer } from '@/components/Footer';
-import styles from '@/app/(home)/home.module.css';
+import styles from '@/app/(home)/styles/home.module.css';
 
 export default function HomeShellLayout({
   children,

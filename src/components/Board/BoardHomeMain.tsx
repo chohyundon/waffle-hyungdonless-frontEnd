@@ -1,6 +1,8 @@
+'use client';
+
 import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
-import styles from '@/components/Board/BoardHomeMain.module.css';
+import styles from '@/components/Board/styles/BoardHomeMain.module.css';
 import writeIcon from '@/assets/icons/writeButton.svg';
 import smallCheck from '@/assets/icons/smallCheck.svg';
 import noneSmallCheck from '@/assets/icons/noneSmallCheck.svg';

@@ -1,7 +1,7 @@
 import { Footer } from '@/components/Footer';
 import { NavBar } from '@/components/NavBar';
 
-import styles from '@/components/Board/BoardList.module.css';
+import styles from '@/components/Board/styles/BoardList.module.css';
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (

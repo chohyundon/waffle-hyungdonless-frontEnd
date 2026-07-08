@@ -1,6 +1,5 @@
-'use client';
-
-import { TransitionStartFunction, useState } from 'react';
+import { useState } from 'react';
+import { TransitionStartFunction } from 'react';
 import { toast } from 'react-toastify';
 
 import { CommentOptimisticAction } from '@/components/Board/comment/commentOptimistic';

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import type { User } from '@supabase/supabase-js';
 import type { RouterPush } from '@/lib/navigationUtils';
 import { moveLoginPage } from '@/lib/navigationUtils';
-import styles from '@/components/NavBar/NavBar.module.css';
+import styles from '@/components/NavBar/styles/NavBar.module.css';
 import { createClient } from '@/lib/supabase/client';
 import defaultUserImage from '@/assets/icons/userImg.svg';
 

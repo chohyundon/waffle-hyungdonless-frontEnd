@@ -1,18 +1,10 @@
 import Image from 'next/image';
 
-import styles from '@/components/remainCenter/Bottom.module.css';
+import styles from '@/components/remainCenter/styles/Bottom.module.css';
 
 import welfareIcon from '@/assets/icons/welfareMiniIcon.svg';
-import viewIcon from '@/assets/icons/viewIcon.svg';
-import commentIcon from '@/assets/icons/commentIcon.svg';
-import likeIcon from '@/assets/icons/likeIcon.svg';
 import { BOARD_STAT_LIST } from '@/components/Board/consts/boardStatList';
-
-const STAT_ICONS = {
-  view: viewIcon,
-  comment: commentIcon,
-  like: likeIcon,
-} as const;
+import { BOARD_STAT_ICONS } from '@/components/Board/consts/boardStatIcons';
 
 export const BottomMain = () => {
   return (
@@ -20,11 +12,11 @@ export const BottomMain = () => {
       {Array.from({ length: 5 }, (_, i) => {
         return (
           <article className={styles.contentBox} key={i}>
-            <h1
+            <span
               className={`${styles.boardRankNumber} ${i <= 2 ? styles.boardTop3 : styles.notboardTop3}`}
             >
               {i + 1}
-            </h1>
+            </span>
             <figure className={styles.iconContainer}>
               <Image
                 src={welfareIcon}
@@ -38,7 +30,7 @@ export const BottomMain = () => {
               {BOARD_STAT_LIST.map((stat) => (
                 <figure className={styles.icons} key={stat.slug}>
                   <Image
-                    src={STAT_ICONS[stat.slug]}
+                    src={BOARD_STAT_ICONS[stat.slug]}
                     alt={stat.name}
                     width={14}
                     height={14}

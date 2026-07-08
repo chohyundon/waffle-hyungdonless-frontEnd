@@ -2,7 +2,7 @@ import Image from 'next/image';
 import checkCircle from '@/assets/icons/checkCircle.svg';
 import nonCheckCircle from '@/assets/icons/nonCheckCircle.svg';
 import rightLogo from '@/assets/icons/rightBar.svg';
-import styles from '@/components/Login/LoginForm.module.css';
+import styles from '@/components/Login/styles/LoginForm.module.css';
 import { useState } from 'react';
 
 export const LoginStatus = () => {

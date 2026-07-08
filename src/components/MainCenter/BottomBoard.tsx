@@ -1,19 +1,10 @@
 import Image from 'next/image';
-import styles from '@/components/MainCenter/BottomBoard.module.css';
+import styles from '@/components/MainCenter/styles/BottomBoard.module.css';
 
 import portfolioIcon from '@/assets/icons/developmentMiniIcon.svg';
-import viewIcon from '@/assets/icons/viewIcon.svg';
-import commentIcon from '@/assets/icons/commentIcon.svg';
-import likeIcon from '@/assets/icons/likeIcon.svg';
 import { BOARD_SLUG_TO_NAME } from '@/components/Board/consts/boardCategories';
-import { BOARD_STAT_LIST } from '@/components/Board/consts/boardStatList';
+import { BoardStatList } from '@/components/Board/BoardStatList';
 import type { BoardItem } from '@/types/boardType';
-
-const STAT_ICONS = {
-  view: viewIcon,
-  comment: commentIcon,
-  like: likeIcon,
-} as const;
 
 export const BottomBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
   const hotPosts = [...boardList]
@@ -56,24 +47,11 @@ export const BottomBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => 
                 {categoryName}
               </span>
               <p className={styles.hotTitle}>{post.title}</p>
-              <div className={styles.hotStats}>
-                {BOARD_STAT_LIST.map((stat) => (
-                  <span className={styles.stat} key={stat.slug}>
-                    <Image
-                      src={STAT_ICONS[stat.slug]}
-                      alt={stat.name}
-                      width={14}
-                      height={14}
-                      aria-hidden
-                    />
-                    {stat.slug === 'view'
-                      ? post.view_count
-                      : stat.slug === 'comment'
-                        ? post.comment_count
-                        : post.like_count}
-                  </span>
-                ))}
-              </div>
+              <BoardStatList
+                counts={post}
+                listClassName={styles.hotStats}
+                itemClassName={styles.stat}
+              />
             </li>
           );
         })}

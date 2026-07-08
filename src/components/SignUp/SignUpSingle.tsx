@@ -1,115 +1,32 @@
 'use client';
 
 import Image from 'next/image';
-import styles from '@/components/SignUp/SignUpSingle.module.css';
-import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { createClient } from '@/lib/supabase/client';
+import styles from '@/components/SignUp/styles/SignUpSingle.module.css';
 import openEye from '@/assets/icons/openEye.svg';
 import closeEye from '@/assets/icons/closeEye.svg';
 import CheckIcon from '@/assets/icons/checkCircles.svg';
 import Logo from '@/assets/icons/loginLogo.svg';
-
-interface SignUpSingleForm {
-  email: string;
-  password: string;
-  passwordCheck: string;
-  name: string;
-  birth: string;
-  number: string;
-  nickname: string;
-  terms: boolean;
-}
+import { useSignUpForm } from '@/components/SignUp/useSignUpForm';
 
 export const SignUpSingle = () => {
-  const router = useRouter();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showPasswordCheck, setShowPasswordCheck] = useState(false);
-  const [isDone, setIsDone] = useState(false);
-  const [submitError, setSubmitError] = useState('');
+  const {
+    router,
+    showPassword,
+    setShowPassword,
+    showPasswordCheck,
+    setShowPasswordCheck,
+    isDone,
+    submitError,
+    form,
+    onSubmit,
+  } = useSignUpForm();
 
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting, isValid },
-  } = useForm<SignUpSingleForm>({ mode: 'onChange' });
-
-  const onSubmit = async (data: SignUpSingleForm) => {
-    setSubmitError('');
-    try {
-      const supabase = createClient();
-
-      const [{ data: emailTaken }, { data: nicknameTaken }] = await Promise.all([
-        supabase.rpc('is_email_registered', { check_email: data.email }),
-        supabase.rpc('is_nickname_taken', { check_nickname: data.nickname }),
-      ]);
-
-      if (emailTaken) {
-        setSubmitError('이미 가입된 이메일입니다. 로그인해주세요.');
-        return;
-      }
-
-      if (nicknameTaken) {
-        setSubmitError('이미 사용 중인 닉네임입니다.');
-        return;
-      }
-
-      const { data: signUpData, error } = await supabase.auth.signUp({
-        email: data.email,
-        password: data.password,
-        options: {
-          data: {
-            name: data.name,
-            birth: data.birth,
-            number: data.number,
-            nickname: data.nickname,
-            password: data.password,
-          },
-        },
-      });
-
-      if (error) {
-        const message = error.message.toLowerCase();
-
-        if (message.includes('already registered')) {
-          setSubmitError('이미 가입된 이메일입니다. 로그인해주세요.');
-          return;
-        }
-
-        if (message.includes('duplicate') || message.includes('unique')) {
-          setSubmitError('이미 사용 중인 닉네임입니다.');
-          return;
-        }
-
-        if (message.includes('rate limit') || message.includes('429')) {
-          setSubmitError(
-            '회원가입 시도가 너무 많습니다. 잠시 후 다시 시도해주세요.',
-          );
-          return;
-        }
-
-        setSubmitError('회원가입에 실패했습니다. 잠시 후 다시 시도해주세요.');
-        return;
-      }
-
-      // Supabase: 기존 이메일이면 error 없이 identities가 비어 있을 수 있음
-      if (signUpData.user && signUpData.user.identities?.length === 0) {
-        setSubmitError('이미 가입된 이메일입니다. 로그인해주세요.');
-        return;
-      }
-
-      if (!signUpData.user) {
-        setSubmitError('회원가입에 실패했습니다. 잠시 후 다시 시도해주세요.');
-        return;
-      }
-
-      setIsDone(true);
-    } catch {
-      setSubmitError('네트워크 오류가 발생했습니다. 다시 시도해주세요.');
-    }
-  };
+  } = form;
 
   if (isDone) {
     return (
@@ -160,8 +77,9 @@ export const SignUpSingle = () => {
         </div>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={`${styles.field} ${styles.fieldFull}`}>
-            <label className={styles.label}>이메일</label>
+            <label htmlFor='signup-email' className={styles.label}>이메일</label>
             <input
+              id='signup-email'
               type='text'
               className={styles.input}
               placeholder='example@email.com'
@@ -180,9 +98,10 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>비밀번호</label>
+            <label htmlFor='signup-password' className={styles.label}>비밀번호</label>
             <div className={styles.inputWrap}>
               <input
+                id='signup-password'
                 type={showPassword ? 'text' : 'password'}
                 className={styles.input}
                 placeholder='비밀번호 (8자 이상)'
@@ -217,9 +136,10 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>비밀번호 확인</label>
+            <label htmlFor='signup-password-check' className={styles.label}>비밀번호 확인</label>
             <div className={styles.inputWrap}>
               <input
+                id='signup-password-check'
                 type={showPasswordCheck ? 'text' : 'password'}
                 className={styles.input}
                 placeholder='비밀번호 확인'
@@ -261,8 +181,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>이름</label>
+            <label htmlFor='signup-name' className={styles.label}>이름</label>
             <input
+              id='signup-name'
               type='text'
               className={styles.input}
               placeholder='홍길동'
@@ -281,8 +202,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>생년월일</label>
+            <label htmlFor='signup-birth' className={styles.label}>생년월일</label>
             <input
+              id='signup-birth'
               type='date'
               className={styles.input}
               aria-invalid={errors.birth ? 'true' : undefined}
@@ -296,8 +218,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>휴대전화</label>
+            <label htmlFor='signup-number' className={styles.label}>휴대전화</label>
             <input
+              id='signup-number'
               type='text'
               className={styles.input}
               placeholder="'-' 없이 숫자만 입력"
@@ -316,8 +239,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>닉네임</label>
+            <label htmlFor='signup-nickname' className={styles.label}>닉네임</label>
             <input
+              id='signup-nickname'
               type='text'
               className={styles.input}
               placeholder='닉네임 (2~10자)'
@@ -341,6 +265,7 @@ export const SignUpSingle = () => {
 
           <label className={styles.termsRow}>
             <input
+              id='signup-terms'
               type='checkbox'
               className={styles.checkbox}
               {...register('terms', {
@@ -352,7 +277,11 @@ export const SignUpSingle = () => {
             </span>
           </label>
 
-          {submitError && <span className={styles.error}>{submitError}</span>}
+          {submitError && (
+            <span className={styles.error} role='alert'>
+              {submitError}
+            </span>
+          )}
 
           <button
             type='submit'
