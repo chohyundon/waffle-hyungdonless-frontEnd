@@ -1,66 +1,73 @@
 import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
 import styles from '@/components/Board/BoardHomeMain.module.css';
-import rightIcon from '@/assets/icons/rightBar.svg';
 import writeIcon from '@/assets/icons/writeButton.svg';
 import smallCheck from '@/assets/icons/smallCheck.svg';
 import noneSmallCheck from '@/assets/icons/noneSmallCheck.svg';
 import userImages from '@/assets/icons/userImages.svg';
+import { BOARD_DETAIL_MAP } from '@/components/Board/consts/boardCategories';
 import { BoardCheck } from '@/components/Board/BoardCheck';
 import { useUserProfile } from '@/lib/userInfo/useUserInfo';
+import type { BoardItem } from '@/types/boardType';
+import bottomList from '@/components/Board/consts/boardBottomList';
 
-const detailMap: Record<string, string> = {
-  popular: '인기글',
-  salary: '월급 및 관리 및 예산',
-  tax: '세금 및 공제',
-  loan: '대출',
-  insurance: '보험',
-  investment: '자산 증식',
-};
-
-const bottomList = {
-  latest: '최신순',
-  manyComment: '댓글많은순',
-  mostLike: '좋아요순',
-} as const;
-
-export const BoardHomeMain = () => {
+export const BoardHomeMain = ({
+  boardList = [],
+}: {
+  boardList?: BoardItem[];
+}) => {
   const params = useParams() ?? {};
-  const category = params.category as string | undefined;
+  const detailMap = BOARD_DETAIL_MAP;
+
   const detail = params.detail as string | undefined;
   const latest = params.latest as string | undefined;
   const router = useRouter();
-  const { profile: userData } = useUserProfile();
+  const { profile: userData, loading: profileLoading } = useUserProfile();
 
   const detailTitle = detailMap[detail ?? 'popular'];
+  const postCount = boardList.filter(
+    (item) => item.email === userData?.email
+  )?.length;
 
   const handleWrite = () => {
     router.push(userData ? '/write' : '/login');
   };
 
+  const handleSortTabClick = (key: string) => {
+    console.log(key);
+  };
+
+  console.log(bottomList);
+
   return (
     <section className={styles.container}>
-      <nav className={styles.breadcrumb} aria-label='현재 위치'>
-        <span className={styles.breadcrumbItem}>홈</span>
-        <Image src={rightIcon} alt='' width={14} height={14} aria-hidden />
-        <span className={styles.breadcrumbItem}>사부작 게시판</span>
-        <Image src={rightIcon} alt='' width={14} height={14} aria-hidden />
-        <span className={styles.breadcrumbItem}>금융</span>
-        <Image src={rightIcon} alt='' width={14} height={14} aria-hidden />
-        <span className={styles.breadcrumbActive}>{detailTitle}</span>
-      </nav>
-
       <article className={styles.communityCard}>
         <p className={styles.cardLabel}>나의 커뮤니티</p>
 
-        {userData ? (
+        {profileLoading ? (
+          <div
+            className={styles.profileLoading}
+            aria-busy='true'
+            aria-live='polite'
+          >
+            <div className={styles.profileLoadingAvatar} aria-hidden />
+            <div className={styles.profileLoadingContent}>
+              <div className={styles.profileLoadingLine} aria-hidden />
+              <div className={styles.profileLoadingStats} aria-hidden>
+                <span className={styles.profileLoadingStat} />
+                <span className={styles.profileLoadingStat} />
+                <span className={styles.profileLoadingStat} />
+              </div>
+            </div>
+            <span className={styles.srOnly}>프로필을 불러오는 중입니다</span>
+          </div>
+        ) : userData ? (
           <div className={styles.profileRow}>
             <Image
               src={userImages}
-              alt=''
+              alt={`${userData.name} 프로필`}
               width={72}
               height={72}
-              aria-hidden
               className={styles.userImage}
             />
             <div className={styles.profileInfo}>
@@ -68,7 +75,7 @@ export const BoardHomeMain = () => {
               <dl className={styles.stats}>
                 <div className={styles.statItem}>
                   <dt className={styles.statLabel}>작성한 글</dt>
-                  <dd className={styles.statValue}>25</dd>
+                  <dd className={styles.statValue}>{postCount}</dd>
                 </div>
                 <div className={styles.statItem}>
                   <dt className={styles.statLabel}>작성한 댓글</dt>
@@ -76,7 +83,7 @@ export const BoardHomeMain = () => {
                 </div>
                 <div className={styles.statItem}>
                   <dt className={styles.statLabel}>획득한 배지</dt>
-                  <dd className={styles.statValue}>17</dd>
+                  <dd className={styles.statValue}>20</dd>
                 </div>
               </dl>
             </div>
@@ -86,40 +93,55 @@ export const BoardHomeMain = () => {
         )}
       </article>
 
-      <button type='button' className={styles.writeButton} onClick={handleWrite}>
+      <button
+        type='button'
+        className={styles.writeButton}
+        onClick={handleWrite}
+      >
         함께 성장하는 커뮤니티, 글 작성해보세요!
-        <Image src={writeIcon} alt='' width={20} height={20} aria-hidden />
+        <Image
+          src={writeIcon}
+          alt='글쓰기'
+          width={20}
+          height={20}
+          aria-hidden
+        />
       </button>
 
-      <ul className={styles.sortTabs} aria-label='정렬'>
-        {Object.entries(bottomList).map(([key, value]) => {
-          const isActive = key === (latest ?? 'latest');
+      <div className={styles.listSection}>
+        <div className={styles.listHeader}>
+          <h2 className={styles.listTitle}>
+            {detailTitle} <span className={styles.listCount}>{postCount}</span>
+          </h2>
+          <ul className={styles.sortTabs} aria-label='정렬'>
+            {bottomList.map((item) => {
+              const isActive = item.slug === (latest ?? 'latest');
 
-          return (
-            <li key={key}>
-              <button
-                type='button'
-                className={`${styles.sortTab} ${isActive ? styles.sortTabActive : ''}`}
-                onClick={() =>
-                  router.push(`/board/${category}/${detail}/${key}`)
-                }
-              >
-                <Image
-                  src={isActive ? smallCheck : noneSmallCheck}
-                  alt=''
-                  width={16}
-                  height={16}
-                  className={styles.sortIcon}
-                  aria-hidden
-                />
-                {value}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+              return (
+                <li key={item.slug}>
+                  <button
+                    type='button'
+                    className={`${styles.sortTab} ${isActive ? styles.sortTabActive : ''}`}
+                    onClick={() => handleSortTabClick(item.slug)}
+                  >
+                    <Image
+                      src={isActive ? smallCheck : noneSmallCheck}
+                      alt={isActive ? `${item.name} 선택됨` : item.name}
+                      width={16}
+                      height={16}
+                      className={styles.sortIcon}
+                      aria-hidden
+                    />
+                    {item.name}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
 
-      <BoardCheck />
+        <BoardCheck boardList={boardList} />
+      </div>
     </section>
   );
 };

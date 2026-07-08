@@ -4,8 +4,10 @@ export const homeNavigation = (push: RouterPush) => {
   push(`/`);
 };
 
+import { defaultBoardPath } from '@/components/MainCenter/homeButton';
+
 export const moveBoardPage = (push: RouterPush) => {
-  push(`/board/money`);
+  push(defaultBoardPath);
 };
 
 export const moveLoginPage = (push: RouterPush) => {

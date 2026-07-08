@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
@@ -5,7 +6,6 @@ import styles from '@/components/Login/LoginForm.module.css';
 import eyeIcon from '@/assets/icons/openEye.svg';
 import closeEye from '@/assets/icons/closeEye.svg';
 import { LoginInputType } from '@/types/LoginInputType';
-import { assetSrc } from '@/lib/assetSrc';
 import { createClient } from '@/lib/supabase/client';
 import { LoginStatus } from '@/components/Login/LoginStatus';
 
@@ -117,9 +117,11 @@ export function LoginForm() {
             aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
             disabled={isSubmitting}
           >
-            <img
-              src={assetSrc(showPassword ? eyeIcon : closeEye)}
-              alt=''
+            <Image
+              src={showPassword ? eyeIcon : closeEye}
+              alt={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+              width={20}
+              height={20}
               aria-hidden
             />
           </button>

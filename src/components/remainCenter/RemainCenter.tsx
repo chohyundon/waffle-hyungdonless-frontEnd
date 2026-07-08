@@ -1,13 +1,13 @@
+import Image from 'next/image';
+
 import { TopMain } from '@/components/remainCenter/TopMain';
 import { BottomMain } from '@/components/remainCenter/BottomMain';
 
 import styles from '@/components/remainCenter/RemainCenter.module.css';
 
 import downIcon from '@/assets/icons/downIcon.svg';
-
 import adImage from '@/assets/icons/ad.svg';
 import footerImage from '@/assets/icons/Objects.svg';
-import { assetSrc } from '@/lib/assetSrc';
 
 export const RemainCenter = () => {
   return (
@@ -39,19 +39,32 @@ export const RemainCenter = () => {
                 </h1>
                 <p className={styles.realtimeContent}>진서 화이팅</p>
                 <figure className={styles.realtimeRank}>
-                  <img src={assetSrc(downIcon)} alt='순위 변동' />
+                  <Image
+                    src={downIcon}
+                    alt='순위 하락'
+                    width={12}
+                    height={12}
+                  />
                   <figcaption className={styles.rankNumber}>1</figcaption>
                 </figure>
               </div>
             );
           })}
         </article>
-        <img src={assetSrc(adImage)} alt='광고' className={styles.image} />
+        <Image
+          src={adImage}
+          alt='광고 배너'
+          width={280}
+          height={120}
+          className={styles.image}
+        />
       </aside>
       <BottomMain />
-      <img
-        src={assetSrc(footerImage)}
-        alt=''
+      <Image
+        src={footerImage}
+        alt='서비스 안내 일러스트'
+        width={320}
+        height={120}
         className={styles.footerImage}
         aria-hidden
       />

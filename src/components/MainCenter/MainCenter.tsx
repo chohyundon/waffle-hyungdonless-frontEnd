@@ -11,9 +11,16 @@ import { BottomBoard } from '@/components/MainCenter/BottomBoard';
 import { homeButtonEntities } from '@/components/MainCenter/homeButton';
 import { YouthPolicySection } from '@/components/MainCenter/YouthPolicySection';
 
+import type { BoardItem } from '@/types/boardType';
 import type { PublicDataResponse } from '@/types/publicDataType';
 
-export const MainCenter = ({ data }: { data?: PublicDataResponse }) => {
+export const MainCenter = ({
+  data,
+  boardList,
+}: {
+  data?: PublicDataResponse;
+  boardList?: BoardItem[];
+}) => {
   const params = useParams() ?? {};
   const category = params.category as string | undefined;
   const policies = data?.result?.youthPolicyList ?? [];
@@ -40,10 +47,9 @@ export const MainCenter = ({ data }: { data?: PublicDataResponse }) => {
             >
               <Image
                 src={item.icon}
-                alt={item.name}
+                alt={`${item.name} 카테고리`}
                 width={48}
                 height={48}
-                aria-hidden
                 className={styles.categoryIcon}
               />
               <span className={styles.categoryLabel}>{item.name}</span>
@@ -56,8 +62,8 @@ export const MainCenter = ({ data }: { data?: PublicDataResponse }) => {
         <div className={styles.sections}>
           <YouthPolicySection policies={policies} />
 
-          <TopBoard />
-          <BottomBoard />
+          <TopBoard boardList={boardList} />
+          <BottomBoard boardList={boardList} />
         </div>
       )}
     </div>

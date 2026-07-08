@@ -1,6 +1,7 @@
+import Image from 'next/image';
+
 import styles from '@/components/Login/LoginForm.module.css';
 import googleLogo from '@/assets/icons/googleLogo.svg';
-import { assetSrc } from '@/lib/assetSrc';
 import { createClient } from '@/lib/supabase/client';
 
 export function GoogleLogin() {
@@ -26,9 +27,11 @@ export function GoogleLogin() {
       className={styles.googleButton}
       onClick={googleLogin}
     >
-      <img
-        src={assetSrc(googleLogo)}
-        alt=''
+      <Image
+        src={googleLogo}
+        alt='Google 로고'
+        width={20}
+        height={20}
         aria-hidden
         className={styles.googleLogo}
       />

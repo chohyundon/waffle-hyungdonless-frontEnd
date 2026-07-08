@@ -1,10 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import styles from '@/components/SignUp/SignUpSingle.module.css';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { assetSrc } from '@/lib/assetSrc';
 import { createClient } from '@/lib/supabase/client';
 import openEye from '@/assets/icons/openEye.svg';
 import closeEye from '@/assets/icons/closeEye.svg';
@@ -116,8 +116,8 @@ export const SignUpSingle = () => {
       <>
         <main className={styles.card}>
           <div className={styles.completeBox}>
-            <img
-              src={assetSrc(CheckIcon)}
+            <Image
+              src={CheckIcon}
               alt='가입 완료'
               width={77}
               height={77}
@@ -145,7 +145,7 @@ export const SignUpSingle = () => {
           </div>
         </main>
         <figure className={styles.logo}>
-          <img src={assetSrc(Logo)} alt='사부작 로고' />
+          <Image src={Logo} alt='사부작 로고' width={160} height={56} />
         </figure>
       </>
     );
@@ -195,12 +195,21 @@ export const SignUpSingle = () => {
                   },
                 })}
               />
-              <img
-                src={assetSrc(showPassword ? openEye : closeEye)}
-                alt='비밀번호 표시'
-                className={styles.eyeIcon}
+              <button
+                type='button'
+                className={styles.eyeButton}
                 onClick={() => setShowPassword((prev) => !prev)}
-              />
+                aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+              >
+                <Image
+                  src={showPassword ? openEye : closeEye}
+                  alt={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+                  width={20}
+                  height={20}
+                  aria-hidden
+                  className={styles.eyeIcon}
+                />
+              </button>
             </div>
             {errors.password && (
               <span className={styles.error}>{errors.password.message}</span>
@@ -222,12 +231,27 @@ export const SignUpSingle = () => {
                     '비밀번호가 일치하지 않습니다.',
                 })}
               />
-              <img
-                src={assetSrc(showPasswordCheck ? openEye : closeEye)}
-                alt='비밀번호 확인 표시'
-                className={styles.eyeIcon}
+              <button
+                type='button'
+                className={styles.eyeButton}
                 onClick={() => setShowPasswordCheck((prev) => !prev)}
-              />
+                aria-label={
+                  showPasswordCheck ? '비밀번호 확인 숨기기' : '비밀번호 확인 보기'
+                }
+              >
+                <Image
+                  src={showPasswordCheck ? openEye : closeEye}
+                  alt={
+                    showPasswordCheck
+                      ? '비밀번호 확인 숨기기'
+                      : '비밀번호 확인 보기'
+                  }
+                  width={20}
+                  height={20}
+                  aria-hidden
+                  className={styles.eyeIcon}
+                />
+              </button>
             </div>
             {errors.passwordCheck && (
               <span className={styles.error}>
@@ -350,7 +374,7 @@ export const SignUpSingle = () => {
         </div>
       </main>
       <figure className={styles.logo}>
-        <img src={assetSrc(Logo)} alt='사부작 로고' />
+        <Image src={Logo} alt='사부작 로고' width={160} height={56} />
       </figure>
     </>
   );

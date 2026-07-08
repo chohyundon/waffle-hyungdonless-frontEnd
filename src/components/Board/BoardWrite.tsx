@@ -3,27 +3,22 @@
 import { NavBar } from '@/components/NavBar';
 import { Footer } from '@/components/Footer';
 import styles from '@/components/Board/BoardWrite.module.css';
+import {
+  BOARD_CATEGORY_NAMES,
+  CATEGORY_NAME_TO_SLUG,
+  HEAD_CATEGORIES,
+} from '@/components/Board/consts/boardCategories';
+import { defaultBoardPath } from '@/components/MainCenter/homeButton';
 import { fetchCurrentUserProfile } from '@/lib/userInfo/useUserInfo';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export const BoardWrite = () => {
-  const selectCategory = ['금융', '복지', '주거', '자기 개발', '자유', 'Q&A'];
-  const headCategory = [
-    '월급 및 관리 및 예산',
-    '세금 및 공제',
-    '대출',
-    '보험',
-    '자산 증식',
-  ];
-
-  const categoryMapping: { [key: string]: string } = {
-    금융: 'b001',
-    복지: 'b002',
-    주거: 'b003',
-    '자기 개발': 'b004',
-    자유: 'b005',
-    'Q&A': 'b006',
-  };
+  const router = useRouter();
+  const selectCategory = BOARD_CATEGORY_NAMES;
+  const headCategory = HEAD_CATEGORIES;
+  const categoryMapping = CATEGORY_NAME_TO_SLUG;
 
   const [categoryValue, setCategoryValue] = useState({
     category: '',
@@ -64,10 +59,30 @@ export const BoardWrite = () => {
   };
 
   const handleSubmit = async () => {
+    if (!categoryValue.category) {
+      toast.warn('카테고리를 선택해주세요.');
+      return;
+    }
+
+    if (!categoryValue.detail) {
+      toast.warn('말머리를 선택해주세요.');
+      return;
+    }
+
+    if (!inputValue.title.trim()) {
+      toast.warn('제목을 입력해주세요.');
+      return;
+    }
+
+    if (!inputValue.value.trim()) {
+      toast.warn('내용을 입력해주세요.');
+      return;
+    }
+
     const userData = await fetchCurrentUserProfile();
 
     if (!userData) {
-      alert('로그인 후 이용해주세요.');
+      toast.error('로그인 후 이용해주세요.');
       return;
     }
 
@@ -76,13 +91,32 @@ export const BoardWrite = () => {
       content: inputValue.value,
       boardType: categoryMapping[categoryValue.category] || '',
       category: categoryValue.detail,
-      nickname: userData?.nickname || '',
-      email: userData?.email || '',
     });
 
     const formData = new FormData();
     formData.append('board', boardData);
     formData.append('image', '');
+
+    try {
+      const response = await fetch('/api/board', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+        toast.error(data?.error ?? '글쓰기에 실패했습니다.');
+        return;
+      }
+
+      toast.success('글이 등록되었습니다.');
+      router.push(`${defaultBoardPath}`);
+    } catch (error) {
+      console.error(error);
+      toast.error('글쓰기에 실패했습니다.');
+    }
   };
 
   return (

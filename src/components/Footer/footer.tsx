@@ -75,7 +75,7 @@ export const Footer = () => {
                 className={styles.socialLink}
                 aria-label={label}
               >
-                <Image src={icon} alt='' width={16} height={16} aria-hidden />
+                <Image src={icon} alt={`${label} 바로가기`} width={16} height={16} aria-hidden />
               </a>
             ))}
           </div>

@@ -1,14 +1,18 @@
+import Image from 'next/image';
+
 import styles from '@/components/remainCenter/Bottom.module.css';
 
 import welfareIcon from '@/assets/icons/welfareMiniIcon.svg';
-// import homeIcon from '@/assets/icons/homeMiniIcon.svg'
-// import developmentIcon from '@/assets/icons/developmentMiniIcon.svg'
-// import qnaIcon from '@/assets/icons/qnaMiniIcon.svg'
-
 import viewIcon from '@/assets/icons/viewIcon.svg';
 import commentIcon from '@/assets/icons/commentIcon.svg';
 import likeIcon from '@/assets/icons/likeIcon.svg';
-import { assetSrc } from '@/lib/assetSrc';
+import { BOARD_STAT_LIST } from '@/components/Board/consts/boardStatList';
+
+const STAT_ICONS = {
+  view: viewIcon,
+  comment: commentIcon,
+  like: likeIcon,
+} as const;
 
 export const BottomMain = () => {
   return (
@@ -22,22 +26,27 @@ export const BottomMain = () => {
               {i + 1}
             </h1>
             <figure className={styles.iconContainer}>
-              <img src={assetSrc(welfareIcon)} alt='' width={15} height={15} />
+              <Image
+                src={welfareIcon}
+                alt='복지 카테고리'
+                width={15}
+                height={15}
+              />
               <figcaption className={styles.iconFont}>복지</figcaption>
             </figure>
             <section className={styles.iconsContainer}>
-              <figure className={styles.icons}>
-                <img src={assetSrc(viewIcon)} alt='' />
-                <figcaption className={styles.iconFont}>106</figcaption>
-              </figure>
-              <figure className={styles.icons}>
-                <img src={assetSrc(commentIcon)} alt='' />
-                <figcaption className={styles.iconFont}>106</figcaption>
-              </figure>
-              <figure className={styles.icons}>
-                <img src={assetSrc(likeIcon)} alt='' />
-                <figcaption className={styles.iconFont}>106</figcaption>
-              </figure>
+              {BOARD_STAT_LIST.map((stat) => (
+                <figure className={styles.icons} key={stat.slug}>
+                  <Image
+                    src={STAT_ICONS[stat.slug]}
+                    alt={stat.name}
+                    width={14}
+                    height={14}
+                    aria-hidden
+                  />
+                  <figcaption className={styles.iconFont}>106</figcaption>
+                </figure>
+              ))}
             </section>
             <p className={styles.boardContent}>주짓수 vs 수영</p>
             <span

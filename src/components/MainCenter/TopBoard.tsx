@@ -6,14 +6,25 @@ import userImage from '@/assets/icons/userImage.svg';
 import viewIcon from '@/assets/icons/viewIcon.svg';
 import commentIcon from '@/assets/icons/commentIcon.svg';
 import likeIcon from '@/assets/icons/likeIcon.svg';
+import { BOARD_STAT_LIST } from '@/components/Board/consts/boardStatList';
+import { formatBoardTimeAgo } from '@/types/boardType';
+import type { BoardItem } from '@/types/boardType';
 
-export const TopBoard = () => {
+const STAT_ICONS = {
+  view: viewIcon,
+  comment: commentIcon,
+  like: likeIcon,
+} as const;
+
+export const TopBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
+  const featuredPosts = boardList.slice(0, 4);
+
   return (
     <section className={styles.wrapper} aria-labelledby='featured-heading'>
       <div className={styles.visual}>
         <Image
           src={moneyBg}
-          alt=''
+          alt='추천 게시글 일러스트'
           fill
           className={styles.visualImage}
           sizes='400px'
@@ -26,30 +37,39 @@ export const TopBoard = () => {
           추천 게시글
         </h2>
         <ul className={styles.postList}>
-          {Array.from({ length: 4 }, (_, i) => (
-            <li key={i} className={styles.postItem}>
-              <span className={styles.badge}>자산증식</span>
+          {featuredPosts.map((post) => (
+            <li key={post.id} className={styles.postItem}>
+              <span className={styles.badge}>{post.category}</span>
               <div className={styles.postMeta}>
-                <Image src={userImage} alt='' width={20} height={20} aria-hidden />
-                <span className={styles.userName}>userName</span>
+                <Image
+                  src={userImage}
+                  alt={`${post.nickname} 프로필`}
+                  width={20}
+                  height={20}
+                />
+                <span className={styles.userName}>{post.nickname}</span>
               </div>
-              <p className={styles.postTitle}>
-                제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목
-              </p>
+              <p className={styles.postTitle}>{post.title}</p>
               <div className={styles.stats}>
-                <span className={styles.stat}>
-                  <Image src={viewIcon} alt='' width={14} height={14} aria-hidden />
-                  106
+                {BOARD_STAT_LIST.map((stat) => (
+                  <span className={styles.stat} key={stat.slug}>
+                    <Image
+                      src={STAT_ICONS[stat.slug]}
+                      alt={stat.name}
+                      width={14}
+                      height={14}
+                      aria-hidden
+                    />
+                    {stat.slug === 'view'
+                      ? post.view_count
+                      : stat.slug === 'comment'
+                        ? post.comment_count
+                        : post.like_count}
+                  </span>
+                ))}
+                <span className={styles.time}>
+                  {formatBoardTimeAgo(post.created_at)}
                 </span>
-                <span className={styles.stat}>
-                  <Image src={commentIcon} alt='' width={14} height={14} aria-hidden />
-                  106
-                </span>
-                <span className={styles.stat}>
-                  <Image src={likeIcon} alt='' width={14} height={14} aria-hidden />
-                  106
-                </span>
-                <span className={styles.time}>1시간 전</span>
               </div>
             </li>
           ))}

@@ -1,5 +1,5 @@
 import { BoardList } from '@/components/Board';
 
-export default function BoardCategoryPage() {
+export default async function BoardCategoryPage() {
   return <BoardList />;
 }

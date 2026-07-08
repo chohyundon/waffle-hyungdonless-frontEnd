@@ -1,188 +1,153 @@
 .container {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid var(--color-borderColor-gray100);
   background: var(--color-base-white);
   overflow: hidden;
-  box-shadow: 0 2px 12px rgb(0 0 0 / 4%);
+  box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
 }
 
 .container.empty {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 280px;
-  background-color: var(--color-base-gray700);
+  min-height: 320px;
+  background: var(--color-base-bgColor);
 }
 
 .emptyContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px;
+  padding: 40px 24px;
 }
 
-.listContainer {
-  margin-top: 24px;
-  padding-inline: 30px;
-  position: relative;
+.emptyImage {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  opacity: 0.85;
+}
+
+.postList {
   display: flex;
   flex-direction: column;
-  width: 88%;
-  height: 19.63vh;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.icon {
-  position: absolute;
-  padding: 7px 10px;
+.postCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-borderColor-gray100);
+}
+
+.postList li:last-child .postCard {
+  border-bottom: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 10px;
   border-radius: 8px;
-  border: 0.5px solid #adadad;
-  background: #fff;
-  justify-content: center;
-  align-items: center;
-  display: inline-block;
+  border: 1px solid var(--color-borderColor-gray100);
+  background: var(--color-base-white);
   font-size: 0.75rem;
-  color: #515151;
-  top: 0;
+  font-weight: 600;
+  color: var(--color-base-black200);
 }
 
 .title {
-  position: absolute;
-  font-size: 1.125rem;
-  color: #333;
+  margin: 0;
+  font-size: 1.0625rem;
   font-weight: 700;
-  top: 20%;
+  color: var(--color-base-black100);
+  line-height: 1.4;
 }
 
 .content {
-  position: absolute;
-  top: 35%;
-  color: #333;
+  margin: 0;
+  color: var(--color-base-gray800);
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 22.4px;
-  width: 77.801%;
+  line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  max-height: 3em;
 }
 
 .nickname {
-  position: absolute;
-  top: 66%;
   display: flex;
-  gap: 10px;
-  color: #adadad;
-  font-size: 0.875rem;
-  font-weight: 600;
+  gap: 8px;
   align-items: center;
+  margin: 0;
+  color: var(--color-base-gray800);
+  font-size: 0.8125rem;
+  font-weight: 600;
 }
 
 .by {
   font-family: 'Caveat', cursive;
   font-size: 1rem;
   font-weight: 400;
-  color: #adadad;
+  color: var(--color-icon-gray100);
 }
 
-.iconsContainer {
-  position: absolute;
-  top: 80%;
+.meta {
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.icons {
-  left: 0;
+.stats {
   display: flex;
-  gap: 7px;
-  color: #adadad;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  gap: 14px;
 }
 
-.iconFont {
-  position: relative;
-  top: 1.3px;
-  color: #adadad;
-  font-family: 'Roboto Thin';
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-icon-gray100);
+  font-size: 0.8125rem;
   font-weight: 500;
+}
+
+.stat img {
+  width: 14px;
+  height: 14px;
 }
 
 .date {
-  position: absolute;
-  right: -270%;
-  font-family: 'Roboto Thin';
-  font-weight: 500;
   font-size: 0.8125rem;
-  color: #8a8a8a;
+  font-weight: 500;
+  color: var(--color-base-gray800);
 }
 
-.border {
-  position: absolute;
-  top: 230%;
-  left: 50%;
-  transform: translateX(-13%);
-  width: 724px;
-  border-top: 0.5px solid #adadad;
+.postItem {
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
-.listContainer:last-child .border {
-  border-top: none;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    top: 0;
-    margin-top: 24px;
-    box-sizing: border-box;
+@media (max-width: 768px) {
+  .postCard {
+    padding: 16px;
   }
 
-  .listContainer {
-    position: relative;
-    display: flex;
+  .meta {
     flex-direction: column;
-    width: 100%;
-    height: auto;
-    padding-inline: 20px;
-    gap: 10px;
-    box-sizing: border-box;
-  }
-
-  .icon,
-  .title,
-  .content,
-  .nickname,
-  .iconsContainer {
-    position: static;
-    top: 0;
-  }
-
-  .icon {
-    align-self: flex-start;
-  }
-
-  .content {
-    width: 100%;
-  }
-
-  .date {
-    position: static;
-    right: 0;
-  }
-
-  .border {
-    position: static;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    margin-top: 12px;
+    align-items: flex-start;
   }
 }

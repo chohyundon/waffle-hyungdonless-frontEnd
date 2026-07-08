@@ -17,7 +17,7 @@ export const NavBarSearchForm = () => {
       />
       <Image
         src={searchIcon}
-        alt=''
+        alt='검색'
         width={18}
         height={18}
         className={styles.searchIcon}

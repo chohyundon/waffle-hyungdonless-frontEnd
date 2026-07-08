@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import NotFoundSrc from '@/assets/icons/notFound.svg';
 import BackIcon from '@/assets/icons/backiconImage.svg';
 
@@ -7,7 +8,6 @@ import styles from '@/components/NotFound/NotFound.module.css';
 import { NavBar } from '@/components/NavBar';
 import { Footer } from '@/components/Footer';
 import { useRouter } from 'next/navigation';
-import { assetSrc } from '@/lib/assetSrc';
 
 export const NotFound = () => {
   const router = useRouter();
@@ -20,7 +20,12 @@ export const NotFound = () => {
     <section className={styles.container}>
       <NavBar />
       <main className={styles.mainContainer}>
-        <img src={assetSrc(NotFoundSrc)} alt='서비스 준비중입니다' />
+        <Image
+          src={NotFoundSrc}
+          alt='서비스 준비중 안내 이미지'
+          width={240}
+          height={240}
+        />
         <h1 className={styles.title}>
           지금은
           <p className={styles.colorTitle}>서비스 준비중</p>
@@ -33,7 +38,7 @@ export const NotFound = () => {
         </p>
         <div className={styles.buttonContainer} onClick={handleReturn}>
           <button className={styles.button}>뒤로가기</button>
-          <img src={assetSrc(BackIcon)} alt='뒤로가기 버튼' />
+          <Image src={BackIcon} alt='뒤로가기 아이콘' width={20} height={20} aria-hidden />
         </div>
       </main>
       <div className={styles.footerContainer}>
