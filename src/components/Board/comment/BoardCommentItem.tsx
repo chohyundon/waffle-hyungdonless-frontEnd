@@ -1,23 +1,29 @@
 'use client';
 
 import Image from 'next/image';
+import { TransitionStartFunction } from 'react';
 
 import userImages from '@/assets/icons/userImages.svg';
 import styles from '@/components/Board/BoardDetail.module.css';
 import { BoardComment, formatBoardTimeAgo } from '@/types/boardType';
 
 import { CommentDeleteModal } from '@/components/Board/comment/CommentDeleteModal';
+import { CommentOptimisticAction } from '@/components/Board/comment/commentOptimistic';
 import { useBoardCommentDelete } from '@/components/Board/comment/useBoardCommentDelete';
 import { useBoardCommentUpdate } from '@/components/Board/comment/useBoardCommentUpdate';
 
 export const BoardCommentItem = ({
   comment,
   currentUserId,
-  onMutate,
+  mutateComment,
+  startTransition,
+  onRefresh,
 }: {
   comment: BoardComment;
   currentUserId?: string;
-  onMutate: () => void;
+  mutateComment: (action: CommentOptimisticAction) => void;
+  startTransition: TransitionStartFunction;
+  onRefresh: () => void;
 }) => {
   const isOwner = Boolean(currentUserId && currentUserId === comment.user_id);
 
@@ -29,7 +35,9 @@ export const BoardCommentItem = ({
     isDeleting,
   } = useBoardCommentDelete({
     commentId: comment.id,
-    onMutate,
+    mutateComment,
+    startTransition,
+    onRefresh,
   });
 
   const {
@@ -40,7 +48,12 @@ export const BoardCommentItem = ({
     handleCancelEdit,
     handleUpdate,
     isUpdating,
-  } = useBoardCommentUpdate({ comment, onMutate });
+  } = useBoardCommentUpdate({
+    comment,
+    mutateComment,
+    startTransition,
+    onRefresh,
+  });
 
   const isSubmitting = isDeleting || isUpdating;
 

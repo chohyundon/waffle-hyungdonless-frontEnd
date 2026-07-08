@@ -1,16 +1,21 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { TransitionStartFunction, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
+import { CommentOptimisticAction } from '@/components/Board/comment/commentOptimistic';
 import { BoardComment } from '@/types/boardType';
 
 export const useBoardCommentUpdate = ({
   comment,
-  onMutate,
+  mutateComment,
+  startTransition,
+  onRefresh,
 }: {
   comment: BoardComment;
-  onMutate: () => void;
+  mutateComment: (action: CommentOptimisticAction) => void;
+  startTransition: TransitionStartFunction;
+  onRefresh: () => void;
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(comment.content);
@@ -29,37 +34,48 @@ export const useBoardCommentUpdate = ({
     setIsEditing(false);
   };
 
-  const handleUpdate = async () => {
-    if (editContent.trim() === '') {
+  const handleUpdate = () => {
+    const content = editContent.trim();
+
+    if (content === '') {
       toast.error('댓글을 입력해주세요');
       return;
     }
 
     setIsUpdating(true);
 
-    try {
-      const response = await fetch('/api/board/comment', {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          commentId: comment.id,
-          content: editContent,
-        }),
+    startTransition(async () => {
+      mutateComment({
+        type: 'update',
+        comment: { ...comment, content },
       });
-
-      if (!response.ok) {
-        toast.error('댓글 수정에 실패했습니다');
-        return;
-      }
-
-      toast.success('댓글이 수정되었습니다');
       setIsEditing(false);
-      onMutate();
-    } catch {
-      toast.error('댓글 수정에 실패했습니다');
-    } finally {
-      setIsUpdating(false);
-    }
+
+      try {
+        const response = await fetch('/api/board/comment', {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            commentId: comment.id,
+            content,
+          }),
+        });
+
+        if (!response.ok) {
+          toast.error('댓글 수정에 실패했습니다');
+          onRefresh();
+          return;
+        }
+
+        toast.success('댓글이 수정되었습니다');
+        onRefresh();
+      } catch {
+        toast.error('댓글 수정에 실패했습니다');
+        onRefresh();
+      } finally {
+        setIsUpdating(false);
+      }
+    });
   };
 
   return {

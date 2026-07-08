@@ -1,14 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { TransitionStartFunction, useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { CommentOptimisticAction } from '@/components/Board/comment/commentOptimistic';
 
 export const useBoardCommentDelete = ({
   commentId,
-  onMutate,
+  mutateComment,
+  startTransition,
+  onRefresh,
 }: {
   commentId: string;
-  onMutate: () => void;
+  mutateComment: (action: CommentOptimisticAction) => void;
+  startTransition: TransitionStartFunction;
+  onRefresh: () => void;
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -25,28 +31,34 @@ export const useBoardCommentDelete = ({
     setIsDeleteModalOpen(false);
   };
 
-  const confirmDelete = async () => {
+  const confirmDelete = () => {
     setIsDeleting(true);
 
-    try {
-      const response = await fetch(
-        `/api/board/comment?commentId=${encodeURIComponent(commentId)}`,
-        { method: 'DELETE' },
-      );
-
-      if (!response.ok) {
-        toast.error('댓글 삭제에 실패했습니다');
-        return;
-      }
-
-      toast.success('댓글이 삭제되었습니다');
+    startTransition(async () => {
+      mutateComment({ type: 'delete', commentId });
       setIsDeleteModalOpen(false);
-      onMutate();
-    } catch {
-      toast.error('댓글 삭제에 실패했습니다');
-    } finally {
-      setIsDeleting(false);
-    }
+
+      try {
+        const response = await fetch(
+          `/api/board/comment?commentId=${encodeURIComponent(commentId)}`,
+          { method: 'DELETE' },
+        );
+
+        if (!response.ok) {
+          toast.error('댓글 삭제에 실패했습니다');
+          onRefresh();
+          return;
+        }
+
+        toast.success('댓글이 삭제되었습니다');
+        onRefresh();
+      } catch {
+        toast.error('댓글 삭제에 실패했습니다');
+        onRefresh();
+      } finally {
+        setIsDeleting(false);
+      }
+    });
   };
 
   return {

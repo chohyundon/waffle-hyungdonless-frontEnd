@@ -2,8 +2,9 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useOptimistic, useState, useTransition } from 'react';
 
+import { reduceOptimisticComments } from '@/components/Board/comment/commentOptimistic';
 import styles from '@/components/Board/BoardDetail.module.css';
 
 import leftBar from '@/assets/icons/leftBar.svg';
@@ -28,6 +29,11 @@ export const BoardDetail = ({
   const router = useRouter();
   const { user } = useUser();
   const [comment, setComment] = useState('');
+  const [, startTransition] = useTransition();
+  const [optimisticComments, mutateComment] = useOptimistic(
+    comments,
+    reduceOptimisticComments
+  );
 
   const handleCommentSubmit = useBoardCommentSubmit({
     boardId: board.id,
@@ -130,15 +136,17 @@ export const BoardDetail = ({
           </form>
 
           <ul className={styles.commentsList}>
-            {comments.length === 0 ? (
+            {optimisticComments.length === 0 ? (
               <li className={styles.commentEmpty}>아직 댓글이 없습니다.</li>
             ) : (
-              comments.map((item) => (
+              optimisticComments.map((item) => (
                 <BoardCommentItem
                   key={item.id}
                   comment={item}
                   currentUserId={user?.id}
-                  onMutate={() => router.refresh()}
+                  mutateComment={mutateComment}
+                  startTransition={startTransition}
+                  onRefresh={() => router.refresh()}
                 />
               ))
             )}
