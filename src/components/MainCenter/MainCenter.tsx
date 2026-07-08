@@ -1,23 +1,24 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 
-import styles from '@/components/MainCenter/MainCenter.module.css';
+import styles from '@/components/MainCenter/styles/MainCenter.module.css';
 
 import { TopBoard } from '@/components/MainCenter/TopBoard';
 import { BottomBoard } from '@/components/MainCenter/BottomBoard';
 import { homeButtonEntities } from '@/components/MainCenter/homeButton';
 import { YouthPolicySection } from '@/components/MainCenter/YouthPolicySection';
 
+import type { BoardItem } from '@/types/boardType';
 import type { PublicDataResponse } from '@/types/publicDataType';
 
-export const MainCenter = ({ data }: { data?: PublicDataResponse }) => {
-  const params = useParams() ?? {};
-  const category = params.category as string | undefined;
+export const MainCenter = ({
+  data,
+  boardList,
+}: {
+  data?: PublicDataResponse;
+  boardList?: BoardItem[];
+}) => {
   const policies = data?.result?.youthPolicyList ?? [];
-  const isHome = category === undefined;
 
   return (
     <div className={styles.page}>
@@ -40,10 +41,9 @@ export const MainCenter = ({ data }: { data?: PublicDataResponse }) => {
             >
               <Image
                 src={item.icon}
-                alt={item.name}
+                alt={`${item.name} 카테고리`}
                 width={48}
                 height={48}
-                aria-hidden
                 className={styles.categoryIcon}
               />
               <span className={styles.categoryLabel}>{item.name}</span>
@@ -52,14 +52,12 @@ export const MainCenter = ({ data }: { data?: PublicDataResponse }) => {
         </nav>
       </section>
 
-      {isHome && (
-        <div className={styles.sections}>
-          <YouthPolicySection policies={policies} />
+      <div className={styles.sections}>
+        <YouthPolicySection policies={policies} />
 
-          <TopBoard />
-          <BottomBoard />
-        </div>
-      )}
+        <TopBoard boardList={boardList} />
+        <BottomBoard boardList={boardList} />
+      </div>
     </div>
   );
 };

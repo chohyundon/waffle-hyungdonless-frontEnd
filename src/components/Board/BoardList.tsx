@@ -1,19 +1,8 @@
-import { NavBar } from '@/components/NavBar';
-import { Footer } from '@/components/Footer';
-
-import styles from '@/components/Board/BoardList.module.css';
 import { BoardHome } from '@/components/Board/BoardHome';
+import { getBoardList } from '@/lib/getBoardList';
 
-export const BoardList = () => {
-  return (
-    <main className={styles.boardContainer}>
-      <div className={styles.navContainer}>
-        <NavBar />
-      </div>
-      <BoardHome />
-      <div className={styles.footerContainer}>
-        <Footer />
-      </div>
-    </main>
-  );
+export const BoardList = async () => {
+  const boardList = await getBoardList();
+
+  return <BoardHome boardList={boardList} />;
 };

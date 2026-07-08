@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation';
 
+import { defaultBoardPath } from '@/components/MainCenter/homeButton';
+
 export default function BoardIndexPage() {
-  redirect('/board/money/popular');
+  redirect(`${defaultBoardPath}/popular`);
 }

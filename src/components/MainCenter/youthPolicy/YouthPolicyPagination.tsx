@@ -1,4 +1,4 @@
-import styles from '@/components/MainCenter/YouthPolicySection.module.css';
+import styles from '@/components/MainCenter/styles/YouthPolicySection.module.css';
 
 type YouthPolicyPaginationProps = {
   page: number;

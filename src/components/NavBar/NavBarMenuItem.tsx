@@ -1,6 +1,7 @@
-import styles from '@/components/NavBar/NavBar.module.css';
-import { moveBoardPage } from '@/lib/navigationUtils';
+import styles from '@/components/NavBar/styles/NavBar.module.css';
+import { defaultBoardPath } from '@/components/MainCenter/homeButton';
 import type { RouterPush } from '@/lib/navigationUtils';
+import { moveBoardPage } from '@/lib/navigationUtils';
 import { usePathname } from 'next/navigation';
 
 interface NavBarMenuItemProps {
@@ -14,7 +15,7 @@ const menuItems: Array<{
   href: string | null;
   onClick?: (push: RouterPush) => void;
 }> = [
-  { label: '사부작 게시판', href: '/board/money/popular', onClick: moveBoardPage },
+  { label: '사부작 게시판', href: `${defaultBoardPath}/popular`, onClick: moveBoardPage },
   { label: '캘린더', href: null },
   { label: '사부작 순위', href: null },
 ];

@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   background-color: var(--color-base-bgColor);
-  background-image: url('../../assets/icons/backgroundImage.svg');
+  background-image: url('../../../assets/icons/backgroundImage.svg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

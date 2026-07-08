@@ -1,86 +1,65 @@
-import styles from '@/components/Board/BoardCheck.module.css';
-import { useState } from 'react';
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import viewIcon from '@/assets/icons/viewIcon.svg';
-import commentIcon from '@/assets/icons/commentIcon.svg';
-import likeIcon from '@/assets/icons/likeIcon.svg';
+
+import styles from '@/components/Board/styles/BoardCheck.module.css';
 import notPage from '@/assets/icons/notPage.svg';
-import { assetSrc } from '@/lib/assetSrc';
+import { BoardStatList } from '@/components/Board/BoardStatList';
+import { formatBoardTimeAgo, type BoardItem } from '@/types/boardType';
 
-interface stateProps {
-  boardType: string;
-  id?: string;
-  title?: string;
-  nickname?: string;
-  category?: string;
-  content?: string;
-  createDate: string;
-}
-
-export const BoardCheck = () => {
+export const BoardCheck = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
   const params = useParams() ?? {};
   const category = params.category as string | undefined;
-  const [ok] = useState<stateProps[]>([]);
 
-  const categoryMap = {
-    money: 'b001',
-    welfare: 'b002',
-    home: 'b003',
-    develop: 'b004',
-    free: 'b005',
-    qna: 'b006',
-  };
-
-  const categoryCode =
-    categoryMap[category as keyof typeof categoryMap] || 'default';
-
-  const calculateDaysAgo = (createDate: string) => {
-    const createdDate = new Date(createDate);
-    const today = new Date();
-    const diffTime = today.getTime() - createdDate.getTime();
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays > 0 ? `${diffDays}일 전` : '오늘';
-  };
+  const posts = boardList.filter((item) => item.board_type === category) ?? [];
 
   return (
     <section
-      className={`${styles.container} ${ok.length === 0 ? styles.empty : ''}`}
+      className={`${styles.container} ${posts.length === 0 ? styles.empty : ''}`}
     >
-      {ok.length === 0 ? (
+      {posts.length === 0 ? (
         <div className={styles.emptyContainer}>
-          <img src={assetSrc(notPage)} alt='서비스 준비 중' />
+          <Image
+            src={notPage}
+            alt='등록된 게시글이 없습니다'
+            width={180}
+            height={180}
+            className={styles.emptyImage}
+          />
         </div>
       ) : (
-        ok
-          .filter((item) => item?.boardType === categoryCode)
-          .map((item, i) => (
-            <ul key={i} className={styles.listContainer}>
-              <li className={styles.icon}>{item?.category}</li>
-              <li className={styles.title}>{item?.title}</li>
-              <li className={styles.content}>{item?.content}</li>
-              <li className={styles.nickname}>
-                <p className={styles.by}>by</p> {item?.nickname}
-              </li>
-              <section className={styles.iconsContainer}>
-                <figure className={styles.icons}>
-                  <img src={assetSrc(viewIcon)} alt='' />
-                  <figcaption className={styles.iconFont}>106</figcaption>
-                </figure>
-                <figure className={styles.icons}>
-                  <img src={assetSrc(commentIcon)} alt='' />
-                  <figcaption className={styles.iconFont}>106</figcaption>
-                </figure>
-                <figure className={styles.icons}>
-                  <img src={assetSrc(likeIcon)} alt='' />
-                  <figcaption className={styles.iconFont}>106</figcaption>
-                </figure>
-                <li className={styles.date}>
-                  {calculateDaysAgo(item?.createDate)}
-                </li>
-                {i !== ok.length - 1 && <span className={styles.border}></span>}
-              </section>
-            </ul>
-          ))
+        <ul className={styles.postList}>
+          {posts.map((item) => (
+            <li key={item.id} className={styles.postItem}>
+              <Link
+                href={`/board/${category}/${item.id}`}
+                className={styles.postLink}
+              >
+                <article className={styles.postCard}>
+                  <span className={styles.badge}>{item.category}</span>
+                  <h3 className={styles.title}>{item.title}</h3>
+                  <p className={styles.content}>{item.content}</p>
+                  <p className={styles.nickname}>
+                    <span className={styles.by}>by</span> {item.nickname}
+                  </p>
+                  <div className={styles.meta}>
+                    <BoardStatList
+                      counts={item}
+                      listClassName={styles.stats}
+                      itemClassName={styles.stat}
+                      hideIconLabel
+                    />
+                    <time className={styles.date} dateTime={item.created_at}>
+                      {formatBoardTimeAgo(item.created_at)}
+                    </time>
+                  </div>
+                </article>
+              </Link>
+            </li>
+          ))}
+        </ul>
       )}
     </section>
   );

@@ -63,7 +63,7 @@ export function useUserProfile() {
           email: user.email ?? '',
           name: (user.user_metadata?.name as string | undefined) ?? '',
           nickname: (user.user_metadata?.nickname as string | undefined) ?? '',
-        },
+        }
       );
       setLoading(false);
     })();

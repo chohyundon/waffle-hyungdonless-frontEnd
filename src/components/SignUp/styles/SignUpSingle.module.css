@@ -98,17 +98,27 @@
   border-color: var(--color-base-red100);
 }
 
-.eyeIcon {
+.eyeButton {
   position: absolute;
-  right: 16px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.eyeIcon {
+  position: static;
   width: 20px;
   height: 20px;
-  cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.15s ease;
 }
 
-.eyeIcon:hover {
+.eyeButton:hover .eyeIcon {
   opacity: 1;
 }
 

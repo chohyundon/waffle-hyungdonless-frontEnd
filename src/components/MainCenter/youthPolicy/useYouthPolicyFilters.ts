@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 
 import { ALL, PAGE_SIZE } from '@/components/MainCenter/consts/Policy';

@@ -1,6 +1,6 @@
 'use client';
 
-import styles from '@/components/NavBar/NavBar.module.css';
+import styles from '@/components/NavBar/styles/NavBar.module.css';
 import { usePathname, useRouter } from 'next/navigation';
 import { NavBarSearchForm } from '@/components/NavBar/NavBarSearchForm';
 import { useEffect, useState } from 'react';

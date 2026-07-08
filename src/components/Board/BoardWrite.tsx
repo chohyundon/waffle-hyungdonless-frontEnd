@@ -2,88 +2,21 @@
 
 import { NavBar } from '@/components/NavBar';
 import { Footer } from '@/components/Footer';
-import styles from '@/components/Board/BoardWrite.module.css';
-import { fetchCurrentUserProfile } from '@/lib/userInfo/useUserInfo';
-import React, { useState } from 'react';
+import styles from '@/components/Board/styles/BoardWrite.module.css';
+import { useBoardWrite } from '@/components/Board/useBoardWrite';
 
 export const BoardWrite = () => {
-  const selectCategory = ['금융', '복지', '주거', '자기 개발', '자유', 'Q&A'];
-  const headCategory = [
-    '월급 및 관리 및 예산',
-    '세금 및 공제',
-    '대출',
-    '보험',
-    '자산 증식',
-  ];
-
-  const categoryMapping: { [key: string]: string } = {
-    금융: 'b001',
-    복지: 'b002',
-    주거: 'b003',
-    '자기 개발': 'b004',
-    자유: 'b005',
-    'Q&A': 'b006',
-  };
-
-  const [categoryValue, setCategoryValue] = useState({
-    category: '',
-    detail: '',
-  });
-
-  const [inputValue, setInputValue] = useState({
-    title: '',
-    value: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCategoryValue((prev) => ({
-      ...prev,
-      category: e.target.value,
-    }));
-  };
-
-  const handleBottomChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCategoryValue((prev) => ({
-      ...prev,
-      detail: e.target.value,
-    }));
-  };
-
-  const handleTitleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue((prev) => ({
-      ...prev,
-      title: e.target.value,
-    }));
-  };
-
-  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInputValue((prev) => ({
-      ...prev,
-      value: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async () => {
-    const userData = await fetchCurrentUserProfile();
-
-    if (!userData) {
-      alert('로그인 후 이용해주세요.');
-      return;
-    }
-
-    const boardData = JSON.stringify({
-      title: inputValue.title,
-      content: inputValue.value,
-      boardType: categoryMapping[categoryValue.category] || '',
-      category: categoryValue.detail,
-      nickname: userData?.nickname || '',
-      email: userData?.email || '',
-    });
-
-    const formData = new FormData();
-    formData.append('board', boardData);
-    formData.append('image', '');
-  };
+  const {
+    selectCategory,
+    headCategory,
+    categoryValue,
+    inputValue,
+    handleChange,
+    handleBottomChange,
+    handleTitleInputChange,
+    handleTextChange,
+    handleSubmit,
+  } = useBoardWrite();
 
   return (
     <section>
@@ -94,61 +27,74 @@ export const BoardWrite = () => {
           작성한 게시글은 현재 사용 중인 닉네임으로 표시됩니다.
         </p>
         <select
+          id='board-category'
           className={styles.select}
           name='category'
-          onChange={handleChange}
+          onChange={(e) => handleChange(e.target.value)}
           value={categoryValue.category}
+          aria-label='카테고리'
         >
           <option value='' disabled>
             카테고리를 선택해주세요
           </option>
-          {selectCategory.map((category, index) => (
-            <option key={index} value={category}>
+          {selectCategory.map((category) => (
+            <option key={category} value={category}>
               {category}
             </option>
           ))}
         </select>
         <select
+          id='board-headline'
           className={styles.bottomselect}
           name='headLine'
-          onChange={handleBottomChange}
+          onChange={(e) => handleBottomChange(e.target.value)}
           value={categoryValue.detail}
+          aria-label='말머리'
         >
           <option value='' disabled>
             말머리 선택하기(필수)
           </option>
-          {headCategory.map((category, index) => (
-            <option key={index} value={category}>
+          {headCategory.map((category) => (
+            <option key={category} value={category}>
               {category}
             </option>
           ))}
         </select>
         <input
+          id='board-title'
           type='text'
           placeholder='제목을 입력해주세요'
           className={styles.inputText}
           value={inputValue.title}
-          onChange={handleTitleInputChange}
+          onChange={(e) => handleTitleInputChange(e.target.value)}
+          aria-label='제목'
         />
       </article>
       <article className={styles.bottomContainer}>
         <div className={styles.inputContainer}>
           <textarea
+            id='board-content'
             className={styles.input}
             placeholder='글을 입력해주세요'
             value={inputValue.value}
-            onChange={handleTextChange}
+            onChange={(e) => handleTextChange(e.target.value)}
+            aria-label='내용'
           />
         </div>
         <input
           placeholder='키워드를 입력해주세요. (최대 5개)'
           className={styles.keyword}
+          aria-label='키워드'
         />
         <p className={styles.bottomTitle}>
           온라인 글쓰기에서는 타인의 권리를 존중하며 명예훼손이 되지 않도록
           주의하세요.
         </p>
-        <button className={styles.button} onClick={handleSubmit}>
+        <button
+          type='button'
+          className={styles.button}
+          onClick={handleSubmit}
+        >
           작성하기
         </button>
       </article>

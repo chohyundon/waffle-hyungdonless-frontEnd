@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import searchIcon from '@/assets/icons/search.svg';
-import styles from '@/components/NavBar/NavBar.module.css';
+import styles from '@/components/NavBar/styles/NavBar.module.css';
 
 export const NavBarSearchForm = () => {
   return (
@@ -17,7 +17,7 @@ export const NavBarSearchForm = () => {
       />
       <Image
         src={searchIcon}
-        alt=''
+        alt='검색'
         width={18}
         height={18}
         className={styles.searchIcon}
