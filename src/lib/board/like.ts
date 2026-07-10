@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
+import { revalidatePath } from 'next/cache';
 
 type ToggleLikeResult = {
   liked: boolean;
@@ -45,7 +46,8 @@ export const getBoardLikeStatus = async (
 };
 
 export const toggleBoardLike = async (
-  boardId: string
+  boardId: string,
+  category: string
 ): Promise<ToggleLikeResult> => {
   const supabase = await createClient();
   const {
@@ -87,6 +89,8 @@ export const toggleBoardLike = async (
       throw new Error('좋아요 등록에 실패했습니다.');
     }
   }
+  revalidatePath(`/board/${category}`);
+  revalidatePath(`/board/${category}/${boardId}`);
 
   const { data: board, error: boardError } = await supabase
     .from('boards')

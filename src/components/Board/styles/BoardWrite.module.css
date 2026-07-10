@@ -36,8 +36,7 @@
   width: 34.098%;
   padding: 12px 20px;
   border-color: var(--color-borderColor-gray100);
-  background: url('../../../assets/icons/navBottom.svg') no-repeat right
-    center;
+  background: url('../../../assets/icons/navBottom.svg') no-repeat right center;
   appearance: none;
   color: var(--color-base-gray300);
 }
@@ -50,8 +49,7 @@
   width: 34.098%;
   padding: 12px 20px;
   border-color: var(--color-borderColor-gray100);
-  background: url('../../../assets/icons/navBottom.svg') no-repeat right
-    center;
+  background: url('../../../assets/icons/navBottom.svg') no-repeat right center;
   appearance: none;
   color: var(--color-base-gray300);
 }
@@ -87,7 +85,7 @@
   border: none;
   color: var(--color-base-black100);
   font-size: 1rem;
-  top: 74.7965%;
+  top: 78.5%;
 }
 
 .bottomContainer {
@@ -115,7 +113,7 @@
 
 .bottomTitle {
   position: absolute;
-  top: 85.2224%;
+  top: 87%;
   left: 50%;
   transform: translate(-50%);
   font-weight: 400;
@@ -130,13 +128,175 @@
   border: none;
 }
 
+.imageUploadSection {
+  position: absolute;
+  top: 62.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 89.3702%;
+  box-sizing: border-box;
+}
+
+.imageUploadHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.imageUploadTitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-base-black100);
+}
+
+.imageUploadOptional {
+  font-size: 0.8125rem;
+  color: #717171;
+}
+
+.imageInputHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.imageDropzone {
+  width: 100%;
+  min-height: 132px;
+  padding: 20px;
+  border: 1.5px dashed var(--color-borderColor-gray100);
+  border-radius: 12px;
+  background: #f8f8fb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.imageDropzone:hover,
+.imageDropzone:focus-visible {
+  border-color: var(--color-main-green);
+  background: #f3fbf7;
+  outline: none;
+}
+
+.imageDropzoneActive {
+  border-color: var(--color-main-green);
+  background: #eef9f2;
+}
+
+.imageDropzoneIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid var(--color-borderColor-gray100);
+}
+
+.imageDropzoneText {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-base-black100);
+}
+
+.imageDropzoneHint {
+  font-size: 0.8125rem;
+  color: #717171;
+}
+
+.imagePreviewCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--color-borderColor-gray100);
+  border-radius: 12px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.imagePreview {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--color-borderColor-gray100);
+}
+
+.imagePreviewMeta {
+  flex: 1;
+  min-width: 0;
+}
+
+.imagePreviewName {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-base-black100);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.imagePreviewSize {
+  margin: 4px 0 0;
+  font-size: 0.8125rem;
+  color: #717171;
+}
+
+.imagePreviewActions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.imageChangeButton,
+.imageRemoveButton {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-borderColor-gray100);
+  background: #ffffff;
+  color: var(--color-base-black100);
+}
+
+.imageChangeButton:hover,
+.imageRemoveButton:hover {
+  background: #f2f2f7;
+}
+
+.imageRemoveButton {
+  color: #d14343;
+  border-color: #f2c7c7;
+}
+
 .button {
   position: absolute;
   width: 62.9925%;
   padding: 20px 89px;
   left: 50%;
   transform: translate(-50%);
-  top: 89.7556%;
+  top: 91.5%;
   border-radius: 35px;
   border: none;
   cursor: pointer;
@@ -224,6 +384,23 @@
     transform: none;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .imageUploadSection {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+  }
+
+  .imagePreviewCard {
+    flex-wrap: wrap;
+  }
+
+  .imagePreviewActions {
+    width: 100%;
+    justify-content: flex-end;
   }
 
   .bottomTitle {

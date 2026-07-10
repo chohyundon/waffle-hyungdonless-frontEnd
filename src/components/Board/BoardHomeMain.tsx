@@ -1,45 +1,37 @@
 'use client';
 
-import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
 import styles from '@/components/Board/styles/BoardHomeMain.module.css';
 import writeIcon from '@/assets/icons/writeButton.svg';
-import smallCheck from '@/assets/icons/smallCheck.svg';
-import noneSmallCheck from '@/assets/icons/noneSmallCheck.svg';
 import userImages from '@/assets/icons/userImages.svg';
-import { BOARD_DETAIL_MAP } from '@/components/Board/consts/boardCategories';
 import { BoardCheck } from '@/components/Board/BoardCheck';
-import { useUserProfile } from '@/lib/userInfo/useUserInfo';
+import { useBoardHomeMain } from '@/components/Board/useBoardHomeMain';
+import { useBoardPagination } from '@/components/Board/useBoardPagination';
 import type { BoardItem } from '@/types/boardType';
 import bottomList from '@/components/Board/consts/boardBottomList';
 
 export const BoardHomeMain = ({
-  boardList = [],
+  boardList,
+  category,
 }: {
   boardList?: BoardItem[];
+  category: string;
 }) => {
-  const params = useParams() ?? {};
-  const detailMap = BOARD_DETAIL_MAP;
+  const {
+    boardList: list,
+    boardState,
+    detailTitle,
+    postCount,
+    profileLoading,
+    userData,
+    handleWrite,
+    handleSortTabClick,
+  } = useBoardHomeMain(boardList ?? []);
 
-  const detail = params.detail as string | undefined;
-  const latest = params.latest as string | undefined;
-  const router = useRouter();
-  const { profile: userData, loading: profileLoading } = useUserProfile();
-
-  const detailTitle = detailMap[detail ?? 'popular'];
-  const postCount = boardList.filter(
-    (item) => item.email === userData?.email
-  )?.length;
-
-  const handleWrite = () => {
-    router.push(userData ? '/write' : '/login');
-  };
-
-  const handleSortTabClick = (key: string) => {
-    console.log(key);
-  };
-
-  console.log(bottomList);
+  const { posts, currentPage, totalPages, goToPage } = useBoardPagination(
+    list,
+    boardState
+  );
 
   return (
     <section className={styles.container}>
@@ -74,20 +66,20 @@ export const BoardHomeMain = ({
             />
             <div className={styles.profileInfo}>
               <p className={styles.userName}>{userData.name}님</p>
-              <dl className={styles.stats}>
+              <div className={styles.stats}>
                 <div className={styles.statItem}>
-                  <dt className={styles.statLabel}>작성한 글</dt>
-                  <dd className={styles.statValue}>{postCount}</dd>
+                  <p className={styles.statLabel}>작성한 글</p>
+                  <p className={styles.statValue}>{postCount}</p>
                 </div>
                 <div className={styles.statItem}>
-                  <dt className={styles.statLabel}>작성한 댓글</dt>
-                  <dd className={styles.statValue}>15</dd>
+                  <p className={styles.statLabel}>작성한 댓글</p>
+                  <p className={styles.statValue}>15</p>
                 </div>
                 <div className={styles.statItem}>
-                  <dt className={styles.statLabel}>획득한 배지</dt>
-                  <dd className={styles.statValue}>20</dd>
+                  <p className={styles.statLabel}>획득한 배지</p>
+                  <p className={styles.statValue}>20</p>
                 </div>
-              </dl>
+              </div>
             </div>
           </div>
         ) : (
@@ -101,13 +93,7 @@ export const BoardHomeMain = ({
         onClick={handleWrite}
       >
         함께 성장하는 커뮤니티, 글 작성해보세요!
-        <Image
-          src={writeIcon}
-          alt='글쓰기'
-          width={20}
-          height={20}
-          aria-hidden
-        />
+        <Image src={writeIcon} alt='글쓰기 아이콘' width={20} height={20} />
       </button>
 
       <div className={styles.listSection}>
@@ -117,22 +103,26 @@ export const BoardHomeMain = ({
           </h2>
           <ul className={styles.sortTabs} aria-label='정렬'>
             {bottomList.map((item) => {
-              const isActive = item.slug === (latest ?? 'latest');
+              const isActive = boardState === item.slug;
 
               return (
                 <li key={item.slug}>
                   <button
                     type='button'
-                    className={`${styles.sortTab} ${isActive ? styles.sortTabActive : ''}`}
+                    className={`${styles.sortTab} ${
+                      isActive ? styles.sortTabActive : ''
+                    }`}
+                    aria-pressed={isActive}
                     onClick={() => handleSortTabClick(item.slug)}
                   >
                     <Image
-                      src={isActive ? smallCheck : noneSmallCheck}
-                      alt={isActive ? `${item.name} 선택됨` : item.name}
+                      src={item.icon}
+                      alt={
+                        isActive ? `${item.name} 선택됨` : `${item.name} 아이콘`
+                      }
                       width={16}
                       height={16}
                       className={styles.sortIcon}
-                      aria-hidden
                     />
                     {item.name}
                   </button>
@@ -142,7 +132,13 @@ export const BoardHomeMain = ({
           </ul>
         </div>
 
-        <BoardCheck boardList={boardList} />
+        <BoardCheck
+          posts={posts}
+          category={category}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={goToPage}
+        />
       </div>
     </section>
   );

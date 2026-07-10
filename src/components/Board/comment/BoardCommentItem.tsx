@@ -18,12 +18,14 @@ export const BoardCommentItem = ({
   mutateComment,
   startTransition,
   onRefresh,
+  onDeleteSuccess,
 }: {
   comment: BoardComment;
   currentUserId?: string;
   mutateComment: (action: CommentOptimisticAction) => void;
   startTransition: TransitionStartFunction;
   onRefresh: () => void;
+  onDeleteSuccess?: () => void;
 }) => {
   const isOwner = Boolean(currentUserId && currentUserId === comment.user_id);
 
@@ -38,6 +40,7 @@ export const BoardCommentItem = ({
     mutateComment,
     startTransition,
     onRefresh,
+    onDeleteSuccess,
   });
 
   const {

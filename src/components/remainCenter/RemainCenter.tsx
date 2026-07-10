@@ -62,11 +62,10 @@ export const RemainCenter = ({ category }: { category?: string }) => {
       <BottomMain />
       <Image
         src={footerImage}
-        alt=''
+        alt='사부작 사부작 푸터 일러스트'
         width={320}
         height={120}
         className={styles.footerImage}
-        aria-hidden
       />
     </>
   );

@@ -17,11 +17,10 @@ export const NavBarSearchForm = () => {
       />
       <Image
         src={searchIcon}
-        alt='검색'
+        alt='검색 아이콘'
         width={18}
         height={18}
         className={styles.searchIcon}
-        aria-hidden
       />
     </form>
   );

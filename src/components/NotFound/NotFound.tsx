@@ -1,17 +1,13 @@
-'use client';
-
 import Image from 'next/image';
 import NotFoundSrc from '@/assets/icons/notFound.svg';
-import BackIcon from '@/assets/icons/backiconImage.svg';
 
 import styles from '@/components/NotFound/styles/NotFound.module.css';
 import { NavBar } from '@/components/NavBar';
 import { Footer } from '@/components/Footer';
-import { useRouter } from 'next/navigation';
+import { BackButton } from '@/components/ui/BackButton';
+import BackIcon from '@/assets/icons/backiconImage.svg';
 
 export const NotFound = () => {
-  const router = useRouter();
-
   return (
     <section className={styles.container}>
       <NavBar />
@@ -32,20 +28,7 @@ export const NotFound = () => {
           <br />
           빠른 시일 내에 준비하여 찾아뵙겠습니다.
         </p>
-        <button
-          type='button'
-          className={styles.button}
-          onClick={() => router.back()}
-        >
-          뒤로가기
-          <Image
-            src={BackIcon}
-            alt=''
-            width={20}
-            height={20}
-            aria-hidden
-          />
-        </button>
+        <BackButton icon={BackIcon} className={styles.button} />
       </main>
       <div className={styles.footerContainer}>
         <Footer />

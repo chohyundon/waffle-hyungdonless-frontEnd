@@ -41,10 +41,9 @@ export const TopMain = ({ category }: { category?: string }) => {
                   <div className={styles.icons} key={stat.slug}>
                     <Image
                       src={BOARD_STAT_ICONS[stat.slug]}
-                      alt=''
+                      alt={stat.name}
                       width={14}
                       height={14}
-                      aria-hidden
                     />
                     <p className={styles.iconsFont}>106</p>
                   </div>

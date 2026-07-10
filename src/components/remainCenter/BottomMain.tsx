@@ -34,7 +34,6 @@ export const BottomMain = () => {
                     alt={stat.name}
                     width={14}
                     height={14}
-                    aria-hidden
                   />
                   <figcaption className={styles.iconFont}>106</figcaption>
                 </figure>

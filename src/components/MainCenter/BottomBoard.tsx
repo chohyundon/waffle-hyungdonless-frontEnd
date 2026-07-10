@@ -42,7 +42,6 @@ export const BottomBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => 
                   alt={`${categoryName} 카테고리`}
                   width={14}
                   height={14}
-                  aria-hidden
                 />
                 {categoryName}
               </span>

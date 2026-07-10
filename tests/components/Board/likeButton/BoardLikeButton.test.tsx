@@ -48,20 +48,27 @@ describe('BoardLikeButton', () => {
   });
 
   it('좋아요 버튼을 클릭하면 좋아요 수가 1 증가한다', async () => {
-    render(<BoardLikeButton board={board} user={user} />);
+    render(
+      <BoardLikeButton
+        liked={false}
+        likeCount={0}
+        isLiking={false}
+        handleLikeClick={vi.fn()}
+      />
+    );
 
     const button = screen.getByRole('button', { name: /좋아요 0/ });
 
     await userEvent.click(button);
 
     expect(
-      await screen.findByRole('button', { name: /좋아요 1/ })
+      await screen.findByRole('button', { name: /좋아요 1/i })
     ).toBeTruthy();
     expect(fetch).toHaveBeenCalledWith(
       '/api/board/like',
       expect.objectContaining({
         method: 'POST',
-        body: JSON.stringify({ boardId: board.id }),
+        body: JSON.stringify({ boardId: board.id, category: board.board_type }),
       })
     );
   });

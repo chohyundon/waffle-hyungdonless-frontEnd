@@ -19,7 +19,6 @@ export const TopBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
           fill
           className={styles.visualImage}
           sizes='400px'
-          aria-hidden
         />
       </div>
 

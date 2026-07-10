@@ -1,19 +1,25 @@
 .bottomNavContainer {
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
   background: var(--color-base-bgColor);
   border-bottom: 1px solid var(--color-borderColor-gray100);
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
 }
 
 .categoryContainer {
   display: flex;
   align-items: center;
   gap: 24px;
+  width: 100%;
   max-width: 1280px;
   min-height: 44px;
   margin: 0 auto;
   padding: 10px 24px;
   box-sizing: border-box;
+  list-style: none;
 }
 
 .icon {
@@ -24,31 +30,52 @@
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
-}
-
-.listFont a {
-  color: inherit;
-  text-decoration: none;
+  text-align: center;
 }
 
 .listFont {
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
   font-size: 0.9375rem;
   font-weight: 600;
+  line-height: 1;
   color: var(--color-base-gray500);
   white-space: nowrap;
-  transition: color 0.2s ease;
 }
 
-.listFont:hover {
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 2px 2px;
+  color: inherit;
+  font: inherit;
+  line-height: 1.2;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  box-sizing: border-box;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.link:hover {
   color: var(--color-main-green-hover);
 }
 
-.pickFont {
-  cursor: pointer;
-  font-size: 1rem;
+.linkActive {
+  color: var(--color-main-green);
   font-weight: 700;
+  border-bottom-color: var(--color-main-green);
+}
+
+.linkActive:hover {
   color: var(--color-main-green-hover);
+  border-bottom-color: var(--color-main-green-hover);
 }
 
 @media (max-width: 1260px) {
@@ -68,16 +95,14 @@
    overflowing the viewport, and shrink the labels. */
 @media (max-width: 768px) {
   .categoryContainer {
+    width: max-content;
+    min-width: 100%;
+    max-width: none;
     padding-inline: 16px;
     gap: 16px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    width: max-content;
-    max-width: none;
   }
 
   .listFont,
-  .pickFont,
   .categoryFont {
     font-size: 0.875rem;
     white-space: nowrap;
@@ -95,7 +120,6 @@
   }
 
   .listFont,
-  .pickFont,
   .categoryFont {
     font-size: 0.8125rem;
   }

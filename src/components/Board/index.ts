@@ -1,1 +1,1 @@
-export { BoardList } from '@/components/Board/BoardList';
+export { BoardHome } from '@/components/Board/BoardHome';

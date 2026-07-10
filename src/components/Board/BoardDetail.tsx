@@ -15,6 +15,8 @@ import { useUser } from '@/lib/userInfo/useUserInfo';
 import { BoardLikeButton } from '@/components/Board/likeButton/BoardLikeButton';
 import { useBoardCommentSubmit } from '@/components/Board/comment/BoardCommentButton';
 import { BoardCommentItem } from '@/components/Board/comment/BoardCommentItem';
+import { useBoardLike } from '@/components/Board/likeButton/useBoardLike';
+import { BoardDetailImage } from '@/components/Board/BoardDetailImage';
 
 export const BoardDetail = ({
   board,
@@ -26,17 +28,26 @@ export const BoardDetail = ({
   const router = useRouter();
   const { user } = useUser();
   const [comment, setComment] = useState('');
+  const [commentCount, setCommentCount] = useState(board.comment_count);
   const [, startTransition] = useTransition();
   const [optimisticComments, mutateComment] = useOptimistic(
     comments,
     reduceOptimisticComments
   );
+  const { liked, likeCount, isLiking, handleLikeClick } = useBoardLike(board);
+
+  const handleCommentDelete = () => {
+    setCommentCount((count) => Math.max(count - 1, 0));
+  };
 
   const handleCommentSubmit = useBoardCommentSubmit({
     boardId: board.id,
     comment,
     setComment,
-    onSuccess: () => router.refresh(),
+    onSuccess: () => {
+      setCommentCount((count) => count + 1);
+      router.refresh();
+    },
   });
 
   return (
@@ -61,6 +72,9 @@ export const BoardDetail = ({
           <span className={styles.badge}>{board.category}</span>
           <h1 className={styles.title}>{board.title}</h1>
           <p className={styles.content}>{board.content}</p>
+          {board.image_url && (
+            <BoardDetailImage src={board.image_url} title={board.title} />
+          )}
           <div className={styles.authorRow}>
             <Image
               src={userImages}
@@ -75,7 +89,11 @@ export const BoardDetail = ({
           </div>
           <div className={styles.meta}>
             <BoardStatList
-              counts={board}
+              counts={{
+                view_count: board.view_count,
+                comment_count: commentCount,
+                like_count: likeCount,
+              }}
               listClassName={styles.stats}
               itemClassName={styles.stat}
             />
@@ -86,7 +104,14 @@ export const BoardDetail = ({
         </div>
 
         <div className={styles.actions}>
-          {user && <BoardLikeButton board={board} user={user} />}
+          {user && (
+            <BoardLikeButton
+              liked={liked}
+              likeCount={likeCount}
+              isLiking={isLiking}
+              handleLikeClick={handleLikeClick}
+            />
+          )}
           <button type='button' className={styles.actionButton}>
             공유하기
           </button>
@@ -98,7 +123,7 @@ export const BoardDetail = ({
         >
           <h2 id='comments-heading' className={styles.commentsTitle}>
             댓글
-            <span className={styles.commentsCount}>{board.comment_count}</span>
+            <span className={styles.commentsCount}>{commentCount}</span>
           </h2>
 
           <form className={styles.commentForm} onSubmit={handleCommentSubmit}>
@@ -127,6 +152,7 @@ export const BoardDetail = ({
                   mutateComment={mutateComment}
                   startTransition={startTransition}
                   onRefresh={() => router.refresh()}
+                  onDeleteSuccess={handleCommentDelete}
                 />
               ))
             )}

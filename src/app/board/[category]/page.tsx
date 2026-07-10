@@ -1,5 +1,10 @@
-import { BoardList } from '@/components/Board';
+import { BoardHome } from '@/components/Board/BoardHome';
 
-export default async function BoardCategoryPage() {
-  return <BoardList />;
+type Props = {
+  params: Promise<{ category: string }>;
+};
+
+export default async function BoardCategoryPage({ params }: Props) {
+  const { category } = await params;
+  return <BoardHome category={category} />;
 }

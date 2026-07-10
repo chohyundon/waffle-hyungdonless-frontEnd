@@ -28,7 +28,6 @@ export const BoardStatList = ({
   itemClassName,
   valueClassName,
   iconSize = 14,
-  hideIconLabel = false,
 }: BoardStatListProps) => {
   const Wrapper = listClassName ? 'div' : Fragment;
   const wrapperProps = listClassName ? { className: listClassName } : {};
@@ -39,10 +38,9 @@ export const BoardStatList = ({
         <span className={itemClassName} key={stat.slug}>
           <Image
             src={BOARD_STAT_ICONS[stat.slug]}
-            alt={hideIconLabel ? '' : stat.name}
+            alt={stat.name}
             width={iconSize}
             height={iconSize}
-            aria-hidden
           />
           {valueClassName ? (
             <span className={valueClassName}>

@@ -15,10 +15,10 @@ const FOOTER_LINKS = [
 ] as const;
 
 const COMPANY_INFO = [
-  '대표이사 홍준표',
-  '고객정보보호 책임자 홍준표',
+  '대표이사 이무개',
+  '고객정보보호 책임자 이무개',
   '사업자 등록 124-62-15439',
-  '이메일 jinseo0528@naver.com',
+  '이메일 gse06044@naver.com',
   '(본사) 서울시 보문로 32다길 5',
 ] as const;
 
@@ -75,7 +75,12 @@ export const Footer = () => {
                 className={styles.socialLink}
                 aria-label={label}
               >
-                <Image src={icon} alt={`${label} 바로가기`} width={16} height={16} aria-hidden />
+                <Image
+                  src={icon}
+                  alt={`${label} 바로가기`}
+                  width={16}
+                  height={16}
+                />
               </a>
             ))}
           </div>

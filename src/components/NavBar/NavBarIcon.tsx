@@ -47,12 +47,11 @@ export const NavBarIcon = ({ push, setShowMenu }: NavBarIconProps) => {
     >
       <Image
         src={Logo}
-        alt=''
+        alt='사부작 사부작 로고'
         width={112}
         height={40}
         className={styles.navLogo}
         priority
-        aria-hidden
       />
     </button>
   );

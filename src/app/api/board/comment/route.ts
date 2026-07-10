@@ -1,3 +1,4 @@
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 import { createClient } from '@/lib/supabase/server';
@@ -47,6 +48,17 @@ export async function POST(request: Request) {
 
     if (error) {
       throw error;
+    }
+
+    const { data: board } = await supabase
+      .from('boards')
+      .select('board_type')
+      .eq('id', boardId)
+      .maybeSingle();
+
+    if (board?.board_type) {
+      revalidatePath(`/board/${board.board_type}`);
+      revalidatePath(`/board/${board.board_type}/${boardId}`);
     }
 
     return NextResponse.json({ data: comment }, { status: 200 });
