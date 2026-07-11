@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 
@@ -10,8 +10,26 @@ import {
 import { defaultBoardPath } from '@/components/MainCenter/homeButton';
 import { fetchCurrentUserProfile } from '@/lib/userInfo/useUserInfo';
 
+const ALLOWED_IMAGE_TYPES = new Set([
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'image/gif',
+]);
+
+const MAX_IMAGE_SIZE_BYTES = 5 * 1024 * 1024;
+
+const formatFileSize = (size: number) => {
+  if (size < 1024 * 1024) {
+    return `${Math.max(1, Math.round(size / 1024))}KB`;
+  }
+
+  return `${(size / (1024 * 1024)).toFixed(1)}MB`;
+};
+
 export const useBoardWrite = () => {
   const router = useRouter();
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [categoryValue, setCategoryValue] = useState({
     category: '',
@@ -22,6 +40,93 @@ export const useBoardWrite = () => {
     title: '',
     value: '',
   });
+
+  const [image, setImage] = useState<File | null>(null);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+  const [isDraggingImage, setIsDraggingImage] = useState(false);
+
+  useEffect(() => {
+    if (!image) {
+      setImagePreviewUrl(null);
+      return;
+    }
+
+    const previewUrl = URL.createObjectURL(image);
+    setImagePreviewUrl(previewUrl);
+
+    return () => {
+      URL.revokeObjectURL(previewUrl);
+    };
+  }, [image]);
+
+  const validateImageFile = (file: File) => {
+    if (!ALLOWED_IMAGE_TYPES.has(file.type)) {
+      toast.warn('jpg, png, webp, gif 이미지만 업로드할 수 있습니다.');
+      return false;
+    }
+
+    if (file.size > MAX_IMAGE_SIZE_BYTES) {
+      toast.warn('이미지는 5MB 이하만 업로드할 수 있습니다.');
+      return false;
+    }
+
+    return true;
+  };
+
+  const setSelectedImage = (file: File | null) => {
+    if (!file) {
+      setImage(null);
+      return;
+    }
+
+    if (!validateImageFile(file)) {
+      return;
+    }
+
+    setImage(file);
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+
+    if (file) {
+      setSelectedImage(file);
+    }
+
+    e.target.value = '';
+  };
+
+  const handleImageRemove = () => {
+    setImage(null);
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const openImagePicker = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleImageDragOver = (e: React.DragEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsDraggingImage(true);
+  };
+
+  const handleImageDragLeave = () => {
+    setIsDraggingImage(false);
+  };
+
+  const handleImageDrop = (e: React.DragEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsDraggingImage(false);
+
+    const file = e.dataTransfer.files?.[0];
+
+    if (file) {
+      setSelectedImage(file);
+    }
+  };
 
   const handleChange = (value: string) => {
     setCategoryValue((prev) => ({
@@ -88,7 +193,9 @@ export const useBoardWrite = () => {
 
     const formData = new FormData();
     formData.append('board', boardData);
-    formData.append('image', '');
+    if (image) {
+      formData.append('image', image as Blob);
+    }
 
     try {
       const response = await fetch('/api/board', {
@@ -105,7 +212,7 @@ export const useBoardWrite = () => {
       }
 
       toast.success('글이 등록되었습니다.');
-      router.push(`${defaultBoardPath}`);
+      router.push(defaultBoardPath);
     } catch (error) {
       console.error(error);
       toast.error('글쓰기에 실패했습니다.');
@@ -117,6 +224,17 @@ export const useBoardWrite = () => {
     headCategory: HEAD_CATEGORIES,
     categoryValue,
     inputValue,
+    image,
+    imagePreviewUrl,
+    isDraggingImage,
+    fileInputRef,
+    formatFileSize,
+    handleImageChange,
+    handleImageRemove,
+    openImagePicker,
+    handleImageDragOver,
+    handleImageDragLeave,
+    handleImageDrop,
     handleChange,
     handleBottomChange,
     handleTitleInputChange,

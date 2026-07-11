@@ -1,25 +1,40 @@
 .container {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   border-radius: 16px;
   border: 1px solid var(--color-borderColor-gray100);
   background: var(--color-base-white);
   overflow: hidden;
   box-shadow: 0 2px 16px rgb(0 0 0 / 4%);
+  box-sizing: border-box;
 }
 
-.container.empty {
+.postList {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.emptyItem {
+  width: 100%;
+  list-style: none;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 16px;
+  width: 100%;
   min-height: 320px;
-  background: var(--color-base-bgColor);
-}
-
-.emptyContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 40px 24px;
+  box-sizing: border-box;
+  background: var(--color-base-bgColor);
 }
 
 .emptyImage {
@@ -29,20 +44,51 @@
   opacity: 0.85;
 }
 
-.postList {
-  display: flex;
-  flex-direction: column;
+.emptyText {
   margin: 0;
-  padding: 0;
-  list-style: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-base-gray800);
 }
 
 .postCard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 10px;
+  width: 100%;
+  min-width: 0;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-borderColor-gray100);
+  box-sizing: border-box;
+}
+
+.postContent {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 20px 24px;
-  border-bottom: 1px solid var(--color-borderColor-gray100);
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.postThumb {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+  min-width: 0;
 }
 
 .postList li:last-child .postCard {
@@ -67,10 +113,14 @@
   font-weight: 700;
   color: var(--color-base-black100);
   line-height: 1.4;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .content {
   margin: 0;
+  width: 100%;
+  min-width: 0;
   color: var(--color-base-gray800);
   font-size: 0.875rem;
   font-weight: 400;
@@ -79,6 +129,8 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .nickname {
@@ -96,14 +148,6 @@
   font-size: 1rem;
   font-weight: 400;
   color: var(--color-icon-gray100);
-}
-
-.meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
 }
 
 .stats {
@@ -128,17 +172,22 @@
 }
 
 .date {
+  flex-shrink: 0;
   font-size: 0.8125rem;
   font-weight: 500;
   color: var(--color-base-gray800);
+  white-space: nowrap;
 }
 
 .postItem {
+  width: 100%;
   list-style: none;
 }
 
 .postLink {
   display: block;
+  width: 100%;
+  min-width: 0;
   color: inherit;
   text-decoration: none;
   cursor: pointer;
@@ -148,13 +197,78 @@
   }
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--color-borderColor-gray100);
+  background: var(--color-base-white);
+}
+
+.pageList {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pageButton,
+.pageNumber {
+  border: 1px solid var(--color-borderColor-gray100);
+  background: var(--color-base-white);
+  color: var(--color-base-gray800);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.pageButton {
+  min-width: 52px;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.pageButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.pageNumber {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 50%;
+}
+
+.pageButton:hover:not(:disabled),
+.pageNumber:hover {
+  color: var(--color-main-green-hover);
+  border-color: var(--color-main-green-hover);
+}
+
+.pageNumberActive {
+  color: var(--color-base-white);
+  background: var(--color-main-green);
+  border-color: var(--color-main-green);
+}
+
+.pageNumberActive:hover {
+  color: var(--color-base-white);
+  background: var(--color-main-green-hover);
+  border-color: var(--color-main-green-hover);
+}
+
 @media (max-width: 768px) {
   .postCard {
     padding: 16px;
-  }
-
-  .meta {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }

@@ -24,7 +24,6 @@ export const LoginStatus = () => {
           }
           width={20}
           height={20}
-          aria-hidden
           className={styles.checkIcon}
         />
         <span className={styles.fontStyle}>로그인 상태 유지하기</span>
@@ -35,7 +34,7 @@ export const LoginStatus = () => {
         className={`${styles.loginStatus} ${styles.findLink}`}
       >
         <span className={styles.fontStyle}>아이디/비밀번호 찾기</span>
-        <Image src={rightLogo} alt='아이디/비밀번호 찾기 아이콘' width={14} height={14} aria-hidden />
+        <Image src={rightLogo} alt='아이디/비밀번호 찾기 아이콘' width={14} height={14} />
       </button>
     </div>
   );

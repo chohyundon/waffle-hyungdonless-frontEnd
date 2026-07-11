@@ -25,10 +25,11 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const body = await request.json();
+  const { category } = body;
   let boardId: string | undefined;
 
   try {
-    const body = await request.json();
     boardId = body.boardId;
   } catch {
     return NextResponse.json({ error: '잘못된 요청입니다.' }, { status: 400 });
@@ -42,7 +43,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const data = await toggleBoardLike(boardId);
+    const data = await toggleBoardLike(boardId, category);
     return NextResponse.json(data);
   } catch (error) {
     if (error instanceof Error && error.message === 'UNAUTHORIZED') {

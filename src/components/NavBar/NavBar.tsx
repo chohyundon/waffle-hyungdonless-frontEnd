@@ -34,7 +34,7 @@ export const NavBar = () => {
           <div className={styles.leftCluster}>
             <NavBarIcon push={router.push} setShowMenu={setShowMenu} />
             <ul className={styles.navLinks}>
-              <NavBarMenuItem push={router.push} showMenu={showMenu} />
+              <NavBarMenuItem showMenu={showMenu} />
             </ul>
           </div>
 
@@ -50,16 +50,12 @@ export const NavBar = () => {
 
         {showMenu && (
           <div className={styles.mobileMenu}>
-            <NavBarMenuItem
-              push={router.push}
-              showMenu={showMenu}
-              variant='mobile'
-            />
+            <NavBarMenuItem showMenu={showMenu} variant='mobile' />
           </div>
         )}
       </nav>
 
-      {showBoardNav && <BottomNavBar />}
+      {showBoardNav && <BottomNavBar pathname={pathname} />}
     </header>
   );
 };

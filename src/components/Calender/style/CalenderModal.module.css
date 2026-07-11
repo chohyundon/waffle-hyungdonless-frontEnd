@@ -1,0 +1,364 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgb(0 0 0 / 45%);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 440px);
+  max-height: min(92vh, 640px);
+  border: 1px solid var(--color-borderColor-gray100);
+  border-radius: 20px;
+  background: var(--color-base-white);
+  box-shadow: 0 12px 40px rgb(0 0 0 / 14%);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid var(--color-borderColor-gray100);
+}
+
+.headerText {
+  min-width: 0;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-main-green);
+  letter-spacing: 0.02em;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-base-black100);
+  word-break: keep-all;
+}
+
+.closeButton {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-base-gray700);
+  color: var(--color-base-gray800);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.closeButton:hover,
+.closeButton:focus-visible {
+  background: rgb(0 154 87 / 10%);
+  color: var(--color-main-green);
+  outline: none;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  padding: 16px 24px 20px;
+  overflow-y: auto;
+}
+
+.description {
+  margin: 0 0 16px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-base-gray500);
+}
+
+.scheduleListSection {
+  margin-bottom: 16px;
+}
+
+.scheduleListTitle,
+.formTitle {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.scheduleListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-borderColor-gray100);
+  border-radius: 12px;
+  background: var(--color-base-white);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.scheduleListItem:hover,
+.scheduleListItem:focus-visible {
+  border-color: rgb(0 154 87 / 35%);
+  outline: none;
+}
+
+.scheduleListItemActive {
+  border-color: var(--color-main-green);
+  background: rgb(0 154 87 / 8%);
+}
+
+.scheduleListItemTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.scheduleListItemDate {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-base-gray500);
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.resetEditButton {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-main-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.resetEditButton:hover,
+.resetEditButton:focus-visible {
+  color: var(--color-main-green-hover);
+  outline: none;
+}
+
+.scheduleForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--color-borderColor-gray100);
+  border-radius: 14px;
+  background: var(--color-base-gray700);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-base-black100);
+}
+
+.input,
+.textarea,
+.timeInput {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--color-borderColor-gray100);
+  border-radius: 10px;
+  background: var(--color-base-white);
+  color: var(--color-base-black100);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: border-color 0.2s ease;
+}
+
+.input,
+.timeInput {
+  min-height: 44px;
+  padding: 10px 14px;
+}
+
+.textarea {
+  min-height: 108px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-base-gray500);
+}
+
+.input:hover,
+.textarea:hover,
+.timeInput:hover {
+  border-color: rgb(0 154 87 / 35%);
+}
+
+.input:focus-visible,
+.textarea:focus-visible,
+.timeInput:focus-visible {
+  border-color: var(--color-main-green);
+  outline: none;
+}
+
+.timeRow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 10px;
+}
+
+.timeField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.timeLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-base-gray500);
+}
+
+.timeDivider {
+  padding-bottom: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-base-gray500);
+}
+
+.timeInput {
+  appearance: none;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px 24px;
+  border-top: 1px solid var(--color-borderColor-gray100);
+}
+
+.secondaryButton,
+.primaryButton {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.secondaryButton {
+  border: 1px solid var(--color-borderColor-gray100);
+  background: var(--color-base-white);
+  color: var(--color-base-gray800);
+}
+
+.secondaryButton:hover,
+.secondaryButton:focus-visible {
+  border-color: var(--color-main-green);
+  color: var(--color-main-green);
+  outline: none;
+}
+
+.primaryButton {
+  border: none;
+  background: var(--color-main-green);
+  color: var(--color-base-white);
+}
+
+.primaryButton:hover,
+.primaryButton:focus-visible {
+  background: var(--color-main-green-hover);
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 100%;
+    max-height: 92dvh;
+    border-radius: 16px;
+  }
+
+  .header,
+  .body,
+  .footer {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .footer {
+    flex-direction: column-reverse;
+  }
+
+  .secondaryButton,
+  .primaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .scheduleForm {
+    padding: 16px;
+  }
+
+  .timeRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .timeDivider {
+    display: none;
+  }
+}

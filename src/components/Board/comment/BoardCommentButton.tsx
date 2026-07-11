@@ -1,5 +1,8 @@
+'use client';
+
 import { FormEvent } from 'react';
 import { toast } from 'react-toastify';
+import { updateStore } from '@/store/update';
 
 export const useBoardCommentSubmit = ({
   boardId,
@@ -40,6 +43,7 @@ export const useBoardCommentSubmit = ({
     }
 
     toast.success('댓글 등록에 성공했습니다');
+    updateStore.getState().setUpdate(true);
     setComment('');
     onSuccess?.();
   };

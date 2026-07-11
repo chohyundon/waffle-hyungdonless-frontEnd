@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { uploadBoardImage } from '@/lib/board/uploadBoardImage';
 
 type BoardPayload = {
   title: string;
@@ -46,6 +47,22 @@ export async function POST(request: Request) {
     );
   }
 
+  let imageUrl: string | null = null;
+
+  if (image instanceof File && image.size > 0) {
+    const uploadResult = await uploadBoardImage({
+      supabase,
+      userId: user.id,
+      file: image,
+    });
+
+    if ('error' in uploadResult) {
+      return NextResponse.json({ error: uploadResult.error }, { status: 400 });
+    }
+
+    imageUrl = uploadResult.publicUrl;
+  }
+
   const { data: profile } = await supabase
     .from('users')
     .select('nickname, email')
@@ -62,8 +79,7 @@ export async function POST(request: Request) {
       category,
       nickname: profile?.nickname ?? '',
       email: profile?.email ?? user.email ?? '',
-      image_url:
-        typeof image === 'string' && image.trim() ? image.trim() : null,
+      image_url: imageUrl,
     })
     .select('id')
     .single();

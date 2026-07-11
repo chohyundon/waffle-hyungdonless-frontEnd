@@ -33,12 +33,7 @@ export const SignUpSingle = () => {
       <>
         <main className={styles.card}>
           <div className={styles.completeBox}>
-            <Image
-              src={CheckIcon}
-              alt='가입 완료'
-              width={77}
-              height={77}
-            />
+            <Image src={CheckIcon} alt='가입 완료' width={77} height={77} />
             <h1 className={styles.completeTitle}>가입완료!</h1>
             <p className={styles.completeSubTitle}>
               환영합니다. 이제 당신의 여정을 함께 시작해보세요.
@@ -77,7 +72,9 @@ export const SignUpSingle = () => {
         </div>
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={`${styles.field} ${styles.fieldFull}`}>
-            <label htmlFor='signup-email' className={styles.label}>이메일</label>
+            <label htmlFor='signup-email' className={styles.label}>
+              이메일
+            </label>
             <input
               id='signup-email'
               type='text'
@@ -98,7 +95,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor='signup-password' className={styles.label}>비밀번호</label>
+            <label htmlFor='signup-password' className={styles.label}>
+              비밀번호
+            </label>
             <div className={styles.inputWrap}>
               <input
                 id='signup-password'
@@ -125,7 +124,6 @@ export const SignUpSingle = () => {
                   alt={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
                   width={20}
                   height={20}
-                  aria-hidden
                   className={styles.eyeIcon}
                 />
               </button>
@@ -136,7 +134,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor='signup-password-check' className={styles.label}>비밀번호 확인</label>
+            <label htmlFor='signup-password-check' className={styles.label}>
+              비밀번호 확인
+            </label>
             <div className={styles.inputWrap}>
               <input
                 id='signup-password-check'
@@ -156,7 +156,9 @@ export const SignUpSingle = () => {
                 className={styles.eyeButton}
                 onClick={() => setShowPasswordCheck((prev) => !prev)}
                 aria-label={
-                  showPasswordCheck ? '비밀번호 확인 숨기기' : '비밀번호 확인 보기'
+                  showPasswordCheck
+                    ? '비밀번호 확인 숨기기'
+                    : '비밀번호 확인 보기'
                 }
               >
                 <Image
@@ -168,7 +170,6 @@ export const SignUpSingle = () => {
                   }
                   width={20}
                   height={20}
-                  aria-hidden
                   className={styles.eyeIcon}
                 />
               </button>
@@ -181,7 +182,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor='signup-name' className={styles.label}>이름</label>
+            <label htmlFor='signup-name' className={styles.label}>
+              이름
+            </label>
             <input
               id='signup-name'
               type='text'
@@ -202,7 +205,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor='signup-birth' className={styles.label}>생년월일</label>
+            <label htmlFor='signup-birth' className={styles.label}>
+              생년월일
+            </label>
             <input
               id='signup-birth'
               type='date'
@@ -218,7 +223,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor='signup-number' className={styles.label}>휴대전화</label>
+            <label htmlFor='signup-number' className={styles.label}>
+              휴대전화
+            </label>
             <input
               id='signup-number'
               type='text'
@@ -239,7 +246,9 @@ export const SignUpSingle = () => {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor='signup-nickname' className={styles.label}>닉네임</label>
+            <label htmlFor='signup-nickname' className={styles.label}>
+              닉네임
+            </label>
             <input
               id='signup-nickname'
               type='text'

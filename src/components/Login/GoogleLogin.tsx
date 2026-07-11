@@ -18,10 +18,9 @@ export function GoogleLogin() {
       >
         <Image
           src={googleLogo}
-          alt=''
+          alt='Google 로고'
           width={20}
           height={20}
-          aria-hidden
           className={styles.googleLogo}
         />
         Google로 로그인

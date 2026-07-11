@@ -1,12 +1,13 @@
 import styles from '@/components/Board/styles/BoardHome.module.css';
 import { BoardHomeMain } from '@/components/Board/BoardHomeMain';
+import { getBoardListByCategory } from '@/lib/getBoardList';
 
-import { BoardItem } from '@/types/boardType';
+export const BoardHome = async ({ category }: { category: string }) => {
+  const boardList = await getBoardListByCategory(category);
 
-export const BoardHome = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
   return (
     <main className={styles.mainContainer}>
-      <BoardHomeMain boardList={boardList} />
+      <BoardHomeMain boardList={boardList} category={category} />
     </main>
   );
 };

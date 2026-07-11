@@ -1,54 +1,59 @@
 import styles from '@/components/NavBar/styles/NavBar.module.css';
-import { defaultBoardPath } from '@/components/MainCenter/homeButton';
-import type { RouterPush } from '@/lib/navigationUtils';
-import { moveBoardPage } from '@/lib/navigationUtils';
+import { NAV_MENU_ITEMS } from '@/components/NavBar/consts/navMenuItems';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 interface NavBarMenuItemProps {
   showMenu: boolean;
-  push: RouterPush;
   variant?: 'desktop' | 'mobile';
 }
 
-const menuItems: Array<{
-  label: string;
-  href: string | null;
-  onClick?: (push: RouterPush) => void;
-}> = [
-  { label: '사부작 게시판', href: `${defaultBoardPath}/popular`, onClick: moveBoardPage },
-  { label: '캘린더', href: null },
-  { label: '사부작 순위', href: null },
-];
-
 export const NavBarMenuItem = ({
   showMenu,
-  push,
   variant = 'desktop',
 }: NavBarMenuItemProps) => {
   const pathname = usePathname() ?? '';
   const isBoardActive = pathname.startsWith('/board');
 
+  const renderMenuItem = (item: (typeof NAV_MENU_ITEMS)[number]) => {
+    const isActive = item.label === '사부작 게시판' && isBoardActive;
+
+    if (!item.href) {
+      return (
+        <span className={styles.navLinkDisabled} aria-disabled='true'>
+          {item.label}
+        </span>
+      );
+    }
+
+    if (variant === 'mobile') {
+      return (
+        <Link
+          href={item.href}
+          className={`${styles.mobileMenuLink} ${
+            isActive ? styles.navLinkActive : ''
+          }`}
+        >
+          {item.label}
+        </Link>
+      );
+    }
+
+    return (
+      <Link
+        className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+        href={item.href}
+      >
+        {item.label}
+      </Link>
+    );
+  };
+
   if (variant === 'mobile') {
     return (
       <ul className={styles.mobileMenuList}>
-        {menuItems.map((item) => (
-          <li key={item.label}>
-            <button
-              type='button'
-              className={`${styles.mobileMenuLink} ${
-                item.label === '사부작 게시판' && isBoardActive
-                  ? styles.navLinkActive
-                  : ''
-              }`}
-              onClick={() => {
-                if (item.onClick) {
-                  item.onClick(push);
-                }
-              }}
-            >
-              {item.label}
-            </button>
-          </li>
+        {NAV_MENU_ITEMS.map((item) => (
+          <li key={item.label}>{renderMenuItem(item)}</li>
         ))}
       </ul>
     );
@@ -60,25 +65,11 @@ export const NavBarMenuItem = ({
 
   return (
     <>
-      {menuItems.map((item) => {
-        const isActive = item.label === '사부작 게시판' && isBoardActive;
-
-        return (
-          <li key={item.label} className={styles.navLinkItem}>
-            <button
-              type='button'
-              className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
-              onClick={() => {
-                if (item.onClick) {
-                  item.onClick(push);
-                }
-              }}
-            >
-              {item.label}
-            </button>
-          </li>
-        );
-      })}
+      {NAV_MENU_ITEMS.map((item) => (
+        <li key={item.label} className={styles.navLinkItem}>
+          {renderMenuItem(item)}
+        </li>
+      ))}
     </>
   );
 };

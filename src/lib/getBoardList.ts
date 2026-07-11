@@ -32,3 +32,18 @@ export const getBoardById = async (id: string): Promise<BoardItem> => {
     throw new Error('Failed to fetch board by id');
   }
 };
+
+export const getBoardListByCategory = async (
+  category: string
+): Promise<BoardItem[]> => {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from('boards')
+    .select('*')
+    .eq('board_type', category);
+  if (error) {
+    console.error(error);
+    return [];
+  }
+  return data ?? [];
+};

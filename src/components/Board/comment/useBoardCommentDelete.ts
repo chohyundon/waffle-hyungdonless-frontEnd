@@ -9,11 +9,13 @@ export const useBoardCommentDelete = ({
   mutateComment,
   startTransition,
   onRefresh,
+  onDeleteSuccess,
 }: {
   commentId: string;
   mutateComment: (action: CommentOptimisticAction) => void;
   startTransition: TransitionStartFunction;
   onRefresh: () => void;
+  onDeleteSuccess?: () => void;
 }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -40,7 +42,7 @@ export const useBoardCommentDelete = ({
       try {
         const response = await fetch(
           `/api/board/comment?commentId=${encodeURIComponent(commentId)}`,
-          { method: 'DELETE' },
+          { method: 'DELETE' }
         );
 
         if (!response.ok) {
@@ -50,6 +52,7 @@ export const useBoardCommentDelete = ({
         }
 
         toast.success('댓글이 삭제되었습니다');
+        onDeleteSuccess?.();
         onRefresh();
       } catch {
         toast.error('댓글 삭제에 실패했습니다');

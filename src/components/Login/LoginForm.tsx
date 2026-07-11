@@ -82,10 +82,9 @@ export function LoginForm() {
           >
             <Image
               src={showPassword ? eyeIcon : closeEye}
-              alt=''
+              alt={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
               width={20}
               height={20}
-              aria-hidden
             />
           </button>
         </div>

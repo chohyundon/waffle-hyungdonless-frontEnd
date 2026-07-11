@@ -238,4 +238,26 @@ describe('BoardDetail 댓글 수정·삭제 optimistic', () => {
 
     expect(screen.getByText('아직 댓글이 없습니다.')).toBeTruthy();
   });
+
+  it('첨부 이미지가 있으면 게시글 본문 아래에 표시한다', () => {
+    const imageUrl =
+      'https://example.supabase.co/storage/v1/object/public/board-images/user-1/sample.png';
+
+    render(
+      <BoardDetail
+        board={{ ...board, image_url: imageUrl }}
+        comments={[]}
+      />
+    );
+
+    expect(
+      screen.getByRole('img', { name: '테스트 글 게시글 첨부 이미지' })
+    ).toBeTruthy();
+    expect(screen.getByText('첨부 이미지 · 클릭하면 원본 보기')).toBeTruthy();
+    const imageLink = screen.getByRole('link', {
+      name: '테스트 글 첨부 이미지 원본 보기',
+    });
+
+    expect(imageLink.getAttribute('href')).toBe(imageUrl);
+  });
 });
