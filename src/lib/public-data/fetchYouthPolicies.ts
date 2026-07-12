@@ -39,7 +39,14 @@ export async function fetchYouthPolicies(): Promise<PublicDataSection> {
   );
 
   if (!response.ok) {
-    throw new Error(`청년정책 API HTTP ${response.status}`);
+    console.error(`청년정책 API HTTP ${response.status}`);
+    return {
+      source: 'youthPolicies',
+      label: '청년 정책',
+      configured: true,
+      items: [],
+      error: `청년정책 API HTTP ${response.status}`,
+    };
   }
 
   const data = (await response.json()) as {

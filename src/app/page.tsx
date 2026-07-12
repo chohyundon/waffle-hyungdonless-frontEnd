@@ -1,11 +1,19 @@
 import { MainCenter } from '@/components/MainCenter';
 import HomeShellLayout from '@/app/(home)/layout';
-import { fetchPublicData } from '@/lib/public-data/fetchAllPublicData';
+import {
+  EMPTY_PUBLIC_DATA,
+  fetchYouthCenterPolicies,
+} from '@/lib/public-data/fetchYouthCenterPolicies';
 import { getBoardList } from '@/lib/getBoardList';
 
 export default async function Home() {
-  const data = await fetchPublicData();
-  const boardList = await getBoardList();
+  const [data, boardList] = await Promise.all([
+    fetchYouthCenterPolicies().catch((error) => {
+      console.error(error);
+      return EMPTY_PUBLIC_DATA;
+    }),
+    getBoardList(),
+  ]);
 
   return (
     <HomeShellLayout>
