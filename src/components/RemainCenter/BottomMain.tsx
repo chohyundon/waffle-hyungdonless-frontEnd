@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import styles from '@/components/remainCenter/styles/Bottom.module.css';
+import styles from '@/components/RemainCenter/styles/Bottom.module.css';
 
 import welfareIcon from '@/assets/icons/welfareMiniIcon.svg';
 import { BOARD_STAT_LIST } from '@/components/Board/consts/boardStatList';

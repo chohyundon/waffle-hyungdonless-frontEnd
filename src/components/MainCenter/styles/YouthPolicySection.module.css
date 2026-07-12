@@ -58,7 +58,6 @@
 
 .searchField {
   flex: 2 1 0;
-  min-width: 0;
 }
 
 .searchInput {
@@ -80,9 +79,8 @@
 .selectField {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   flex: 1 1 0;
-  min-width: 0;
 }
 
 .selectLabel {
@@ -93,10 +91,16 @@
 
 .select {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 36px 10px 10px;
   border: 1px solid var(--color-borderColor-gray100);
   border-radius: 10px;
-  background: var(--color-base-white);
+  background-color: var(--color-base-white);
+  background-image: url('../../../assets/icons/select.svg');
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px auto;
+  appearance: none;
+  -webkit-appearance: none;
   font-size: 0.875rem;
   color: var(--color-base-black100);
   cursor: pointer;

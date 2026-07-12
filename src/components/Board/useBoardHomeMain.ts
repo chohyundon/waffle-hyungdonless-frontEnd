@@ -19,6 +19,9 @@ export const useBoardHomeMain = (boardList: BoardItem[]) => {
   const postCount = boardList.filter(
     (item) => item.email === userData?.email
   ).length;
+  const commentCount = boardList.reduce((acc: number, item: BoardItem) => {
+    return acc + (item.comment_count ?? 0);
+  }, 0);
 
   const handleWrite = () => {
     router.push(userData ? '/write' : '/login');
@@ -33,6 +36,7 @@ export const useBoardHomeMain = (boardList: BoardItem[]) => {
     boardState,
     detailTitle,
     postCount,
+    commentCount,
     profileLoading,
     userData,
     handleWrite,

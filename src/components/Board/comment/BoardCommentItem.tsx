@@ -7,7 +7,7 @@ import userImages from '@/assets/icons/userImages.svg';
 import styles from '@/components/Board/styles/BoardDetail.module.css';
 import { BoardComment, formatBoardTimeAgo } from '@/types/boardType';
 
-import { CommentDeleteModal } from '@/components/Board/comment/CommentDeleteModal';
+import { CommentDeleteModal } from '@/components/Modal/CommentDeleteModal';
 import { CommentOptimisticAction } from '@/components/Board/comment/commentOptimistic';
 import { useBoardCommentDelete } from '@/components/Board/comment/useBoardCommentDelete';
 import { useBoardCommentUpdate } from '@/components/Board/comment/useBoardCommentUpdate';

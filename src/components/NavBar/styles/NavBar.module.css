@@ -97,16 +97,40 @@
 }
 
 .utilityItem {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-base-gray500);
   cursor: pointer;
   white-space: nowrap;
   transition: color 0.2s ease;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
 }
 
 .utilityItem:hover {
   color: var(--color-main-green-hover);
+}
+
+.utilityIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.utilityBadge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-main-green);
+  border: 1.5px solid var(--color-base-white);
 }
 
 .searchForm {
@@ -141,11 +165,35 @@
   background: var(--color-base-white);
 }
 
-.searchIcon {
+.searchButton {
   position: absolute;
-  right: 14px;
-  pointer-events: none;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.searchButton:hover,
+.searchButton:focus-visible {
+  background: rgb(0 154 87 / 10%);
+  outline: none;
+}
+
+.searchIcon {
   opacity: 0.65;
+  pointer-events: none;
+}
+
+.searchButton:hover .searchIcon,
+.searchButton:focus-visible .searchIcon {
+  opacity: 1;
 }
 
 .loginButton {

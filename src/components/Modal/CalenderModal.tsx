@@ -2,10 +2,10 @@
 
 import { createPortal } from 'react-dom';
 
-import styles from '@/components/Calender/style/CalenderModal.module.css';
+import styles from '@/components/Modal/styles/CalenderModal.module.css';
 import { getSchedulesForDate } from '@/components/Calender/lib/getSchedulesForDate';
-import { ScheduleDatePicker } from '@/components/Calender/modal/ScheduleDatePicker';
-import useCalenderModal from '@/components/Calender/modal/useCalenderModal';
+import { ScheduleDatePicker } from '@/components/Modal/ScheduleDatePicker';
+import useCalenderModal from '@/components/Modal/useCalenderModal';
 import { ScheduleType } from '@/components/Calender/type/ScheduleType';
 
 type CalenderModalProps = {

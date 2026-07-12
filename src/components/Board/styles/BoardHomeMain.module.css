@@ -79,33 +79,45 @@
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 280px;
 }
 
 .statItem {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  background: var(--color-base-bgColor);
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--color-borderColor-gray100);
+  border-radius: 12px;
+  background: linear-gradient(
+    165deg,
+    var(--color-base-white) 0%,
+    var(--color-base-bgColor) 100%
+  );
 }
 
 .statLabel {
   margin: 0;
   font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-base-gray800);
+  font-weight: 600;
+  color: var(--color-base-gray500);
+  letter-spacing: -0.01em;
 }
 
 .statValue {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  color: var(--color-number-green);
+  line-height: 1;
+  color: var(--color-main-green);
+  font-variant-numeric: tabular-nums;
 }
 
 .loginPrompt {
@@ -157,15 +169,17 @@
 }
 
 .profileLoadingStats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 280px;
 }
 
 .profileLoadingStat {
-  width: 88px;
-  height: 18px;
-  border-radius: 6px;
+  width: 100%;
+  height: 64px;
+  border-radius: 12px;
 }
 
 .srOnly {
@@ -335,7 +349,8 @@
   }
 
   .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: none;
     width: 100%;
   }
 

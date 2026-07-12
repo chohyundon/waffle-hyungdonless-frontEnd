@@ -56,7 +56,7 @@ export async function fetchYouthPolicies(): Promise<PublicDataSection> {
     fetchedAt: new Date().toISOString(),
     items: rows.slice(0, 8).map((row, index) => ({
       id: row.plcyId ?? `youth-${index}`,
-      title: row.plcyNm ?? '청년 정책',
+      title: row.plcyNm ?? '',
       subtitle: row.sprvsnInstCdNm,
       description: row.plcyExplnCn,
       link: row.plcyUrlAddr,

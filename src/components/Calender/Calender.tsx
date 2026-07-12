@@ -3,8 +3,8 @@
 import { useState, type CSSProperties } from 'react';
 import Calendar from 'react-calendar';
 
-import styles from '@/components/Calender/style/Calender.module.css';
-import CalenderModal from '@/components/Calender/modal/CalenderModal';
+import styles from '@/components/Calender/styles/Calender.module.css';
+import CalenderModal from '@/components/Modal/CalenderModal';
 import { getSchedulesForDate } from '@/components/Calender/lib/getSchedulesForDate';
 import { useGetUserSchedulesForDate } from '@/components/Calender/lib/useGetUserSchedulesForDate';
 import { ScheduleType } from '@/components/Calender/type/ScheduleType';

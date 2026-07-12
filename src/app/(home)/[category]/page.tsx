@@ -1,4 +1,4 @@
-import { RemainCenter } from '@/components/remainCenter';
+import { RemainCenter } from '@/components/RemainCenter';
 
 type PageProps = {
   params: Promise<{ category: string }>;

@@ -1,7 +1,7 @@
 import { Footer } from '@/components/Footer';
 import { NavBar } from '@/components/NavBar';
 
-import styles from '@/components/Calender/style/Calender.module.css';
+import styles from '@/components/Calender/styles/Calender.module.css';
 import { CalenderScreen } from '@/components/Calender/Calender';
 
 export default function CalenderPage() {

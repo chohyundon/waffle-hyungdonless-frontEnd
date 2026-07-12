@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
-import styles from '@/components/remainCenter/styles/TopMain.module.css';
+import styles from '@/components/RemainCenter/styles/TopMain.module.css';
 import userImage from '@/assets/icons/userImage.svg';
 import { BOARD_STAT_LIST } from '@/components/Board/consts/boardStatList';
 import { BOARD_STAT_ICONS } from '@/components/Board/consts/boardStatIcons';
-import { getCategoryImage } from '@/components/remainCenter/getCategoryImage';
+import { getCategoryImage } from '@/components/RemainCenter/getCategoryImage';
 
 export const TopMain = ({ category }: { category?: string }) => {
   const { src: imgSrc, alt: imgAlt } = getCategoryImage(category);
