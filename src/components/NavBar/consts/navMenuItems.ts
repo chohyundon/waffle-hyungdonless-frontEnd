@@ -8,5 +8,4 @@ export type NavMenuItem = {
 export const NAV_MENU_ITEMS: NavMenuItem[] = [
   { label: '사부작 게시판', href: defaultBoardPath },
   { label: '캘린더', href: '/calender' },
-  { label: '사부작 순위' },
 ];

@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 
 import styles from '@/components/Board/styles/BoardDetailImage.module.css';
@@ -27,7 +25,9 @@ export const BoardDetailImage = ({ src, title }: BoardDetailImageProps) => {
           sizes='(max-width: 768px) 288px, 480px'
         />
       </a>
-      <figcaption className={styles.caption}>첨부 이미지 · 클릭하면 원본 보기</figcaption>
+      <figcaption className={styles.caption}>
+        첨부 이미지 · 클릭하면 원본 보기
+      </figcaption>
     </figure>
   );
 };

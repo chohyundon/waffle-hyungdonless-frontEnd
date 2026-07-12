@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-import { TopMain } from '@/components/remainCenter/TopMain';
-import { BottomMain } from '@/components/remainCenter/BottomMain';
+import { TopMain } from '@/components/RemainCenter/TopMain';
+import { BottomMain } from '@/components/RemainCenter/BottomMain';
 
-import styles from '@/components/remainCenter/styles/RemainCenter.module.css';
+import styles from '@/components/RemainCenter/styles/RemainCenter.module.css';
 
 import downIcon from '@/assets/icons/downIcon.svg';
 import adImage from '@/assets/icons/ad.svg';

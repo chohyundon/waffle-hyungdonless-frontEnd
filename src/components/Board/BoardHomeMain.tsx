@@ -22,6 +22,7 @@ export const BoardHomeMain = ({
     boardState,
     detailTitle,
     postCount,
+    commentCount,
     profileLoading,
     userData,
     handleWrite,
@@ -66,20 +67,16 @@ export const BoardHomeMain = ({
             />
             <div className={styles.profileInfo}>
               <p className={styles.userName}>{userData.name}님</p>
-              <div className={styles.stats}>
+              <dl className={styles.stats} aria-label='내 활동 요약'>
                 <div className={styles.statItem}>
-                  <p className={styles.statLabel}>작성한 글</p>
-                  <p className={styles.statValue}>{postCount}</p>
+                  <dt className={styles.statLabel}>작성한 글</dt>
+                  <dd className={styles.statValue}>{postCount}</dd>
                 </div>
                 <div className={styles.statItem}>
-                  <p className={styles.statLabel}>작성한 댓글</p>
-                  <p className={styles.statValue}>15</p>
+                  <dt className={styles.statLabel}>작성한 댓글</dt>
+                  <dd className={styles.statValue}>{commentCount}</dd>
                 </div>
-                <div className={styles.statItem}>
-                  <p className={styles.statLabel}>획득한 배지</p>
-                  <p className={styles.statValue}>20</p>
-                </div>
-              </div>
+              </dl>
             </div>
           </div>
         ) : (

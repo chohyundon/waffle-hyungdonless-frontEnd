@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import styles from '@/components/Footer/styles/footer.module.css';
+import styles from '@/components/Footer/styles/Footer.module.css';
 
 import camera from '@/assets/icons/camera.svg';
 import twitter from '@/assets/icons/twitter.svg';

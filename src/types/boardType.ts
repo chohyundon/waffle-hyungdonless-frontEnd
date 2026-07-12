@@ -23,18 +23,4 @@ export type BoardComment = {
   nickname: string;
 };
 
-export const formatBoardTimeAgo = (createdAt: string) => {
-  const diffMs = Date.now() - new Date(createdAt).getTime();
-  const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-
-  if (diffHours < 1) {
-    return '방금 전';
-  }
-
-  if (diffHours < 24) {
-    return `${diffHours}시간 전`;
-  }
-
-  const diffDays = Math.floor(diffHours / 24);
-  return diffDays > 0 ? `${diffDays}일 전` : '오늘';
-};
+export { formatTimeAgo as formatBoardTimeAgo } from '@/lib/formatTimeAgo';

@@ -1,4 +1,4 @@
-import styles from '@/components/SignUp/styles/SginUp.module.css';
+import styles from '@/components/SignUp/styles/SignUp.module.css';
 
 export default function SignUpLayout({
   children,

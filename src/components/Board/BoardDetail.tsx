@@ -13,7 +13,7 @@ import { BoardStatList } from '@/components/Board/BoardStatList';
 import { BoardComment, BoardItem, formatBoardTimeAgo } from '@/types/boardType';
 import { useUser } from '@/lib/userInfo/useUserInfo';
 import { BoardLikeButton } from '@/components/Board/likeButton/BoardLikeButton';
-import { useBoardCommentSubmit } from '@/components/Board/comment/BoardCommentButton';
+import { useBoardCommentSubmit } from '@/components/Board/comment/useBoardCommentSubmit';
 import { BoardCommentItem } from '@/components/Board/comment/BoardCommentItem';
 import { useBoardLike } from '@/components/Board/likeButton/useBoardLike';
 import { BoardDetailImage } from '@/components/Board/BoardDetailImage';

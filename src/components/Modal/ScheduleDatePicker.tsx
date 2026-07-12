@@ -8,7 +8,7 @@ import {
   formatScheduleDateShort,
   toScheduleDateValue,
 } from '@/components/Calender/lib/scheduleDate';
-import styles from '@/components/Calender/style/ScheduleDatePicker.module.css';
+import styles from '@/components/Modal/styles/ScheduleDatePicker.module.css';
 
 const CALENDAR_LOCALE = 'ko-KR';
 const POPOVER_WIDTH = 320;
