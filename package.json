@@ -11,6 +11,8 @@
     "format": "prettier --check ./src",
     "format:fix": "prettier --write ./src",
     "test": "vitest",
+    "test:run": "vitest --run",
+    "test:coverage": "vitest --run --coverage",
     "db:push": "supabase db push",
     "db:link": "supabase link --project-ref ndvnpmehrdlwlzisolca"
   },
@@ -38,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^8.62.1",
     "@typescript-eslint/parser": "^8.62.1",
     "@vitejs/plugin-react": "^6.0.3",
+    "@vitest/coverage-v8": "^4.1.10",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^10.6.0",
     "eslint-plugin-react": "^7.37.5",

@@ -49,7 +49,7 @@ export const NavBar = () => {
 
           <div className={styles.rightCluster}>
             <NavBarSearchForm />
-            <ul className={styles.utilityLinks} aria-label='알림 및 메시지'>
+            <ul className={styles.utilityLinks} aria-label='알림'>
               <li>
                 <button
                   type='button'
@@ -61,11 +61,6 @@ export const NavBar = () => {
                   {hasUnread && (
                     <span className={styles.utilityBadge} aria-hidden />
                   )}
-                </button>
-              </li>
-              <li>
-                <button type='button' className={styles.utilityItem}>
-                  메세지
                 </button>
               </li>
             </ul>

@@ -8,6 +8,7 @@ export type BoardItem = {
   nickname: string;
   email: string;
   image_url: string | null;
+  avatar_url: string | null;
   view_count: number;
   like_count: number;
   comment_count: number;

@@ -5,6 +5,7 @@ import { moveLoginPage } from '@/lib/navigationUtils';
 import styles from '@/components/NavBar/styles/NavBar.module.css';
 import { createClient } from '@/lib/supabase/client';
 import defaultUserImage from '@/assets/icons/userImg.svg';
+import { getUserAvatarUrl } from '@/lib/userInfo/getUserAvatarUrl';
 
 interface NavBarLoginUserProps {
   user: User | null;
@@ -12,19 +13,7 @@ interface NavBarLoginUserProps {
 }
 
 function getUserAvatar(user: User) {
-  const candidates = [
-    user.user_metadata?.avatar_url,
-    user.user_metadata?.picture,
-    user.identities?.[0]?.identity_data?.avatar_url,
-  ];
-
-  for (const candidate of candidates) {
-    if (typeof candidate === 'string' && candidate.trim()) {
-      return candidate;
-    }
-  }
-
-  return defaultUserImage;
+  return getUserAvatarUrl(user) ?? defaultUserImage;
 }
 
 function getUserDisplayName(user: User) {

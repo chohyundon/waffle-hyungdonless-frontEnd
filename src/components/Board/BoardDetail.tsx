@@ -77,7 +77,7 @@ export const BoardDetail = ({
           )}
           <div className={styles.authorRow}>
             <Image
-              src={userImages}
+              src={board.avatar_url ?? userImages}
               alt={`${board.nickname} 프로필`}
               width={36}
               height={36}

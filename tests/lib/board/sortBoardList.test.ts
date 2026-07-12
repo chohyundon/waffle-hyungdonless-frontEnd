@@ -13,6 +13,7 @@ const createPost = (overrides: Partial<BoardItem>): BoardItem => ({
   nickname: '유저',
   email: 'test@test.com',
   image_url: null,
+  avatar_url: null,
   view_count: 0,
   like_count: 0,
   comment_count: 0,
