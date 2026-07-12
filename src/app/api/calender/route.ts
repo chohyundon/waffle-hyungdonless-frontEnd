@@ -1,12 +1,10 @@
-import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+
+import { getAuthContext } from '@/lib/userInfo/getCurrentUser';
 
 export async function POST(request: Request) {
   try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const { supabase, user } = await getAuthContext();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -18,7 +16,7 @@ export async function POST(request: Request) {
       description: schedule.description,
       start_date: schedule.startDate,
       end_date: schedule.endDate,
-      user_id: user?.id,
+      user_id: user.id,
     });
     if (error) {
       throw new Error('Failed to add schedule');
@@ -35,10 +33,7 @@ export async function POST(request: Request) {
 
 export async function PATCH(request: Request) {
   try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const { supabase, user } = await getAuthContext();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -83,10 +78,7 @@ export async function PATCH(request: Request) {
 
 export async function GET() {
   try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const { supabase, user } = await getAuthContext();
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -95,7 +87,7 @@ export async function GET() {
     const { data, error } = await supabase
       .from('calender_schedules')
       .select('*')
-      .eq('user_id', user?.id);
+      .eq('user_id', user.id);
     if (error) {
       throw new Error('Failed to get schedules');
     }

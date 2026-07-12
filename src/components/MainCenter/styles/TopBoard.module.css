@@ -1,21 +1,5 @@
 .wrapper {
-  display: grid;
-  grid-template-columns: minmax(200px, 280px) 1fr;
-  gap: 24px;
-  align-items: stretch;
-}
-
-.visual {
-  position: relative;
-  min-height: 320px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgb(0 0 0 / 8%);
-}
-
-.visualImage {
-  object-fit: cover;
-  object-position: center;
+  width: 100%;
 }
 
 .postPanel {
@@ -85,6 +69,13 @@
   justify-self: end;
 }
 
+.avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .userName {
   font-size: 0.875rem;
   font-weight: 600;
@@ -125,16 +116,6 @@
   color: var(--color-base-gray800);
   padding-left: 8px;
   border-left: 1px solid var(--color-base-gray900);
-}
-
-@media (max-width: 1024px) {
-  .wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .visual {
-    min-height: 200px;
-  }
 }
 
 @media (max-width: 768px) {

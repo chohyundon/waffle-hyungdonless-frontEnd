@@ -29,6 +29,7 @@ const portfolioPost: BoardItem = {
   nickname: '테스트유저',
   email: 'test@test.com',
   image_url: null,
+  avatar_url: null,
   view_count: 10,
   like_count: 2,
   comment_count: 1,

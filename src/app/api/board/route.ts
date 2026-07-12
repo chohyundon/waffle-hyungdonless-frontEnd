@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { uploadBoardImage } from '@/lib/board/uploadBoardImage';
+import { getUserAvatarUrl } from '@/lib/userInfo/getUserAvatarUrl';
 
 type BoardPayload = {
   title: string;
@@ -80,6 +81,7 @@ export async function POST(request: Request) {
       nickname: profile?.nickname ?? '',
       email: profile?.email ?? user.email ?? '',
       image_url: imageUrl,
+      avatar_url: getUserAvatarUrl(user),
     })
     .select('id')
     .single();

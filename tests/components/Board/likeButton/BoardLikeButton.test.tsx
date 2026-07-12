@@ -1,75 +1,55 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { User } from '@supabase/supabase-js';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { BoardLikeButton } from '@/components/Board/likeButton/BoardLikeButton';
-import { BoardItem } from '@/types/boardType';
-
-vi.mock('react-toastify', () => ({
-  toast: { error: vi.fn() },
-}));
 
 describe('BoardLikeButton', () => {
-  const board: BoardItem = {
-    id: '1',
-    user_id: '1',
-    title: 'test',
-    content: 'test',
-    board_type: 'free',
-    category: '자유',
-    nickname: 'test',
-    email: 'test@test.com',
-    image_url: null,
-    view_count: 0,
-    like_count: 0,
-    comment_count: 0,
-    created_at: '2021-01-01',
-    updated_at: '2021-01-01',
-  };
-
-  const user = {
-    id: '1',
-    email: 'test@test.com',
-  } as User;
-
-  beforeEach(() => {
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockResolvedValue({
-        ok: true,
-        json: () => Promise.resolve({ liked: true, like_count: 1 }),
-      })
-    );
-  });
-
-  afterEach(() => {
-    vi.unstubAllGlobals();
-  });
-
-  it('좋아요 버튼을 클릭하면 좋아요 수가 1 증가한다', async () => {
+  it('좋아요 수와 pressed 상태를 표시한다', () => {
     render(
       <BoardLikeButton
-        liked={false}
-        likeCount={0}
+        liked={true}
+        likeCount={3}
         isLiking={false}
         handleLikeClick={vi.fn()}
       />
     );
 
-    const button = screen.getByRole('button', { name: /좋아요 0/ });
+    const button = screen.getByRole('button', { name: /좋아요 3/ });
+    expect(button).toBeTruthy();
+    expect(button.getAttribute('aria-pressed')).toBe('true');
+  });
 
-    await userEvent.click(button);
+  it('클릭하면 handleLikeClick을 호출한다', async () => {
+    const handleLikeClick = vi.fn();
+
+    render(
+      <BoardLikeButton
+        liked={false}
+        likeCount={0}
+        isLiking={false}
+        handleLikeClick={handleLikeClick}
+      />
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: /좋아요 0/ }));
+
+    expect(handleLikeClick).toHaveBeenCalledTimes(1);
+  });
+
+  it('처리 중이면 버튼을 비활성화한다', () => {
+    render(
+      <BoardLikeButton
+        liked={false}
+        likeCount={1}
+        isLiking={true}
+        handleLikeClick={vi.fn()}
+      />
+    );
 
     expect(
-      await screen.findByRole('button', { name: /좋아요 1/i })
-    ).toBeTruthy();
-    expect(fetch).toHaveBeenCalledWith(
-      '/api/board/like',
-      expect.objectContaining({
-        method: 'POST',
-        body: JSON.stringify({ boardId: board.id, category: board.board_type }),
-      })
-    );
+      (screen.getByRole('button', { name: /좋아요 1/ }) as HTMLButtonElement)
+        .disabled
+    ).toBe(true);
   });
 });

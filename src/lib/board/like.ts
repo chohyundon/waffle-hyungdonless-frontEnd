@@ -1,5 +1,6 @@
-import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
+
+import { getAuthContext } from '@/lib/userInfo/getCurrentUser';
 
 type ToggleLikeResult = {
   liked: boolean;
@@ -9,10 +10,7 @@ type ToggleLikeResult = {
 export const getBoardLikeStatus = async (
   boardId: string
 ): Promise<{ liked: boolean; like_count: number }> => {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { supabase, user } = await getAuthContext();
 
   const { data: board, error: boardError } = await supabase
     .from('boards')
@@ -49,13 +47,9 @@ export const toggleBoardLike = async (
   boardId: string,
   category: string
 ): Promise<ToggleLikeResult> => {
-  const supabase = await createClient();
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser();
+  const { supabase, user } = await getAuthContext();
 
-  if (authError || !user) {
+  if (!user) {
     throw new Error('UNAUTHORIZED');
   }
 
