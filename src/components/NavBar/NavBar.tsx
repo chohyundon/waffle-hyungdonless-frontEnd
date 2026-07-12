@@ -63,11 +63,6 @@ export const NavBar = () => {
                   )}
                 </button>
               </li>
-              <li>
-                <button type='button' className={styles.utilityItem}>
-                  메세지
-                </button>
-              </li>
             </ul>
             <NavBarLoginUser user={user} push={router.push} />
           </div>
