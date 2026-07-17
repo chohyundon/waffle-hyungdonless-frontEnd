@@ -31,7 +31,7 @@
 | 폼              | React Hook Form                      |
 | Backend / DB    | Supabase (PostgreSQL, Auth, Storage) |
 | AI              | Gemini / OpenAI API                  |
-| 아키텍처        | FSD (Feature-Sliced Design)          |
+| 아키텍처        | Next.js App Router 기반 기능별 폴더 구조 |
 | 테스트          | Vitest, Testing Library              |
 | 패키지 매니저   | pnpm                                 |
 

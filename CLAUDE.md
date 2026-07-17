@@ -5,8 +5,7 @@ code in this repository.
 
 ## Project
 
-사회초년생(early-career adults)을 위한 커뮤니티 서비스 "사부작 사부작". Next.js
-15 (App Router) + React 18 + TypeScript frontend, backed by Supabase.
+사회초년생(early-career adults)을 위한 커뮤니티 서비스 "사부작 사부작". Next.js 16 (App Router) + React 19 + TypeScript + Tailwind CSS + Supabase + TanStack Query + Zustand + Gemini/OpenAI API 기반 프로젝트.
 
 ## Commands
 
