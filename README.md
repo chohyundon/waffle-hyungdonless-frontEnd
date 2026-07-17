@@ -1,6 +1,8 @@
 # 사부작 사부작
 
-사회초년생(직장인 초년생)을 위한 커뮤니티 서비스입니다. 직장생활·재정관리·인간관계 등 초년생이 겪는 어려움을 서로 나누고 함께 성장하는 공간을 목표로 합니다.
+사회초년생(직장인 초년생)을 위한 커뮤니티 서비스입니다.
+직장생활·재정관리·인간관계 등 초년생이 겪는 어려움을 서로 나누고 함께 성장하는
+공간을 목표로 합니다.
 
 <br />
 
@@ -18,28 +20,33 @@
 
 ## 기술 스택
 
-| 분류 | 기술 |
-| --- | --- |
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript 6 |
-| UI | React 19 |
-| 서버 상태 | TanStack Query v5 |
-| 클라이언트 상태 | Zustand v5 |
-| 폼 | React Hook Form |
-| Backend / DB | Supabase (PostgreSQL, Auth, Storage) |
-| 테스트 | Vitest, Testing Library |
-| 패키지 매니저 | pnpm |
+| 분류            | 기술                                 |
+| --------------- | ------------------------------------ |
+| Framework       | Next.js 16 (App Router)              |
+| Language        | TypeScript 6                         |
+| UI              | React 19                             |
+| Styling         | Tailwind CSS                         |
+| 서버 상태       | TanStack Query v5                    |
+| 클라이언트 상태 | Zustand v5                           |
+| 폼              | React Hook Form                      |
+| Backend / DB    | Supabase (PostgreSQL, Auth, Storage) |
+| AI              | Gemini / OpenAI API                  |
+| 아키텍처        | FSD (Feature-Sliced Design)          |
+| 테스트          | Vitest, Testing Library              |
+| 패키지 매니저   | pnpm                                 |
 
 <br />
 
 ## 주요 기능
 
 ### 홈 화면
+
 - 게시판 카테고리 빠른 접근 (직장, 재정, 인간관계 등)
 - 인기 게시글 목록 (좋아요 수 기준)
 - 청년정책 섹션 (검색·카테고리·지역 필터, 페이지네이션)
 
 ### 게시판
+
 - 카테고리별 게시글 목록 및 상세 조회
 - 게시글 작성·수정·삭제 (이미지 첨부 포함)
 - 좋아요 토글
@@ -47,6 +54,7 @@
 - 작성자 프로필 아바타 표시
 
 ### 청년정책
+
 - 청년정책 공공 API 데이터를 Supabase DB에 동기화
 - 정책명·설명·키워드 기반 텍스트 검색
 - 대분류·중분류 카테고리 필터
@@ -54,17 +62,21 @@
 - 서버사이드 페이지네이션 (9건/페이지)
 
 ### 캘린더
+
 - 월간 캘린더 뷰
 - 날짜별 일정 등록·조회
 
 ### 알림
+
 - 내 게시글에 달린 댓글 알림 수신
 - 읽음/안읽음 상태 관리
 
 ### 검색
+
 - 게시글 제목·내용 키워드 검색
 
 ### 인증
+
 - Supabase Auth 기반 로그인·회원가입
 - 세션 유지 (SSR 쿠키)
 
@@ -72,12 +84,12 @@
 
 ## 성능 개선
 
-| 개선 내용 | 방법 | 효과 |
-| --- | --- | --- |
-| 청년정책 응답 속도 | 공공 API 2,000건 → Supabase DB 동기화 + 서버사이드 페이지네이션 | 2,448ms → 68ms (97% 단축) |
-| 외부 API 중복 호출 제거 | Next.js `fetch` 캐싱 (`revalidate: 3600`) 적용 | 캐시 히트 시 외부 API 왕복 생략 |
-| 댓글 UX | React 19 `useOptimistic` + `startTransition` | 서버 응답 전 UI 즉시 반영, 실패 시 자동 롤백 |
-| 필터 연산 이전 | 클라이언트 JS 필터링 → Supabase PostgreSQL RPC 함수 | DB에서 필터·검색 처리, 클라이언트 전송 데이터 최소화 |
+| 개선 내용               | 방법                                                            | 효과                                                 |
+| ----------------------- | --------------------------------------------------------------- | ---------------------------------------------------- |
+| 청년정책 응답 속도      | 공공 API 2,000건 → Supabase DB 동기화 + 서버사이드 페이지네이션 | 2,448ms → 68ms (97% 단축)                            |
+| 외부 API 중복 호출 제거 | Next.js `fetch` 캐싱 (`revalidate: 3600`) 적용                  | 캐시 히트 시 외부 API 왕복 생략                      |
+| 댓글 UX                 | React 19 `useOptimistic` + `startTransition`                    | 서버 응답 전 UI 즉시 반영, 실패 시 자동 롤백         |
+| 필터 연산 이전          | 클라이언트 JS 필터링 → Supabase PostgreSQL RPC 함수             | DB에서 필터·검색 처리, 클라이언트 전송 데이터 최소화 |
 
 <br />
 
@@ -96,15 +108,15 @@ pnpm install
 pnpm dev
 ```
 
-| 명령어 | 설명 |
-| --- | --- |
-| `pnpm dev` | 개발 서버 실행 (http://localhost:3000) |
-| `pnpm build` | 프로덕션 빌드 |
-| `pnpm start` | 프로덕션 서버 실행 |
-| `pnpm lint` | ESLint 검사 |
-| `pnpm format:fix` | Prettier 포맷 적용 |
-| `pnpm test` | Vitest 테스트 실행 |
-| `pnpm test:coverage` | 커버리지 포함 테스트 실행 |
+| 명령어               | 설명                                   |
+| -------------------- | -------------------------------------- |
+| `pnpm dev`           | 개발 서버 실행 (http://localhost:3000) |
+| `pnpm build`         | 프로덕션 빌드                          |
+| `pnpm start`         | 프로덕션 서버 실행                     |
+| `pnpm lint`          | ESLint 검사                            |
+| `pnpm format:fix`    | Prettier 포맷 적용                     |
+| `pnpm test`          | Vitest 테스트 실행                     |
+| `pnpm test:coverage` | 커버리지 포함 테스트 실행              |
 
 <br />
 
