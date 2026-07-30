@@ -14,30 +14,37 @@ export const TopBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
         <h2 id='featured-heading' className={styles.panelTitle}>
           추천 게시글
         </h2>
-        <ul className={styles.postList}>
-          {featuredPosts.map((post) => (
-            <li key={post.id} className={styles.postItem}>
-              <span className={styles.badge}>{post.category}</span>
-              <div className={styles.postMeta}>
-                <Image
-                  src={post.avatar_url ?? userImage}
-                  alt={`${post.nickname} 프로필`}
-                  width={20}
-                  height={20}
-                  className={styles.avatar}
-                />
-                <span className={styles.userName}>{post.nickname}</span>
-              </div>
-              <p className={styles.postTitle}>{post.title}</p>
-              <div className={styles.stats}>
-                <BoardStatList counts={post} itemClassName={styles.stat} />
-                <span className={styles.time}>
-                  {formatBoardTimeAgo(post.created_at)}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {featuredPosts.length === 0 ? (
+          <div className={styles.empty} role='status'>
+            <p className={styles.emptyTitle}>아직 추천할 게시글이 없어요</p>
+            <p className={styles.emptyDesc}>다양한 이야기를 나눠보세요</p>
+          </div>
+        ) : (
+          <ul className={styles.postList}>
+            {featuredPosts.map((post) => (
+              <li key={post.id} className={styles.postItem}>
+                <span className={styles.badge}>{post.category}</span>
+                <div className={styles.postMeta}>
+                  <Image
+                    src={post.avatar_url ?? userImage}
+                    alt={`${post.nickname} 프로필`}
+                    width={20}
+                    height={20}
+                    className={styles.avatar}
+                  />
+                  <span className={styles.userName}>{post.nickname}</span>
+                </div>
+                <p className={styles.postTitle}>{post.title}</p>
+                <div className={styles.stats}>
+                  <BoardStatList counts={post} itemClassName={styles.stat} />
+                  <span className={styles.time}>
+                    {formatBoardTimeAgo(post.created_at)}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );
