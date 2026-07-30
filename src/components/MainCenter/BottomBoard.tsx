@@ -6,7 +6,11 @@ import { BOARD_SLUG_TO_NAME } from '@/components/Board/consts/boardCategories';
 import { BoardStatList } from '@/components/Board/BoardStatList';
 import type { BoardItem } from '@/types/boardType';
 
-export const BottomBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => {
+export const BottomBoard = ({
+  boardList = [],
+}: {
+  boardList?: BoardItem[];
+}) => {
   const hotPosts = [...boardList]
     .sort((a, b) => b.like_count - a.like_count)
     .slice(0, 5);
@@ -24,37 +28,46 @@ export const BottomBoard = ({ boardList = [] }: { boardList?: BoardItem[] }) => 
         </p>
       </header>
 
-      <ol className={styles.hotList}>
-        {hotPosts.map((post, i) => {
-          const categoryName =
-            BOARD_SLUG_TO_NAME[post.board_type] ?? post.category;
+      {hotPosts.length === 0 ? (
+        <div className={styles.empty} role='status'>
+          <p className={styles.emptyTitle}>아직 HOT 게시글이 없어요</p>
+          <p className={styles.emptyDesc}>
+            인기 게시글이 생기면 여기에 보여드릴게요
+          </p>
+        </div>
+      ) : (
+        <ol className={styles.hotList}>
+          {hotPosts.map((post, i) => {
+            const categoryName =
+              BOARD_SLUG_TO_NAME[post.board_type] ?? post.category;
 
-          return (
-            <li key={post.id} className={styles.hotItem}>
-              <span
-                className={`${styles.rank} ${i <= 2 ? styles.rankTop : ''}`}
-              >
-                {i + 1}
-              </span>
-              <span className={styles.categoryTag}>
-                <Image
-                  src={portfolioIcon}
-                  alt={`${categoryName} 카테고리`}
-                  width={14}
-                  height={14}
+            return (
+              <li key={post.id} className={styles.hotItem}>
+                <span
+                  className={`${styles.rank} ${i <= 2 ? styles.rankTop : ''}`}
+                >
+                  {i + 1}
+                </span>
+                <span className={styles.categoryTag}>
+                  <Image
+                    src={portfolioIcon}
+                    alt={`${categoryName} 카테고리`}
+                    width={14}
+                    height={14}
+                  />
+                  {categoryName}
+                </span>
+                <p className={styles.hotTitle}>{post.title}</p>
+                <BoardStatList
+                  counts={post}
+                  listClassName={styles.hotStats}
+                  itemClassName={styles.stat}
                 />
-                {categoryName}
-              </span>
-              <p className={styles.hotTitle}>{post.title}</p>
-              <BoardStatList
-                counts={post}
-                listClassName={styles.hotStats}
-                itemClassName={styles.stat}
-              />
-            </li>
-          );
-        })}
-      </ol>
+              </li>
+            );
+          })}
+        </ol>
+      )}
     </section>
   );
 };

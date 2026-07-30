@@ -29,6 +29,28 @@
   list-style: none;
 }
 
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-base-black200);
+}
+
+.emptyDesc {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-base-gray500);
+}
+
 .postItem {
   display: grid;
   grid-template-columns: auto 1fr;
